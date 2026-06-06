@@ -1,0 +1,126 @@
+{
+  "anomalies": {
+    "brandAnomalies": {},
+    "criticalAlerts": [],
+    "hasCriticalAlerts": false,
+    "trend": "stable",
+    "warnings": []
+  },
+  "metrics": {
+    "brands": {
+      "apple": {
+        "drift": {
+          "direction": "down",
+          "percent": -1.8181818181818399,
+          "value": -0.01000000000000012
+        },
+        "engagement": {
+          "avg": 0.188,
+          "count": 1,
+          "total": 0.188
+        },
+        "mentions": 3,
+        "negative": 1,
+        "negativePercent": 33.33333333333333,
+        "neutral": 0,
+        "neutralPercent": 0.0,
+        "positive": 2,
+        "positivePercent": 66.66666666666666,
+        "sentiment": {
+          "avg": 0.5399999999999999,
+          "count": 3,
+          "total": 1.6199999999999999
+        },
+        "sources": {
+          "Apple Newsroom": 1,
+          "Google News - Apple_Antitrust": 1,
+          "Reddit r/iphone": 1
+        }
+      },
+      "google": {
+        "drift": {
+          "direction": "down",
+          "percent": -24.0,
+          "value": -0.12
+        },
+        "engagement": {
+          "avg": 0.085,
+          "count": 1,
+          "total": 0.085
+        },
+        "mentions": 1,
+        "negative": 1,
+        "negativePercent": 100.0,
+        "neutral": 0,
+        "neutralPercent": 0.0,
+        "positive": 0,
+        "positivePercent": 0.0,
+        "sentiment": {
+          "avg": 0.38,
+          "count": 1,
+          "total": 0.38
+        },
+        "sources": {
+          "Reddit r/googlepixel": 1
+        }
+      },
+      "microsoft": {
+        "drift": {
+          "direction": "stable",
+          "percent": 0.0,
+          "value": 0.0
+        },
+        "engagement": {
+          "avg": 0,
+          "count": 0,
+          "total": 0
+        },
+        "mentions": 0,
+        "negative": 0,
+        "negativePercent": 0,
+        "neutral": 0,
+        "neutralPercent": 0,
+        "positive": 0,
+        "positivePercent": 0,
+        "sentiment": {
+          "avg": 0.5,
+          "count": 0,
+          "total": 0
+        },
+        "sources": {}
+      },
+      "samsung": {
+        "drift": {
+          "direction": "stable",
+          "percent": 0.0,
+          "value": 0.0
+        },
+        "engagement": {
+          "avg": 0,
+          "count": 0,
+          "total": 0
+        },
+        "mentions": 1,
+        "negative": 0,
+        "negativePercent": 0.0,
+        "neutral": 1,
+        "neutralPercent": 100.0,
+        "positive": 0,
+        "positivePercent": 0.0,
+        "sentiment": {
+          "avg": 0.5,
+          "count": 1,
+          "total": 0.5
+        },
+        "sources": {
+          "Google News": 1
+        }
+      }
+    },
+    "summary": {
+      "period": "current",
+      "totalItems": 5
+    },
+    "timestamp": "2026-06-06T04:33:32.233346+00:00"
+  }
+}

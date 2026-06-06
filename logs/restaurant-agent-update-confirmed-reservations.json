@@ -1,0 +1,10 @@
+{
+  "availability_log_path": "logs/restaurant-agent-update-reservation-availability.json",
+  "customer_name": "Sam Patel",
+  "generated_at": "2026-06-06T04:13:53.167667+00:00",
+  "matching_column": "Customer Name",
+  "operation": "appended",
+  "output_path": "data/verified/restaurant-agent/confirmed-reservations.json",
+  "tool": "update_confirmed_reservations",
+  "workflow": "restaurant-agent"
+}

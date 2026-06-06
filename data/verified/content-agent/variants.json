@@ -1,0 +1,29 @@
+[
+  {
+    "body": "Use AI agents to turn briefs into consistent, reviewable campaign assets without losing human judgment.",
+    "brief_id": "BRIEF-001",
+    "cta": "Build the workflow",
+    "headline": "Make Brand Work Easier With Agents",
+    "image_prompt": "Minimal workspace with modular content cards and clear approval marks.",
+    "popper_pass": true,
+    "variant_id": "V1"
+  },
+  {
+    "body": "Give your team a repeatable path from idea to variant, with scoring, review lanes, and visual concepts built in.",
+    "brief_id": "BRIEF-001",
+    "cta": "See the system",
+    "headline": "From Brief To Brand-Safe Drafts",
+    "image_prompt": "Clean dashboard showing three campaign variants and a human approval step.",
+    "popper_pass": true,
+    "variant_id": "V2"
+  },
+  {
+    "body": "Keep the speed of AI while preserving brand voice, source checks, and a clear human clearance moment.",
+    "brief_id": "BRIEF-001",
+    "cta": "Start with a recipe",
+    "headline": "Content Operations Need Guardrails",
+    "image_prompt": "Editorial calendar with highlighted guardrails and simple blue accents.",
+    "popper_pass": true,
+    "variant_id": "V3"
+  }
+]

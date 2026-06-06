@@ -1,0 +1,22 @@
+[
+  {
+    "Customer Name": "Maya Chen",
+    "Food Items": "Veggie burger; Fries",
+    "Order ID": "O1001",
+    "Pickup/Delivery": "Pickup",
+    "Quantity": "1; 1",
+    "Special Instructions": "No tomato",
+    "Status": "Confirmed",
+    "Time": "6:30 PM"
+  },
+  {
+    "Customer Name": "Sam Patel",
+    "Food Items": "Veggie burger; Fries",
+    "Order ID": "O1002",
+    "Pickup/Delivery": "Pickup",
+    "Quantity": "1; 1",
+    "Special Instructions": "No tomato",
+    "Status": "Confirmed",
+    "Time": "6:30 PM"
+  }
+]

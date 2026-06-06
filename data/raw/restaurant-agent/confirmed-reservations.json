@@ -1,0 +1,15 @@
+[
+  {
+    "Confirmation Timestamp": "2026-06-06T12:00:00-04:00",
+    "Confirmed By (Staff Name/AI)": "AI",
+    "Contact Number": "555-0101",
+    "Customer Name": "Alex Rivera",
+    "Email": "alex@example.com",
+    "Number of Guests": "2",
+    "Reservation Date": "2026-06-06",
+    "Reservation ID": "R1001",
+    "Reservation Time": "12:00 PM",
+    "Seating Preference": "Window",
+    "Special Requests": "Birthday dessert"
+  }
+]

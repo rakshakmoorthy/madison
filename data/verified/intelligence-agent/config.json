@@ -1,0 +1,120 @@
+{
+  "brands": [
+    {
+      "competitors": [
+        "Samsung",
+        "Google",
+        "Microsoft"
+      ],
+      "googleNewsQuery": "Apple Inc OR AAPL OR iPhone OR iPad",
+      "isPrimary": true,
+      "keywords": [
+        "iPhone",
+        "iPad",
+        "Mac",
+        "iOS",
+        "Tim Cook",
+        "Apple Watch",
+        "AirPods",
+        "Vision Pro"
+      ],
+      "name": "Apple",
+      "subreddits": [
+        "apple",
+        "iphone",
+        "mac"
+      ]
+    },
+    {
+      "competitors": [
+        "Apple",
+        "Google",
+        "OnePlus"
+      ],
+      "googleNewsQuery": "Samsung Electronics OR Galaxy OR Samsung Mobile",
+      "isPrimary": false,
+      "keywords": [
+        "Galaxy",
+        "Samsung Phone",
+        "One UI"
+      ],
+      "name": "Samsung",
+      "subreddits": [
+        "samsung",
+        "samsunggalaxy"
+      ]
+    },
+    {
+      "competitors": [
+        "Apple",
+        "Microsoft",
+        "Amazon"
+      ],
+      "googleNewsQuery": "Google OR GOOGL OR Pixel OR Android",
+      "isPrimary": false,
+      "keywords": [
+        "Pixel",
+        "Android",
+        "Chrome",
+        "Gemini",
+        "YouTube"
+      ],
+      "name": "Google",
+      "subreddits": [
+        "google",
+        "googlepixel",
+        "Android"
+      ]
+    },
+    {
+      "competitors": [
+        "Apple",
+        "Google",
+        "Amazon"
+      ],
+      "googleNewsQuery": "Microsoft OR MSFT OR Windows OR Surface",
+      "isPrimary": false,
+      "keywords": [
+        "Windows",
+        "Surface",
+        "Office",
+        "Azure",
+        "Xbox",
+        "Copilot"
+      ],
+      "name": "Microsoft",
+      "subreddits": [
+        "microsoft",
+        "Surface",
+        "windows"
+      ]
+    }
+  ],
+  "primary_brand": "Apple",
+  "regulatory_sources": [
+    {
+      "category": "regulatory",
+      "name": "Apple_Inc_Regulatory",
+      "region": "US",
+      "searchQuery": "\"Apple Inc\" regulatory compliance SEC FTC investigation fine penalty"
+    },
+    {
+      "category": "antitrust",
+      "name": "Apple_EU_DMA",
+      "region": "EU",
+      "searchQuery": "\"Apple\" \"Digital Markets Act\" \"European Commission\" fine penalty compliance"
+    },
+    {
+      "category": "privacy",
+      "name": "Apple_Privacy_GDPR",
+      "region": "Global",
+      "searchQuery": "\"Apple\" GDPR privacy fine data protection violation penalty"
+    },
+    {
+      "category": "antitrust",
+      "name": "Apple_Antitrust",
+      "region": "US",
+      "searchQuery": "\"Apple\" antitrust Department of Justice DOJ App Store monopoly lawsuit"
+    }
+  ]
+}

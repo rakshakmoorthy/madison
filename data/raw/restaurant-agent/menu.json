@@ -1,0 +1,20 @@
+[
+  {
+    "category": "Entree",
+    "item": "Veggie burger",
+    "price": "12.00",
+    "status": "Available"
+  },
+  {
+    "category": "Side",
+    "item": "Fries",
+    "price": "4.00",
+    "status": "Available"
+  },
+  {
+    "category": "Soup",
+    "item": "Tomato soup",
+    "price": "7.00",
+    "status": "Unavailable"
+  }
+]

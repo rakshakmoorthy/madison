@@ -1,0 +1,26 @@
+[
+  {
+    "brand": "Apple",
+    "comments": 34,
+    "description": "The update feels faster and fixes a battery issue.",
+    "engagementScore": 0.188,
+    "fullText": "iPhone users praise new update. The update feels faster and fixes a battery issue.",
+    "link": "https://reddit.com/r/iphone/sample",
+    "pubDate": "2026-06-05T14:00:00+00:00",
+    "redditScore": 120,
+    "source": "Reddit r/iphone",
+    "title": "iPhone users praise new update"
+  },
+  {
+    "brand": "Google",
+    "comments": 20,
+    "description": "Some users call it useful while others report bugs.",
+    "engagementScore": 0.085,
+    "fullText": "Pixel AI feature gets mixed reviews. Some users call it useful while others report bugs.",
+    "link": "https://reddit.com/r/googlepixel/sample",
+    "pubDate": "2026-06-05T16:00:00+00:00",
+    "redditScore": 45,
+    "source": "Reddit r/googlepixel",
+    "title": "Pixel AI feature gets mixed reviews"
+  }
+]

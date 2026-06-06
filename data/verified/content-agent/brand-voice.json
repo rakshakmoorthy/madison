@@ -1,0 +1,19 @@
+{
+  "brand_colors": [
+    "#0B5FFF",
+    "#111827"
+  ],
+  "lexicon": {
+    "AI": "AI agents",
+    "users": "customers"
+  },
+  "reading_level": "Grade 8-9",
+  "style": "Short, skimmable, active voice",
+  "taboos": [
+    "jargon",
+    "absolute claims",
+    "unverifiable superlatives"
+  ],
+  "tone": "Confident, plain-English, helpful",
+  "visual_style": "minimal, clean, lots of whitespace"
+}

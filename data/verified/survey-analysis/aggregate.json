@@ -1,0 +1,22 @@
+{
+  "nps": 33,
+  "segments": [
+    {
+      "count": 2,
+      "label": "Promoter - Positive",
+      "rationale": "Derived from NPS class and sentiment."
+    },
+    {
+      "count": 1,
+      "label": "Detractor - Negative",
+      "rationale": "Derived from NPS class and sentiment."
+    }
+  ],
+  "sentiment_distribution": {
+    "negative": 1,
+    "neutral": 0,
+    "positive": 2
+  },
+  "total_responses": 3,
+  "workflow": "survey-analysis"
+}

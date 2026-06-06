@@ -1,0 +1,30 @@
+[
+  {
+    "author": "sample_user",
+    "captions_text": "How AI agents are changing brand workflows",
+    "comment_count": 18,
+    "like_count": 42,
+    "permalink": "/r/artificial/comments/abc123/sample",
+    "platform": "reddit",
+    "post_id": "abc123",
+    "post_url": "https://www.reddit.com/r/artificial/comments/abc123/sample",
+    "published_at": "2026-06-05T15:00:00+00:00",
+    "share_count": 0,
+    "subreddit": "artificial",
+    "view_count": 0
+  },
+  {
+    "author": "brand_builder",
+    "captions_text": "Question about content calendars",
+    "comment_count": 0,
+    "like_count": 2,
+    "permalink": "/r/marketing/comments/def456/sample",
+    "platform": "reddit",
+    "post_id": "def456",
+    "post_url": "https://www.reddit.com/r/marketing/comments/def456/sample",
+    "published_at": "2026-06-05T17:30:00+00:00",
+    "share_count": 0,
+    "subreddit": "marketing",
+    "view_count": 0
+  }
+]

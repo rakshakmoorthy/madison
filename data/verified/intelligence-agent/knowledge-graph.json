@@ -1,0 +1,86 @@
+{
+  "coMentions": {},
+  "entities": {
+    "apple": {
+      "avgSentiment": 0.54,
+      "mentions": 3,
+      "sentimentScores": [
+        0.74,
+        0.62,
+        0.26
+      ],
+      "sources": {
+        "Apple Newsroom": 1,
+        "Google News - Apple_Antitrust": 1,
+        "Reddit r/iphone": 1
+      },
+      "topTopics": [
+        {
+          "count": 2,
+          "topic": "iphone"
+        },
+        {
+          "count": 1,
+          "topic": "privacy"
+        },
+        {
+          "count": 1,
+          "topic": "antitrust"
+        }
+      ],
+      "topics": {
+        "antitrust": 1,
+        "iphone": 2,
+        "privacy": 1
+      },
+      "type": "brand"
+    },
+    "google": {
+      "avgSentiment": 0.38,
+      "mentions": 1,
+      "sentimentScores": [
+        0.38
+      ],
+      "sources": {
+        "Reddit r/googlepixel": 1
+      },
+      "topTopics": [
+        {
+          "count": 1,
+          "topic": "pixel"
+        }
+      ],
+      "topics": {
+        "pixel": 1
+      },
+      "type": "brand"
+    },
+    "samsung": {
+      "avgSentiment": 0.5,
+      "mentions": 1,
+      "sentimentScores": [
+        0.5
+      ],
+      "sources": {
+        "Google News": 1
+      },
+      "topTopics": [
+        {
+          "count": 1,
+          "topic": "iphone"
+        },
+        {
+          "count": 1,
+          "topic": "galaxy"
+        }
+      ],
+      "topics": {
+        "galaxy": 1,
+        "iphone": 1
+      },
+      "type": "brand"
+    }
+  },
+  "relationships": [],
+  "timestamp": "2026-06-06T04:33:32.243098+00:00"
+}

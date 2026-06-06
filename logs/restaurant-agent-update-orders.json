@@ -1,0 +1,9 @@
+{
+  "customer_name": "Sam Patel",
+  "generated_at": "2026-06-06T04:13:41.493728+00:00",
+  "matching_column": "Customer Name",
+  "operation": "appended",
+  "output_path": "data/verified/restaurant-agent/orders.json",
+  "tool": "update_orders",
+  "workflow": "restaurant-agent"
+}

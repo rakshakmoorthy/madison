@@ -1,0 +1,14 @@
+[
+  {
+    "brand": "Apple",
+    "category": "compliance",
+    "description": "Regulators opened an investigation into App Store rules.",
+    "fullText": "Apple faces App Store antitrust investigation. Regulators opened an investigation into App Store rules.",
+    "id": "reg-001",
+    "link": "https://example.com/apple-antitrust",
+    "pubDate": "2026-06-05T10:00:00+00:00",
+    "region": "US",
+    "source": "Google News - Apple_Antitrust",
+    "title": "Apple faces App Store antitrust investigation"
+  }
+]

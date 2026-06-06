@@ -1,0 +1,36 @@
+{
+  "customer_name": "Sam",
+  "data_files": {
+    "availability": "data/raw/restaurant-agent/reservation-availability.json",
+    "menu": "data/raw/restaurant-agent/menu.json",
+    "orders": "data/raw/restaurant-agent/orders.json",
+    "reservations": "data/raw/restaurant-agent/confirmed-reservations.json"
+  },
+  "flags": [],
+  "input_query": "I would like a table for two at 6 PM.",
+  "intent": "reservation",
+  "menu_items_checked": [
+    "Veggie burger",
+    "Fries"
+  ],
+  "order_ids_checked": [
+    "O1001"
+  ],
+  "proposed_writes": [
+    {
+      "required_sequence": [
+        "check_availability",
+        "block_slot",
+        "write_confirmed_reservation"
+      ],
+      "requires_human_clearance": true,
+      "type": "reservation"
+    }
+  ],
+  "reservation_slots_checked": [
+    "2026-06-06 6:00 PM"
+  ],
+  "response_text": "Hi Sam, I can help with a reservation. Verified available slots include: 2026-06-06 6:00 PM.",
+  "workflow": "restaurant-agent",
+  "writes_performed": []
+}

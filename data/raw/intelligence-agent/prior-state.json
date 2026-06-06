@@ -1,0 +1,20 @@
+{
+  "previous_metrics": {
+    "apple": 0.55,
+    "google": 0.5,
+    "microsoft": 0.5,
+    "samsung": 0.5
+  },
+  "processed_articles": [
+    {
+      "link": "https://example.com/old-reg",
+      "title": "Old compliance article"
+    }
+  ],
+  "processed_links": [
+    {
+      "link": "https://example.com/old-apple",
+      "title": "Already processed Apple story"
+    }
+  ]
+}

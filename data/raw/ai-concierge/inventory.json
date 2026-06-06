@@ -1,0 +1,17 @@
+[
+  {
+    "item": "Cafe latte",
+    "status": "Available",
+    "tags": "popular"
+  },
+  {
+    "item": "Oat milk cappuccino",
+    "status": "Available",
+    "tags": "vegan,popular"
+  },
+  {
+    "item": "Blueberry muffin",
+    "status": "Out of Stock",
+    "tags": "bakery"
+  }
+]

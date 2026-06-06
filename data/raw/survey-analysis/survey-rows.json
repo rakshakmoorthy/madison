@@ -1,0 +1,26 @@
+[
+  {
+    "Age": "34",
+    "Gender": "F",
+    "Q1_Satisfaction": "5",
+    "Q2_EaseOfUse": "4",
+    "Q3_Recommend": "9",
+    "RespondentID": "1001"
+  },
+  {
+    "Age": "45",
+    "Gender": "M",
+    "Q1_Satisfaction": "2",
+    "Q2_EaseOfUse": "3",
+    "Q3_Recommend": "5",
+    "RespondentID": "1002"
+  },
+  {
+    "Age": "29",
+    "Gender": "F",
+    "Q1_Satisfaction": "4",
+    "Q2_EaseOfUse": "5",
+    "Q3_Recommend": "10",
+    "RespondentID": "1003"
+  }
+]

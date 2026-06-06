@@ -1,0 +1,14 @@
+[
+  {
+    "customer_name": "Sarah",
+    "item": "Cafe latte",
+    "order_id": "A1001",
+    "status": "Confirmed"
+  },
+  {
+    "customer_name": "Jordan",
+    "item": "Blueberry muffin",
+    "order_id": "A1002",
+    "status": "Rejected"
+  }
+]

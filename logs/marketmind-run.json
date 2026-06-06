@@ -1,0 +1,18 @@
+{
+  "final_report_path": "data/verified/marketmind/outputs/final-market-strategy-report.md",
+  "flags": [
+    "sample_mode_no_external_services"
+  ],
+  "generated_at": "2026-06-06T04:44:37.909457+00:00",
+  "geography": "Global",
+  "industry": "Consumer Goods",
+  "mode": "sample",
+  "product_name": "EcoWave Smart Bottle",
+  "repo_path": "scripts/madison-main/marketmind/Code",
+  "returncode": 0,
+  "scale": "SME",
+  "stderr_tail": "",
+  "stdout_tail": "---FINAL_REPORT_START---\n# Market Strategy Report for EcoWave Smart Bottle\n\n**Industry:** Consumer Goods\n**Geography:** Global\n**Scale:** SME\n**Mode:** Sample verification run\n\n## Executive Summary\n\nThis sample report verifies the marketmind workflow contract without calling external services. It demonstrates where the stored `main.py` output will be captured after human clearance for a live run.\n\n## Research Plan\n\n- Clarify buyer problem, use context, and decision criteria.\n- Identify plausible competitors and substitution options.\n- Compare pricing, features, positioning, and review sentiment only when source-backed.\n\n## Decision Notes\n\n- Live analysis requires `OPENAI_API_KEY` and `SERPER_API_KEY`.\n- Human review is required before treating generated recommendations as market advice.\n\n---FINAL_REPORT_END---\n",
+  "success": true,
+  "workflow": "marketmind"
+}

@@ -1,0 +1,17 @@
+{
+  "available_items_used": [
+    "Cafe latte"
+  ],
+  "customer_name": "Sarah",
+  "data_files": {
+    "faq": "data/raw/ai-concierge/faq.json",
+    "inventory": "data/raw/ai-concierge/inventory.json",
+    "orders": "data/raw/ai-concierge/orders.json"
+  },
+  "flags": [],
+  "input_message": "What items are available?",
+  "matched_faq_ids": [],
+  "order_ids_checked": [],
+  "response_text": "Hi Sarah, available options include: Cafe latte.",
+  "workflow": "ai-concierge"
+}

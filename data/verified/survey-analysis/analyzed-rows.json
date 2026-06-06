@@ -1,0 +1,47 @@
+[
+  {
+    "_errors": [],
+    "_valid": true,
+    "age": 34.0,
+    "gender": "F",
+    "nps_response": 9.0,
+    "nps_segment": "promoter",
+    "q1_satisfaction": 5.0,
+    "q2_easeofuse": 4.0,
+    "q3_recommend": 9.0,
+    "respondent_id": "1001",
+    "segment_label": "Promoter - Positive",
+    "segment_rationale": "Derived from recommendation score and satisfaction/ease ratings.",
+    "sentiment": "positive"
+  },
+  {
+    "_errors": [],
+    "_valid": true,
+    "age": 45.0,
+    "gender": "M",
+    "nps_response": 5.0,
+    "nps_segment": "detractor",
+    "q1_satisfaction": 2.0,
+    "q2_easeofuse": 3.0,
+    "q3_recommend": 5.0,
+    "respondent_id": "1002",
+    "segment_label": "Detractor - Negative",
+    "segment_rationale": "Derived from recommendation score and satisfaction/ease ratings.",
+    "sentiment": "negative"
+  },
+  {
+    "_errors": [],
+    "_valid": true,
+    "age": 29.0,
+    "gender": "F",
+    "nps_response": 10.0,
+    "nps_segment": "promoter",
+    "q1_satisfaction": 4.0,
+    "q2_easeofuse": 5.0,
+    "q3_recommend": 10.0,
+    "respondent_id": "1003",
+    "segment_label": "Promoter - Positive",
+    "segment_rationale": "Derived from recommendation score and satisfaction/ease ratings.",
+    "sentiment": "positive"
+  }
+]

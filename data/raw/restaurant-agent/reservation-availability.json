@@ -1,0 +1,20 @@
+[
+  {
+    "10:00 AM": "Available",
+    "12:00 PM": "Booked",
+    "2:00 PM": "Available",
+    "4:00 PM": "Available",
+    "6:00 PM": "Available",
+    "8:00 AM": "Available",
+    "Date": "2026-06-06"
+  },
+  {
+    "10:00 AM": "Booked",
+    "12:00 PM": "Available",
+    "2:00 PM": "Available",
+    "4:00 PM": "Booked",
+    "6:00 PM": "Available",
+    "8:00 AM": "Available",
+    "Date": "2026-06-07"
+  }
+]

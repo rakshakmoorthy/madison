@@ -1,0 +1,30 @@
+{
+  "brand-voice": {
+    "brand_colors": [
+      "#0B5FFF",
+      "#111827"
+    ],
+    "lexicon": {
+      "AI": "AI agents",
+      "users": "customers"
+    },
+    "reading_level": "Grade 8-9",
+    "style": "Short, skimmable, active voice",
+    "taboos": [
+      "jargon",
+      "absolute claims",
+      "unverifiable superlatives"
+    ],
+    "tone": "Confident, plain-English, helpful",
+    "visual_style": "minimal, clean, lots of whitespace"
+  },
+  "brief": {
+    "audience": "marketing operators",
+    "brief_id": "BRIEF-001",
+    "offer": "a practical guide to brand-safe AI content operations",
+    "topic": "Agentic branding workflows"
+  },
+  "brief_id": "BRIEF-001",
+  "prompt": "Return ONLY valid JSON (no code fences, no prose). Top-level must be an object:\n{\n  \"brief_id\": \"BRIEF-001\",\n  \"variants\": [\n    { \"variant_id\": \"V1\", \"headline\": \"\", \"body\": \"\", \"cta\": \"\", \"image_prompt\": \"\", \"popper_pass\": true },\n    { \"variant_id\": \"V2\", \"headline\": \"\", \"body\": \"\", \"cta\": \"\", \"image_prompt\": \"\", \"popper_pass\": true },\n    { \"variant_id\": \"V3\", \"headline\": \"\", \"body\": \"\", \"cta\": \"\", \"image_prompt\": \"\", \"popper_pass\": true }\n  ]\n}\n\nConstraints:\n- Provide exactly 3 variants (V1..V3).\n- All string fields must be non-empty and trimmed.\n- Do not include Markdown, comments, trailing commas, or any text outside the JSON object.\n\nBrief:\ntopic: Agentic branding workflows\naudience: marketing operators\noffer: a practical guide to brand-safe AI content operations\n\nBrand voice:\ntone: Confident, plain-English, helpful\nstyle: Short, skimmable, active voice\nreading_level: Grade 8-9\ntaboos: jargon, absolute claims, unverifiable superlatives",
+  "workflow": "content-agent"
+}

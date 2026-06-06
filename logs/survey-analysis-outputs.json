@@ -1,0 +1,107 @@
+{
+  "generated_at": "2026-06-06T04:53:40.012955+00:00",
+  "grafana_dashboard_contract": {
+    "dashboard": {
+      "panels": [
+        {
+          "source": "sentiment_distribution",
+          "title": "Sentiment distribution",
+          "type": "piechart"
+        },
+        {
+          "source": "nps_scores",
+          "title": "Latest NPS",
+          "type": "stat"
+        }
+      ],
+      "title": "Survey Dashboard"
+    },
+    "live_posting": false
+  },
+  "live_grafana_update": false,
+  "live_mysql_writes": false,
+  "live_slack_send": false,
+  "mysql_insert_rows": [
+    {
+      "batch_id": "2026-06-06T04:53:40.012955+00:00",
+      "count": 2,
+      "created_at": "2026-06-06T04:53:40.012955+00:00",
+      "kind": "sentiment",
+      "sentiment": "positive"
+    },
+    {
+      "batch_id": "2026-06-06T04:53:40.012955+00:00",
+      "count": 0,
+      "created_at": "2026-06-06T04:53:40.012955+00:00",
+      "kind": "sentiment",
+      "sentiment": "neutral"
+    },
+    {
+      "batch_id": "2026-06-06T04:53:40.012955+00:00",
+      "count": 1,
+      "created_at": "2026-06-06T04:53:40.012955+00:00",
+      "kind": "sentiment",
+      "sentiment": "negative"
+    },
+    {
+      "batch_id": "2026-06-06T04:53:40.012955+00:00",
+      "created_at": "2026-06-06T04:53:40.012955+00:00",
+      "kind": "nps",
+      "nps": 33
+    }
+  ],
+  "response_contract": {
+    "nps": 33,
+    "segments": [
+      {
+        "count": 2,
+        "label": "Promoter - Positive",
+        "rationale": "Derived from NPS class and sentiment."
+      },
+      {
+        "count": 1,
+        "label": "Detractor - Negative",
+        "rationale": "Derived from NPS class and sentiment."
+      }
+    ],
+    "sentiment_distribution": {
+      "negative": 1,
+      "neutral": 0,
+      "positive": 2
+    },
+    "success": true,
+    "total_responses": 3,
+    "workflow": "survey-analysis"
+  },
+  "slack_payload": {
+    "blocks": [
+      {
+        "text": {
+          "text": "Survey Analysis Complete",
+          "type": "plain_text"
+        },
+        "type": "header"
+      },
+      {
+        "fields": [
+          {
+            "text": "*Responses Analyzed:*\n3",
+            "type": "mrkdwn"
+          },
+          {
+            "text": "*NPS:*\n33",
+            "type": "mrkdwn"
+          },
+          {
+            "text": "*Positive / Neutral / Negative:*\n2 / 0 / 1",
+            "type": "mrkdwn"
+          }
+        ],
+        "type": "section"
+      }
+    ],
+    "channel": "#survey-analysis",
+    "text": "Survey Analysis Complete"
+  },
+  "workflow": "survey-analysis"
+}

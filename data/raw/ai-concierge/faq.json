@@ -1,0 +1,12 @@
+[
+  {
+    "answer": "We are open from 9 AM to 9 PM.",
+    "question": "What are your hours?",
+    "tags": "hours"
+  },
+  {
+    "answer": "Yes, ask for oat milk drinks and vegan-marked items.",
+    "question": "Do you have vegan options?",
+    "tags": "vegan"
+  }
+]

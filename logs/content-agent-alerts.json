@@ -1,0 +1,16 @@
+{
+  "approved-variant-alerts": [],
+  "high-engagement-post-alerts": [
+    "High-engagement post: How AI agents are changing brand workflows | score 60 | https://www.reddit.com/r/artificial/comments/abc123/sample"
+  ],
+  "live_posting": false,
+  "needs-review-alerts": [
+    "Failed quality check and requires human review: V1",
+    "Failed quality check and requires human review: V2",
+    "Failed quality check and requires human review: V3"
+  ],
+  "regular-post-alerts": [
+    "Regular post logged: Question about content calendars | score 2 | https://www.reddit.com/r/marketing/comments/def456/sample"
+  ],
+  "workflow": "content-agent"
+}

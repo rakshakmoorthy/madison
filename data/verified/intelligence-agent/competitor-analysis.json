@@ -1,0 +1,116 @@
+{
+  "alerts": [],
+  "brands": {
+    "apple": {
+      "avgSentiment": 0.54,
+      "mentions": 3,
+      "negative": 1,
+      "negativePercent": 33.33333333333333,
+      "neutral": 0,
+      "positive": 2,
+      "positivePercent": 66.66666666666666,
+      "sentimentScores": [
+        0.74,
+        0.62,
+        0.26
+      ]
+    },
+    "google": {
+      "avgSentiment": 0.38,
+      "mentions": 1,
+      "negative": 1,
+      "negativePercent": 100.0,
+      "neutral": 0,
+      "positive": 0,
+      "positivePercent": 0.0,
+      "sentimentScores": [
+        0.38
+      ]
+    },
+    "microsoft": {
+      "avgSentiment": 0.5,
+      "mentions": 0,
+      "negative": 0,
+      "negativePercent": 0,
+      "neutral": 0,
+      "positive": 0,
+      "positivePercent": 0,
+      "sentimentScores": []
+    },
+    "samsung": {
+      "avgSentiment": 0.5,
+      "mentions": 1,
+      "negative": 0,
+      "negativePercent": 0.0,
+      "neutral": 1,
+      "positive": 0,
+      "positivePercent": 0.0,
+      "sentimentScores": [
+        0.5
+      ]
+    }
+  },
+  "competitiveGaps": [
+    {
+      "competitor": "samsung",
+      "leader": "apple",
+      "mentionGap": 2,
+      "sentimentGap": 0.04
+    },
+    {
+      "competitor": "microsoft",
+      "leader": "apple",
+      "mentionGap": 3,
+      "sentimentGap": 0.04
+    },
+    {
+      "competitor": "google",
+      "leader": "apple",
+      "mentionGap": 2,
+      "sentimentGap": 0.16
+    }
+  ],
+  "sentimentRanking": [
+    {
+      "brand": "apple",
+      "mentions": 3,
+      "negativePercent": 33.33333333333333,
+      "positivePercent": 66.66666666666666,
+      "sentiment": 0.54
+    },
+    {
+      "brand": "samsung",
+      "mentions": 1,
+      "negativePercent": 0.0,
+      "positivePercent": 0.0,
+      "sentiment": 0.5
+    },
+    {
+      "brand": "microsoft",
+      "mentions": 0,
+      "negativePercent": 0,
+      "positivePercent": 0,
+      "sentiment": 0.5
+    },
+    {
+      "brand": "google",
+      "mentions": 1,
+      "negativePercent": 100.0,
+      "positivePercent": 0.0,
+      "sentiment": 0.38
+    }
+  ],
+  "shareOfVoice": {
+    "apple": 60.0,
+    "google": 20.0,
+    "microsoft": 0.0,
+    "samsung": 20.0
+  },
+  "summary": {
+    "marketLeader": "apple",
+    "totalAlerts": 0,
+    "totalBrands": 4,
+    "totalMentions": 5
+  },
+  "timestamp": "2026-06-06T04:33:32.249645+00:00"
+}

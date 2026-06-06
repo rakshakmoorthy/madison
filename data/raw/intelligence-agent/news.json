@@ -1,0 +1,20 @@
+[
+  {
+    "brand": "Apple",
+    "description": "Apple announced privacy controls for customers.",
+    "fullText": "Apple unveils new privacy features for iPhone. Apple announced privacy controls for customers.",
+    "link": "https://example.com/apple-privacy",
+    "pubDate": "2026-06-05T12:00:00+00:00",
+    "source": "Apple Newsroom",
+    "title": "Apple unveils new privacy features for iPhone"
+  },
+  {
+    "brand": "Samsung",
+    "description": "Reviewers compare Galaxy and iPhone camera features.",
+    "fullText": "Samsung Galaxy update challenges iPhone camera lead. Reviewers compare Galaxy and iPhone camera features.",
+    "link": "https://example.com/samsung-camera",
+    "pubDate": "2026-06-05T13:00:00+00:00",
+    "source": "Google News",
+    "title": "Samsung Galaxy update challenges iPhone camera lead"
+  }
+]

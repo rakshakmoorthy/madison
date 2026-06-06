@@ -1,0 +1,346 @@
+{
+  "alert_contract": {
+    "criticalAlerts": [],
+    "live_posting": false,
+    "noAlert": true,
+    "severity": "none",
+    "warnings": []
+  },
+  "competitor-analysis": {
+    "alerts": [],
+    "brands": {
+      "apple": {
+        "avgSentiment": 0.54,
+        "mentions": 3,
+        "negative": 1,
+        "negativePercent": 33.33333333333333,
+        "neutral": 0,
+        "positive": 2,
+        "positivePercent": 66.66666666666666,
+        "sentimentScores": [
+          0.74,
+          0.62,
+          0.26
+        ]
+      },
+      "google": {
+        "avgSentiment": 0.38,
+        "mentions": 1,
+        "negative": 1,
+        "negativePercent": 100.0,
+        "neutral": 0,
+        "positive": 0,
+        "positivePercent": 0.0,
+        "sentimentScores": [
+          0.38
+        ]
+      },
+      "microsoft": {
+        "avgSentiment": 0.5,
+        "mentions": 0,
+        "negative": 0,
+        "negativePercent": 0,
+        "neutral": 0,
+        "positive": 0,
+        "positivePercent": 0,
+        "sentimentScores": []
+      },
+      "samsung": {
+        "avgSentiment": 0.5,
+        "mentions": 1,
+        "negative": 0,
+        "negativePercent": 0.0,
+        "neutral": 1,
+        "positive": 0,
+        "positivePercent": 0.0,
+        "sentimentScores": [
+          0.5
+        ]
+      }
+    },
+    "competitiveGaps": [
+      {
+        "competitor": "samsung",
+        "leader": "apple",
+        "mentionGap": 2,
+        "sentimentGap": 0.04
+      },
+      {
+        "competitor": "microsoft",
+        "leader": "apple",
+        "mentionGap": 3,
+        "sentimentGap": 0.04
+      },
+      {
+        "competitor": "google",
+        "leader": "apple",
+        "mentionGap": 2,
+        "sentimentGap": 0.16
+      }
+    ],
+    "sentimentRanking": [
+      {
+        "brand": "apple",
+        "mentions": 3,
+        "negativePercent": 33.33333333333333,
+        "positivePercent": 66.66666666666666,
+        "sentiment": 0.54
+      },
+      {
+        "brand": "samsung",
+        "mentions": 1,
+        "negativePercent": 0.0,
+        "positivePercent": 0.0,
+        "sentiment": 0.5
+      },
+      {
+        "brand": "microsoft",
+        "mentions": 0,
+        "negativePercent": 0,
+        "positivePercent": 0,
+        "sentiment": 0.5
+      },
+      {
+        "brand": "google",
+        "mentions": 1,
+        "negativePercent": 100.0,
+        "positivePercent": 0.0,
+        "sentiment": 0.38
+      }
+    ],
+    "shareOfVoice": {
+      "apple": 60.0,
+      "google": 20.0,
+      "microsoft": 0.0,
+      "samsung": 20.0
+    },
+    "summary": {
+      "marketLeader": "apple",
+      "totalAlerts": 0,
+      "totalBrands": 4,
+      "totalMentions": 5
+    },
+    "timestamp": "2026-06-06T04:33:32.249645+00:00"
+  },
+  "compliance_rows": [
+    {
+      "analysisStatus": "heuristic",
+      "brand": "apple",
+      "category": "compliance",
+      "description": "Regulators opened an investigation into App Store rules.",
+      "fullText": "Apple faces App Store antitrust investigation. Regulators opened an investigation into App Store rules.",
+      "id": "reg-001",
+      "link": "https://example.com/apple-antitrust",
+      "pubDate": "2026-06-05T10:00:00+00:00",
+      "region": "US",
+      "riskLevel": "MEDIUM",
+      "riskScore": 65,
+      "sentiment": "Negative",
+      "sentimentScore": 0.26,
+      "source": "Google News - Apple_Antitrust",
+      "summary": "Regulators opened an investigation into App Store rules.",
+      "timestamp": "2026-06-06T04:33:26.385988+00:00",
+      "title": "Apple faces App Store antitrust investigation"
+    }
+  ],
+  "drift_metrics_row": {
+    "apple_drift": -0.01,
+    "apple_mentions": 3,
+    "apple_negative": 33.3,
+    "apple_sentiment": 0.54,
+    "google_drift": -0.12,
+    "google_mentions": 1,
+    "google_negative": 100.0,
+    "google_sentiment": 0.38,
+    "microsoft_drift": 0.0,
+    "microsoft_mentions": 0,
+    "microsoft_negative": 0,
+    "microsoft_sentiment": 0.5,
+    "samsung_drift": 0.0,
+    "samsung_mentions": 1,
+    "samsung_negative": 0.0,
+    "samsung_sentiment": 0.5,
+    "timestamp": "2026-06-06T04:33:41.764827+00:00",
+    "totalItems": 5
+  },
+  "knowledge-graph_rows": {
+    "apple": {
+      "avgSentiment": 0.54,
+      "mentions": 3,
+      "sentimentScores": [
+        0.74,
+        0.62,
+        0.26
+      ],
+      "sources": {
+        "Apple Newsroom": 1,
+        "Google News - Apple_Antitrust": 1,
+        "Reddit r/iphone": 1
+      },
+      "topTopics": [
+        {
+          "count": 2,
+          "topic": "iphone"
+        },
+        {
+          "count": 1,
+          "topic": "privacy"
+        },
+        {
+          "count": 1,
+          "topic": "antitrust"
+        }
+      ],
+      "topics": {
+        "antitrust": 1,
+        "iphone": 2,
+        "privacy": 1
+      },
+      "type": "brand"
+    },
+    "google": {
+      "avgSentiment": 0.38,
+      "mentions": 1,
+      "sentimentScores": [
+        0.38
+      ],
+      "sources": {
+        "Reddit r/googlepixel": 1
+      },
+      "topTopics": [
+        {
+          "count": 1,
+          "topic": "pixel"
+        }
+      ],
+      "topics": {
+        "pixel": 1
+      },
+      "type": "brand"
+    },
+    "samsung": {
+      "avgSentiment": 0.5,
+      "mentions": 1,
+      "sentimentScores": [
+        0.5
+      ],
+      "sources": {
+        "Google News": 1
+      },
+      "topTopics": [
+        {
+          "count": 1,
+          "topic": "iphone"
+        },
+        {
+          "count": 1,
+          "topic": "galaxy"
+        }
+      ],
+      "topics": {
+        "galaxy": 1,
+        "iphone": 1
+      },
+      "type": "brand"
+    }
+  },
+  "live_sheet_writes": false,
+  "live_webhook_response": false,
+  "webhook_response_contract": {
+    "items": [
+      {
+        "analysisStatus": "heuristic",
+        "brand": "apple",
+        "description": "Apple announced privacy controls for customers.",
+        "fullText": "Apple unveils new privacy features for iPhone. Apple announced privacy controls for customers.",
+        "link": "https://example.com/apple-privacy",
+        "pubDate": "2026-06-05T12:00:00+00:00",
+        "riskLevel": "LOW",
+        "riskScore": 10,
+        "sentiment": "Positive",
+        "sentimentScore": 0.74,
+        "source": "Apple Newsroom",
+        "summary": "Apple announced privacy controls for customers.",
+        "timestamp": "2026-06-06T04:33:26.385988+00:00",
+        "title": "Apple unveils new privacy features for iPhone"
+      },
+      {
+        "analysisStatus": "heuristic",
+        "brand": "samsung",
+        "description": "Reviewers compare Galaxy and iPhone camera features.",
+        "fullText": "Samsung Galaxy update challenges iPhone camera lead. Reviewers compare Galaxy and iPhone camera features.",
+        "link": "https://example.com/samsung-camera",
+        "pubDate": "2026-06-05T13:00:00+00:00",
+        "riskLevel": "LOW",
+        "riskScore": 10,
+        "sentiment": "Neutral",
+        "sentimentScore": 0.5,
+        "source": "Google News",
+        "summary": "Reviewers compare Galaxy and iPhone camera features.",
+        "timestamp": "2026-06-06T04:33:26.385988+00:00",
+        "title": "Samsung Galaxy update challenges iPhone camera lead"
+      },
+      {
+        "analysisStatus": "heuristic",
+        "brand": "apple",
+        "comments": 34,
+        "description": "The update feels faster and fixes a battery issue.",
+        "engagementScore": 0.188,
+        "fullText": "iPhone users praise new update. The update feels faster and fixes a battery issue.",
+        "link": "https://reddit.com/r/iphone/sample",
+        "pubDate": "2026-06-05T14:00:00+00:00",
+        "redditScore": 120,
+        "riskLevel": "LOW",
+        "riskScore": 10,
+        "sentiment": "Positive",
+        "sentimentScore": 0.62,
+        "source": "Reddit r/iphone",
+        "summary": "The update feels faster and fixes a battery issue.",
+        "timestamp": "2026-06-06T04:33:26.385988+00:00",
+        "title": "iPhone users praise new update"
+      },
+      {
+        "analysisStatus": "heuristic",
+        "brand": "google",
+        "comments": 20,
+        "description": "Some users call it useful while others report bugs.",
+        "engagementScore": 0.085,
+        "fullText": "Pixel AI feature gets mixed reviews. Some users call it useful while others report bugs.",
+        "link": "https://reddit.com/r/googlepixel/sample",
+        "pubDate": "2026-06-05T16:00:00+00:00",
+        "redditScore": 45,
+        "riskLevel": "LOW",
+        "riskScore": 10,
+        "sentiment": "Negative",
+        "sentimentScore": 0.38,
+        "source": "Reddit r/googlepixel",
+        "summary": "Some users call it useful while others report bugs.",
+        "timestamp": "2026-06-06T04:33:26.385988+00:00",
+        "title": "Pixel AI feature gets mixed reviews"
+      },
+      {
+        "analysisStatus": "heuristic",
+        "brand": "apple",
+        "category": "compliance",
+        "description": "Regulators opened an investigation into App Store rules.",
+        "fullText": "Apple faces App Store antitrust investigation. Regulators opened an investigation into App Store rules.",
+        "id": "reg-001",
+        "link": "https://example.com/apple-antitrust",
+        "pubDate": "2026-06-05T10:00:00+00:00",
+        "region": "US",
+        "riskLevel": "MEDIUM",
+        "riskScore": 65,
+        "sentiment": "Negative",
+        "sentimentScore": 0.26,
+        "source": "Google News - Apple_Antitrust",
+        "summary": "Regulators opened an investigation into App Store rules.",
+        "timestamp": "2026-06-06T04:33:26.385988+00:00",
+        "title": "Apple faces App Store antitrust investigation"
+      }
+    ],
+    "success": true,
+    "timestamp": "2026-06-06T04:33:41.764910+00:00",
+    "totalProcessed": 5
+  },
+  "workflow": "intelligence-agent"
+}
