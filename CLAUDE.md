@@ -1,18 +1,11 @@
+@MYCROFT.md
+
 # Claude Instructions
 
-This repo is both a book and an agentic Cowork system.
+`MYCROFT.md` is the source of truth for this repository; `DOMAIN.md` describes this repository's domain (branding and marketing intelligence) and what is runnable today. Read both before doing anything. If any file here conflicts with MYCROFT.md, MYCROFT.md governs and the conflict is a bug — log it in `logs/RUN_LOG.md`.
 
-## Rules
+Claude-specific notes:
 
-1. Read `README.md`, `AGENTS.md`, and `docs/repo-structure.md` before structural work.
-2. Check verified local data before external lookup.
-3. Check vetted stored scripts before creating ad hoc scripts.
-4. Use lowercase `scripts/` only. Never create `SCRIPTS/`.
-5. Treat skills as agent-facing recipes with human-readable summaries.
-6. Do not run a fully automated pipeline until phase gates pass.
-7. Log meaningful runs in `skills/RUN_LOG.md`.
-
-## Completion Report
-
-When done, report files changed, data checked, scripts run, tests performed, and
-remaining risks.
+- Use lowercase `scripts/`; never create `SCRIPTS/`.
+- Keep manuscript content in `chapters/`; no scripts or data there.
+- Before reporting completion, state: files changed; scripts or data checked; tests, builds, or searches run; unverified assumptions and remaining risks.

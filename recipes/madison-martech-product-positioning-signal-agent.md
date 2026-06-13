@@ -1,3 +1,11 @@
+---
+status: DRAFT
+todos_open: 15
+last_gate: null
+attestation: null
+recipe_version: 0.1.0
+---
+
 # Madison Martech Product Positioning Signal Agent
 
 ## Purpose

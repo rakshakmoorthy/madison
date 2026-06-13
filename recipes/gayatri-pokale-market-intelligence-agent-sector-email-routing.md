@@ -1,3 +1,11 @@
+---
+status: DRAFT
+todos_open: 23
+last_gate: null
+attestation: null
+recipe_version: 0.1.0
+---
+
 # Gayatri Pokale - Market Intelligence Agent With AI Sector Routing
 
 ## Purpose

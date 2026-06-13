@@ -1,3 +1,11 @@
+---
+status: DRAFT
+todos_open: 19
+last_gate: null
+attestation: null
+recipe_version: 0.1.0
+---
+
 # Clinical Adaptive Fashion Persona Pipeline
 
 ## Purpose

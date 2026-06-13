@@ -1,3 +1,11 @@
+---
+status: DRAFT
+todos_open: 35
+last_gate: null
+attestation: null
+recipe_version: 0.1.0
+---
+
 You are working in a repository that contains pipeline recipes under `recipes/`.
 
 TASK: For each recipe file, audit it against the standard recipe format,

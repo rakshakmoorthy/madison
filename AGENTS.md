@@ -1,17 +1,13 @@
 # Agent Instructions
 
-## Two Customers
+Read `MYCROFT.md` before doing anything. It is the source of truth for this repository — the principles, the verification stack, the recipe lifecycle, and the logging rules. Then read `DOMAIN.md` for this repository's domain (branding and marketing intelligence), layout, and what is runnable today.
 
-Agents execute recipes. Humans audit, supervise, and decide when to intervene.
+If any other file conflicts with `MYCROFT.md`, `MYCROFT.md` governs and the conflict is a bug — log it in `logs/RUN_LOG.md`.
 
-## Grounding Order
+Summary of the contract (the full version in MYCROFT.md governs):
 
-1. Verified local data in `data/`.
-2. Vetted stored scripts in `scripts/`.
-3. External lookup only when local evidence is insufficient.
-4. Ad hoc scripts only when no stored script fits.
-
-## Phase Gates
-
-Do not advance automation until the problem, local evidence, stored scripts,
-small run, verification, review, and logging gates pass.
+1. Verified local data before external lookup; stored scripts before ad hoc code.
+2. Never invent a count, rate, or confidence; label model judgments as judgments.
+3. Gates are hard stops cleared by a named human and logged.
+4. Machines verify conformance; humans verify adequacy.
+5. Log meaningful runs, blockers, and artifacts in `logs/RUN_LOG.md`.

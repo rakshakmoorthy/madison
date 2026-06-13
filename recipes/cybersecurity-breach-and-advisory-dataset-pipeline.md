@@ -1,3 +1,11 @@
+---
+status: DRAFT
+todos_open: 18
+last_gate: null
+attestation: null
+recipe_version: 0.1.0
+---
+
 # Cybersecurity Breach And Advisory Dataset Pipeline
 
 ## Purpose

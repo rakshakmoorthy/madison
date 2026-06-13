@@ -4,6 +4,8 @@
 **Publisher:** Humanitarians AI Incorporated, a 501(c)(3) nonprofit organization  
 **Edition:** 2026
 
+> **Agents and contributors:** the source of truth for this repository is [`MYCROFT.md`](MYCROFT.md) (the agent-operating constitution — Madison is Mycroft's second domain instance); [`DOMAIN.md`](DOMAIN.md) describes this repository's branding-and-marketing domain, its layout, and what is runnable today. Read both before structural work.
+
 ## Overview
 
 The first sign of trouble is usually not failure. It is fluency. The draft looks clean. The answer sounds reasonable. The chart has labels. The code runs. The plan has phases. The explanation has the rhythm of expertise. Nothing in the surface announces that a human still has work to do. This book is about the gap between a polished artifact and a trustworthy one. The central argument of **Madison Plus One** is that readers need a working method for the part of the work that cannot be delegated: the...

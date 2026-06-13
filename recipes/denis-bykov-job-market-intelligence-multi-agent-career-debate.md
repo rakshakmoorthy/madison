@@ -1,3 +1,11 @@
+---
+status: DRAFT
+todos_open: 22
+last_gate: null
+attestation: null
+recipe_version: 0.1.0
+---
+
 # Denis Bykov - Job Market Intelligence And Multi-Agent Career Debate
 
 ## Purpose

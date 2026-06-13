@@ -1,3 +1,11 @@
+---
+status: DRAFT
+todos_open: 24
+last_gate: null
+attestation: null
+recipe_version: 0.1.0
+---
+
 # Raksha KrishnaMoorthy - Clinical Adaptive Fashion Persona Pipeline
 
 ## Purpose

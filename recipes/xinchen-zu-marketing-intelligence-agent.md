@@ -1,3 +1,11 @@
+---
+status: DRAFT
+todos_open: 25
+last_gate: null
+attestation: null
+recipe_version: 0.1.0
+---
+
 # Xinchen Zu - Marketing Intelligence Agent For Social Media And Industry Trends
 
 ## Purpose

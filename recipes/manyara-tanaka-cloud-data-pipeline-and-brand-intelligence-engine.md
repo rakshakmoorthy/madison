@@ -1,3 +1,11 @@
+---
+status: DRAFT
+todos_open: 24
+last_gate: null
+attestation: null
+recipe_version: 0.1.0
+---
+
 # Manyara Tanaka - Cloud Data Pipeline Module And Brand Intelligence Engine
 
 ## Purpose
