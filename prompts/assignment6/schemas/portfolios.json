@@ -1,0 +1,20 @@
+{
+  "_artifact": "portfolios",
+  "_assignment_part": "3",
+  "_note": "AI structures the observable elements. The 'admire' and 'would_change' fields are subjective human judgment and must be filled by the student.",
+  "_human_gate": ["entries[].admire", "entries[].would_change"],
+  "entries": [
+    {
+      "owner": "",
+      "url": "",
+      "presentation_structure": "",
+      "showcasing_approach": "",
+      "storytelling": "",
+      "technical_demonstration": "",
+      "standout_element": "",
+      "admire": null,
+      "would_change": null
+    }
+  ],
+  "best_practices_synthesis": ""
+}

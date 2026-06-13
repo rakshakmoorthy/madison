@@ -1,0 +1,20 @@
+{
+  "_artifact": "competitors",
+  "_assignment_part": "1B",
+  "_note": "Every competitor fact carries an evidence label. AI may infer from public data; it must NOT assert as Observed what it did not see.",
+  "_labels": ["[Observed]", "[Inferred]", "[Unverifiable]", "[Not Found]"],
+  "_human_gate": ["entries[].verified_by"],
+  "field": "",
+  "entries": [
+    {
+      "name": "",
+      "what_they_own": { "value": "", "label": "[Inferred]" },
+      "primary_audience": { "value": "", "label": "[Inferred]" },
+      "archetype": { "value": "", "label": "[Inferred]" },
+      "strongest_asset": { "value": "", "label": "[Observed]" },
+      "exploitable_weakness": { "value": "", "label": "[Inferred]" },
+      "verified_by": null
+    }
+  ],
+  "white_space": ""
+}

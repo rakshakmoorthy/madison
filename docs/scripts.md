@@ -30,17 +30,24 @@ node scripts/svg-to-png.mjs
   when the PNG is missing or older than the source SVG.
 - `scripts/madison-main/`: imported source/configuration from Madison-main,
   retained for review and possible promotion.
-- `scripts/cowork-*.md`: stored writing and production prompts used by the
-  Cowork book pipeline.
+- `scripts/build-prompts.mjs`: compiles a CLI-agnostic prompt suite in
+  `prompts/<suite>/` (manifest + body + knowledge files) into a tool-native
+  adapter — e.g. a Claude/Cowork `.skill`. Run `node scripts/build-prompts.mjs
+  courses`.
 - `scripts/*info5100*.mjs`: INFO 7375 research/fact-checking/chapter generation
   helpers.
-- `writing-tools/`: reusable writing workflow cards for drafting, research,
-  fact-checking, figure checks, and enrichment.
+- `prompts/`: the CLI-agnostic prompt sets (writing/production prompts and
+  command suites). **Prompts live here, not in `scripts/`** — `scripts/` is
+  executable code only.
+- `prompts/authoring/`: reusable writing workflow cards (book appendix prompts)
+  for drafting, research, fact-checking, figure checks, and enrichment.
 
 ## Script Rules
 
 - Use lowercase `scripts/`.
 - Do not create or reference uppercase `SCRIPTS/`.
+- `scripts/` is executable code (`.mjs`, `.py`, `.sh`, …). Prompts go in
+  `prompts/`, not here.
 - Check existing scripts before creating ad hoc code.
 - Document inputs, outputs, side effects, and verification.
 - Run a small sample before broad execution.

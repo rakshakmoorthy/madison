@@ -1,0 +1,19 @@
+{
+  "_artifact": "brand",
+  "_assignment_part": "1A",
+  "_note": "AI-generative. No hard human gate, but the UVP is not 'final' until the student chooses one.",
+  "_human_gate": ["uvp.final"],
+  "mode": "personal | startup",
+  "brand_name": "",
+  "mission": "",
+  "purpose": "",
+  "vision": "",
+  "values": [],
+  "uvp": {
+    "iterations": [
+      { "version": 1, "text": "", "change_from_previous": "first draft" }
+    ],
+    "final": null,
+    "final_justification": null
+  }
+}

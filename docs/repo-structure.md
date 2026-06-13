@@ -35,8 +35,9 @@ This repo is organized by function and audience.
 - `skills/README.md` - skill index.
 - `skills/RUN_LOG.md` - durable log of meaningful agent and workflow runs.
 - `skills/n8n-*.md` - converted Madison-main n8n workflow skills.
-- `scripts/` - vetted reusable automation and stored production prompts.
-- `writing-tools/` - writing workflow cards.
+- `scripts/` - vetted reusable automation (executable code only).
+- `prompts/` - CLI-agnostic prompt sets; `prompts/authoring/` holds the writing
+  workflow cards (book appendix prompts); `prompts/courses/` is the slides suite.
 
 ## Evidence
 

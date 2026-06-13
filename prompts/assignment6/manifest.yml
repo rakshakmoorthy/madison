@@ -1,0 +1,41 @@
+# Assignment 6 assistant — focused, fact-emitting brand-strategy & naming skill.
+# AI does AI work; refuses human work (firsthand verification, selection,
+# subjective judgment), emitting those as gated JSON slots.
+
+name: assignment6-assistant
+title: "Assignment 6 Assistant — Brand Strategy & Tool Naming"
+version: "1.0.0"
+body: assignment6.md
+description: "Assist INFO 7375 Assignment 6 (personal/startup brand strategy + Madison tool naming). Use when the user types `foundation`, `competitors`, `names`, `trademark-plan`, `domain-plan`, `decide`, `portfolios`, `build-pdf`, `a6`, or asks for brand foundation, UVP iterations, a competitive matrix, tool name generation, trademark/URL search plans, portfolio analysis, or the Assignment 6 PDF. Generates and structures; refuses firsthand verification, final selection, and subjective judgment, emitting those as gated JSON slots. Facts go in JSON first."
+
+# The JSON contract travels with the skill. Each field a human must own is null
+# with an [Unverifiable] status; the build-pdf gate refuses while any remain.
+knowledge_files:
+  - schemas/brand.json
+  - schemas/competitors.json
+  - schemas/positioning.json
+  - schemas/names.json
+  - schemas/trademark.json
+  - schemas/domains.json
+  - schemas/final-name.json
+  - schemas/portfolios.json
+
+when_to_use:
+  - foundation
+  - competitors
+  - names
+  - trademark-plan
+  - domain-plan
+  - decide
+  - portfolios
+  - build-pdf
+  - a6
+
+targets:
+  - skill
+  - agents
+  - cursor
+
+cursor_globs:
+  - "**/*.json"
+  - "**/*.md"

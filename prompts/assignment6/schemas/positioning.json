@@ -1,0 +1,12 @@
+{
+  "_artifact": "positioning",
+  "_assignment_part": "1B",
+  "_human_gate": ["chosen", "chosen_by"],
+  "statement_framework": "For [audience], [brand] is the [category] that [differentiator] because [reason to believe].",
+  "drafts": [
+    { "version": 1, "text": "" }
+  ],
+  "anti_positioning": "[brand] is NOT for [audience] who want [alternative].",
+  "chosen": null,
+  "chosen_by": null
+}

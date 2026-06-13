@@ -16,9 +16,10 @@ Turns marketing-relevant signals into verified, auditable intelligence: ingest f
 | `recipes/` | the operating surface: 48 recipes — monitor/pipeline recipes, agent recipes (marketmind, content-agent, ai-concierge, restaurant-agent…), `madison-*` brand recipes, and student-named project recipes (flat in this directory). All carry lifecycle frontmatter, currently `status: DRAFT` |
 | `pantry/n8n-provenance/` | the original n8n-derived skill files + old shared contract (provenance from the skills/ era) |
 | `logs/` | RUN_LOG.md (canonical log), `gate-decisions/`, `student-recipe-evidence/`, run artifacts (JSON responses, reports) — **this repo has real run history** |
-| `scripts/` | currently cowork-* *prompt* files, not code — a naming debt: prompts may belong in recipes/ or docs/; decide before adding real code here |
+| `prompts/` | **CLI-agnostic prompt sets — the source of truth for prompt-based functionality** (post-refactor 2026-06-13). Single prompts as flat `.md`; command suites as subdirs (`courses/`) with a `manifest.yml` + body + knowledge files, compiled to tool-native adapters by `scripts/build-prompts.mjs`. The old `scripts/cowork-*.md` prompts moved here |
+| `scripts/` | executable code only — `.mjs`/`.py`/`.sh` (`build-prompts.mjs`, `svg-to-png.mjs`, `*info5100*.mjs`, `gigo/`, `ingest/`, `tools/`, `madison-main/`). No prompts (they're in `prompts/`) |
 | `chapters/` | the book (early draft) + course subdirectories |
-| `docs/`, `writing-tools/`, `d3/`, `images/` | documentation, authoring tools, figures |
+| `docs/`, `d3/`, `images/` | documentation, authoring tools, figures |
 
 ## Lifecycle status (honest)
 
@@ -26,7 +27,7 @@ All 48 recipes are marked DRAFT as a starting point, but `logs/` contains gate d
 
 ## Known gaps and debts (2026-06-12)
 
-1. `scripts/` contains prompts, not code — naming/placement decision pending.
+1. ~~`scripts/` contains prompts, not code — naming/placement decision pending.~~ **Resolved 2026-06-13:** prompts moved to `prompts/`; `scripts/` is code only.
 2. README is book-centric and predates MYCROFT.md — needs a pointer and an architecture section.
 3. `docs/repo-structure.md` not yet reconciled with the Mycroft layout.
 4. Student recipes flag embedded credentials, local paths, and row-count discrepancies in original submissions (see RUN_LOG 2026-06-06) — review before any production run.
@@ -55,6 +56,16 @@ Guest-lecture weekly sessions, each 25 pts (20 mechanics + 5 capped Glimmer), ea
 `docs/exercises/exercise-05b-build-the-recipe.md` — Exercise 5B (one 25-pt live-demo, backs A5B "Build the Recipe", Path B): the twin of 5A. Where 5A makes the tool *visible* (a URL a stranger uses), 5B makes it *accountable* (a recipe a conductor runs and knows when to stop). Six moves: map the pipeline onto the **four layers** (external → `data/raw` → `data/verified` → `logs/reports`) with a contract per handoff → **extend** the Ex-Five `brand_config.json` (add `local_path`, `judgment_type`, `conductor_note` — don't rebuild) → name the **five judgment types** at every gate (PA/PF/TO/IJ/EI — "human reviews here" is an unfinished gate; *which* human deciding *what*) → write the **recipe file** a stranger conductor could run (exec summary + four layers + typed phase gates + typed TODOs) → the **audit loop** (`/snickerdoodle` → Claude Code adds typed TODOs → resolve each with a decision → `/claude` confirms) → log. Core teaching: *conductor-ready is named-stops, not flow* — the machine finds the gaps, the human types and closes them. Worked specimen: `examples/recipe-and-config-walkthrough.md` (same brand-reputation pipeline as Ex 3 + Ex 5; the audit catches a `Hard stop` gate with no decision-maker named behind it). v1 draft, will change after a cohort runs it.
 
 `templates/wrap-your-tool/` — the **fenced React/Vercel/Neon template** (the "shovel" for A5A): a working Next.js 14 + Neon scaffold deployed as-is, with `CLAUDE.md` as the machine-facing actuator (DO-NOT-TOUCH zones *with reasons*, one open seam in `lib/tool.ts`). Teaches the habit gradio/streamlit can't — working inside a professional codebase you didn't write. v1 draft, will change after testing.
+
+## Prompt-based functionality (`prompts/`)
+
+Prompt sets are **CLI-agnostic source**, kept separate from executable code (`scripts/`) and audited pipelines (`recipes/`). `prompts/` is the source of truth: plain Markdown any tool or human can read, paste, or compile. Single prompts are flat `.md` files (`factcheck-prompt.md`, `draft-all-chapters.md`, `scan-books.md`…); command suites are subdirectories (`courses/`) with a `manifest.yml` + body + knowledge files. The **source vs. adapter** rule: the prompt body + knowledge files are the tested rules; a `SKILL.md` / `AGENTS.md` block / Cursor rule is a *generated adapter* built by `scripts/build-prompts.mjs` — never hand-edited. The `manifest.yml` carries packaging/triggering metadata as a superset (each target reads what it understands, ignores the rest; missing-required halts the build and asks). This is the resolution of the old `scripts/`-is-prompts debt.
+
+`prompts/courses/` — the **"Humanitarians Courses" command suite**: `courses.md` (portable body) + `manifest.yml` + four "internal brain" knowledge files (`Learning.md`, `Doodle.md`, `Infographic.md`, `Python.md`). Turns reports/transcripts/course material into slide blueprints, show-and-tell segments, lecture visual beats, doodles, infographics, and micro-videos, grounded in cognitive-load (CLT) and multimedia (Mayer/CTML) principles. Commands: `slides` (default), `showtell`, `lecture`, `doodle`, `infographic`, `video`, `list`. Build the adapter with `node scripts/build-prompts.mjs courses` → `prompts/courses/.build/humanitarians-courses.skill`; install it via Cowork to make the commands invokable. v1.
+
+`prompts/assignment6/` — the **Assignment 6 Assistant** (focused, fact-emitting brand-strategy & naming skill): `assignment6.md` body + `manifest.yml` + `schemas/` (8 JSON contracts). Commands `foundation`/`competitors`/`names`/`trademark-plan`/`domain-plan`/`decide`/`portfolios`/`build-pdf`, each doing the AI-appropriate work and **refusing** the human-appropriate work (firsthand trademark/domain verification, final name selection, subjective portfolio judgment) — those become `null` + `[Unverifiable — human]` slots in the JSON. `build-pdf` hard-refuses to assemble while any gate is open (the `data/raw → data/verified` discipline applied to homework). The JSON is the verified layer; the PDF is the report. Student walkthrough in `prompts/assignment6/README.md`. Build with `node scripts/build-prompts.mjs assignment6`. v1.
+
+`prompts/authoring/` — the book's authoring appendix prompts (Tic TOC, Domain Research, Scaffold, Research Pass, Chapter Writer, Combined Test, Finishing Figures, Enrichment, CAJAL, Fact-Checking; `figure-checker.md` is the shared domain anchor). Single-file prompts for the manuscript pipeline, folded in from the former `writing-tools/` (2026-06-13). (Heads-up: three CAJAL prompts now coexist — `prompts/cajal.md` and `prompts/svg-cajal.md` from the scripts era, and `prompts/authoring/cajal.md` (Appendix I); they differ and are a candidate to reconcile later.)
 
 ## First win (zero-config)
 

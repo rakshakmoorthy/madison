@@ -1,0 +1,20 @@
+{
+  "_artifact": "domains",
+  "_assignment_part": "2C",
+  "_note": "AI lists what to check and assesses memorability. It must NOT assert live availability. The human checks a registrar and fills availability.",
+  "_human_gate": ["results[].availability", "results[].verified_by"],
+  "results": [
+    {
+      "name": "",
+      "memorability_note": "",
+      "alt_spellings": [],
+      "domains": [
+        { "tld": ".com", "available": null, "status": "[Unverifiable — check registrar]" },
+        { "tld": ".ai",  "available": null, "status": "[Unverifiable — check registrar]" },
+        { "tld": ".io",  "available": null, "status": "[Unverifiable — check registrar]" },
+        { "tld": ".app", "available": null, "status": "[Unverifiable — check registrar]" }
+      ],
+      "verified_by": null
+    }
+  ]
+}

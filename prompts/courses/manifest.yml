@@ -1,0 +1,44 @@
+# Portable prompt-suite manifest — the CLI-agnostic source of truth.
+#
+# scripts/build-prompts.mjs reads this and maps the fields into each target
+# CLI's native format. The BODY (courses.md + the knowledge files) is the tested
+# rules and is never altered by a build. These fields only affect packaging and
+# triggering. Add keys freely: a target that doesn't understand a key ignores
+# it; a target that REQUIRES a key it can't find makes the build stop and ask,
+# rather than guessing.
+
+# --- core (used by most targets) ---
+name: humanitarians-courses
+title: "Humanitarians Courses"
+version: "1.0.0"
+body: courses.md
+description: "Turn reports, briefs, technical docs, lecture transcripts, or course material into learning-focused slide decks, show-and-tell segments, lecture visual beats, doodles, infographics, and micro-videos. Use whenever the user types `slides`, `showtell`, `lecture`, `doodle`, `infographic`, `video`, or `list`, or asks to build a slide blueprint, design instructional segments, propose visual beats for a recorded talk, or generate visual prompts from pasted text. Applies cognitive-load (CLT) and multimedia (Mayer/CTML) principles via the bundled knowledge files. Default behavior on pasted text without a command is slides."
+
+knowledge_files:
+  - Learning.md
+  - Doodle.md
+  - Infographic.md
+  - Python.md
+
+# Commands this suite answers to (used for trigger generation per target).
+when_to_use:
+  - slides
+  - showtell
+  - lecture
+  - doodle
+  - infographic
+  - video
+  - list
+
+# --- which adapters to emit ---
+targets:
+  - skill
+  - agents
+  - cursor
+
+# --- target-specific extras (each read only by its own adapter) ---
+# skill:  (Claude Code / Cowork)  needs: name, description, body
+# cursor: (future)  would read globs below
+# agents: (future)  appends body to AGENTS.md; no triggering metadata needed
+cursor_globs:
+  - "**/*.md"

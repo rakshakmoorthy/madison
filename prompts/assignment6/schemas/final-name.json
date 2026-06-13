@@ -1,0 +1,14 @@
+{
+  "_artifact": "final-name",
+  "_assignment_part": "2 (final selection)",
+  "_note": "AI may RANK and RECOMMEND from verified trademark + domain JSON. It must NOT select. Selection is a human attestation and requires verified inputs.",
+  "_requires_verified": ["trademark.json", "domains.json"],
+  "_human_gate": ["selected", "selected_by", "selection_rationale"],
+  "ranking": [
+    { "name": "", "trademark_risk": "", "domain_status": "", "ai_recommendation_rank": 0, "tradeoffs": "" }
+  ],
+  "ai_recommendation": "",
+  "selected": null,
+  "selected_by": null,
+  "selection_rationale": null
+}

@@ -28,8 +28,8 @@ document the source and reason.
 
 - `pantry/`: research notes, Cajal drafts, source notes, and pre-manuscript
   material.
-- `writing-tools/`: writing workflow cards.
-- `scripts/cowork-*.md`: stored writing prompts and production recipes.
+- `prompts/authoring/`: writing workflow cards (book appendix prompts).
+- `prompts/`: CLI-agnostic writing/production prompt sets and command suites.
 - `enrichment-log.md`: durable record of enrichment work.
 - `architecture.md`, `vision.md`, `risks.md`, `chapters-spec.md`: planning and
   system-design context.

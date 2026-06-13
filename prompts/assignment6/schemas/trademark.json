@@ -1,0 +1,20 @@
+{
+  "_artifact": "trademark",
+  "_assignment_part": "2B",
+  "_note": "AI builds the SEARCH PLAN only. It must NOT assert availability or risk. The human runs Justia and fills the gated fields.",
+  "_human_gate": ["results[].status", "results[].conflicts", "results[].risk", "results[].verified_by", "results[].screenshot"],
+  "results": [
+    {
+      "name": "",
+      "nice_classes": [],
+      "search_terms": [],
+      "search_url": "https://trademarks.justia.com/search?q=",
+      "what_a_conflict_looks_like": "",
+      "status": "[Unverifiable — human searches Justia]",
+      "conflicts": null,
+      "risk": null,
+      "verified_by": null,
+      "screenshot": null
+    }
+  ]
+}
