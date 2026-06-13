@@ -122,6 +122,16 @@ Same bands/cap as Exercises One–Four (top quartile 4–5, descending; shallow 
 
 The thing the live demo most needs to model: **finding a DRIFT on camera.** I'll write a brief I believe is clear, run the conductor against my own config, and show you the place where the actuator did something my alibi never authorized — because it will. The gap between what I *wrote* and what the conductor *did* is the entire lesson of entering the AI world: you now author for two readers, and only one of them runs.
 
+## Before you submit — check it
+
+```bash
+node scripts/conformance.mjs brand_config.json gates.yml   # valid JSON/YAML — invalid is not gradeable
+node scripts/to-markdown.mjs brand_config.json             # read the config; run the conductor against IT, not the prose
+```
+
+Confirms the config and gates are well-formed — not whether the divergence log caught the
+real drift (the human grade). Full guide: `docs/exercises/HOW-TO-CHECK.md`.
+
 ## What can go wrong
 
 | Symptom | What it means | Fix |

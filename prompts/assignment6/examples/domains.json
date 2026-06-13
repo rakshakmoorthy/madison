@@ -1,0 +1,20 @@
+{
+  "_artifact": "domains", "_assignment_part": "2C",
+  "_human_gate": ["results[].domains[].available","results[].verified_by"],
+  "results": [
+    { "name": "Aligna", "memorability_note": "Short, two syllables, spells as it sounds.", "alt_spellings": ["aligna.ai"],
+      "domains": [
+        {"tld":".com","available":false,"status":"[Observed] parked"},
+        {"tld":".ai","available":true,"status":"[Observed]"},
+        {"tld":".io","available":true,"status":"[Observed]"},
+        {"tld":".app","available":true,"status":"[Observed]"}
+      ], "verified_by":"Bear Brown" },
+    { "name": "ToneGuard", "memorability_note": "Clear but compound.", "alt_spellings": [],
+      "domains": [
+        {"tld":".com","available":false,"status":"[Observed] taken"},
+        {"tld":".ai","available":true,"status":"[Observed]"},
+        {"tld":".io","available":false,"status":"[Observed]"},
+        {"tld":".app","available":true,"status":"[Observed]"}
+      ], "verified_by":"Bear Brown" }
+  ]
+}

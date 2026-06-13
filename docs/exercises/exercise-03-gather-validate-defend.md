@@ -127,6 +127,16 @@ Same bands/cap as Exercises One–Three:
 
 The single hardest thing, and the thing the live demo most needs to model: **the adequacy defense under the pull of volume.** The fun-but-impressive 1,000-row scrape is the data-form of the fluency trap — it *looks* like a lot of work. Watching me choose 140 clean, defended rows over 1,000 messy ones, *and say out loud why*, on the recording, is the teaching.
 
+## Before you submit — check it
+
+```bash
+node scripts/conformance.mjs data/                  # every data file parses
+# then confirm data/verified/<source>/ meets your stated record count + quality gate
+```
+
+Confirms the data is well-formed — not whether your *adequacy defense* holds (the human
+grade; that's the whole point of this exercise). Full guide: `docs/exercises/HOW-TO-CHECK.md`.
+
 ## What can go wrong
 
 | Symptom | What it means | Fix |

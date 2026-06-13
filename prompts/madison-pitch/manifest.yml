@@ -1,0 +1,21 @@
+name: madison-pitch
+title: "Madison Pitch Framework"
+version: "1.0.0"
+body: madison-pitch.md
+description: "Turn a project into an 8-minute, 10-slide venture pitch for a non-technical audience. Use when the user wants to build a pitch deck, an investor pitch, a Madison Pitch, slide scripts for a startup/tool, a jargon audit of a slide, an 8-minute timing check, or a skeptical-VC score. Runs Prompt 0 (intake) then Slides 1–10, with bonus jargon/timing/scoring/clean-up passes. Every statistic is sourced or labeled (provenance gate); engine language is translated to destination language throughout."
+
+knowledge_files:
+  - destination-language.md
+  - jargon-audit.md
+  - cleanup-standard.md
+  - readiness-score.md
+  - archetypes.md
+  - competitive-method.md
+
+targets:
+  - skill
+  - agents
+  - cursor
+
+cursor_globs:
+  - "**/*.md"

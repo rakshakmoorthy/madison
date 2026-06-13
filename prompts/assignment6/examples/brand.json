@@ -1,0 +1,18 @@
+{
+  "_artifact": "brand", "_assignment_part": "1A", "_human_gate": ["uvp.final"],
+  "mode": "startup",
+  "brand_name": "Aligna",
+  "mission": "We help marketing teams ship copy that actually sounds like their brand, by checking every AI-written draft against the brand's own voice before it goes out.",
+  "purpose": "Because the flood of AI-generated content is eroding the one thing a brand can't outsource — sounding like itself.",
+  "vision": "A web where every brand's voice is verifiable, and 'on-brand' is something you can prove, not just feel.",
+  "values": ["Evidence over vibes", "Edit, don't replace the writer", "Plain about limits", "Speed with a paper trail"],
+  "uvp": {
+    "iterations": [
+      { "version": 1, "text": "Aligna makes your content on-brand.", "change_from_previous": "first draft — too vague, a competitor could say it" },
+      { "version": 2, "text": "Aligna checks AI copy against your brand voice.", "change_from_previous": "named the mechanism, still generic" },
+      { "version": 3, "text": "Aligna is the brand-voice QA layer for teams that write with AI.", "change_from_previous": "named the category we own" }
+    ],
+    "final": "Aligna is the brand-voice QA layer for teams that write with AI: it scores every draft against your voice and shows you what to fix before you publish.",
+    "final_justification": "It names a category nobody else occupies (brand-voice QA), the specific user (teams writing with AI), and the verifiable outcome (a score + fixes), which no generic AI writer can claim."
+  }
+}

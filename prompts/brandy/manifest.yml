@@ -1,0 +1,19 @@
+name: brandy
+title: "BRANDY — Brand Communications Audit"
+version: "1.0.0"
+body: brandy.md
+description: "A brand communications audit tool: observe every touchpoint, label all evidence, and produce a matrix + strategic memo. Use when the user types `brandy`, `data`, `xls`, `memo`, `onepage`, or `help` on a brand name, or asks for a brand/competitor communications audit, a social-media competitive analysis, an observation matrix, a one-page strategic memo, or an executive one-pager. Every recommendation traces to a labeled observation; no vanity metrics. Best fit for Assignment 6 Part 1B competitive analysis."
+
+knowledge_files:
+  - competitive-method.md
+  - jargon-audit.md
+  - cleanup-standard.md
+
+targets:
+  - skill
+  - agents
+  - cursor
+
+cursor_globs:
+  - "**/*.md"
+  - "**/*.csv"

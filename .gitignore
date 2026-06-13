@@ -6,3 +6,7 @@ output/
 
 # generated prompt-suite adapters (rebuild with scripts/build-prompts.mjs)
 prompts/**/.build/
+
+# private per-person strategy/profiles — never committed
+people/
+brand/private-reflection.md

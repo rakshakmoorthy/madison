@@ -1,0 +1,10 @@
+{
+  "_artifact": "positioning", "_assignment_part": "1B", "_human_gate": ["chosen","chosen_by"],
+  "statement_framework": "For [audience], [brand] is the [category] that [differentiator] because [reason to believe].",
+  "drafts": [
+    { "version": 1, "text": "For marketing teams using AI, Aligna is the brand-voice QA layer that scores every draft against your voice because it sits after the writer, not instead of it." }
+  ],
+  "anti_positioning": "Aligna is NOT for teams who want another AI that writes the copy for them.",
+  "chosen": "For marketing teams writing with AI, Aligna is the brand-voice QA layer that scores every draft against your voice and shows what to fix — because consistency is the one thing AI volume puts most at risk.",
+  "chosen_by": "Bear Brown"
+}

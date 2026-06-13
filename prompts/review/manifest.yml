@@ -1,0 +1,22 @@
+# Review — render AI-native records (JSON/YAML) as Markdown, take feedback, write back.
+# The readable face of the facts-in-AI-native discipline (MYCROFT P5: two customers).
+
+name: review
+title: "Review — read AI-native records, get feedback, update"
+version: "1.0.0"
+body: review.md
+description: "Render any JSON or YAML artifact as human-readable Markdown for review, take the human's plain-language feedback, and write it back into the original file. Use when the user types `review` or `apply` on a .json/.yaml/.yml file, says JSON or YAML is hard to read, wants to give feedback on a record, or resolve [CONFLICT] / [Unverifiable] / _human_gate fields (e.g. brand/resume.json, brand/brand.yml, the assignment6 schemas). Default to the Markdown view for humans; only show raw AI-native format on request. Renders a 'needs your input' checklist via scripts/to-markdown.mjs; applies only what the human explicitly says, shows a changelog, re-emits the file in its original format. The AI-native file stays the source of truth."
+
+when_to_use:
+  - review
+  - apply
+
+targets:
+  - skill
+  - agents
+  - cursor
+
+cursor_globs:
+  - "**/*.json"
+  - "**/*.yaml"
+  - "**/*.yml"

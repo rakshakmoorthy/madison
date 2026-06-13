@@ -133,6 +133,16 @@ Same bands and cap as Exercises One and Two:
 
 **The cap:** if the whole cohort turns in shallow work, everyone lands at 1–2 — being the best of a shallow pool doesn't earn 4–5. *(Instructor's option, per the Glimmer framework: one targeted AI question at your weakest dimension — almost always the PRD defense — and the grade lands on the revision.)*
 
+## Before you submit — check it
+
+```bash
+node scripts/conformance.mjs targets.json           # valid JSON — invalid is not gradeable
+node scripts/to-markdown.mjs targets.json           # read the gap table; attested SOC codes must be filled
+```
+
+Confirms the pieces are present and well-formed — not whether the PRD defense holds (the
+human grade). Full guide: `docs/exercises/HOW-TO-CHECK.md`.
+
 ## What can go wrong
 
 | Symptom | What it means | Fix |

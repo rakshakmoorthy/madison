@@ -98,6 +98,14 @@ One `logs/RUN_LOG.md` entry: the recipe name and version, how many TODOs the aud
 
 **Lifecycle note:** Exercise Five formalized the gates so the recipe *could* reach `RUNNABLE-LIVE`; 5B is where a human actually clears them — a gate is only clearable once its judgment type names who clears it. This recipe is the artifact every prior exercise was feeding: the target (Ex Two) set the aim, the data (Ex Three) filled the verified layer, the brief (Ex Five) wrote the intent, and here it becomes a thing a conductor runs with confidence and stops with judgment.
 
+**Before you submit — run the conformance check.** Zip your submission and run
+`node scripts/a5b-verify.mjs your-submission.zip`. It reports what's missing and which
+automatic deductions you'd hit (config not separate, phase gates missing judgment types,
+`data/verified/` under 25 records or missing README, a section missing). It checks
+*conformance* — that the required pieces are present and well-formed — not *adequacy*
+(whether the recipe is good). A pass means it's gradeable, not that it's an A. This is the
+same machine-half-of-P4 discipline the course teaches, turned on your own submission.
+
 ---
 
 ## Grading — 25 points
@@ -127,6 +135,20 @@ One `logs/RUN_LOG.md` entry: the recipe name and version, how many TODOs the aud
 Same bands/cap as Exercises One–Five (top quartile 4–5, descending; a cohort that all phoned in the same skeleton caps at 1–2). *(Instructor's option: one targeted question at the weakest dimension — usually a gate stamped with the wrong judgment type, or a TODO that's really an undecided design choice — graded on the revision.)*
 
 The thing the live demo most needs to model: **the TODO the audit found that I hadn't.** I'll bring a recipe I believe is complete, run `/snickerdoodle` and Claude Code against it, and show you the gate where I wrote `hard_stop` but never named *who* clears it — the conductor caught a stop with no decision-maker behind it. The gap between a recipe that *runs* and a recipe that *knows when to stop and who decides* is the entire skill A5B is buying you, and the only honest way to find that gap is to let a machine read your work back to you.
+
+## Before you submit — check it
+
+Zip your submission and run the dedicated verifier:
+
+```bash
+node scripts/a5b-verify.mjs your-submission.zip     # writes a "what's there / what's missing" report + the deductions you'd hit
+```
+
+It checks the three separate files, the config (valid JSON, every phase gate's
+judgment_type ∈ PA/PF/TO/IJ/EI), the recipe (four layers, typed gates, conductor note),
+and `data/verified/` (README + ≥25 records). It reports *conformance* — present and
+well-formed — not whether the recipe is *good* (the human grade). Full guide:
+`docs/exercises/HOW-TO-CHECK.md`.
 
 ## What can go wrong
 

@@ -1,0 +1,18 @@
+name: slides-deck
+title: "Slides-Deck — spec → brutalist HTML/D3 deck"
+version: "1.0.0"
+body: slides-deck.md
+description: "Turn pitch or lecture content into a slide spec that scripts/build-deck.mjs renders into a self-contained, keyboard-navigable brutalist HTML/D3 slide deck (print-to-PDF for submission). Use when the user wants to build a slide deck / pitch deck in HTML or D3, generate Kawasaki 10-slide pitch slides, make assertion-headline slides, or convert a Madison Pitch into a deck. Applies the AI-for-Slides rules (claim headlines, one idea per slide, visual over text, speaker notes carry the talk), plus the provenance gate and destination-language for pitches."
+
+knowledge_files:
+  - destination-language.md
+  - cleanup-standard.md
+
+targets:
+  - skill
+  - agents
+  - cursor
+
+cursor_globs:
+  - "**/*.md"
+  - "**/*.html"

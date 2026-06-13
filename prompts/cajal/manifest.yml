@@ -1,0 +1,18 @@
+name: cajal
+title: "CAJAL — Figure Intelligence & SVG Generation"
+version: "1.0.0"
+body: cajal.md
+description: "Figure intelligence for a book: scan chapters, suggest the figures that should exist, and render them as colorblind-safe SVG/PNG. Use when the user types `cajal`, `/scan`, `/video`, `/split`, `/show`, `/intake`, asks for a figure plan / image-suggest pass over chapters, writes `*-cajal.md` figure reports to pantry, or generates static SVG infographics from those reports. The body is the command set (figure intelligence); the SVG Style Guide (`svg-style.md`) governs rendering — colorblind palette, typography, arrowheads, accessibility."
+
+# The SVG generation/style half travels with the suite as a knowledge file.
+knowledge_files:
+  - svg-style.md
+
+targets:
+  - skill
+  - agents
+  - cursor
+
+cursor_globs:
+  - "**/*-cajal.md"
+  - "**/*.svg"

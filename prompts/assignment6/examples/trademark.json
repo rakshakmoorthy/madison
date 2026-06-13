@@ -1,0 +1,21 @@
+{
+  "_artifact": "trademark", "_assignment_part": "2B",
+  "_human_gate": ["results[].status","results[].conflicts","results[].risk","results[].verified_by","results[].screenshot"],
+  "results": [
+    { "name": "Aligna", "nice_classes": [9,42], "search_terms": ["aligna","aligna software"],
+      "search_url": "https://trademarks.justia.com/search?q=Aligna",
+      "what_a_conflict_looks_like": "An active mark for software/SaaS in class 9 or 42 with a confusingly similar name.",
+      "status": "[Observed]", "conflicts": "One lapsed mark in an unrelated class (apparel); no active software mark.",
+      "risk": "low", "verified_by": "Bear Brown", "screenshot": "screenshots/aligna-justia.png" },
+    { "name": "ToneGuard", "nice_classes": [9,42], "search_terms": ["toneguard"],
+      "search_url": "https://trademarks.justia.com/search?q=ToneGuard",
+      "what_a_conflict_looks_like": "Active SaaS/security mark using 'Guard'.",
+      "status": "[Observed]", "conflicts": "Several active 'Guard' security marks; crowded.",
+      "risk": "medium", "verified_by": "Bear Brown", "screenshot": "screenshots/toneguard-justia.png" },
+    { "name": "VoiceCheck", "nice_classes": [9,42], "search_terms": ["voicecheck"],
+      "search_url": "https://trademarks.justia.com/search?q=VoiceCheck",
+      "what_a_conflict_looks_like": "Active voice-tech or authentication mark.",
+      "status": "[Observed]", "conflicts": "Active marks in voice authentication; high collision.",
+      "risk": "high", "verified_by": "Bear Brown", "screenshot": "screenshots/voicecheck-justia.png" }
+  ]
+}

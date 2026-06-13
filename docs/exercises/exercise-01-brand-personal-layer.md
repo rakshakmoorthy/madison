@@ -132,6 +132,16 @@ These points are **relative and capped**:
 
 *(Instructor's option, per the Glimmer framework: before the 5 points are graded, an AI reviewer asks each student one targeted question at their weakest dimension, and the grade lands on the revision.)*
 
+## Before you submit — check it
+
+```bash
+node scripts/conformance.mjs brand/                 # valid JSON/YAML — invalid is not gradeable
+node scripts/to-markdown.mjs brand/resume.json      # the "Needs your input" list must be empty before "attested"
+```
+
+Confirms the pieces are present and well-formed — not whether they're *good* (the human
+grade). Full guide: `docs/exercises/HOW-TO-CHECK.md`.
+
 ## What can go wrong
 
 | Symptom | What it means | Fix |

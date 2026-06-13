@@ -112,6 +112,16 @@ The audit verifies *traceability* — every board claim has a file behind it. It
 
 The audit *reads*. Writing the board — rendering `brand/` changes onto the canvas automatically — requires Figma's Plugin API, which runs inside the desktop app and only ever writes after explicit human approval per change. It's the right second tool and the wrong first one: you verify before you automate writes. If you want it, propose it as your semester build — it closes a gap row honestly.
 
+## Before you submit — check it
+
+```bash
+node scripts/conformance.mjs board-claims.json      # valid JSON — invalid is not gradeable
+node scripts/to-markdown.mjs board-claims.json      # read each claim's trace; untraceable claims must be resolved
+```
+
+Confirms the pieces are present and well-formed — not whether the trace is *right* (the
+human grade). Full guide: `docs/exercises/HOW-TO-CHECK.md`.
+
 ## What can go wrong
 
 | Symptom | What it means | Fix |

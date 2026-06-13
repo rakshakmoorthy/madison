@@ -1,0 +1,13 @@
+{
+  "_artifact": "final-name", "_assignment_part": "2 (final selection)",
+  "_requires_verified": ["trademark.json","domains.json"],
+  "_human_gate": ["selected","selected_by","selection_rationale"],
+  "ranking": [
+    { "name": "Aligna", "trademark_risk": "low", "domain_status": ".ai/.io/.app open", "ai_recommendation_rank": 1, "tradeoffs": ".com parked but .ai is strong for an AI tool" },
+    { "name": "ToneGuard", "trademark_risk": "medium", "domain_status": ".com taken", "ai_recommendation_rank": 2, "tradeoffs": "crowded 'Guard' space" }
+  ],
+  "ai_recommendation": "Aligna — lowest trademark risk and clean .ai domain.",
+  "selected": "Aligna",
+  "selected_by": "Bear Brown",
+  "selection_rationale": "Lowest verified trademark risk, ownable short name, and .ai fits an AI product. I'll launch on aligna.ai and hold .io/.app."
+}

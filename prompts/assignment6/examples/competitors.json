@@ -1,0 +1,27 @@
+{
+  "_artifact": "competitors", "_assignment_part": "1B",
+  "_labels": ["[Observed]","[Inferred]","[Unverifiable]","[Not Found]"],
+  "_human_gate": ["entries[].verified_by"],
+  "field": "AI marketing content tools",
+  "entries": [
+    { "name": "Jasper", "what_they_own": {"value":"AI content generation at scale","label":"[Observed]"},
+      "primary_audience": {"value":"marketing teams","label":"[Observed]"},
+      "archetype": {"value":"Creator","label":"[Inferred]"},
+      "strongest_asset": {"value":"brand-voice training on your inputs","label":"[Observed]"},
+      "exploitable_weakness": {"value":"generates, doesn't audit — no score, no gate","label":"[Inferred]"},
+      "verified_by": "Bear Brown" },
+    { "name": "Writer", "what_they_own": {"value":"enterprise style-guide enforcement","label":"[Observed]"},
+      "primary_audience": {"value":"large enterprises","label":"[Observed]"},
+      "archetype": {"value":"Ruler","label":"[Inferred]"},
+      "strongest_asset": {"value":"governance + compliance","label":"[Observed]"},
+      "exploitable_weakness": {"value":"heavy, slow, priced out of small teams","label":"[Inferred]"},
+      "verified_by": "Bear Brown" },
+    { "name": "Grammarly", "what_they_own": {"value":"correctness and clarity","label":"[Observed]"},
+      "primary_audience": {"value":"everyone who writes","label":"[Observed]"},
+      "archetype": {"value":"Caregiver","label":"[Inferred]"},
+      "strongest_asset": {"value":"ubiquity and trust","label":"[Observed]"},
+      "exploitable_weakness": {"value":"voice-agnostic — fixes grammar, not brand fit","label":"[Inferred]"},
+      "verified_by": "Bear Brown" }
+  ],
+  "white_space": "No one sits AFTER the AI writer as a brand-voice quality gate for small/mid teams. Jasper generates, Writer governs the enterprise, Grammarly corrects — none scores a draft against a specific brand voice and tells a 5-person team what to fix."
+}

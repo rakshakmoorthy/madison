@@ -1,0 +1,13 @@
+{
+  "_artifact": "portfolios", "_assignment_part": "3",
+  "_human_gate": ["entries[].admire","entries[].would_change"],
+  "entries": [
+    { "owner": "Linear (company site)", "url": "https://linear.app",
+      "presentation_structure":"single-scroll, heavy whitespace","showcasing_approach":"product UI as hero","storytelling":"opinionated manifesto voice","technical_demonstration":"live UI snippets","standout_element":"keyboard-first motion design",
+      "admire":"the restraint — one idea per screen, nothing competing","would_change":"the dark-only palette limits accessibility" },
+    { "owner": "Stripe Docs", "url": "https://stripe.com/docs",
+      "presentation_structure":"two-pane docs","showcasing_approach":"code beside prose","storytelling":"task-first","technical_demonstration":"runnable examples","standout_element":"copy-paste that just works",
+      "admire":"every claim is immediately testable in-page","would_change":"navigation depth can bury you" }
+  ],
+  "best_practices_synthesis": "The strongest portfolios show, don't tell — runnable proof beside the claim — and hold one idea per screen. Aligna's own site should put a live draft-scoring demo above the fold and let the result be the pitch."
+}

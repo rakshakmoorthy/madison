@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aligna — the brand-voice QA layer for teams that write with AI</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<style>
+  :root{ --bg:#fff; --ink:#111; --muted:#666; --line:#e3e3e3; --accent:#C8102E; }
+  @media (prefers-color-scheme:dark){ :root{ --bg:#0f0f0f; --ink:#f0f0f0; --muted:#9a9a9a; --line:#262626; } }
+  *{ box-sizing:border-box; } html,body{ margin:0; height:100%; }
+  body{ background:var(--bg); color:var(--ink); font:400 24px/1.4 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif; }
+  .deck{ height:100vh; display:flex; align-items:center; justify-content:center; }
+  .slide{ display:none; width:min(1100px,92vw); padding:4vmin; }
+  .slide.on{ display:block; }
+  .slide h1{ font-size:clamp(30px,5.2vw,60px); line-height:1.08; letter-spacing:-.01em; margin:0 0 .6em; font-weight:800; }
+  .slide :is(p,li){ font-size:clamp(22px,2.4vw,30px); }   /* 30pt-minimum spirit */
+  .slide h2{ font-size:clamp(24px,3vw,36px); } .slide h3{ font-size:clamp(22px,2.6vw,30px); }
+  .slide ul,.slide ol{ margin:.2em 0 .2em 1.1em; } .slide li{ margin:.25em 0; }
+  .slide img,.slide svg{ max-width:100%; height:auto; }
+  .slide strong{ color:var(--accent); }   /* one accent, used sparingly */
+  blockquote{ border-left:4px solid var(--accent); margin:.5em 0; padding:.1em 0 .1em .8em; color:var(--muted); }
+  code{ font-family:ui-monospace,Menlo,monospace; font-size:.85em; background:color-mix(in srgb,var(--ink) 8%,transparent); padding:.05em .3em; border-radius:4px; }
+  .bar{ position:fixed; bottom:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center;
+        padding:.5em 1em; font-size:14px; color:var(--muted); border-top:1px solid var(--line); background:var(--bg); }
+  .bar b{ color:var(--accent); }
+  .notes{ display:none; position:fixed; bottom:2.6em; left:0; right:0; max-height:38vh; overflow:auto;
+          padding:1em 1.4em; border-top:1px solid var(--line); background:var(--bg); color:var(--muted); font-size:18px; }
+  .notes.on{ display:block; } .notes :is(p,li){ font-size:18px; }
+  @media print{
+    .bar,.notes{ display:none !important; }
+    .deck{ height:auto; display:block; }
+    .slide{ display:block !important; width:100%; min-height:100vh; page-break-after:always; padding:8vmin; }
+  }
+</style></head>
+<body>
+  <div class="deck">
+    <section class="slide" data-notes="&lt;p&gt;15 seconds. Name, one line, who it's for. Memorable. Don't read the slide — say it.&lt;/p&gt;"><h1>Aligna — the brand-voice QA layer for teams that write with AI</h1><p>Madison Pitch · Nik Bear Brown</p></section>
+    <section class="slide" data-notes="&lt;p&gt;75s. Hook = the loss. Name a real team type (a 5-person marketing team). Describe the frustration, not the tech. The stat is a PLACEHOLDER — find the sourced number or drop it.&lt;/p&gt;"><h1>AI volume is eroding the one thing a brand can't outsource: sounding like itself</h1><p>Marketing teams ship AI drafts faster than anyone can check them.</p>
+<p>The result reads fluent — and off-brand.</p>
+<blockquote>Cost of inaction: brand inconsistency is widely cited as a media-efficiency tax — <strong>[Unverified — cite or cut before pitching]</strong>.</blockquote></section>
+    <section class="slide" data-notes="&lt;p&gt;75s. Destination, not engine. No &quot;LLM / embeddings / pipeline.&quot; The aha: &quot;sounds right&quot; becomes &quot;checked.&quot;&lt;/p&gt;"><h1>Instead of eyeballing tone by hand, teams get a score and the fix before they publish</h1><p>Before: publish and hope it sounds like you.</p>
+<p>After: every draft scored against <em>your</em> voice, with what to change.</p>
+<p>The bridge: Aligna sits <strong>after</strong> the AI writer, as a quality gate.</p></section>
+    <section class="slide" data-notes="&lt;p&gt;45s. Orchestra analogy if asked. One sentence of &quot;smart AI that learns your patterns.&quot; Why impossible 5 years ago.&lt;/p&gt;"><h1>The magic: it learns your voice from your own approved writing — not a generic one</h1><p>We train the check on the brand's <em>own</em> on-brand paragraphs.</p>
+<p><strong>Why now:</strong> models good enough to compare voice at the sentence level only arrived recently.</p></section>
+    <section class="slide" data-notes="&lt;p&gt;50s. Conservative, round numbers. Lead with Team tier. Any market-size number runs the provenance gate.&lt;/p&gt;"><h1>For every 200 teams paying $99/month, Aligna generates ~$240K ARR</h1><p>| Tier | Price/mo | For | Unlocks |</p>
+<p>| Solo | $29 | freelancers | 1 brand voice |</p>
+<p>| Team | $99 | 5–20 marketers | shared voice + gate |</p>
+<p>| Org | $499 | agencies | multi-brand |</p></section>
+    <section class="slide" data-notes="&lt;p&gt;50s. Specific trigger events. Name the exact first channel. &amp;lt;75 words spoken.&lt;/p&gt;"><h1>First 10 customers: the agencies already drowning in AI drafts</h1><p>Three micro-segments: agencies running Jasper/Writer · in-house teams post-rebrand · ghostwriters with multiple clients.</p>
+<p>Channel: direct outreach to 20 agencies + the Humanitarians AI network.</p>
+<p>AI live-intel: scan job posts for "brand voice" hires = a team feeling the pain now.</p></section>
+    <section class="slide" data-notes="&lt;p&gt;45s. End on the one declarative &quot;we win because…&quot;. Unfair advantage = the gate position + your-voice training.&lt;/p&gt;"><h1>We win because we sit after the writer, not instead of it</h1><p>| Competitor | Does | Misses | Our edge |</p>
+<p>| Jasper | generates | no score/gate | we audit, don't generate |</p>
+<p>| Writer | enterprise governance | heavy, slow | light, for small teams |</p>
+<p>| Grammarly | grammar | voice-agnostic | we score brand fit |</p>
+<p><strong>We win because</strong> nobody scores a draft against a specific brand voice for small teams.</p></section>
+    <section class="slide" data-notes="&lt;p&gt;40s. Be honest about stage — concept/prototype is fine and builds credibility. No hedging.&lt;/p&gt;"><h1>Status: working prototype, scoring real drafts today</h1><p>Now: prototype scores pasted drafts against a 25-sample voice profile.</p>
+<p>30–60 days: browser extension.</p>
+<p>60–120 days: 3 paying design partners.</p>
+<p>Launch: public beta Q4.</p></section>
+    <section class="slide" data-notes="&lt;p&gt;75s. Frame every step as the customer's outcome, not the code. Show the runnable artifact if you have one.&lt;/p&gt;"><h1>What a user actually experiences, in five steps</h1><ol>
+<li>Paste a draft → 2. Aligna scores it against your voice (invisible) → 3. See a 0–100 fit score → 4. Get the 3 lines to fix → 5. Publish on-brand.</li>
+</ol>
+<p><em>(Live demo here — always have a backup video.)</em></p></section>
+    <section class="slide" data-notes="&lt;p&gt;30s. Specific ask. CTA in 48 hours. Closing line echoes slide 2's hook: sounding like yourself is the one thing you can't outsource — and now you can prove it.&lt;/p&gt;"><h1>The ask: 3 design partners + a technical advisor, by end of month</h1><p>We are seeking 3 design-partner teams and one technical advisor to reach paid beta by [date].</p>
+<p>| Need | Purpose | Outcome |</p>
+<p>| 3 partners | real voice data | a validated gate |</p>
+<p>| 1 advisor | extension architecture | shippable beta |</p>
+<p><strong>Do this in 48 hours:</strong> intro us to one marketing team writing with AI.</p></section>
+  </div>
+  <aside class="notes" id="notes"></aside>
+  <div class="bar"><span>Aligna — the brand-voice QA layer for teams that write with AI</span><span><b id="cur">1</b> / 10 &nbsp;·&nbsp; ← → move · n notes · f full · p print</span></div>
+<script>
+  const slides=[...document.querySelectorAll('.slide')], notesEl=document.getElementById('notes'), curEl=document.getElementById('cur');
+  let i=Math.max(0,(location.hash.match(/\d+/)||[1])[0]-1);
+  function show(n){ i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+    curEl.textContent=i+1; notesEl.innerHTML=slides[i].dataset.notes||'<em>(no notes)</em>'; location.hash='#'+(i+1); }
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){show(i+1);e.preventDefault();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){show(i-1);}
+    else if(e.key==='n'){notesEl.classList.toggle('on');}
+    else if(e.key==='f'){document.documentElement.requestFullscreen?.();}
+    else if(e.key==='p'){window.print();}
+  });
+  show(i);
+</script>
+</body></html>

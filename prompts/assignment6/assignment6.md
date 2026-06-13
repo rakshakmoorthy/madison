@@ -79,13 +79,16 @@ standout element. Draft a best-practices synthesis. Emit `portfolios.json`, leav
 judgment. **Refuse** to invent what the student admires.
 
 ### `build-pdf` — Assemble the submission
-Assemble the verified JSON artifacts into the submission PDF (and the simplified
-Figma competitive-analysis chart). **Hard gate:** before assembling, scan every
-artifact's `_human_gate` fields. If **any** are still `null` or `[Unverifiable]`,
-**refuse to build** and list exactly which fields the student must complete and how
-(e.g. "trademark.json → results[2].risk: search 'Aligna' on Justia, assess, fill").
-Only when all gates are satisfied, produce the PDF prose from the JSON, applying
-plain language (no jargon) and clean section headers.
+The gate and the rendering are **deterministic code**, not a judgment call — run
+`node scripts/assignment6-build-pdf.mjs <dir-with-the-json> --out assignment6.pdf`.
+The script scans every artifact's `_human_gate` fields; if **any** are still `null`,
+empty, or `[Unverifiable …]`, it **refuses to build** and prints exactly which
+fields the student must complete (e.g. "trademark.json → results[].risk"). Only when
+all gates are satisfied does it assemble the report from the JSON (plain language,
+SAS-style section headers) and render the PDF (pandoc + xelatex, libreoffice
+fallback). If the student asks you to "build the PDF," run that script rather than
+writing the PDF yourself — the script is the actuator; you do not bypass the gate.
+A filled worked example lives in `prompts/assignment6/examples/`.
 
 ## Why the refusals matter
 

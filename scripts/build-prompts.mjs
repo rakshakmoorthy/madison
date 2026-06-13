@@ -43,6 +43,16 @@ function parseManifest(text) {
 }
 
 // --- helpers -------------------------------------------------------------
+// Resolve a knowledge_file: suite-local first, then prompts/_shared/ (so suites
+// can share disciplines without duplicating them). Falls back to suite path.
+function resolveKf(suiteDir, kf) {
+  const local = path.join(suiteDir, kf);
+  if (fs.existsSync(local)) return local;
+  const shared = path.join(REPO, 'prompts', '_shared', kf);
+  if (fs.existsSync(shared)) return shared;
+  return local;
+}
+
 function fold(text, indent = '  ', width = 76) {
   const words = text.split(/\s+/);
   const lines = [];
@@ -85,7 +95,7 @@ function buildSkill(suiteDir, m, outRoot) {
   for (const kf of m.knowledge_files || []) {
     const dst = path.join(stage, kf);
     fs.mkdirSync(path.dirname(dst), { recursive: true }); // support subdir files (e.g. schemas/)
-    fs.copyFileSync(path.join(suiteDir, kf), dst);
+    fs.copyFileSync(resolveKf(suiteDir, kf), dst);
   }
   execSync(`zip -r -X "${m.name}.skill" "${m.name}"`, { cwd: tmp, stdio: 'pipe' });
 
@@ -106,7 +116,7 @@ function buildSkill(suiteDir, m, outRoot) {
 function selfContained(suiteDir, m) {
   let text = fs.readFileSync(path.join(suiteDir, m.body), 'utf8').trimEnd();
   for (const kf of m.knowledge_files || []) {
-    const kbody = fs.readFileSync(path.join(suiteDir, kf), 'utf8').trimEnd();
+    const kbody = fs.readFileSync(resolveKf(suiteDir, kf), 'utf8').trimEnd();
     text += `\n\n---\n\n<!-- knowledge file: ${kf} -->\n\n${kbody}`;
   }
   return text + '\n';

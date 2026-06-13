@@ -1,5 +1,10 @@
 # Appendix I — The CAJAL Figure Command Set and SVG Style Guide
 
+> **Operational source of truth: the `prompts/cajal/` suite** — the command set is
+> `prompts/cajal/cajal.md`, the SVG style guide is `prompts/cajal/svg-style.md`. This
+> Appendix is the book's *published copy* of that suite (the full text inline, for
+> readers). Regenerate it from the suite; do not hand-edit this file as the source.
+
 <!-- SUBJECT-SPECIFIC OPERATING FRAME: START -->
 
 ## Subject-Specific Operating Frame

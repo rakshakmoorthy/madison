@@ -3,6 +3,103 @@
 Human-readable history for recipe-driven work. Short, concrete entries; no
 secrets, personal contact details, or private notes.
 
+## 2026-06-13 — Drafted Exercise Seven: Brand Identity, conducted with Nina (backs A7)
+
+- **Recipe:** manual (author-directed). A step-by-step lab that has students drive the `nina` skill to produce Assignment 7's three components, then execute the visuals themselves.
+- **Command→component, as moves:** `/n4`+`/n5`+`/n6` = creative brief; `/n2`→`/n7`→`/n8`→`/n9`→`/n11` = visual identity (palette w/ hex+WCAG, Google-Fonts type, four logo concepts + the AI-generation prompts the student runs in Canva, style guide); `/n10` = five wireframes + user flow + Vercel-v0/Framer/Wix comparison; `/n12`→`/jargon`→`/polish`→`/ready` = finalize.
+- **The division is the lesson:** Nina writes the spec (Tier-1); the human runs the logo prompts, iterates ≥3 rounds, builds the Figma frames, and owns the call. Graded discipline = the **trace audit**: every visual choice points to a brief line / the archetype (a generic identity is the visual form of the fluency trap). Built on the A6 `brand.yml` — Nina is the A6→A7 through-line.
+- **House format:** Move 0–7, 25 pts (20 itemized + 5 capped Glimmer with the anti-generic test), what-can-go-wrong, before-you-submit. Plus `prompts/nina/using-nina-for-assignment-7.md` (the command map). Indexed in DOMAIN.md + HOW-TO-CHECK.md.
+- **Open issues:** v1, not run by a cohort; the trace audit is a human gate (a per-choice → brief-line table could be machine-checkable later). The actual logo/wireframe/Figma artifacts remain human-built — by design.
+
+## 2026-06-13 — Drafted Exercise 6A: the pitch deck from the arc (the trace audit)
+
+- **Recipe:** manual (author-directed). A lab between A6 and the Madison Pitch midterm (like 1A off A1): build the 10-slide brutalist HTML/D3 pitch deck from the verified artifacts of Exercises 1→6.
+- **The graded discipline = the trace audit:** every on-slide claim points to an artifact the student already attested (`brand/resume.json`/`brand.yml`/`gaps.md`, `targets.json`, the Ex-3 data defense, the Ex-5B recipe, the A6 name + matrix), or it is flagged as an aspiration and moved off the slide into the notes. Same "proof or it's a gap" rule as `brand.yml`, same "every claim traces or is flagged" as the 1A board audit — turned on the pitch, the single most tempting place to inflate.
+- **Tooling reused:** the `slides-deck` skill writes the spec; `scripts/build-deck.mjs` renders HTML + the submission PDF. Provenance gate on every stat; destination-language on every slide; honest recipe lifecycle stage on slide 8 (no "MVP" for a DRAFT).
+- **House format:** six moves, 25 pts (20 itemized mechanics — incl. the trace audit at 5 — + 5 capped Glimmer), what-can-go-wrong, before-you-submit. Indexed in DOMAIN.md + HOW-TO-CHECK.md.
+- **Open issues:** v1, not run by a cohort; the trace audit is a human gate (a `deck-trace.json` schema + a checker could machine-verify that every slide id has a backing artifact path — a natural follow-on, like a5b-verify).
+
+## 2026-06-13 — Slide decks in HTML/D3: build-deck.mjs (renderer) + prompts/slides-deck/ (spec writer)
+
+- **Recipe:** manual (author-directed). The phase gate the *AI for Slides* book preaches: code renders, human/LLM decides content.
+- **`scripts/build-deck.mjs`** (code): renders a Markdown slide spec into a self-contained, keyboard-navigable **brutalist HTML/D3 deck** — assertion-headline layout, one-idea slides, dark/light CSS variables, one accent, speaker-notes toggle (`n`), `←/→` nav, `f` fullscreen, and **print-to-PDF (one slide per page)** for the pitch submission. Loads D3 7.9 from CDN so slides can embed live D3 figures. Spec format: slides split on `---`, `# headline` = the claim, body = the visual/short points, `NOTES:` = the spoken script.
+- **`prompts/slides-deck/`** (skill): writes the spec from pitch/lecture content applying the book's rules (claim not label, ≤~40 on-slide words, visual over bullets, notes carry the talk) + the Kawasaki 10-slide structure, referencing `_shared/destination-language.md` + `cleanup-standard.md`. Built to skill/agents/cursor.
+- **Worked example:** `prompts/slides-deck/examples/madison-pitch-deck.md` → `.html` — the 10-slide Madison Pitch midterm for the "Aligna" brand (assertion headlines, destination language, the canned stat left as `[Unverified — cite or cut]` per the provenance gate). Delivered to `outputs/madison-pitch-deck.html`.
+- **Verify:** conformance clean. `prompts/` now: courses, assignment6, review, nina, brandy, madison-pitch, cajal, slides-deck + `_shared`.
+- **Open issues:** the Markdown→HTML converter is intentionally minimal (paragraphs, lists, bold/italic/code, images, blockquote, raw HTML/SVG passthrough) — no tables-to-grid styling yet (pipe tables render as raw text lines; use raw HTML `<table>` or a D3 figure for real tables). `build-deck` could become a `madison-pitch` follow-on (`build-pitch` chains the pitch scripts → spec → deck).
+
+## 2026-06-13 — Added "how to check" to every exercise + a shared guide
+
+- **Recipe:** manual (author-directed). Students now have a self-check step before submitting each exercise — the course's own conformance discipline turned on their own work.
+- **`docs/exercises/HOW-TO-CHECK.md`** (shared): the three check layers — machine conformance (`conformance.mjs` / `npm run verify`), human readability (`to-markdown.mjs` / the `review` skill), and assignment-specific verifiers (`a5b-verify.mjs`, `assignment6-build-pdf.mjs`) — plus a per-exercise quick-reference table.
+- **All 7 exercise files** got a tailored "Before you submit — check it" section before "What can go wrong", each with the exact command for that exercise's artifacts (brand/ folder, board-claims.json, targets.json, data/, brand_config.json+gates.yml, fence-diff+deploy, the A5B zip verifier) and the same caveat: conformance ≠ adequacy; a pass means gradeable, not an A.
+- **Verify:** conformance clean across docs/exercises.
+
+## 2026-06-13 — Built the Assignment 5B submission verifier (machine-half conformance for grading)
+
+- **Recipe:** manual (author-directed). `scripts/a5b-verify.mjs` — a student points it at their submission `.zip`; it reports what's missing and the automatic deductions they'd hit. Conformance only (present + well-formed); adequacy stays human.
+- **Checks, mapped to the rubric/deductions:** the three separate files (PDF / `brand_config.json` / `recipe_*.md|txt`) + PDF naming; config is valid JSON with no `[placeholder]` fields and every `phase_gates[].judgment_type` ∈ {PA,PF,TO,IJ,EI} (−10); recipe has all four layers, executive summary, conductor note, typed TODOs, and every PHASE GATE typed (−10/−15); `data/verified/` (if zipped) has a README + ≥25 records per source subfolder; flags the two it can't see (GitHub link + Nik/Nina access −15; `/snickerdoodle` run in the PDF). Exit 1 on any blocker with an estimated total deduction.
+- **Tested** on a passing fixture (exit 0) and a broken one (8 blockers, −30 listed). Fixed a folder-detection bug (found `data/verified/` only when a README sat directly inside) — now finds it via any subfile.
+- **Delivered:** `outputs/a5b-verifier.zip` (the script + a README + a sample passing submission) and `outputs/a5b-verify.mjs`. Pointed `docs/exercises/exercise-05b-build-the-recipe.md` at it ("before you submit, run the check"). Conformance-clean.
+- **Open issues:** PDF *contents* aren't parsed (no pdftotext dependency) — the `/snickerdoodle` and GitHub-link checks stay manual. Record-counting handles `.json`/`.csv`/`.tsv`; other formats count 0. It checks shape, not whether the 25 records actually passed the student's stated gate (adequacy = human).
+
+## 2026-06-13 — Reconciled the three CAJAL prompts into one prompts/cajal/ suite
+
+- **Recipe:** manual (author-directed). The three weren't duplicates — two halves + a combined copy: `prompts/cajal.md` (figure-intelligence command set), `prompts/svg-cajal.md` (SVG generator), `prompts/authoring/cajal.md` (Appendix I = both combined + subject frame + scripts + references).
+- **Resolution:** built `prompts/cajal/` as the single operational source — `cajal.md` (the command set, body) + `svg-style.md` (the SVG style/rendering knowledge file) + manifest (skill/agents/cursor). Moved the two root halves into it; root `prompts/` no longer has stray cajal files. Marked the book's Appendix I (`prompts/authoring/cajal.md`) as a **published copy** of the suite (banner: regenerate from the suite, don't hand-edit) — same source-vs-published-copy pattern as the rest.
+- **Safe:** the enrichment prompts only reference `pantry/{slug}-cajal.md` *outputs* (the figure plans), not the prompt files — moving the prompts broke nothing. Built; conformance clean. DOMAIN.md + NEXT-AFTER-DEMO updated.
+- **Open issues:** the Appendix is still a hand-copy, not literally generated from the suite — a future `build-prompts` "published-copy" target could emit it. The `authoring/` single prompts (factcheck/figure-checker) could reference `_shared/` later.
+
+## 2026-06-13 — Upgraded brand.yml media: from a second (stronger) cited research pass
+
+- **Recipe:** manual (author-directed). A second, independent deep-research media-target map (saved as `brand/media-target-map.md`) converged with the first (`media-research.md`) on the spine — costly/gated signals beat reach; Kindle "change how"; GitHub stars are noise — and added more specific, better-sourced channels. Two independent passes agreeing is itself a costly signal.
+- **brand.yml:** renamed `media_targets:` → `media:` (matches the exercise's "media: section"), **de-duped a doubled EdSurge entry**, and replaced the keep-list with the upgraded cited channels: artifact-audited methods venues (ACM badges), Registered Reports, GitHub-by-USE-not-stars, arXiv/SSRN as discovery-only, artifact-linked skepticism.ai policy briefs, NIST workshops/standards, Stanford HAI/OECD-GPAI convenings, NACD+CMU board education, search-firm/advisory intermediaries, Education Week. **Kept** the EdSurge inbound as the lead (the report couldn't know about it; it's the strongest cited signal) and the education audience. Merged the cut lists (6).
+- **Preserved honesty:** the report's lower-confidence flags carried over (board/Kindle verdicts partly inference; Corporate Board Member/Brookings/FAR.AI = amplifiers).
+- **Verify:** `brand.yml` passes conformance (valid YAML); review renderer shows 0 open gates. 11 media channels · 6 cuts · 4 audiences.
+
+## 2026-06-13 — Post-demo consolidation: stood up nina/brandy/madison-pitch as suites + prompts/_shared/
+
+- **Recipe:** manual (author-directed). Executed `NEXT-AFTER-DEMO.md` steps 1–3.
+- **Converter:** added `_shared/` resolution to `build-prompts.mjs` — a manifest `knowledge_file` resolves suite-local first, then `prompts/_shared/` (so suites share disciplines without duplicating them). Verified: nina bundles its 6 shared files from `_shared/`.
+- **`prompts/_shared/` (6 reconciled-superset knowledge files):** `jargon-audit.md`, `cleanup-standard.md`, `destination-language.md`, `archetypes.md`, `readiness-score.md`, `competitive-method.md` — the disciplines that were forked across nina/pitch/brandy, now single-source. (`archetypes.md` is the same file the book's archetype chapter should draw from.)
+- **Three suites built (skill/agents/cursor):** `prompts/nina/` (brand identity, 24 commands — Assignment 6 Part 1 fit), `prompts/brandy/` (brand comms audit — Part 1B fit), `prompts/madison-pitch/` (10-slide venture pitch). Each manifest lists only the `_shared` files it uses; the bodies hold the suite-specific commands and *reference* the shared rules instead of restating them. Kills the duplication the overlap doc flagged: one jargon audit, one cleanup standard, one archetype file, one readiness rubric, one competitive method — referenced by all.
+- **Two pitch fixes applied:** (a) a **provenance gate** at the top of madison-pitch — the canned "1.75x media / 23–33% revenue" stats are now `[Unverified — cite or cut]` placeholders, and every number must be sourced or labeled (the Madison way); (b) the truncated **Bonus C** ("Shut Up and Take My Money") rebuilt cleanly as a 0–100 VC score mapped onto `readiness-score.md`, no longer merged into the clean-up prompt.
+- **Verify:** `npm run verify` (conformance) passes on 148 files. All manifests/bodies well-formed.
+- **Open issues:** CAJAL reconciliation still pending (three coexisting prompts: `prompts/cajal.md`, `prompts/svg-cajal.md`, `prompts/authoring/cajal.md`). Suite bodies are faithful condensations of the pasted sources — first cohort run should confirm fidelity. `writing-tools/`-era single prompts in `prompts/authoring/` could later reference `_shared/` too.
+
+## 2026-06-13 — Tooled the machine half of P4: scripts/conformance.mjs = npm run verify
+
+- **Recipe:** manual (author-directed). Operationalizes MYCROFT P4 ("machines verify conformance; humans verify adequacy"), which was stated but never tooled. Not all validation is the human's job — format/syntax conformance is deterministic and should be automatic.
+- **`scripts/conformance.mjs`** (code): walks given paths (default: prompts/, brand/, recipes/, scripts/ + root config/docs) and checks every machine-readable file is well-formed — JSON parses, YAML parses (PyYAML), JS/MJS `node --check`, Python `py_compile`, shell `bash -n`, Markdown (balanced ``` fences + terminated front-matter). Skips heavy/generated dirs (.build, images, data, ingest/gigo/tools/madison-main). Exit 1 + per-file reason on any failure.
+- **Wired into `npm run verify`** (was an empty placeholder) + added `npm run build-prompts`.
+- **Result:** 136 live files conform (104 md · 18 json · 5 yaml · 8 js · 1 py). Proven to catch the earlier `brand.yml` bug (re-broke a copy → exit 1, exact line). Conformance is the machine half; the `review` skill + attestation remain the human adequacy half. A valid file can still be wrong — both gates required.
+- **Open issues:** default scope is the active surfaces, not the whole repo (chapters/, docs/, ingest code excluded for speed) — pass paths explicitly to widen. Markdown check is well-formedness only (fences/front-matter), not prose linting. Natural next step: run `npm run verify` in the `.github/workflows/` CI and/or a pre-commit hook so conformance gates every change.
+
+## 2026-06-13 — Generalized review to JSON+YAML; default-Markdown house rule; caught a brand.yml YAML bug
+
+- **Recipe:** manual (author-directed). Extends the json-review loop to YAML and sets the house rule.
+- **House rule (CLAUDE.md + DOMAIN.md):** AI-native formats (JSON/YAML) are the machine's source of truth; **show humans the Markdown view by default**, raw AI-native only on request.
+- **Renames:** `scripts/json-to-markdown.mjs` → `scripts/to-markdown.mjs` (now loads JSON directly and YAML via PyYAML → JSON); `prompts/json-review/` → `prompts/review/` (skill `review`, broadened to `.json`/`.yaml`/`.yml`, default-Markdown rule in the body). Rebuilt to skill/agents/cursor.
+- **Bug caught by the tool:** rendering `brand/brand.yml` failed PyYAML parse — `media_cut` had been added as a mapping key *inside* the `media_targets` sequence (a sequence can't hold a key), so the file had been **invalid YAML** since the cut list landed. `build-prompts` never caught it (it only parses manifests). Lifted `media_cut` to a top-level key; `brand.yml` + all manifests now parse. The review renderer found a real structural defect on first contact — the tool doing exactly what the discipline promises.
+- **Open issues:** YAML comments are dropped in the Markdown view (author notes, not data) — `apply` must preserve them in the source. PyYAML is the YAML dependency (ubiquitous; the renderer shells to `python3`).
+
+## 2026-06-13 — Built json-review: JSON ↔ Markdown feedback loop (the readable face of facts-in-JSON)
+
+- **Recipe:** manual (author-directed). Solves real feedback: humans can't read raw JSON to give feedback (MYCROFT P5 — two customers). The JSON is for the machine; this renders the human-readable face and writes feedback back.
+- **`scripts/json-to-markdown.mjs`** (code): renders ANY JSON artifact as a Markdown "review sheet" — a "Needs your input" checklist (every `null`, `[CONFLICT]`, `[Unverifiable]`, and declared `_human_gate` field), a legend from `_label_key`, then the full content in prose/lists. Generic tree-walk; works on `brand/resume.json`, the `assignment6` schemas, any record.
+- **`prompts/json-review/`** (skill): `review <file.json>` renders the sheet and asks for feedback (read-only); `apply <file.json> "<feedback>"` writes the human's plain-language feedback back into the JSON — **applies only what the human explicitly said (never invents/infers a gate value; asks if ambiguous), preserves everything untouched, resolves conflicts AND updates the marker, shows a CHANGELOG (field: old → new), re-emits valid JSON, offers attestation when all gates fill.** Built to skill/agents/cursor.
+- **Demo:** rendered `brand/resume.json` → a 23-item "Needs your input" checklist + legend + readable content; saved as `outputs/resume-review.md`.
+- **Open issues:** `apply` is LLM-driven (the changelog is the verification surface; human still the gate). The renderer flags `null`/`[CONFLICT]`/`[Unverifiable]` and `_human_gate` paths but treats provenance labels (`[cv-only]`/`[Inferred]`) as info, not gaps — intended. Could add a write-back deterministic helper later, but feedback interpretation is inherently a judgment call.
+
+## 2026-06-13 — Wired a real PDF builder into Assignment 6 build-pdf (the gate now executes)
+
+- **Recipe:** manual (author-directed). Turns the spec'd `build-pdf` into running code.
+- **`scripts/assignment6-build-pdf.mjs`** (code → `scripts/`): reads the 8 JSON artifacts, resolves each artifact's `_human_gate` paths (incl. nested `results[].domains[].available`), and **refuses to build** if any field is null/empty/`[Unverifiable]`, printing exactly which fields the student must finish. When all gates pass, it assembles a Markdown report (plain language, SAS-style section headers) and renders the PDF via **pandoc + xelatex**, with a pandoc→libreoffice fallback, and a final `.md` fallback if no engine exists.
+- **Worked example:** `prompts/assignment6/examples/` — 8 filled JSONs for a coherent startup brand ("Aligna", a brand-voice QA tool) with all gates satisfied, plus the rendered `assignment6-aligna.pdf` specimen.
+- **Demonstrated the gate both ways:** run against `schemas/` (templates) → refuses and lists all 16 open gates; run against `examples/` (filled) → builds a clean 3-page PDF. Verified the PDF renders correctly (read-back).
+- **`build-pdf` command** in `assignment6.md` now instructs the agent to *run the script*, not write the PDF itself — the script is the actuator; the agent does not bypass the gate. Skill rebuilt.
+- **Open issues:** the Figma competitive-chart export is still described, not generated (the PDF covers the document half of the submission). Renderer assumes pandoc + a LaTeX engine on the student's machine (libreoffice fallback); pure-JS rendering not added. `_human_gate` paths are matched structurally — if a schema's shape changes, update its gate list (the domains path was already corrected once).
+
 ## 2026-06-13 — Built the Assignment 6 Assistant: focused, fact-emitting skills with human gates
 
 - **Recipe:** manual (author-directed). A focused skill for INFO 7375 Assignment 6 (brand strategy + Madison tool naming) — and a worked instance of "AI does AI work, refuses human work, facts in JSON."

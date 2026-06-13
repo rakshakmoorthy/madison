@@ -142,11 +142,13 @@ Paste:
 build-pdf
 ```
 
-The assistant scans every JSON file for blank human-gate fields. **If any remain, it
+Under the hood this runs `node scripts/assignment6-build-pdf.mjs <your-json-dir>`.
+The script scans every JSON file for blank human-gate fields. **If any remain, it
 refuses to build** and lists exactly what's missing (e.g. "`trademark.json` →
-`Aligna.risk`: search Justia, assess, fill"). When everything is verified, it
-assembles the submission PDF and the simplified Figma competitive chart from your
-JSON — in plain language, no jargon.
+`results[].risk`"). When everything is verified, it assembles the submission PDF
+from your JSON — in plain language, no jargon. A filled worked example (the "Aligna"
+brand) lives in `examples/`, with its rendered `assignment6-aligna.pdf` to show the
+target output.
 
 Then: upload the PDF to Canvas, update your Figma board with the final name +
 one-line description + the competitive chart, and paste the Figma link in your

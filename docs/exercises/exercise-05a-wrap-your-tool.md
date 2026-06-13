@@ -95,6 +95,18 @@ Same bands/cap as Exercises One–Five (top quartile 4–5, descending; shallow 
 
 The thing the live demo most needs to model: **the DRIFT where a stranger ignored my best feature.** I'll deploy a tool whose One Thing I believe in, watch a real user never find it, and show you that the differentiator that lived in my brief lived *nowhere a user could see it.* The gap between what I *promised* a user would do and what they *actually* did is the whole lesson of shipping: the brief is the alibi, the interface is the actuator, and a stranger is the only honest test of whether they agree.
 
+## Before you submit — check it
+
+No JSON gate here — the checks are the fence and the deploy:
+
+```bash
+git diff --stat                 # clean fence: you changed only the open seam, not the DO-NOT-TOUCH zones
+curl -I <your-deployed-url>     # the live URL responds (200)
+```
+
+These confirm it shipped and you respected the fence — not whether the usability
+divergence log is honest (the human grade). Full guide: `docs/exercises/HOW-TO-CHECK.md`.
+
 ## What can go wrong
 
 | Symptom | What it means | Fix |

@@ -1,0 +1,15 @@
+{
+  "_artifact": "names", "_assignment_part": "2A",
+  "names": [
+    { "name": "BrandVoice QA", "category": "descriptive", "rationale": "Says exactly what it does.", "ai_impression_score": 6 },
+    { "name": "VoiceCheck", "category": "descriptive", "rationale": "Check = the gate metaphor.", "ai_impression_score": 7 },
+    { "name": "OnBrand", "category": "descriptive", "rationale": "The outcome, plainly.", "ai_impression_score": 6 },
+    { "name": "ToneGuard", "category": "descriptive", "rationale": "Guard = the QA gate.", "ai_impression_score": 7 },
+    { "name": "DraftGate", "category": "descriptive", "rationale": "The gate-before-publish idea.", "ai_impression_score": 6 },
+    { "name": "Aligna", "category": "creative", "rationale": "From 'align' — voice alignment, short, ownable.", "ai_impression_score": 9 },
+    { "name": "Veritone", "category": "creative", "rationale": "Veracity + tone; may collide.", "ai_impression_score": 6 },
+    { "name": "Cadence", "category": "creative", "rationale": "Voice as rhythm; generic.", "ai_impression_score": 5 },
+    { "name": "Timbre", "category": "creative", "rationale": "The quality of a voice; obscure spelling.", "ai_impression_score": 6 },
+    { "name": "Echoworks", "category": "creative", "rationale": "Echo = consistency; a bit soft.", "ai_impression_score": 5 }
+  ]
+}
