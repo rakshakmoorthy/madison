@@ -3,6 +3,24 @@
 Human-readable history for recipe-driven work. Short, concrete entries; no
 secrets, personal contact details, or private notes.
 
+## 2026-06-14 — Rewrote TIKTOC for Madison Recipe Engine practitioner guide
+
+- **Recipe:** manual architecture rewrite, author-directed.
+- **Artifact changed:** `TIKTOC.md`.
+- **Inputs used:** attached Madison recipe-opportunity research, attached "Irreducibly Human" TOC template, existing Madison chapter/repository structure, and `the-reallocation-engine/chapters/` as the mirrored structural model.
+- **Result:** Replaced the older "Madison Branding and AI / Creative Engineer" Tik TOC with an 849-line full TIKTOC for **Madison Recipe Engine: Verified Brand Workflows for Branding and Advertising Practitioners**.
+- **Structural decision:** Mirror `the-reallocation-engine` with introduction, five foundation chapters, ten applied practitioner recipe chapters, an integrated honest-run chapter, fundamentals, appendix, and back matter.
+- **Open issues:** This is an architecture document only. The next step is to create/rename chapter files and decide whether the new structure replaces top-level `chapters/` or becomes a new track such as `chapters/madison-recipe-engine/`.
+
+## 2026-06-14 — Researched entry/mid-level branding and advertising recipe opportunities
+
+- **Recipe:** manual research pass, Madison recipe-backlog discovery.
+- **Prompt generated:** `prompts/authoring/entry-mid-branding-advertising-recipes-research-prompt.md`.
+- **Report generated:** `reports/generated/entry-mid-branding-advertising-recipes-research.md`.
+- **Sources used:** BLS Occupational Outlook Handbook and O*NET task pages for market research analysts/marketing specialists and advertising/promotions managers.
+- **Result:** Identified a prioritized backlog of Madison-suitable recipes for early-career and mid-career brand/advertising work: creative brief assembly, claims/proof mapping, brand consistency audit, competitor signal scan, campaign performance readout, launch handoff, creative QA/spec check, audience/persona synthesis, content calendar with provenance, and brand reputation triage.
+- **Open issues:** This is a research synthesis, not a promoted recipe. The next step is to choose 1-3 recipes and write DRAFT recipe files with inputs, gates, logs, reports, and typed TODOs.
+
 ## 2026-06-13 — Drafted Exercise Seven: Brand Identity, conducted with Nina (backs A7)
 
 - **Recipe:** manual (author-directed). A step-by-step lab that has students drive the `nina` skill to produce Assignment 7's three components, then execute the visuals themselves.
@@ -385,3 +403,19 @@ workflow changes.
 - **Outputs:** `.github/workflows/verify.yml`; DOMAIN.md CI section.
 - **Result:** Both halves of P4 enforcement now in place — local hooks (.claude/) + remote CI. The drift guard means a hand-edited AGENTS.md/CLAUDE.md fails the build, making the source-vs-adapter rule self-policing. Closes audit P1 (stale menu fixed earlier) + P2 (helper scripts built) + P3 (CI + hooks) — the full audit backlog.
 - **Open issues:** None blocking. Workflow assumes node-only run (no npm ci — conformance/build-instructions need no deps beyond node + pyyaml).
+
+## 2026-06-14 -- Research missing TIKTOC chapters from repo sources
+
+- **Skill:** Chapter research pass for the Madison Recipe Engine TIKTOC; repo-local sources treated as the primary evidence base.
+- **Commands:** Read `TIKTOC.md` proposed chapter list; scanned top-level `chapters/`, `recipes/`, `prompts/`, `docs/`, `logs/`, and `reports/`; copied the most relevant shared-library markdown sources from `/Users/bear/Documents/CoWork/bear-textbooks/MD/` into `pantry/` with `_lib_` prefixes; generated per-chapter research notes with `node scripts/generate-madison-chapter-research-notes.mjs`.
+- **Outputs:** Added `scripts/generate-madison-chapter-research-notes.mjs`; added `pantry/chapter-research-index.md`; added `pantry/01-the-fluency-trap_notes.md` through `pantry/16-the-build-and-the-honest-run_notes.md`; added 8 `_lib_*.md` shared-library source copies.
+- **Result:** Missing top-level chapters 01-16 now have source-grounded research notes covering TIKTOC summary, conceptual foundations, practitioner examples, dependencies, current Madison state, teaching considerations, and repo source maps.
+- **Open issues:** The chapter files themselves are still unwritten; the next pass can draft `chapters/01-*.md` through `chapters/16-*.md` from the pantry notes.
+
+## 2026-06-14 -- TIKTOC-driven chapter write
+
+- **Skill:** TIKTOC-driven chapter authoring using the Madison chapter anatomy and pantry research notes.
+- **Commands:** Read attached Chapter Writer prompt; confirmed `TIKTOC.md`, `book.md`, `chapters/`, and `pantry/`; generated missing top-level chapters with `node scripts/write-madison-tiktoc-chapters.mjs`; inspected representative chapter outputs and `logs/log.csv`.
+- **Outputs:** Added `chapters/01-the-fluency-trap.md` through `chapters/16-the-build-and-the-honest-run.md`; rewrote `chapters/97-fundamental-themes.md` as a Madison appendix; added `scripts/write-madison-tiktoc-chapters.mjs`; appended one row per written chapter to `logs/log.csv`.
+- **Result:** The top-level Madison book now mirrors the TIKTOC chapter structure through Chapter 16, with each chapter following the concrete scenario, capability, recipe, evidence boundary, project task, verification, human-judgment gate, and bridge anatomy.
+- **Open issues:** Drafts are coherent first-pass chapters rather than deeply expanded final prose; a later editorial pass can add longer worked examples, diagrams, and chapter-specific exercises if desired.

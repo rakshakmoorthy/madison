@@ -1,587 +1,849 @@
-# Madison Branding and AI
+# Madison Recipe Engine
 ## Tik TOC Architecture
 
-**Working title:** Madison Branding and AI: Agentic Brand Systems for Creative Engineers  
+**Working title:** Madison Recipe Engine: Verified Brand Workflows for Branding and Advertising Practitioners  
 **Repository:** `books/madison`  
-**Book track:** `chapters/branding-and-ai/`  
-**Source adaptation:** Madison agentic marketing repository plus the generic Claude agentic AI coding/supervision model in `pantry/claude-agentic-ai.md`  
-**Document:** Tik TOC silent intake and chapter architecture  
-**Status:** Architecture draft for manuscript alignment, chapter repair, and production planning  
+**Book track:** proposed top-level `chapters/`, mirroring `books/the-reallocation-engine/chapters/`  
+**Source adaptation:** Existing Madison repository, current Madison chapters, the attached entry/mid-level branding-advertising recipe research, and the "Irreducibly Human" TOC structure  
+**Document:** Full TIKTOC architecture for chapter planning, manuscript repair, and production sequencing  
+**Status:** Architecture rewrite for practitioner-guide direction  
 
 ---
 
-## 1. Book Concept and Thesis
+## Document Structure
 
-### Concept Summary
-
-This book teaches technically capable students, founders, marketers, and creative professionals how to build brand systems in an AI-mediated world. It uses the Madison framework as the practical reference architecture: a layered, agentic marketing system with Intelligence, Content, Research, Experience, and Performance agents coordinated through an orchestration layer.
-
-The book is not a tool tour. It is a method for integrating engineering, brand strategy, AI workflow design, and launch practice. The reader learns to ideate, build, brand, and ship a visible product or professional presence while preserving human judgment over positioning, evidence, taste, scope, and public claims.
-
-### One-Sentence Logline
-
-When AI makes building cheaper, the scarce skill is knowing what to build, how to position it, how to verify it, and how to ship it as a coherent brand.
-
-### Central Thesis
-
-Madison Branding and AI argues that brand work is no longer downstream decoration after technical work is done. In an AI-mediated labor market, brand is part of the technical system: it shapes product scope, architecture, interface, data contracts, storytelling, portfolio design, and launch credibility. The Creative Engineer is the practitioner who can move across those layers without confusing fluent AI output for verified strategy.
-
-### Adaptation From Claude Agentic AI
-
-The generic Claude agentic AI book contributes the operating discipline:
-
-- agentic work is supervised delegation, not autonomous replacement;
-- every workflow needs scope, approval, and verification;
-- tools and permissions expand both capability and risk;
-- plans are proposals, not proof;
-- humans remain accountable for judgment and public-facing outputs.
-
-Madison adapts that discipline from coding and knowledge-work agents into branding and marketing:
-
-- **Scope** becomes product scope, brand scope, audience scope, and workflow scope.
-- **Approval** becomes human review of architecture, claims, creative direction, public copy, and launch assets.
-- **Verification** becomes evidence checks for audience claims, market claims, performance claims, accessibility, figure accuracy, and portfolio readiness.
-
-The result is a book about agentic brand-building: not "ask AI to make a brand," but "design an inspectable brand system with AI as a bounded collaborator."
+1. Book Concept and Thesis
+2. Learner Profile
+3. Book Type and Deployment Specification
+4. Repository-Specific Grounding
+5. Field Positioning
+6. Three-Act Learning Arc
+7. Sequencing Model
+8. Prerequisite Map
+9. Chapter-by-Chapter TOC
+10. Learning Outcomes by Chapter
+11. Running Project Spine
+12. Chapter Anatomy Template
+13. Recipe and Case Strategy
+14. Hard Topics, Contested Claims, and Aging Risk
+15. Market Positioning
+16. Feature List
+17. Out of Scope
+18. Adoption Risk Register
+19. Open Questions
 
 ---
 
-## 2. Learner Profile
+# Part 1 - Book Concept and Thesis
 
-### Primary Reader
+## Book Concept Summary
 
-Graduate students, early-career engineers, technical founders, product builders, marketers, and creative professionals who can use AI tools but do not yet know how to turn AI-assisted output into a coherent, defensible brand or launch package.
+This book teaches entry-level and mid-level branding, advertising, marketing communications, account, and creative-operations practitioners how to turn repeatable brand work into auditable Madison recipes.
 
-### Prior Knowledge Assumed
+The book is both a practitioner guide and a working repository. The chapters teach the method; `recipes/`, `prompts/`, `scripts/`, `data/`, `logs/`, and `reports/` show the method in operation. The reader does not merely learn that AI can help with brand work. They learn how to separate what AI can execute from what humans must still judge: audience truth, strategic fit, evidence quality, claims risk, tone, taste, approval, release, and learning.
 
-- Basic comfort with AI chat tools.
-- Basic digital literacy: files, links, web tools, simple dashboards, and public profiles.
-- Some comfort reading technical explanations.
-- Interest in building a project, product, portfolio, or professional identity.
+The structure mirrors *The Reallocation Engine*: first the reader learns the general discipline - fluency is not correctness, effort must be reallocated, data needs a contract, recipes serve two customers, and verified evidence still needs interpretation. Then the rest of the book becomes a practitioner guide to useful brand and advertising recipes: competitor signal scans, creative briefs, KPI maps, claims evidence sheets, persona synthesis, content calendars, brand QA, launch trafficking, performance reporting, reputation routing, and the first honest run.
 
-### Prior Knowledge Not Assumed
+## One-Sentence Logline
 
-- Formal brand strategy.
-- Marketing research methods.
-- Jungian archetype systems.
-- Multi-agent architecture.
-- n8n, CrewAI, ReAct, or orchestration frameworks.
-- Visual identity design.
-- Professional launch planning.
+AI makes brand execution cheap; Madison teaches practitioners how to decide what is true, useful, approved, and worth shipping.
 
-### Misconceptions the Book Must Correct
+## Central Thesis
 
-1. "Branding is decoration." Brand is a decision system that shapes product scope, architecture, interface, and market legibility.
-2. "AI does the creative work." AI can generate options; humans still decide what is true, coherent, ethical, and strategically useful.
-3. "My GitHub is my portfolio." A repo is evidence, but it is not a positioned story until the audience can understand why it matters.
-4. "Agents are magic autonomy." Madison's agents are bounded roles in a workflow, not unsupervised marketing executives.
-5. "A fluent campaign is a good campaign." Fluency without evidence, fit, accessibility, and feedback is a risk surface.
+This book argues that the early-career branding and advertising job does not disappear when AI can draft copy, summarize research, produce calendars, and generate reports. It changes shape. The scarce work moves from producing fluent artifacts to building auditable recipes: gathering evidence, labeling what is verified and what is inferred, preparing decisions, routing approvals, checking claims, and learning from real outcomes.
 
----
+The Madison Recipe Engine exists to make brand work inspectable. A creative brief is not done because it sounds strategic. A persona is not useful because it feels vivid. A content calendar is not ready because it is full. A performance report is not evidence because it has charts. Each artifact becomes useful only when it traces to sources, exposes assumptions, names the human gate, and records what happened.
 
-## 3. Book Type and Deployment
+## Thesis Test
 
-### Primary Book Type
+The proposed TOC reflects the thesis in three moves:
 
-Course textbook with practitioner-handbook utility.
+- **Act One:** The reader learns why fluent brand output is dangerous and why junior/mid-level brand work should be treated as judgment-supported operations, not prompt production.
+- **Act Two:** The reader builds the useful recipe components that entry and mid-level practitioners actually need: scans, briefs, measurement plans, claims maps, personas, calendars, QA packs, reports, and routing digests.
+- **Act Three:** The reader operates the Madison recipe system end to end, with logs, human gates, and an honest run.
 
-### Primary Adoption Context
+**Thesis test:** PASS.
 
-A 12- to 14-week graduate or advanced undergraduate course in branding and AI, creative engineering, AI for marketing, product launch, entrepreneurship, or professional presence.
+## The Irreducibly Human Layer
 
-### Secondary Adoption Context
+The attached "Causal Reasoning: Irreducibly Human" template frames a useful distinction: the tool can externalize a candidate structure, but the human must read, defend, and honestly qualify it. Madison adapts that frame to brand work.
 
-Professional development workshops, founder bootcamps, AI marketing labs, portfolio-building programs, and self-guided practitioners building public brand assets.
+AI can:
 
-### Terminal Capability
+- collect and normalize public signals;
+- summarize competitor copy;
+- assemble brief fields;
+- draft copy variants;
+- build tables, calendars, and first-pass reports;
+- flag contradictions and missing fields;
+- suggest revised language;
+- generate machine-readable logs and human-readable reports.
 
-By the end of the book, the reader can design, build, brand, and launch an AI-assisted product or professional presence with:
+AI cannot finally decide:
 
-- a scoped product concept;
-- an agentic workflow or Madison-inspired tool architecture;
-- a brand strategy and archetype;
-- a visual identity system;
-- a story and case-study layer;
-- a public portfolio or launch surface;
-- a verification and review discipline for AI-generated work.
+- which audience matters most;
+- whether an insight is strategically true;
+- whether a claim is sufficiently supported;
+- whether an exception to the brand system is wise;
+- whether a campaign should launch;
+- whether a social issue requires response or restraint;
+- whether performance warrants future investment;
+- whether the work is good enough for a real client, employer, public, or customer.
 
----
-
-## 4. Repository-Specific Grounding
-
-This Tik TOC is not abstract. It is grounded in the Madison repo structure.
-
-### Manuscript Track
-
-Primary chapter track:
-
-- `chapters/branding-and-ai/`
-
-Related expanded course track:
-
-- `chapters/info-7375-branding-and-ai-spring-2026/`
-
-Related principles track:
-
-- `chapters/principles-marketing/`
-
-### Agentic System Layer
-
-- `AGENTS.md`: cross-agent rules.
-- `CLAUDE.md`: Claude/Cowork rules.
-- `DATA_CONTRACT.md`: local data and evidence rules.
-- `docs/`: human-readable operating documentation.
-- `skills/`: agent-readable workflow recipes.
-- `skills/RUN_LOG.md`: durable run log.
-- `scripts/`: maintained scripts and stored production prompts.
-- `data/madison-main/`: imported Madison source data and workflow JSON.
-- `docs/madison-main/`: import notes and source documentation.
-- `scripts/madison-main/`: imported code/configuration for review.
-
-### Workflow Skill Layer
-
-The imported n8n workflow skills are part of the book's applied evidence:
-
-- `skills/n8n-ai-concierge.md`
-- `skills/n8n-restaurant-agent.md`
-- `skills/n8n-madison-content-agent-mvp-copy-1.md`
-- `skills/n8n-intelligence-agent.md`
-- `skills/n8n-marketmind-run-analysis-webhook.md`
-- `skills/n8n-survey-analysis.md`
-
-These are teaching artifacts. They show what Madison means by agentic marketing workflows: bounded roles, named inputs, outputs, tools, and review gates.
-
-### Figure and Asset Layer
-
-- `d3/`: D3/HTML figure sources.
-- `images/`: rendered SVG and PNG assets.
-- `scripts/svg-to-png.mjs`: SVG-to-PNG rendering.
-- `docs/figures-and-assets.md`: figure and image rules.
-
-The book should treat figures as part of the learning architecture. A figure is accepted only when its source is preserved, its claim is warranted, and its rendered asset is current.
+This book's job is to teach the boundary. The Madison recipe prepares the decision. The human owns the decision.
 
 ---
 
-## 5. Field Positioning
+# Part 2 - Learner Profile
 
-### Comparable Categories
+## Primary Reader
 
-**Branding textbooks** teach positioning, archetype, identity, story, and campaigns, but usually treat AI as an add-on tool or late chapter.
+An entry-level or mid-level branding, advertising, marketing communications, PR, content, or account practitioner who already uses AI tools but does not yet have a reliable operating system for turning AI-assisted output into evidence-backed professional work.
 
-**AI marketing books** often survey tools and prompts, but weakly connect tool use to durable brand strategy, product architecture, and audience trust.
+Specific readers include:
 
-**Agentic AI books** explain tool-using agents, orchestration, permissions, and verification, but usually work through coding, productivity, or enterprise automation examples rather than brand systems.
+- account coordinator or assistant account executive;
+- brand assistant or brand marketing associate;
+- marketing coordinator or marketing specialist;
+- PR or communications associate;
+- social/content coordinator or strategist;
+- creative operations or traffic coordinator;
+- media assistant or campaign analyst;
+- junior strategist or planner;
+- technical founder or creative engineer building a brand system for a product.
 
-**Portfolio and career books** teach professional presence, but rarely integrate AI product building, brand architecture, and agentic workflow design into one compounding project.
+## Prior Knowledge Assumed
 
-### Positioning Statement
+- Basic comfort using AI chat tools.
+- Basic knowledge of brand, marketing, social, or communications work.
+- Ability to read Markdown, tables, and simple structured data.
+- Ability to open files, inspect links, and follow explicit commands.
+- Familiarity with common artifacts such as briefs, calendars, decks, reports, and approval notes.
 
-Madison Branding and AI is a course-ready textbook for Creative Engineers who need to build with AI, brand what they build, and ship a public artifact without mistaking generated polish for market credibility.
+## Prior Knowledge Not Assumed
 
----
+- Formal brand strategy training.
+- Advertising agency experience.
+- PR crisis experience.
+- Legal or compliance expertise.
+- Survey methodology.
+- Marketing analytics depth.
+- Data engineering.
+- Python or JavaScript authorship.
+- Mycroft/Madison recipe lifecycle knowledge.
 
-## 6. Three-Act Learning Arc
+## Misconceptions the Book Must Correct
 
-### Act One - Foundation: Why Code Is No Longer Enough
+1. **"AI can make the campaign."** AI can draft materials. It cannot decide whether the campaign is strategically warranted, legally safe, or brand-true.
+2. **"A fluent brief is a good brief."** A brief is good only if the target, tension, promise, support, mandatories, and open questions survive review.
+3. **"A persona is research."** A persona is a synthesis artifact. It must show evidence, inference, uncertainty, and stereotype risk.
+4. **"More content means better content operations."** A calendar full of unsupported posts is a content-volume trap.
+5. **"Brand consistency means sameness."** Consistency is contextual coherence, not mechanical repetition.
+6. **"A report with charts is evidence."** Metrics need definitions, baselines, caveats, and a decision they inform.
+7. **"Human review is enough."** Review must name who decides what, under what condition, and where the decision is logged.
+8. **"Publication is just the final step."** Publication is a gate. Public claims, spend, reputation, and customer data change the risk surface.
 
-The reader learns why AI changes the labor-market value of technical output and why brand, positioning, and problem selection now belong inside the technical practitioner's discipline.
+## Motivation Type
 
-**Chapters:** 1-3  
-**Capability at end of act:** The reader can articulate a Creative Engineer position, explain the Madison framework, and choose an archetype as a decision constraint.
+Mixed:
 
-### Act Two - Build: Make the Tool Real
+- **Professional:** Do better entry/mid-level work and become trusted faster.
+- **Portfolio:** Produce inspectable artifacts that prove judgment, not just prompt fluency.
+- **Academic:** Complete course work in branding, AI, marketing, creative engineering, or advertising strategy.
+- **Founder/operator:** Build a lightweight brand operating system without hiring a full agency.
 
-The reader scopes, builds, automates, adds AI intelligence, and deploys an interface. This act uses Madison's agentic architecture and the Claude supervision discipline: define scope, bound tools, require review, verify output.
-
-**Chapters:** 4-7  
-**Capability at end of act:** The reader has a scoped and deployed AI-assisted tool or workflow with documented contracts, degraded modes, and a public interface.
-
-### Act Three - Brand and Launch: Make It Mean Something
-
-The reader turns the built artifact into a coherent brand system, visual identity, story, portfolio, and professional launch package.
-
-**Chapters:** 8-12  
-**Capability at end of act:** The reader has a public-facing brand and launch system that connects product, archetype, story, portfolio, and evidence.
-
-### Arc Statement
-
-This book takes the reader from technically capable but strategically illegible to Creative Engineer by first showing why AI changes the value of technical work, then building a bounded agentic product, then turning that product into a coherent brand and launch surface.
-
----
-
-## 7. Sequencing Model
-
-**Primary model:** Problem -> Product -> Brand -> Launch  
-**Secondary model:** Concrete -> Abstract with spiral returns
-
-The book opens with a labor-market problem and moves toward a concrete product. Brand theory enters early enough to guide decisions but is tested repeatedly against artifacts: a PRD, a pipeline, an interface, a brand strategy, a visual system, a portfolio, and a launch deck.
-
-The spiral returns are:
-
-- **Archetype** introduced in Chapter 1, systematized in Chapter 3, applied in Chapters 8-12.
-- **Scope** introduced in Chapter 4, enforced in Chapters 5-7, reused as brand negative space in Chapter 8.
-- **Agentic supervision** introduced in Chapter 2, operationalized in Chapters 5-7, governed in Chapters 10-12.
-- **Evidence** introduced through market/labor data in Chapter 1, applied to brand claims and launch artifacts in Chapters 8-12.
-
-Each return adds a new analytical layer. The archetype is not repeated as personality language; it becomes a design constraint, a voice constraint, a visual constraint, and a story constraint.
+The professional motivation is primary. The book should feel like a field manual for the first two to five years of brand and advertising work.
 
 ---
 
-## 8. Prerequisite Map
+# Part 3 - Book Type and Deployment Specification
 
-| Prerequisite | Safe to Assume? | Where Introduced |
+## Book Type
+
+**Primary type:** Practitioner handbook with course-textbook utility.
+
+**Secondary type:** Repository-native operating manual for the Madison/Mycroft brand-intelligence domain.
+
+**Not:** A general branding textbook, a prompt collection, a martech survey, a legal compliance guide, or a theory-only book about AI and creativity.
+
+## Primary Deployment Context
+
+A practitioner at a terminal or workspace uses the repository while performing real or simulated brand work. Each chapter teaches a recipe category, gives the reader a useful artifact, and shows the human judgment gate that prevents the artifact from becoming unsafe fluency.
+
+## Secondary Deployment Context
+
+- INFO 7375 Branding & AI.
+- Advertising/PR/marketing communications courses.
+- Portfolio-building bootcamps.
+- Agency onboarding.
+- Founder marketing labs.
+- Professional-development workshops for AI-assisted brand operations.
+
+## Terminal Capability
+
+By the end of the book, the reader can:
+
+- read a Madison recipe as both a machine contract and a human maintenance card;
+- distinguish verified data, model judgment, human judgment, and unsupported claims;
+- run or specify repeatable brand-work recipes;
+- prepare competitor, audience, brief, claims, calendar, QA, launch, report, and reputation artifacts;
+- write reports that trace to logs and sources;
+- route publication, claims, reputation, spend, and customer-data decisions through named human gates;
+- complete an honest Madison run without confusing automation with accountability.
+
+---
+
+# Part 4 - Repository-Specific Grounding
+
+This TIKTOC is grounded in `books/madison` as it exists now.
+
+## Constitution and Domain Layer
+
+- `MYCROFT.md`: the governing constitution. It defines labor separation, verified data, provenance, gates, two customers, recipe lifecycle, comments, trust, and logging.
+- `DOMAIN.md`: the Madison domain index: branding and marketing intelligence, current layout, runnable surfaces, quarantined folders, and course materials.
+- `AGENTS.md` and `CLAUDE.md`: generated instruction files. They enforce the house rule: read `MYCROFT.md` and `DOMAIN.md` before acting.
+- `logs/RUN_LOG.md`: the canonical history of meaningful runs, blockers, artifacts, and gate decisions.
+
+## Recipe Layer
+
+Madison already contains recipe candidates and working surfaces relevant to this book:
+
+- `recipes/madison-competitive-positioning-agent.md`
+- `recipes/madison-campaign-construction.md`
+- `recipes/madison-brand-consistency-contradiction-checker.md`
+- `recipes/madison-performance-reporting.md`
+- `recipes/madison-launch-handoff.md`
+- `recipes/madison-qa-accessibility-audit.md`
+- `recipes/madison-persona-generation.md`
+- `recipes/brand-reputation-news-intelligence-pipeline.md`
+- `recipes/content-agent.md`
+- `recipes/social-media-marketing-rss-monitor.md`
+- `recipes/marketmind.md`
+
+The manuscript should not pretend these are all verified. Their frontmatter, logs, and evidence determine lifecycle status.
+
+## Prompt Layer
+
+Prompts are teaching and execution artifacts, not the same as recipes:
+
+- `prompts/brandy/`: brand communications audit.
+- `prompts/nina/`: brand identity and visual system assistant.
+- `prompts/ogilvy/`: direct-response copy and platform content coach.
+- `prompts/madison-pitch/`: pitch deck construction.
+- `prompts/cajal/`: figure intelligence.
+- `prompts/review/`: human-readable review of AI-native JSON/YAML.
+- `prompts/assignment6/`: structured brand strategy and naming assistant.
+
+The book should teach the difference between a prompt, a recipe, a script, a log, and a report.
+
+## Data and Evidence Layer
+
+- `data/raw/`: raw ingests.
+- `data/verified/`: validated records.
+- `reports/generated/`: human-readable outputs.
+- `logs/`: machine-readable run evidence and human run history.
+- `logs/gate-decisions/`: explicit approval records.
+
+Core rule: nothing becomes evidence because an AI said it. Evidence enters through source, validation, log, report, and human gate.
+
+## Existing Chapter Layer
+
+The current repository contains several chapter tracks:
+
+- top-level `chapters/` with front matter, introduction, themes, appendix, and back matter;
+- `chapters/branding-and-ai/` with Creative Engineer / brand-system chapters;
+- `chapters/info-7375-branding-and-ai-spring-2026/` with course chapters and cases;
+- `chapters/principles-marketing/` with broader marketing chapters.
+
+This TIKTOC proposes a new top-level practitioner-guide structure that mirrors `the-reallocation-engine/chapters/`. Existing `branding-and-ai` and course chapters become source material, not the target structure.
+
+---
+
+# Part 5 - Field Positioning
+
+## Comparable Categories
+
+**Branding textbooks** teach positioning, identity, voice, campaigns, and brand equity, but often treat AI as a tool chapter rather than a workflow architecture.
+
+**Advertising and account-management manuals** teach briefs, clients, traffic, approvals, and campaign work, but rarely teach how to make those workflows auditable with AI agents.
+
+**Marketing analytics books** teach metrics and dashboards, but often underplay creative judgment, claims risk, and public-facing approval.
+
+**Prompt books** teach how to get better outputs, but not how to prove an output is usable, sourced, approved, and safe to release.
+
+**Agentic AI books** teach tools, orchestration, and permissions, usually in coding or productivity contexts, not brand operations.
+
+## Positioning Statement
+
+Madison Recipe Engine is a practitioner guide for the AI-era brand worker: it teaches entry and mid-level branding and advertising people to turn repeatable work into verified, auditable recipes without surrendering the human judgment that makes brand work useful.
+
+## Competitive Difference
+
+The book does not sell AI as creative magic. It treats AI as cheap execution inside a governed workflow. The reader learns to build artifacts that a manager, client, legal reviewer, creative director, or public stakeholder can inspect.
+
+---
+
+# Part 6 - Three-Act Learning Arc
+
+## Act One - Judgment Before Brand Automation
+
+The reader learns why fluent brand output is dangerous, why effort must be reallocated toward judgment-bearing work, why data and claims require contracts, why recipes serve two customers, and why verified evidence still needs interpretation.
+
+**Chapters:** 1-5  
+**Capability at end of act:** The reader can distinguish prompt output from evidence-backed brand work, read a recipe, and name the human judgment boundary.
+
+## Act Two - Build the Brand Recipe Components
+
+The reader learns the recipes that entry and mid-level practitioners actually use: competitive intelligence, creative briefs, KPI maps, claims/proof sheets, audience/persona synthesis, content calendars, brand voice/consistency QA, launch trafficking, performance reporting, and reputation routing.
+
+**Chapters:** 6-15  
+**Capability at end of act:** The reader can produce useful, source-traced brand artifacts that prepare decisions without pretending to decide for the human.
+
+## Act Three - Operate the Madison Engine
+
+The reader integrates the recipes into a bounded run, records evidence, writes the report, names the approval gates, and completes an honest Madison run.
+
+**Chapter:** 16 plus Chapter 97  
+**Capability at end of act:** The reader can operate a small brand-intelligence engine without confusing AI fluency with professional adequacy.
+
+## Arc Statement
+
+The book moves from fluency skepticism to operational competence. First, the reader learns why brand work needs judgment. Then they build repeatable recipe components. Finally, they operate the full system with logs, reports, gates, and human accountability.
+
+---
+
+# Part 7 - Sequencing Model
+
+**Primary model:** Problem -> Contract -> Evidence -> Recipe Components -> Operation  
+**Secondary model:** Concrete -> abstract with spiral returns
+
+The sequence mirrors *The Reallocation Engine*:
+
+- Chapters 1-5 teach the operating discipline.
+- Chapters 6-15 teach domain-specific evidence and action components.
+- Chapter 16 performs the honest run.
+- Chapters 97-99 synthesize and support the manuscript.
+
+Spiral returns:
+
+- **Fluency vs. correctness** returns in briefs, personas, copy, reports, and reputation digests.
+- **Reallocation** returns as prioritizing decision-support work over content-volume work.
+- **Verification** returns as sources, substantiation, metrics, screenshots, method notes, and run logs.
+- **Two customers** returns as every recipe serving both the agent running it and the human reading the report.
+- **Human gates** return before external publication, legal-sensitive claims, spend changes, customer-data use, reputation response, and launch.
+- **Learning** returns as post-campaign review and the honest run.
+
+---
+
+# Part 8 - Prerequisite Map
+
+| Prerequisite | Safe to assume? | If not: where addressed |
 |---|---|---|
 | Basic AI assistant use | Yes | Introduction |
-| AI productivity changes labor signals | No | Chapter 1 |
-| Brand as strategy rather than decoration | No | Chapter 1 |
-| Madison's five-layer agent architecture | No | Chapter 2 |
-| Jungian archetypes | No | Chapters 1 and 3 |
-| PRD and MVP scope | No | Chapter 4 |
-| Data pipeline contracts | No | Chapter 5 |
-| Agentic supervision and orchestration | No | Chapters 2, 5, 6 |
-| Interface as brand surface | No | Chapter 7 |
-| Brand strategy components | No | Chapter 8 |
-| Visual identity system | No | Chapter 9 |
-| Story frameworks | No | Chapter 10 |
-| Portfolio as product | No | Chapter 11 |
-| Launch package | No | Chapter 12 |
+| Basic marketing/brand vocabulary | Partly | Chapters 1-2 |
+| Difference between evidence and judgment | No | Chapters 1, 3, 5 |
+| Madison/Mycroft recipe lifecycle | No | Chapters 3-4 |
+| Creative brief structure | No | Chapter 7 |
+| KPI/measurement planning | No | Chapter 8 |
+| Claims substantiation risk | No | Chapter 9 |
+| Persona methodology limits | No | Chapter 10 |
+| Content calendar operations | Partly | Chapter 11 |
+| Brand QA and accessibility | No | Chapter 12 |
+| Launch trafficking | No | Chapter 13 |
+| Campaign analytics | Partly | Chapter 14 |
+| PR/reputation escalation | No | Chapter 15 |
+| Command-line comfort | Minimal | Chapter 16 and Appendix |
 
 ---
 
-## 9. Chapter-by-Chapter TOC
+# Part 9 - Chapter-by-Chapter TOC
 
-## Introduction - The Creative Engineer's Map
+## Proposed Chapter Files
 
-**Capability built:** Understand the book's claim, path, and running project.
+This structure mirrors `the-reallocation-engine/chapters/`:
 
-The introduction frames the central shift: AI makes execution cheaper, so strategic judgment, product definition, brand coherence, and shipping discipline become more valuable. It explains the running project and the split between book order and course order.
+```text
+chapters/
+  00-frontmatter.md
+  00-introduction.md
+  01-the-fluency-trap.md
+  02-the-reallocation-principle.md
+  03-the-verified-brand-data-contract.md
+  04-two-customers.md
+  05-verifying-brand-evidence.md
+  06-competitor-signal-scan.md
+  07-the-creative-brief-builder.md
+  08-measurement-plan-and-kpi-map.md
+  09-claims-and-proof-map.md
+  10-audience-persona-evidence-synthesis.md
+  11-content-calendar-with-provenance.md
+  12-brand-consistency-and-voice-qa.md
+  13-launch-readiness-and-trafficking-qa.md
+  14-campaign-performance-report.md
+  15-media-coverage-and-issue-routing.md
+  16-the-build-and-the-honest-run.md
+  97-fundamental-themes.md
+  98-appendix-best-practices.md
+  99-back-matter.md
+```
 
-**Whole task:** Commit to building a public-facing AI-assisted artifact and brand system.  
-**Assessment:** One-paragraph project intention and baseline self-audit.  
+## Introduction - The Brand Work AI Did Not Make Cheap
 
-## Chapter 1 - The Creative Engineer
+**Capability built:** Understand the book, repository, reader, and operating method.
 
-**Capability built:** Explain why AI changes the value of technical work and define the Creative Engineer role.
+The introduction frames Madison as both a book and a working recipe repository. It names the central shift: AI makes brand execution cheaper, but it does not make audience judgment, claims judgment, taste, approval, or release judgment cheap. It orients the reader to `MYCROFT.md`, `DOMAIN.md`, `recipes/`, `prompts/`, `data/`, `logs/`, and `reports/`.
 
-The reader learns why "I can build" is no longer a sufficient labor-market signal. The chapter introduces ideate, build, brand, ship and uses archetypes as an initial strategic lens.
+**Whole task:** Write a baseline inventory of the reader's current brand workflow and label each step as execution, evidence, judgment, or approval.  
+**Assessment:** Baseline brand-work allocation note.
 
-**Whole task:** Write a Creative Engineer positioning statement.  
-**Assessment:** Identify one technical artifact and explain what brand/positioning work it still lacks.  
+## Chapter 1 - The Fluency Trap
 
-## Chapter 2 - The Madison Framework
+**Capability built:** Detect the gap between fluent brand output and trustworthy brand work.
 
-**Capability built:** Read Madison as an agentic marketing architecture.
+The chapter opens with a polished AI-generated campaign brief, content calendar, or persona that sounds useful but hides unsupported assumptions, missing proof, and no approval gate. It adapts the fluency-trap argument from *The Reallocation Engine* to brand work.
 
-The reader learns Madison's five agent layers and orchestration layer, distinguishes multiple meanings of "agent," and connects architecture to brand. The chapter adapts the Claude agentic AI discipline: agents act inside boundaries and need supervision.
+**Whole task:** Audit a fluent AI-generated brand artifact.  
+**Assessment:** Claim and assumption table labeled verified, inferred, unsupported, judgment, or approval-needed.
 
-**Whole task:** Select one Madison layer as the reference architecture for the reader's running project.  
-**Assessment:** Two-sentence justification connecting layer, archetype, and user problem.  
+## Chapter 2 - The Reallocation Principle
 
-## Chapter 3 - Jungian Brand Archetypes as a System
+**Capability built:** Reframe brand work as scarce judgment allocation.
 
-**Capability built:** Use archetypes as strategic constraints rather than personality labels.
+The reader learns that the goal is not more posts, more variants, more briefs, or more reports. The goal is to reallocate effort toward the work that changes decisions: source gathering, proof mapping, risk flagging, audience choice, approval routing, and learning.
 
-The reader studies the twelve archetypes and learns how archetype drift damages recognition. The chapter turns archetype into a forced specification: what the brand says yes to, what it refuses, and what failure mode it must watch.
+**Whole task:** Build a one-week reallocation plan for a brand or campaign workflow.  
+**Assessment:** Time budget with execution/judgment split and one reallocation hypothesis.
 
-**Whole task:** Build an archetype brief with shadow watchlist.  
-**Assessment:** Archetype, promise, proof behavior, voice guardrails, and three refusals.  
+## Chapter 3 - The Verified Brand Data Contract
 
-## Chapter 4 - Product Requirements and Scope
+**Capability built:** State what counts as evidence in Madison.
 
-**Capability built:** Convert a brand/product idea into a scoped AI tool specification.
+The chapter introduces raw data, verified data, generated artifacts, prompts, recipes, logs, reports, screenshots, source URLs, and approval records. It explains why public claims, campaign metrics, audience facts, competitor observations, and brand rules must trace to sources.
 
-The reader writes a one-page PRD: problem, user, gap, MVP boundary, out-of-scope list, input/output contract, and success condition. The Claude adaptation is explicit: no agentic action without scope.
+**Whole task:** Trace one brand claim from report to log to recipe to source.  
+**Assessment:** Provenance note with missing links flagged.
 
-**Whole task:** Produce the Career-PRD or Startup-PRD for the running project.  
-**Assessment:** PRD with an out-of-scope list as strong as the in-scope list.  
+## Chapter 4 - Two Customers
 
-## Chapter 5 - Data Pipelines and Workflow Automation
+**Capability built:** Understand recipes as both agent contracts and human maintenance cards.
 
-**Capability built:** Design a workflow whose external dependencies and failure modes are visible.
+The reader learns that every Madison recipe has two customers: the agent that executes the workflow and the human who must read, judge, approve, maintain, or reject the result. A recipe that only produces machine-readable logs fails the human; a recipe that only produces a nice memo fails the machine.
 
-The reader builds or specifies an n8n-style pipeline: ingestion, transformation, storage, output, and degraded mode. Madison-main workflow imports become evidence of how workflow JSON becomes skill cards and inspectable operations.
+**Whole task:** Read one Madison recipe and identify what the agent does, what the human decides, and what evidence connects them.  
+**Assessment:** Two-customer recipe note.
 
-**Whole task:** Create a workflow map with source contracts and failure paths.  
-**Assessment:** Pipeline diagram or workflow card naming inputs, outputs, tools, and stop conditions.  
+## Chapter 5 - Verifying Brand Evidence
 
-## Chapter 6 - AI Intelligence and Multi-Agent Systems
+**Capability built:** Interrogate coverage, method, recency, source quality, model judgment, and warranted verbs.
 
-**Capability built:** Add an AI intelligence layer without surrendering supervision.
+The reader learns that verified records still require interpretation. A competitor scan can be sourced and still incomplete. A survey can be real and still biased. A metric can be correct and still irrelevant. A sentiment label can be useful and still be model judgment.
 
-The reader distinguishes single-call AI, tool-using agents, long-running agents, and specialized sub-agents. The chapter compares graph orchestration and conversational orchestration through reliability, auditability, and brand trust.
+**Whole task:** Review one evidence set and write what it can and cannot support.  
+**Assessment:** Warranted-verb list: can say, can suggest, cannot claim, needs human review.
 
-**Whole task:** Add or specify one bounded AI-intelligence step in the running project.  
-**Assessment:** Agent card with role, tools, inputs, outputs, approval gate, and verification step.  
+## Chapter 6 - Competitor Signal Scan
 
-## Chapter 7 - Interface Design and Deployment
+**Capability built:** Gather and compare competitor signals without laundering observations into strategy.
 
-**Capability built:** Treat interface, interaction, deployment, and brand surface as one design problem.
+The chapter builds a repeatable competitor scan: named competitor set, source capture, timestamp, positioning observation, channel evidence, claim extraction, contradiction flag, and "so what" section for human review.
 
-The reader deploys or specifies a public interface and learns why interface impressions compound. The chapter applies verification to demo risk: a fluent demo can destroy trust if its claims are wrong.
+**Whole task:** Run or specify a competitor signal scan for one brand/category.  
+**Assessment:** Competitor matrix with source links, timestamps, and human-judgment notes.
 
-**Whole task:** Deploy or mock a public interface for the running project.  
-**Assessment:** Public URL or interface spec with README, screenshots, and verification checklist.  
+## Chapter 7 - The Creative Brief Builder
 
-## Chapter 8 - Brand Strategy
+**Capability built:** Assemble a creative brief from evidence without pretending the brief is approved strategy.
 
-**Capability built:** Write a brand strategy that constrains future decisions.
+The reader learns the brief as a recipe: objective, audience, tension, single-minded proposition, support, tone, mandatories, constraints, open questions, and approval status. The chapter emphasizes inferred vs. confirmed fields.
 
-The reader creates mission, vision, values, UVP, archetype, voice, positioning, and negative-space list. The chapter forks into Personal Professional Brand and Startup Brand paths.
+**Whole task:** Build a creative brief draft from verified inputs.  
+**Assessment:** Brief draft with assumption register and approval gate.
 
-**Whole task:** Write the one-page brand strategy.  
-**Assessment:** Strategy document with a no-list specific enough to predict refusals.  
+## Chapter 8 - Measurement Plan and KPI Map
 
-## Chapter 9 - Visual Identity Systems
+**Capability built:** Define campaign measurement before reporting.
 
-**Capability built:** Translate strategy into visual choices that can be applied consistently.
+The chapter teaches objectives, baselines, targets, metric definitions, data availability, cadence, and decision use. It draws on the research finding that measurement recipes are among the highest-value Madison opportunities.
 
-The reader designs palette, typography, imagery direction, logo direction, mood board, layout rules, accessibility checks, and portfolio wireframe. Figures and assets must remain source-linked and verifiable.
+**Whole task:** Create a KPI map for one campaign or launch.  
+**Assessment:** KPI map with metric definitions, source paths, baseline status, and human sign-off field.
 
-**Whole task:** Produce one-page visual identity guidelines.  
-**Assessment:** Guidelines plus accessibility check and figure/asset provenance.  
+## Chapter 9 - Claims and Proof Map
 
-## Chapter 10 - Brand Storytelling
+**Capability built:** Separate usable claims from unsupported, risky, or approval-needed claims.
 
-**Capability built:** Choose a story shape that fits the archetype and audience.
+The reader learns to map each copy claim, pitch claim, product claim, credential claim, performance claim, or audience claim to proof. The recipe labels factual claims, puffery, inferred claims, missing support, and legal/compliance review triggers.
 
-The reader learns Hero's Journey, Quest, and customer-as-hero patterns, then writes origin story, case study, and thought-leadership piece. AI can draft variants, but the human verifies truth, tone, and public risk.
+**Whole task:** Audit a landing page, pitch deck, or campaign draft for claim support.  
+**Assessment:** Claims table with support, source, risk, rewrite, and approval owner.
 
-**Whole task:** Publish or prepare a verified story asset.  
-**Assessment:** Origin story, customer-as-hero case, and evidence note.  
+## Chapter 10 - Audience Persona Evidence Synthesis
 
-## Chapter 11 - Portfolio as Product
+**Capability built:** Build personas and audience briefs as evidence-bound synthesis, not demographic fiction.
 
-**Capability built:** Design the portfolio as a product with audience, structure, proof, and conversion path.
+The chapter teaches persona construction from interviews, surveys, reviews, CRM notes, analytics, support tickets, and public signals. It explicitly blocks invented psychographics and stereotype laundering.
 
-The reader integrates the AI tool, brand strategy, visual identity, and story into a portfolio surface. The portfolio is not a gallery; it is a product experience that makes competence legible.
+**Whole task:** Produce an audience/persona evidence sheet for one target audience.  
+**Assessment:** Persona draft with evidence rows, inference labels, contradictions, and excluded assumptions.
 
-**Whole task:** Build or specify a deployed portfolio.  
-**Assessment:** Portfolio map with hero, proof, case study, tool demo, about, contact, and analytics plan.  
+## Chapter 11 - Content Calendar With Provenance
 
-## Chapter 12 - Professional Presence and Launch
+**Capability built:** Turn campaign priorities into a calendar that preserves why each post exists.
 
-**Capability built:** Assemble and deliver a coherent launch package.
+The reader learns the content calendar as an operations recipe: date, channel, audience, message pillar, source/proof, asset, owner, approval status, CTA, and risk flag. The chapter distinguishes calendar volume from calendar quality.
 
-The reader finalizes resume, LinkedIn, pitch deck, launch announcement, and post-course plan. The final gate is not polish; it is coherence across artifact, brand, evidence, and audience.
+**Whole task:** Build a two-week or one-month content calendar from a brief and proof map.  
+**Assessment:** Calendar table with provenance and approval status.
 
-**Whole task:** Deliver the integrated launch package.  
-**Assessment:** Final pitch plus one-quarter plan and verification checklist.  
+## Chapter 12 - Brand Consistency and Voice QA
 
-## Chapter 98 - Appendix: Best Practices for Agentic Book Repos
+**Capability built:** Check brand consistency without reducing brand to mechanical sameness.
 
-**Capability built:** Maintain a book-plus-agent repository without losing provenance.
+The chapter combines BRANDY-style communications audit, Nina-style brand identity constraints, Ogilvy-style copy review, accessibility checks, and line-by-line voice annotation. It treats model suggestions as advisory and human taste as the gate.
 
-The appendix explains repo structure, docs, data contracts, scripts, skills, phase gates, logging, and generated artifacts.
+**Whole task:** Run a brand voice and consistency audit on three touchpoints.  
+**Assessment:** Touchpoint matrix with evidence, rule reference, severity, recommendation, and human decision.
 
-**Whole task:** Audit the repo or project folder using the appendix checklist.  
-**Assessment:** Short maintenance note with risks and next actions.  
+## Chapter 13 - Launch Readiness and Trafficking QA
+
+**Capability built:** Decide whether assets are ready to move from draft to public release.
+
+The chapter teaches the launch/traffic pack: assets, specs, URLs, UTMs, approvals, landing pages, disclosures, screenshots, owners, blockers, and final go/no-go gate. It is the operational heart of entry-level brand and advertising work.
+
+**Whole task:** Build a launch readiness pack for one campaign or brand touchpoint.  
+**Assessment:** Preflight checklist with blockers, owners, evidence, and named launch approver.
+
+## Chapter 14 - Campaign Performance Report
+
+**Capability built:** Produce performance reporting that supports decisions rather than metric theater.
+
+The reader learns the report chain: raw export, verified table, metric definitions, objective comparison, caveats, visualizations, interpretation labels, and next-test recommendation. The chapter warns against causal overclaiming and vanity metrics.
+
+**Whole task:** Build a campaign performance readout from a provided or real metrics export.  
+**Assessment:** Performance report plus machine-readable metric log and human-review field.
+
+## Chapter 15 - Media Coverage and Issue Routing
+
+**Capability built:** Route public signals without turning monitoring into an auto-response bot.
+
+The chapter covers reputation monitoring, press clips, social listening, review mining, sentiment labeling as model judgment, issue taxonomy, escalation paths, and response approval. It emphasizes that public response is a gate, not an automated action.
+
+**Whole task:** Produce an issue-routing digest from a small set of public mentions.  
+**Assessment:** Digest with source list, issue classes, escalation recommendation, and response gate.
+
+## Chapter 16 - The Build and the Honest Run
+
+**Capability built:** Integrate the Madison recipe system through a bounded, logged run.
+
+The reader performs one honest run: choose a brand or campaign scenario, run or simulate the relevant recipes, inspect source evidence, write logs, produce a report, name gates, and record unresolved risks. This mirrors *The Reallocation Engine*'s final integrated run.
+
+**Whole task:** Complete one Madison recipe run from intake to report.  
+**Assessment:** Run log entry, human report, evidence appendix, and gate decision record.
+
+## Chapter 97 - Fundamental Themes
+
+**Capability built:** Synthesize the load-bearing principles.
+
+The chapter gathers what repeats across the book: fluency is not correctness; evidence is not judgment; recipes serve two customers; publication is a gate; model judgments must be labeled; useful skip/hold decisions are successes; brand work is accountable work.
+
+**Whole task:** Write the reader's own Madison operating principles.  
+**Assessment:** Personal practitioner doctrine.
+
+## Chapter 98 - Appendix: Best Practices
+
+**Capability built:** Maintain a Madison repository and recipe surface.
+
+The appendix documents repository structure, recipe lifecycle, prompt vs. recipe boundaries, data contracts, logging, conformance checks, report design, source capture, image/figure practices, and safe use of scripts and connectors.
+
+**Whole task:** Audit one Madison-style workflow using the appendix checklist.  
+**Assessment:** Maintenance note with repair actions.
+
+## Chapter 99 - Back Matter
+
+References, acknowledgments, source notes, glossary, and index.
 
 ---
 
-## 10. Chapter Dependency Map
+# Part 10 - Learning Outcomes by Chapter
 
-| Chapter | Depends On | Feeds |
+| Chapter | Capability | Assessment Artifact |
 |---|---|---|
-| Introduction | None | Running project setup |
-| 1 | Introduction | Archetype, Creative Engineer frame |
-| 2 | 1 | Madison layer choice, agent architecture |
-| 3 | 1 | Brand constraint system |
-| 4 | 1-3 | Product scope and PRD |
-| 5 | 4 | Workflow and data contracts |
-| 6 | 2, 5 | AI agent role and supervision |
-| 7 | 4-6 | Deployed interface |
-| 8 | 1-7 | Brand strategy fork |
-| 9 | 8 | Visual identity and portfolio wireframe |
-| 10 | 3, 8 | Story assets |
-| 11 | 7-10 | Portfolio |
-| 12 | 8-11 | Launch package |
-| 98 | Whole repo | Maintenance and future runs |
-
-**Load-bearing chapters:** 1, 2, 4, 6, 8, 11, 12.  
-**Most fragile transition:** Chapter 7 to Chapter 8, because the reader moves from "I deployed something" to "I can make it mean something coherent."  
-**Highest adoption-risk chapter:** Chapter 6, if it becomes agent taxonomy instead of supervised brand-system design.  
-
----
-
-## 11. Running Project Spine
-
-Every chapter should advance one running project. Default track:
-
-**Self-as-Project:** the learner builds an AI-assisted tool or workflow that supports a public professional identity.
-
-Alternative track:
-
-**Startup-as-Project:** the learner builds an AI-assisted product concept and brand system for an early-stage venture.
-
-The fork begins in Chapter 8. Chapters 1-7 remain shared because both tracks need the same foundation: archetype, Madison architecture, scope, pipeline, AI intelligence, and deployment.
-
-### Running Deliverables
-
-1. Baseline self/project audit.
-2. Creative Engineer positioning statement.
-3. Madison layer selection.
-4. Archetype brief.
-5. One-page PRD.
-6. Workflow map.
-7. Agent card.
-8. Deployed interface or interface spec.
-9. Brand strategy.
-10. Visual identity guidelines.
-11. Story assets.
-12. Portfolio.
-13. Launch package.
+| Introduction | Orient to Madison as book and engine | Baseline allocation note |
+| 1 | Audit fluent brand output | Claim/assumption table |
+| 2 | Reallocate effort toward judgment | Weekly reallocation hypothesis |
+| 3 | Trace brand evidence | Provenance note |
+| 4 | Read recipes for two customers | Two-customer recipe note |
+| 5 | Interrogate evidence limits | Warranted-verb list |
+| 6 | Compare competitor signals | Competitor matrix |
+| 7 | Build an evidence-bound brief | Creative brief + assumptions |
+| 8 | Define metrics before reporting | KPI map |
+| 9 | Map claims to proof | Claims/proof table |
+| 10 | Build persona from evidence | Persona evidence sheet |
+| 11 | Build provenance-aware calendar | Content calendar |
+| 12 | Audit voice and consistency | Touchpoint QA matrix |
+| 13 | Check launch readiness | Trafficking QA pack |
+| 14 | Report campaign performance | Performance readout |
+| 15 | Route reputation issues | Issue-routing digest |
+| 16 | Operate a full run | Log + report + gates |
+| 97 | Synthesize principles | Practitioner doctrine |
+| 98 | Maintain the system | Maintenance audit |
 
 ---
 
-## 12. Chapter Anatomy Template
+# Part 11 - Running Project Spine
+
+Every chapter should advance one running project.
+
+## Default Track
+
+Build and operate a Madison recipe system for one brand, product, organization, personal brand, or student project.
+
+## Running Deliverables
+
+1. Baseline brand-work allocation note.
+2. Fluent artifact audit.
+3. Weekly reallocation hypothesis.
+4. Data-provenance note.
+5. Two-customer recipe note.
+6. Warranted-verb evidence list.
+7. Competitor signal matrix.
+8. Creative brief draft.
+9. KPI map.
+10. Claims/proof map.
+11. Persona evidence sheet.
+12. Content calendar.
+13. Brand consistency and voice QA matrix.
+14. Launch readiness pack.
+15. Campaign performance report.
+16. Issue-routing digest.
+17. Honest-run log and report.
+
+## Portfolio Outcome
+
+The reader finishes with a coherent professional portfolio of inspectable artifacts. The portfolio demonstrates not merely that the reader can use AI, but that they can supervise AI-generated brand work with evidence, judgment, and accountability.
+
+---
+
+# Part 12 - Chapter Anatomy Template
 
 Each chapter should include:
 
-1. A concrete case, failure, or decision.
-2. Capability statement.
-3. Why the capability matters now.
-4. Core concept.
-5. Madison or repo-grounded example.
-6. Claude-agentic supervision lens: scope, approval, verification.
-7. Running project task.
-8. Evidence or verification checklist.
-9. Reflection prompt.
-10. Bridge to the next chapter.
+1. **Concrete failure or work scenario.** Open with a real professional situation: a bad brief, unsupported claim, stale competitor scan, misleading report, launch blocker, or reputation issue.
+2. **Capability statement.** State what the reader will be able to do after the chapter.
+3. **Why this matters for the reader's role.** Tie to entry/mid-level brand or advertising work.
+4. **The recipe concept.** Name inputs, steps, outputs, gates, logs, and report.
+5. **Agentic supervision lens.** Scope, approval, verification.
+6. **Evidence boundary.** What can be verified, what is model judgment, what is human judgment, what is out of scope.
+7. **Running project task.** A concrete artifact the reader produces.
+8. **Verification checklist.** Machine conformance plus human adequacy checks.
+9. **Human-only judgment boundary.** The decision AI cannot make.
+10. **Bridge to next chapter.** Show how this artifact feeds the next recipe.
 
-Do not open chapters with abstract frameworks unless the reader has first seen the problem the framework solves.
-
----
-
-## 13. Assessment Architecture
-
-### Formative Assessments
-
-- One-paragraph positioning statements.
-- Archetype diagnostics.
-- PRD drafts.
-- Workflow maps.
-- Agent cards.
-- Interface reviews.
-- Brand strategy drafts.
-- Visual identity checks.
-- Story asset critiques.
-- Portfolio peer reviews.
-
-### Summative Assessment
-
-The final assessment is a launch package:
-
-- deployed tool or credible prototype;
-- one-page brand strategy;
-- visual identity sheet;
-- public portfolio or portfolio specification;
-- origin story or case study;
-- pitch deck;
-- verification note explaining what was checked, what remains uncertain, and what must not be claimed yet.
-
-### Final Exam Style Question
-
-Given a polished AI-generated brand campaign for a new AI product, identify the missing scope, approval, and verification controls; diagnose the likely archetype drift; revise the product's positioning statement; and propose one evidence-backed launch asset that would make the brand more trustworthy.
+Do not open chapters with abstract AI capability. Open with the professional artifact and what can go wrong when it is fluent but unsupported.
 
 ---
 
-## 14. Case Strategy
+# Part 13 - Recipe and Case Strategy
 
-Cases should do instructional work, not decoration.
+## Recipe Strategy
 
-### Case Types
+The book should use 10 core recipes, each with a human-readable report and a machine-readable log:
 
-- labor-market shift cases showing why technical output alone is less differentiating;
-- brand drift cases showing how archetype inconsistency destroys recognition;
-- agentic failure cases showing why supervision matters;
-- deployment/demo failure cases showing why public fluency without verification is dangerous;
-- portfolio success cases showing how clear proof compounds;
-- launch cases showing how simple, coherent artifacts outperform ornate ones.
+1. Competitor Signal Scan.
+2. Creative Brief Builder.
+3. Measurement Plan and KPI Map.
+4. Claims and Proof Map.
+5. Audience Persona Evidence Synthesis.
+6. Content Calendar With Provenance.
+7. Brand Consistency and Voice QA.
+8. Launch Readiness and Trafficking QA.
+9. Campaign Performance Report.
+10. Media Coverage and Issue Routing.
 
-### Repo-Grounded Cases
+Chapter 16 integrates them.
 
-- Madison's five-layer architecture as a brand and engineering decision.
-- Imported n8n workflow skills as examples of turning workflow JSON into inspectable operating cards.
-- D3/SVG/PNG assets as examples of source-linked visual evidence.
-- `skills/RUN_LOG.md` as a durable audit trail for agentic work.
-- `DATA_CONTRACT.md` as the guardrail against invented claims.
+## Case Strategy
 
----
+Cases should be realistic but bounded:
 
-## 15. Adoption Risk Register
+- a student personal brand;
+- an early-stage AI product;
+- a nonprofit advocacy campaign;
+- a higher-ed program launch;
+- a small business rebrand;
+- a startup pitch and launch surface;
+- a public reputation issue.
 
-| Risk | Likelihood | Impact | Mitigation |
-|---|---:|---:|---|
-| Book becomes an AI tool survey | High | High | Make every chapter start with a brand/product decision, not a tool. |
-| Brand theory overwhelms build practice | Medium | High | Keep Chapters 4-7 artifact-driven with real workflow and interface outputs. |
-| Agentic AI material feels bolted on | Medium | High | Use Madison workflow skills and Claude scope/approval/verification throughout. |
-| Chapter count exceeds course reality | Medium | Medium | Preserve 12 primary chapters; use case studies and appendix for expansion. |
-| AI examples age quickly | High | Medium | Teach durable patterns; isolate tool-specific commands in docs/appendices. |
-| Marketing claims become unsupported | High | High | Enforce data contract, evidence labels, and verification notes. |
-| Personal-brand and startup-brand paths confuse readers | Medium | Medium | Keep Chapters 1-7 shared; fork only exercises and cases in Chapters 8-12. |
-| Figures drift from chapter claims | Medium | Medium | Use `docs/figures-and-assets.md` and source-linked figure review. |
-| Repo-specific material overwhelms general readers | Medium | Medium | Use repo material as case evidence, not required setup for every reader. |
+Each case should show both the artifact and the human gate.
 
----
+## What Makes a Case Madison-Specific
 
-## 16. Production Notes
+A Madison case is not a polished deliverable. It is a trace:
 
-### Primary Production Target
-
-Align `chapters/branding-and-ai/` to this architecture.
-
-### Secondary Source Track
-
-Use `chapters/info-7375-branding-and-ai-spring-2026/` as an expanded course/case source. Do not automatically merge it into the primary book track; extract selectively.
-
-### Repo Docs to Keep in Sync
-
-- `docs/README.md`
-- `docs/manuscript.md`
-- `docs/workflows.md`
-- `docs/figures-and-assets.md`
-- `docs/skills.md`
-- `DATA_CONTRACT.md`
-- `skills/README.md`
-
-### Verification Commands
-
-Current command surface:
-
-```bash
-npm run verify
-npm run svg-to-png
+```text
+source -> raw/verified data -> recipe -> log -> report -> human gate -> artifact
 ```
 
-`npm run verify` is currently a placeholder, so manuscript and architecture verification still require human readback, path checks, and chapter/asset inspection.
+If the reader cannot trace the decision, the case is decorative, not Madison.
 
 ---
 
-## 17. Open Questions
+# Part 14 - Hard Topics, Contested Claims, and Aging Risk
 
-These are not blockers for silent intake, but they should be resolved before a final proposal package:
+## Hard Topics
 
-- Should the public title remain "Branding and AI," or should Madison appear in the title?
-- Is the primary adoption target INFO 7375, a broader graduate textbook market, or a practitioner handbook?
-- Should Chapter 8 present the personal/startup fork as two paths throughout Chapters 8-12, or as a single theory with alternate exercises?
-- Which D3 figures are canonical for the primary book track?
-- Which imported Madison workflow skill should serve as the main worked example in Chapter 5 or 6?
+- Distinguishing audience evidence from audience invention.
+- Claims substantiation and legal/compliance review.
+- Sentiment analysis as model judgment.
+- Brand voice as contextual judgment, not rule matching alone.
+- Measurement without causal overclaiming.
+- Customer-data privacy and personalized targeting constraints.
+- Crisis/reputation response without automation overreach.
+- Accessibility as launch readiness, not polish.
+- Human taste as a real gate without making taste arbitrary.
+
+## Contested Claims
+
+- "AI increases creative quality." Treat as context-dependent and unproven without a defined metric.
+- "AI saves time." It may move time from drafting to review; this must be measured in workflow.
+- "Brand consistency can be automated." Conformance can be checked; adequacy remains human.
+- "Personas improve targeting." Only when evidence-bound and used carefully.
+- "Performance data tells us what worked." Often it tells us what happened, not why.
+
+## Aging Risk
+
+High aging risk:
+
+- platform APIs and ad-manager interfaces;
+- social channel formats;
+- AI tool names and capabilities;
+- legal/platform policies;
+- measurement dashboards;
+- connector availability.
+
+Low aging risk:
+
+- evidence vs. judgment distinction;
+- source tracing;
+- human gates;
+- creative brief anatomy;
+- claims/proof discipline;
+- content calendar provenance;
+- campaign learning loops.
+
+The manuscript should avoid brittle tool tours. When tools appear, use them as examples of the recipe, not as the point of the chapter.
 
 ---
 
-## 18. Compact TOC
+# Part 15 - Market Positioning
 
-1. The Creative Engineer
-2. The Madison Framework
-3. Jungian Brand Archetypes as a System
-4. Product Requirements and Scope
-5. Data Pipelines and Workflow Automation
-6. AI Intelligence and Multi-Agent Systems
-7. Interface Design and Deployment
-8. Brand Strategy
-9. Visual Identity Systems
-10. Brand Storytelling
-11. Portfolio as Product
-12. Professional Presence and Launch
+## Primary Market
 
-Appendix: Best Practices for Agentic Book Repos
+Graduate and advanced undergraduate courses in:
+
+- branding and AI;
+- advertising strategy;
+- marketing communications;
+- creative engineering;
+- AI for marketing;
+- public relations and digital strategy;
+- entrepreneurship/product launch.
+
+## Secondary Market
+
+- early-career marketers;
+- agency onboarding programs;
+- founder bootcamps;
+- nonprofit communications teams;
+- career portfolio programs;
+- AI literacy programs for brand and marketing teams.
+
+## Adoption Promise
+
+The book helps a program or practitioner move from "students can generate brand artifacts with AI" to "students can produce evidence-backed, approval-aware brand work that a real organization could inspect."
+
+---
+
+# Part 16 - Feature List
+
+## Core Features
+
+- Repository-native book/engine structure.
+- Full mirrored chapter architecture from *The Reallocation Engine*.
+- Running project spine.
+- Recipe cards embedded in chapters.
+- Human-readable report plus machine-readable log pattern.
+- Claim/proof and inferred/confirmed labeling.
+- Human gate templates.
+- Portfolio-ready artifacts.
+- Case studies with traces, not just examples.
+- Appendix for maintaining a Madison-style repository.
+
+## Pedagogical Features
+
+- Each chapter starts with a professional failure mode.
+- Each chapter builds one capability.
+- Each chapter produces one artifact.
+- Each artifact includes a verification checklist.
+- Each recipe names what AI can execute and what only a human can decide.
+
+---
+
+# Part 17 - Out of Scope
+
+This book does not teach:
+
+- final legal compliance;
+- media buying strategy in depth;
+- full marketing analytics or econometrics;
+- graphic design craft at a professional designer level;
+- crisis communications command authority;
+- customer-data engineering at production scale;
+- ad-platform optimization tactics that change weekly;
+- unsupervised auto-posting, auto-replying, auto-spending, or auto-publishing;
+- "prompt your way to a brand" as a serious method.
+
+These may appear as boundaries, risks, or gates, but they are not the book's teaching target.
+
+---
+
+# Part 18 - Adoption Risk Register
+
+| Risk | Why it matters | Mitigation |
+|---|---|---|
+| Book looks like a prompt collection | Undermines the recipe/provenance thesis | Make recipes, logs, reports, and gates central in every chapter |
+| Too much Mycroft machinery too early | Brand readers may bounce | Introduce only the needed rule, then show it in a useful artifact |
+| Legal/compliance overclaim | Dangerous in claims, influencers, PR, and targeting | Label guidance as not legal advice; require human/legal gates |
+| Personas become stereotypes | Common AI failure mode | Require evidence rows, contradiction notes, and excluded assumptions |
+| Reports become metric theater | Easy to produce charts without decisions | Tie every metric to an objective and a decision |
+| Agency readers find examples too academic | Practitioner adoption risk | Use realistic account, brief, traffic, client, and campaign scenarios |
+| Course readers lack data access | Recipes may feel abstract | Provide sample datasets and simulated runs |
+| Tool details age quickly | Platform churn | Teach recipe structure rather than tool UI |
+| Existing Madison chapters do not match new structure | Manuscript repair needed | Use this TIKTOC as the restructure map |
+| Recipe status overstates maturity | Violates MYCROFT | Cite logs and lifecycle status honestly |
+
+---
+
+# Part 19 - Open Questions
+
+1. Should the new practitioner guide replace the current top-level `chapters/`, or should it become a new track such as `chapters/madison-recipe-engine/`?
+2. Which existing `branding-and-ai` chapters should be preserved as source material versus rewritten into the new mirrored structure?
+3. Which three recipes should become the first fully worked examples with sample data, logs, and reports?
+4. Should Chapter 16 use a single running brand case or offer three tracks: personal brand, startup product, and nonprofit campaign?
+5. What sample datasets can be safely bundled without privacy or copyright concerns?
+6. Should BRANDY, NINA, and OGILVY appear as prompt assistants inside recipe chapters, or should they be isolated in the appendix as supporting tools?
+7. How much command-line execution should be required for nontechnical brand readers?
+8. Which human gates can be machine-checked for presence, even though adequacy remains human?
+9. Should the book explicitly teach students how to write new recipes, or only how to run and interpret existing ones?
+10. What artifact should serve as the final portfolio deliverable: a recipe pack, a campaign pack, a public brand system, or all three?
+
+---
+
+# Summary
+
+The target book is no longer simply "Madison Branding and AI." It is a Madison practitioner guide in the same structural family as *The Reallocation Engine*: a book plus working repository, built around the claim that AI has made execution cheap but judgment scarce.
+
+For job search, the useful decision was Apply / Consider / Skip. For branding and advertising, the useful decisions are: brief / hold; claim / soften / cut; publish / revise / escalate; measure / ignore; repeat / retire; launch / block.
+
+Madison's purpose is to make those decisions inspectable.
+

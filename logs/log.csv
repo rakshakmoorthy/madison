@@ -1,1 +1,17 @@
 date,book,chapter_slug,word_count,sources_count,verify_flag_count,pantry_notes_found,pantry_lib_files_used,thin_pantry,mechanism_explained,contested_claims_flagged
+2026-06-14,madison,01-the-fluency-trap,754,14,0,yes,1,no,"The chapter deep-dives claim segmentation as the mechanism that turns fluent prose into auditable brand work.",0
+2026-06-14,madison,02-the-reallocation-principle,665,13,0,yes,0,no,"The chapter deep-dives task classification as the mechanism for reallocating effort toward scarce human judgment.",0
+2026-06-14,madison,03-the-verified-brand-data-contract,668,13,0,yes,0,no,"The chapter deep-dives provenance tracing as the mechanism that turns scattered brand inputs into defensible evidence.",0
+2026-06-14,madison,04-two-customers,634,14,0,yes,0,no,"The chapter deep-dives dual-audience recipe annotation as the mechanism for making automation maintainable.",0
+2026-06-14,madison,05-verifying-brand-evidence,618,14,0,yes,1,no,"The chapter deep-dives warranted-verb assignment as the mechanism for preventing evidence overreach.",0
+2026-06-14,madison,06-competitor-signal-scan,622,14,0,yes,0,no,"The chapter deep-dives source-bound matrix comparison as the mechanism for turning competitor watching into usable intelligence.",0
+2026-06-14,madison,07-the-creative-brief-builder,620,14,0,yes,0,no,"The chapter deep-dives status-labeled brief assembly as the mechanism for preventing templates from becoming strategy theater.",0
+2026-06-14,madison,08-measurement-plan-and-kpi-map,619,15,0,yes,1,no,"The chapter deep-dives metric-definition mapping as the mechanism for turning reporting into decision support.",0
+2026-06-14,madison,09-claims-and-proof-map,630,15,0,yes,1,no,"The chapter deep-dives claim extraction and proof attachment as the mechanism for making copy review accountable.",0
+2026-06-14,madison,10-audience-persona-evidence-synthesis,628,14,0,yes,0,no,"The chapter deep-dives evidence-row synthesis as the mechanism for making personas useful without inventing people.",0
+2026-06-14,madison,11-content-calendar-with-provenance,618,15,0,yes,0,no,"The chapter deep-dives provenance-aware calendar rows as the mechanism for making content planning accountable.",0
+2026-06-14,madison,12-brand-consistency-and-voice-qa,596,14,0,yes,0,no,"The chapter deep-dives touchpoint-matrix QA as the mechanism for balancing consistency, evidence, accessibility, and taste.",0
+2026-06-14,madison,13-launch-readiness-and-trafficking-qa,604,14,0,yes,0,no,"The chapter deep-dives blocker-based preflight as the mechanism for moving from draft assets to accountable release.",0
+2026-06-14,madison,14-campaign-performance-report,616,15,0,yes,0,no,"The chapter deep-dives interpretation labeling as the mechanism for separating data description from decision recommendation.",0
+2026-06-14,madison,15-media-coverage-and-issue-routing,596,14,0,yes,0,no,"The chapter deep-dives routed escalation as the mechanism for making monitoring useful without automating public judgment.",0
+2026-06-14,madison,16-the-build-and-the-honest-run,633,14,0,yes,0,no,"The chapter deep-dives bounded logged execution as the mechanism for converting separate recipes into accountable practice.",0
