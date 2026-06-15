@@ -1,0 +1,64 @@
+<!--
+  The Broken Provenance Chain
+  Book: Madison Plus One
+  Chapter: 03-the-verified-brand-data-contract
+  Figure 02
+  Type: process flowchart
+  Generated 2026-06-15
+  Source: pantry/03-the-verified-brand-data-contract-cajal.md
+-->
+<svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+  <title id="fig-title-02">The Broken Provenance Chain</title>
+  <desc>A single strategic claim traced downward through intermediate artifacts — a report, a recipe run, and a model summarization — to source documents. One descending link is broken to show where the chain fails: a source never checked for date or methodology. The break localizes where human review must focus; the intact links remain solid.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="03-the-verified-brand-data-contract" figure-number="02" figure-title="The Broken Provenance Chain" figure-slug="the-broken-provenance-chain" figure-type="process flowchart" priority="Critical" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/03-the-verified-brand-data-contract-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="480" fill="#FFFFFF"/>
+  <text x="32" y="44" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Trace the claim back — find where the chain breaks</text>
+
+  <!-- Claim (top) -->
+  <rect x="250" y="68" width="200" height="48" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="350" y="97" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Strategic claim</text>
+
+  <!-- arrow down to report -->
+  <line x1="350" y1="116" x2="350" y2="148" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Report -->
+  <rect x="250" y="150" width="200" height="44" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="350" y="177" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Report</text>
+
+  <!-- split to two intermediate artifacts -->
+  <line x1="350" y1="194" x2="190" y2="232" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="350" y1="194" x2="510" y2="232" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Recipe run -->
+  <rect x="80" y="234" width="200" height="44" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="180" y="261" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Recipe run</text>
+
+  <!-- Model summarization (generated artifact, flagged) -->
+  <rect x="420" y="234" width="200" height="44" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <text x="520" y="256" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Model summarization</text>
+  <text x="520" y="272" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#C8102E">generated — not evidence</text>
+
+  <!-- intact link down from recipe run -->
+  <line x1="180" y1="278" x2="180" y2="328" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- BROKEN link down from model summarization -->
+  <line x1="520" y1="278" x2="520" y2="296" stroke="#C8102E" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="520" y1="312" x2="520" y2="328" stroke="#C8102E" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <!-- break mark -->
+  <line x1="506" y1="300" x2="534" y2="292" stroke="#C8102E" stroke-width="2"/>
+  <line x1="506" y1="316" x2="534" y2="308" stroke="#C8102E" stroke-width="2"/>
+  <text x="552" y="306" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8102E">break: source never</text>
+  <text x="552" y="320" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8102E">checked for date / method</text>
+
+  <!-- Source documents row -->
+  <rect x="80" y="330" width="200" height="48" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="180" y="359" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Source document</text>
+  <rect x="420" y="330" width="200" height="48" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="520" y="359" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Source document</text>
+
+  <text x="350" y="430" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">One break does not invalidate the chain — it shows exactly where human review must concentrate.</text>
+</svg>

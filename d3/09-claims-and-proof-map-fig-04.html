@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evidence boundary</title>
+<style>
+  :root{--color-white:#FFFFFF;--color-ink:#2a1a0e;--color-red:#C8102E;
+    --color-secondary:#545454;--color-border:#D4D4D4;--color-ochre:#C8860E;}
+  @media (prefers-color-scheme: dark){
+    :root{--color-white:#111111;--color-ink:#F0EBE3;--color-red:#E8243A;
+      --color-secondary:#A0978C;--color-border:#2E2E2E;--color-ochre:#D49A30;}}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--color-white);color:var(--color-ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+  #chart{width:100%;}
+  .zone{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;}
+  .item{font-family:'Inter',sans-serif;font-size:11px;}
+  .cap{font-family:'EB Garamond',Georgia,serif;font-size:13px;font-style:italic;fill:var(--color-secondary);}
+  .tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-white);
+    border:1px solid var(--color-border);padding:6px 10px;font-size:13px;color:var(--color-ink);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA=[
+  {zone:"Verified",items:"source docs · metrics · testimonials · screenshots · boilerplate",fill:"#F5F5F5",dark:false},
+  {zone:"Model judgment",items:"claim classification · rewrite suggestions",fill:"var(--color-secondary)",dark:true},
+  {zone:"Human judgment",items:"risk tolerance · brand fit · final copy approval",fill:"var(--color-red)",dark:true}
+];
+const tooltip=d3.select('body').append('div').attr('class','tooltip');
+function showTip(e,h){tooltip.html(h).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px')
+  .transition().duration(150).style('opacity',1);}
+function moveTip(e){tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px');}
+function hideTip(){tooltip.transition().duration(100).style('opacity',0);}
+function draw(data){
+  d3.select('#chart').selectAll('*').remove();
+  const W=document.getElementById('chart').clientWidth||700, H=300;
+  const svg=d3.select('#chart').append('svg').attr('width',W).attr('height',H)
+    .attr('role','img').attr('aria-labelledby','c-title c-desc');
+  svg.append('title').attr('id','c-title').text('Evidence boundary');
+  svg.append('desc').attr('id','c-desc').text('Three zones — verified evidence, model judgment, human judgment — with a phase gate between model and human.');
+  const m=20, zh=64, gap=14, top=30;
+  data.forEach((d,i)=>{
+    const y=top+i*(zh+gap);
+    svg.append('rect').attr('x',m).attr('y',y).attr('width',W-2*m).attr('height',zh)
+      .attr('fill',d.fill).attr('stroke',d.dark?'none':'var(--color-border)')
+      .attr('tabindex',0).attr('aria-label',d.zone+': '+d.items)
+      .on('mouseover',(e)=>showTip(e,'<strong>'+d.zone+'</strong><br>'+d.items)).on('mousemove',moveTip).on('mouseout',hideTip);
+    svg.append('text').attr('class','zone').attr('x',m+14).attr('y',y+26).attr('fill',d.dark?'var(--color-white)':'var(--color-ink)').text(d.zone);
+    svg.append('text').attr('class','item').attr('x',m+14).attr('y',y+48).attr('fill',d.dark?'var(--color-white)':'var(--color-secondary)').text(d.items);
+  });
+  // phase gate between model (index1) and human (index2)
+  const gateY=top+2*(zh+gap)-gap/2;
+  svg.append('line').attr('x1',m).attr('y1',gateY).attr('x2',W-m).attr('y2',gateY)
+    .attr('stroke','var(--color-ochre)').attr('stroke-width',3).attr('aria-hidden','true');
+  svg.append('text').attr('class','cap').attr('x',m).attr('y',H-12)
+    .text('The model prepares the matrix. The human signs the claim.');
+}
+async function load(){try{return await d3.json('./09-claims-and-proof-map-fig-04/data.json');}catch{return FALLBACK_DATA;}}
+load().then(d=>{draw(d);const ro=new ResizeObserver(()=>draw(d));ro.observe(document.getElementById('chart'));});
+</script>
+</body>
+</html>

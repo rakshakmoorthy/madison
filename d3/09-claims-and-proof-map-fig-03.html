@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The rewrite decision tree</title>
+<style>
+  :root{--color-white:#FFFFFF;--color-ink:#2a1a0e;--color-red:#C8102E;
+    --color-secondary:#545454;--color-border:#D4D4D4;--color-ochre:#C8860E;}
+  @media (prefers-color-scheme: dark){
+    :root{--color-white:#111111;--color-ink:#F0EBE3;--color-red:#E8243A;
+      --color-secondary:#A0978C;--color-border:#2E2E2E;--color-ochre:#D49A30;}}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--color-white);color:var(--color-ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+  #chart{width:100%;}
+  .node{font-family:'Inter',sans-serif;font-size:11px;fill:var(--color-ink);}
+  .edge{font-family:'JetBrains Mono',monospace;font-size:10px;fill:var(--color-secondary);}
+  .cap{font-family:'EB Garamond',Georgia,serif;font-size:13px;font-style:italic;fill:var(--color-secondary);}
+  .tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-white);
+    border:1px solid var(--color-border);padding:6px 10px;font-size:13px;color:var(--color-ink);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA={
+  nodes:[
+    {id:"root",label:"Claim with no proof",x:0.5,y:0.10,shape:"rect"},
+    {id:"d1",label:"Proof can be found?",x:0.5,y:0.32,shape:"diamond"},
+    {id:"verify",label:"Attach & verify → rewrite w/ specifics",x:0.16,y:0.32,shape:"rect",accent:"red"},
+    {id:"d2",label:"Qualify as opinion / UX?",x:0.5,y:0.58,shape:"diamond"},
+    {id:"attr",label:"Rewrite with attribution",x:0.84,y:0.58,shape:"rect"},
+    {id:"flag",label:"Flag approval owner",x:0.5,y:0.80,shape:"rect"},
+    {id:"hold",label:"Remove or hold",x:0.5,y:0.94,shape:"rect",accent:"red"}
+  ],
+  edges:[["root","d1",""],["d1","verify","yes"],["d1","d2","no"],["d2","attr","yes"],["d2","flag","no"],["flag","hold",""]]
+};
+const tooltip=d3.select('body').append('div').attr('class','tooltip');
+function showTip(e,h){tooltip.html(h).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px')
+  .transition().duration(150).style('opacity',1);}
+function moveTip(e){tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px');}
+function hideTip(){tooltip.transition().duration(100).style('opacity',0);}
+function draw(data){
+  d3.select('#chart').selectAll('*').remove();
+  const W=document.getElementById('chart').clientWidth||700, H=440;
+  const svg=d3.select('#chart').append('svg').attr('width',W).attr('height',H)
+    .attr('viewBox',`0 0 ${W} ${H}`).attr('role','img').attr('aria-labelledby','c-title c-desc');
+  svg.append('title').attr('id','c-title').text('The rewrite decision tree');
+  svg.append('desc').attr('id','c-desc').text('A decision tree resolving a claim with no proof through find-proof, qualify-as-opinion, or flag-for-approval paths.');
+  svg.append('defs').append('marker').attr('id','ar').attr('markerWidth',9).attr('markerHeight',9).attr('refX',7).attr('refY',4).attr('orient','auto')
+    .append('path').attr('d','M0,0 L8,4 L0,8 z').attr('fill','var(--color-ink)');
+  const px=d=>d.x*W, py=d=>d.y*(H-40)+10;
+  const map={}; data.nodes.forEach(n=>map[n.id]=n);
+  data.edges.forEach(([a,b,lab])=>{
+    const A=map[a],B=map[b];
+    svg.append('line').attr('x1',px(A)).attr('y1',py(A)+22).attr('x2',px(B)).attr('y2',py(B)-22)
+      .attr('stroke','var(--color-ink)').attr('stroke-width',1.5).attr('marker-end','url(#ar)').attr('aria-hidden','true');
+    if(lab) svg.append('text').attr('class','edge').attr('x',(px(A)+px(B))/2+6).attr('y',(py(A)+py(B))/2).text(lab);
+  });
+  data.nodes.forEach(n=>{
+    const cx=px(n),cy=py(n),stroke=n.accent==='red'?'var(--color-red)':'var(--color-secondary)';
+    const sw=n.accent==='red'?2:1;
+    if(n.shape==='diamond'){
+      svg.append('polygon').attr('points',`${cx},${cy-24} ${cx+90},${cy} ${cx},${cy+24} ${cx-90},${cy}`)
+        .attr('fill','var(--color-white)').attr('stroke','var(--color-secondary)')
+        .attr('tabindex',0).attr('aria-label',n.label)
+        .on('mouseover',(e)=>showTip(e,n.label)).on('mousemove',moveTip).on('mouseout',hideTip);
+    }else{
+      svg.append('rect').attr('x',cx-90).attr('y',cy-22).attr('width',180).attr('height',44)
+        .attr('fill',n.id==='root'?'#F5F5F5':'var(--color-white)').attr('stroke',stroke).attr('stroke-width',sw)
+        .attr('tabindex',0).attr('aria-label',n.label)
+        .on('mouseover',(e)=>showTip(e,n.label)).on('mousemove',moveTip).on('mouseout',hideTip);
+    }
+    svg.append('text').attr('class','node').attr('x',cx).attr('y',cy+4).attr('text-anchor','middle')
+      .attr('fill',n.accent==='red'?'var(--color-red)':'var(--color-ink)').text(n.label);
+  });
+}
+async function load(){try{return await d3.json('./09-claims-and-proof-map-fig-03/data.json');}catch{return FALLBACK_DATA;}}
+load().then(d=>{draw(d);const ro=new ResizeObserver(()=>draw(d));ro.observe(document.getElementById('chart'));});
+</script>
+</body>
+</html>

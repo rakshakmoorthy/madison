@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The KPI workflow and its division of labor</title>
+<style>
+  :root{--color-white:#FFFFFF;--color-ink:#2a1a0e;--color-red:#C8102E;
+    --color-secondary:#545454;--color-border:#D4D4D4;--color-ochre:#C8860E;}
+  @media (prefers-color-scheme: dark){
+    :root{--color-white:#111111;--color-ink:#F0EBE3;--color-red:#E8243A;
+      --color-secondary:#A0978C;--color-border:#2E2E2E;--color-ochre:#D49A30;}}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--color-white);color:var(--color-ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+  #chart{width:100%;}
+  .eyebrow{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
+  .stage{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;fill:var(--color-ink);}
+  .small{font-family:'Inter',sans-serif;font-size:9.5px;fill:var(--color-secondary);}
+  .cap{font-family:'EB Garamond',Georgia,serif;font-size:13px;font-style:italic;fill:var(--color-secondary);}
+  .tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-white);
+    border:1px solid var(--color-border);padding:6px 10px;font-size:13px;color:var(--color-ink);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA=[
+  {stage:"Define objectives",ai:"surface prior objectives",human:"this campaign's purpose"},
+  {stage:"Build KPI map",ai:"suggest metrics, flag gaps",human:"decision uses, sign-off"},
+  {stage:"Collect baselines",ai:"locate source systems",human:"confirm baseline validity"},
+  {stage:"Run campaign",ai:"monitor and flag anomalies",human:"whether to adjust"},
+  {stage:"Report vs map",ai:"extract and format",human:"interpret vs decision uses"}
+];
+const tooltip=d3.select('body').append('div').attr('class','tooltip');
+function showTip(e,h){tooltip.html(h).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px')
+  .transition().duration(150).style('opacity',1);}
+function moveTip(e){tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px');}
+function hideTip(){tooltip.transition().duration(100).style('opacity',0);}
+function draw(data){
+  d3.select('#chart').selectAll('*').remove();
+  const totalWidth=document.getElementById('chart').clientWidth||700;
+  const totalHeight=380;
+  const svg=d3.select('#chart').append('svg').attr('width',totalWidth).attr('height',totalHeight)
+    .attr('viewBox',`0 0 ${totalWidth} ${totalHeight}`)
+    .attr('role','img').attr('aria-labelledby','c-title c-desc');
+  svg.append('title').attr('id','c-title').text('The KPI workflow and its division of labor');
+  svg.append('desc').attr('id','c-desc').text('Five workflow stages with an AI-assist lane and a human-decides lane across each.');
+  svg.append('defs').append('marker').attr('id','ar').attr('markerWidth',8).attr('markerHeight',8).attr('refX',6).attr('refY',4).attr('orient','auto')
+    .append('path').attr('d','M0,0 L7,4 L0,8 z').attr('fill','var(--color-ink)');
+  const m=14, n=data.length, gap=10;
+  const cw=(totalWidth-2*m-gap*(n-1))/n;
+  const stageY=40, aiY=120, humanY=220, boxH=56;
+  data.forEach((d,i)=>{
+    const x=m+i*(cw+gap);
+    svg.append('rect').attr('x',x).attr('y',stageY).attr('width',cw).attr('height',40).attr('fill','#F5F5F5').attr('stroke','var(--color-border)');
+    svg.append('text').attr('class','stage').attr('x',x+6).attr('y',stageY+24).text(d.stage);
+    svg.append('rect').attr('x',x).attr('y',aiY).attr('width',cw).attr('height',boxH).attr('fill','var(--color-white)').attr('stroke','var(--color-secondary)')
+      .attr('tabindex',0).attr('aria-label','AI assist: '+d.ai)
+      .on('mouseover',(e)=>showTip(e,'<strong>AI assist</strong><br>'+d.ai)).on('mousemove',moveTip).on('mouseout',hideTip);
+    svg.append('text').attr('class','small').attr('x',x+6).attr('y',aiY+22).text(d.ai);
+    svg.append('rect').attr('x',x).attr('y',humanY).attr('width',cw).attr('height',boxH).attr('fill','var(--color-white)').attr('stroke','var(--color-red)').attr('stroke-width',2)
+      .attr('tabindex',0).attr('aria-label','Human decides: '+d.human)
+      .on('mouseover',(e)=>showTip(e,'<strong>Human decides</strong><br>'+d.human)).on('mousemove',moveTip).on('mouseout',hideTip);
+    svg.append('text').attr('class','small').attr('x',x+6).attr('y',humanY+22).text(d.human);
+    if(i<n-1)
+      svg.append('line').attr('x1',x+cw).attr('y1',stageY+20).attr('x2',x+cw+gap).attr('y2',stageY+20)
+        .attr('stroke','var(--color-ink)').attr('stroke-width',1.5).attr('marker-end','url(#ar)').attr('aria-hidden','true');
+  });
+  svg.append('text').attr('class','eyebrow').attr('x',m).attr('y',aiY-8).attr('fill','var(--color-secondary)').text('AI can assist');
+  svg.append('text').attr('class','eyebrow').attr('x',m).attr('y',humanY-8).attr('fill','var(--color-red)').text('Human must decide');
+  svg.append('text').attr('class','cap').attr('x',m).attr('y',totalHeight-16)
+    .text('The labor division is about where professional accountability lives.');
+}
+async function load(){try{return await d3.json('./08-measurement-plan-and-kpi-map-fig-04/data.json');}catch{return FALLBACK_DATA;}}
+load().then(d=>{draw(d);const ro=new ResizeObserver(()=>draw(d));ro.observe(document.getElementById('chart'));});
+</script>
+</body>
+</html>

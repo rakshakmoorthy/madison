@@ -36,13 +36,27 @@ The fifth is **accessibility**. Images have alt text. Videos have captions. Colo
 
 The sixth is **blocker identification and severity classification**. After running the first five checks, you will have a list of gaps. Some of them are critical — they will prevent the campaign from running correctly or expose the organization to legal or reputational risk. Some are significant — they represent quality problems that should ideally be fixed before launch. Some are minor — they are worth noting but do not affect the launch decision. The classification matters because it determines what the go/no-go decision is actually weighing. A launch with one critical blocker unresolved is a different thing from a launch with three minor ones.
 
+![Six launch check categories: five parallel checks — asset completeness, URL and tracking, claims and proof, approvals and disclosures, accessibility — converging into a downstream blocker-classification node, with the claims-and-proof check weighted as the most consequential.](images/13-launch-readiness-and-trafficking-qa-fig-01.png)
+*Figure 13.1 — The six launch check categories*
+
 ---
 
-<!-- → [TABLE: Launch Readiness Pack — columns: Check Category | Item | Required State | Current State | Evidence / Source | Blocker Severity (Critical / Significant / Minor / Clear) | Owner | Resolved?] -->
+| Check Category | Item | Required State | Current State | Evidence / Source | Blocker Severity | Owner | Resolved? |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Asset completeness | Hero video, 16:9 | Final cut, captions burned in | Draft cut, no captions | Asset folder /v2, screenshot 6/12 | Significant | Video lead | No |
+| URL integrity / tracking | Landing page link + UTM | Resolves to live page, UTM present | Resolves; UTM string missing campaign param | Link test log 6/13 | Significant | Media buyer | No |
+| Claims and proof | "Clinically tested" claim | Claim matches approved proof map | Claim exceeds proof on file | Proof map v3.2; legal note 6/11 | Critical | Brand lead | No |
+| Approvals / disclosures | Sponsored-content label | Disclosure present per policy | Disclosure present | Approval record 6/10 | Clear | Compliance | Yes |
+| Accessibility | Image alt text | All images have alt text | Two images missing alt text | Accessibility scan 6/13 | Minor | Designer | No |
+
+*The launch readiness pack records, for each check item, the gap between required and current state, where the evidence lives and when it was captured, how severe the gap is, who owns it, and whether it is resolved.*
 
 The launch readiness pack is a table. Each row is a specific check item. The columns record what the item should look like, what it actually looks like right now, where the evidence for the current state lives, how severe a problem it represents, who owns the resolution, and whether it has been resolved.
 
 The table is not designed to be comprehensive in the abstract. It is designed to be comprehensive for this campaign, this buy, these assets, this team. The items on the list should reflect what was actually supposed to be produced and what actually needs to be checked before launch. A table that is thorough in principle but doesn't reflect the actual campaign is a conformance artifact, not a readiness artifact.
+
+![Anatomy of one launch-readiness-pack row as eight aligned cells, with the required-state and current-state cells bracketed together to expose the gap, a date-stamp glyph on the evidence cell, and a four-state severity indicator.](images/13-launch-readiness-and-trafficking-qa-fig-02.png)
+*Figure 13.2 — Launch readiness pack row anatomy*
 
 ---
 
@@ -51,6 +65,9 @@ I want to focus on the go/no-go decision specifically, because it is the place w
 The go decision is not a technical determination. It is not the answer to the question *are all the boxes checked?* It is the answer to the question *is the remaining risk acceptable for launch?* Those are different questions. All the boxes might be checked and the campaign might still not be ready — if, for example, the approval for a significant claim modification came in at eleven at night and the approver was clearly responding to time pressure rather than reviewing carefully. Or some boxes might not be checked — the landing page has a minor formatting issue on one browser — and the campaign might be ready anyway, because the unchecked item is genuinely minor and the launch window is narrow.
 
 The go decision belongs to a named person. Not the team. Not the process. One person whose name goes in the record, who has reviewed the blocker list and its severity classifications, and who has accepted the responsibility of saying that the campaign is ready to be public.
+
+![Go/no-go decision flow: a classified blocker list feeds a single named approver asking whether remaining risk is acceptable, branching to a recorded go, a hold, or a non-acceptable critical-blocker terminus for a misaligned claim or unidentified approver.](images/13-launch-readiness-and-trafficking-qa-fig-03.png)
+*Figure 13.3 — The go/no-go decision gate*
 
 This sounds formal, and in small organizations it often happens informally — a senior person looks at the status, asks a couple of questions, and says go. That is fine. What Madison requires is not ceremony. It is traceability. The go decision should be recorded: who made it, when, and what the blocker status was at the time. If something goes wrong after launch, that record is what lets the organization understand what was known and accepted, rather than what was missed.
 
@@ -92,3 +109,19 @@ The campaign that launched well creates the conditions for useful reporting. The
 
 <!-- LLM EXERCISE -->
 **Exercise for further inquiry.** Take a campaign that has already launched — one you were involved in or have access to the records of. Reconstruct what a launch readiness pack would have looked like at the moment of go. Which items would have been Clear? Which would have been blockers? Were there gaps between what the approval record showed and what the campaign's actual state was at launch? If something went wrong after launch — a broken link, a claim that needed to be updated, a tracking gap — trace it back to the readiness state at the time of launch. The exercise is diagnostic, not punitive: the goal is to understand which category of check the gap fell into and what would have caught it.
+
+---
+
+## Prompts
+
+### Figure 13.1 — The six launch check categories
+**Files:** images/13-launch-readiness-and-trafficking-qa-fig-01.svg
+**Prompt:** Systems diagram on white: five parallel check nodes — asset completeness, URL and tracking, claims and proof, approvals and disclosures, accessibility — converging via single-headed arrows into a downstream blocker-classification node drawn in ink as the synthesis step, with the claims-and-proof node at a heavier stroke to mark it as the most consequential check. Brutalist palette only, EB Garamond title, Inter labels.
+
+### Figure 13.2 — Launch readiness pack row anatomy
+**Files:** images/13-launch-readiness-and-trafficking-qa-fig-02.svg
+**Prompt:** Structural schematic of one launch-readiness row as eight aligned cells on white, with the required-state and current-state cells bracketed together to expose the gap, a small date-stamp glyph on the evidence cell, and a four-state severity indicator. JetBrains Mono numerals, ink hairlines, no baked example values.
+
+### Figure 13.3 — The go/no-go decision gate
+**Files:** images/13-launch-readiness-and-trafficking-qa-fig-03.svg
+**Prompt:** Process flowchart on white: a classified blocker list feeds a single named-approver decision (a vertical ink gate line) asking whether remaining risk is acceptable, branching to a recorded go, a hold, and a red non-acceptable critical-blocker terminus for a misaligned claim or unidentified approver. Single-headed arrows, brutalist palette only, no checkbox tally.

@@ -34,8 +34,8 @@ So the adaptation is mostly good news: **several Cowork "community conventions" 
 
 **Madison already implements the hardest 70% natively.** What the Cowork guide treats as conventions to invent, this repo mostly already has as primitives:
 
-- **`CLAUDE.md` is 42 lines** (well under the 200 ceiling), already uses the **`@MYCROFT.md` import**, and already opens with an explicit **precedence declaration** ("If any file here conflicts with MYCROFT.md, MYCROFT.md governs… log it"). That's the guide's `PROJECT_RULES.md` precedence + import pattern, done right.
-- **`DOMAIN.md` is the manifest/index** — the map of what's runnable, the suites, the exercises — read on demand (not auto-loaded, which is correct at 106 lines). `MYCROFT.md` is the `_system/` constitution.
+- **`CLAUDE.md` is 42 lines** (well under the 200 ceiling), already uses the **`@SNICKERDOODLE.md` import**, and already opens with an explicit **precedence declaration** ("If any file here conflicts with SNICKERDOODLE.md, SNICKERDOODLE.md governs… log it"). That's the guide's `PROJECT_RULES.md` precedence + import pattern, done right.
+- **`DOMAIN.md` is the manifest/index** — the map of what's runnable, the suites, the exercises — read on demand (not auto-loaded, which is correct at 106 lines). `SNICKERDOODLE.md` is the `_system/` constitution.
 - **`prompts/` suites are skills** — progressive disclosure, exactly the Tier-2 mechanism, already compiled by `build-prompts.mjs`.
 - **`conformance.mjs` is the Validator half** of Builder-Validator; `review`/`to-markdown` is the human gate. The whole P4 "machines verify conformance, humans verify adequacy" doctrine *is* the builder-validator pattern with a governance name.
 
@@ -63,7 +63,7 @@ What Madison should *not* copy from the Cowork guide: the `_MANIFEST.md` file in
 @AGENTS.md
 
 ## Claude Code specifics
-- Read DOMAIN.md (the index) and MYCROFT.md (the constitution) before acting.
+- Read DOMAIN.md (the index) and SNICKERDOODLE.md (the constitution) before acting.
 - Before any task: load Tier 1 (this file + MYCROFT). Load a prompt suite or
   DOMAIN section only when the task is in that domain.
 - Scope subagents to the index + the one relevant subfolder — never the whole repo.

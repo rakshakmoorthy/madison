@@ -5,7 +5,7 @@
 **Time:** one sitting for the layer; the board step is ten minutes.
 **You need:** a CLI agent (Cowork, Claude Code, or Codex), your Madison fork cloned, your current resume or LinkedIn profile.
 
-The principle this exercise runs on (from `MYCROFT.md`): the agent does the extraction, drafting, and research; **you** do the attesting, choosing, and signing. The Figma board everyone sees is the *report*; the files in `brand/` are the *truth* it renders. Two customers, one source.
+The principle this exercise runs on (from `SNICKERDOODLE.md`): the agent does the extraction, drafting, and research; **you** do the attesting, choosing, and signing. The Figma board everyone sees is the *report*; the files in `brand/` are the *truth* it renders. Two customers, one source.
 
 ---
 

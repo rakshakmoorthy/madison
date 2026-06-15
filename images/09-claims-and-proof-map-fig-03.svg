@@ -1,0 +1,59 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">The rewrite decision tree</title>
+  <desc id="desc">A decision tree starting from a claim with no proof: if proof can be found, attach and verify then rewrite with specifics; if not, qualify as opinion or flag for the approval owner to remove or hold.</desc>
+  <style>
+    .n{font-family:'Inter',sans-serif;font-size:12px;fill:#2a1a0e;}
+    .d{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;fill:#2a1a0e;}
+    .e{font-family:'JetBrains Mono',monospace;font-size:10px;fill:#545454;}
+    .g{font-family:'EB Garamond',Georgia,serif;font-size:13px;font-style:italic;fill:#545454;}
+  </style>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+  <defs>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#2a1a0e"/>
+    </marker>
+  </defs>
+
+  <!-- root -->
+  <rect x="270" y="24" width="160" height="44" fill="#F5F5F5" stroke="#2a1a0e"/>
+  <text class="d" x="282" y="44">Claim with</text><text class="d" x="282" y="60">no proof</text>
+
+  <!-- decision diamond 1: proof can be found? -->
+  <polygon points="350,96 430,134 350,172 270,134" fill="#FFFFFF" stroke="#545454"/>
+  <text class="n" x="350" y="130" text-anchor="middle">Proof can</text>
+  <text class="n" x="350" y="145" text-anchor="middle">be found?</text>
+  <line x1="350" y1="68" x2="350" y2="96" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <!-- yes -> attach & verify -> rewrite specifics (left/green path) -->
+  <text class="e" x="180" y="128">yes</text>
+  <line x1="270" y1="134" x2="210" y2="134" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="40" y="112" width="150" height="44" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+  <text class="n" x="52" y="132">Attach &amp; verify →</text>
+  <text class="n" x="52" y="148">rewrite w/ specifics</text>
+
+  <!-- no -> decision 2 -->
+  <text class="e" x="356" y="194">no</text>
+  <line x1="350" y1="172" x2="350" y2="200" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#ar)"/>
+  <polygon points="350,200 440,238 350,276 260,238" fill="#FFFFFF" stroke="#545454"/>
+  <text class="n" x="350" y="234" text-anchor="middle">Qualify as</text>
+  <text class="n" x="350" y="249" text-anchor="middle">opinion / UX?</text>
+
+  <!-- yes -> rewrite with attribution -->
+  <text class="e" x="448" y="232">yes</text>
+  <line x1="440" y1="238" x2="500" y2="238" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="510" y="216" width="150" height="44" fill="#FFFFFF" stroke="#545454"/>
+  <text class="n" x="522" y="236">Rewrite with</text>
+  <text class="n" x="522" y="252">attribution</text>
+
+  <!-- no -> flag approval owner -> remove or hold -->
+  <text class="e" x="356" y="298">no</text>
+  <line x1="350" y1="276" x2="350" y2="304" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="275" y="304" width="150" height="40" fill="#FFFFFF" stroke="#545454"/>
+  <text class="n" x="287" y="328">Flag approval owner</text>
+  <line x1="350" y1="344" x2="350" y2="362" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="275" y="362" width="150" height="38" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+  <text class="n" x="287" y="385" fill="#C8102E">Remove or hold</text>
+
+  <text class="g" x="40" y="392">The tree is a decision aid, not a policy. The owner can ship a flagged</text>
+  <text class="g" x="40" y="410">claim with documented reasoning.</text>
+</svg>

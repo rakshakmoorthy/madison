@@ -9,7 +9,7 @@ mkdirSync(pantryDir, { recursive: true });
 
 const commonSources = [
   "TIKTOC.md",
-  "MYCROFT.md",
+  "SNICKERDOODLE.md",
   "DOMAIN.md",
   "DATA_CONTRACT.md",
   "docs/data-and-provenance.md",
@@ -53,7 +53,7 @@ const chapters = [
       "Connects to `prompts/ogilvy/PROVENANCE-CHECK.md` and the shared GIGO library notes.",
     ],
     current:
-      "The repo already contains the right contrast: fluent prompt suites in `prompts/` and verification rules in `MYCROFT.md`, `DATA_CONTRACT.md`, and `docs/data-and-provenance.md`. The missing chapter should make that contrast explicit and operational.",
+      "The repo already contains the right contrast: fluent prompt suites in `prompts/` and verification rules in `SNICKERDOODLE.md`, `DATA_CONTRACT.md`, and `docs/data-and-provenance.md`. The missing chapter should make that contrast explicit and operational.",
     teaching:
       "Make the first exercise visceral: give students a good-looking artifact and force a slow claim audit. The lesson lands when the artifact remains useful but loses its false aura of certainty.",
     sources: [
@@ -156,7 +156,7 @@ const chapters = [
     connections: [
       "Explains why later chapters ask for both tables/logs and memos/reports.",
       "Supports Chapter 13's launch readiness pack and Chapter 16's honest run.",
-      "Connects to `MYCROFT.md` rules about runnable, reviewable recipes.",
+      "Connects to `SNICKERDOODLE.md` rules about runnable, reviewable recipes.",
     ],
     current:
       "The repo already carries this pattern in recipes, logs, templates, and docs. The chapter should name it as an explicit design principle so readers can apply it to their own workflows.",
@@ -583,7 +583,7 @@ const chapters = [
     ],
     connections: [
       "Integrates every prior chapter.",
-      "Mirrors the repository's own governance model from `MYCROFT.md`.",
+      "Mirrors the repository's own governance model from `SNICKERDOODLE.md`.",
       "Provides the capstone artifact for a portfolio or workplace handoff.",
     ],
     current:
@@ -673,7 +673,7 @@ ${renderList(chapters.map((chapter) => `pantry/${chapter.file}`))}
 ## Primary Repo Evidence Layers
 
 - \`TIKTOC.md\` for chapter sequence, capability statements, whole tasks, and assessments.
-- \`MYCROFT.md\`, \`DOMAIN.md\`, and \`DATA_CONTRACT.md\` for constitution, domain, and evidence rules.
+- \`SNICKERDOODLE.md\`, \`DOMAIN.md\`, and \`DATA_CONTRACT.md\` for constitution, domain, and evidence rules.
 - \`recipes/\` for practitioner workflows and output contracts.
 - \`prompts/\` for brand, review, copy, identity, pitch, and shared critique patterns.
 - \`docs/exercises/\` for teaching sequence and assessment scaffolding.

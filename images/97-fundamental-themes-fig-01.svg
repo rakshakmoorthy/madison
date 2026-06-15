@@ -1,0 +1,59 @@
+<!--
+  Title: The Five Themes Around the Central Claim
+  Book: Madison Plus One
+  Chapter: 97-fundamental-themes
+  Figure 01
+  Type: conceptual map
+  Generated 2026-06-15
+  Source: pantry/97-fundamental-themes-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+<title id="fig-title-01">The Five Themes Around the Central Claim</title>
+<desc>A radial hub-and-spoke map. The central claim—AI makes brand execution cheaper but does not make brand judgment cheap—sits at the hub, with five themes around it: friction is the mechanism, phase gates make the boundary explicit, provenance beats polish, two customers, and humans plus AI not humans or AI. The human-judgment spoke is emphasized.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="97-fundamental-themes" figure-number="01" figure-title="The Five Themes Around the Central Claim" figure-slug="the-five-themes-around-the-central-claim" figure-type="conceptual map" priority="Important" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/97-fundamental-themes-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="350" y="40" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The Five Themes Around the Central Claim</text>
+
+<!-- spokes (drawn first, under nodes) -->
+<line x1="350" y1="240" x2="350" y2="118" stroke="#787878" stroke-width="1"/>
+<line x1="350" y1="240" x2="138" y2="168" stroke="#787878" stroke-width="1"/>
+<line x1="350" y1="240" x2="562" y2="168" stroke="#787878" stroke-width="1"/>
+<line x1="350" y1="240" x2="186" y2="338" stroke="#787878" stroke-width="1"/>
+<!-- human-judgment spoke emphasized (active) -->
+<line x1="350" y1="240" x2="514" y2="338" stroke="#545454" stroke-width="2"/>
+
+<!-- hub (dominant) -->
+<rect x="250" y="208" width="200" height="92" fill="#2a1a0e" stroke="#2a1a0e" stroke-width="1"/>
+<text x="350" y="236" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#FFFFFF">AI makes brand</text>
+<text x="350" y="252" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#FFFFFF">execution cheaper —</text>
+<text x="350" y="268" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#FFFFFF">not brand</text>
+<text x="350" y="284" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#FFFFFF">judgment cheap</text>
+
+<!-- theme: friction (top) -->
+<rect x="262" y="74" width="176" height="44" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="350" y="101" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Friction is the mechanism</text>
+
+<!-- theme: phase gates (left, with boundary glyph) -->
+<rect x="40" y="146" width="176" height="44" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<line x1="128" y1="150" x2="128" y2="186" stroke="#C8102E" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="80" y="172" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Phase gates</text>
+<text x="172" y="172" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">explicit</text>
+
+<!-- theme: provenance (right) -->
+<rect x="484" y="146" width="176" height="44" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="572" y="173" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Provenance beats polish</text>
+
+<!-- theme: two customers (lower left, paired glyph) -->
+<rect x="60" y="320" width="176" height="44" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<circle cx="92" cy="342" r="7" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+<circle cx="106" cy="342" r="7" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="168" y="346" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Two customers</text>
+
+<!-- theme: humans + AI (lower right, active emphasis) -->
+<rect x="464" y="320" width="196" height="44" fill="#FFFFFF" stroke="#545454" stroke-width="2"/>
+<text x="562" y="340" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Humans + AI,</text>
+<text x="562" y="356" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">not humans or AI</text>
+
+<text x="350" y="396" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Five expressions of one claim; all themes serve the preservation of human judgment.</text>
+</svg>

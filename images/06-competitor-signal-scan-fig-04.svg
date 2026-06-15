@@ -1,0 +1,53 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Contradiction frequency across a competitor set</title>
+  <desc id="desc">Horizontal bars showing how many contradiction flags appear per competitor, distinguishing substantive contradictions from surface tone variation.</desc>
+  <style>
+    .h{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;fill:#2a1a0e;}
+    .t{font-family:'Inter',sans-serif;font-size:13px;fill:#2a1a0e;}
+    .a{font-family:'JetBrains Mono',monospace;font-size:11px;fill:#545454;}
+    .g{font-family:'EB Garamond',Georgia,serif;font-size:14px;font-style:italic;fill:#545454;}
+    .l{font-family:'Inter',sans-serif;font-size:12px;fill:#545454;}
+  </style>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+  <text class="h" x="40" y="42">Contradiction flags per competitor</text>
+
+  <!-- zero baseline -->
+  <line x1="170" y1="70" x2="170" y2="300" stroke="#2a1a0e" stroke-width="1.5"/>
+  <!-- gridlines -->
+  <g stroke="#D4D4D4" stroke-width="1">
+    <line x1="280" y1="70" x2="280" y2="300"/>
+    <line x1="390" y1="70" x2="390" y2="300"/>
+    <line x1="500" y1="70" x2="500" y2="300"/>
+    <line x1="610" y1="70" x2="610" y2="300"/>
+  </g>
+  <g class="a" text-anchor="middle">
+    <text x="170" y="318">0</text>
+    <text x="280" y="318">1</text>
+    <text x="390" y="318">2</text>
+    <text x="500" y="318">3</text>
+    <text x="610" y="318">4</text>
+  </g>
+
+  <!-- bars: substantive (red) vs surface (secondary), stacked -->
+  <!-- Competitor A: 1 substantive -->
+  <text class="t" x="40" y="100" >Competitor A</text>
+  <rect x="170" y="84" width="110" height="26" fill="#C8102E"/>
+  <!-- Competitor B: 1 substantive + 2 surface = 3 -->
+  <text class="t" x="40" y="150">Competitor B</text>
+  <rect x="170" y="134" width="110" height="26" fill="#C8102E"/>
+  <rect x="280" y="134" width="220" height="26" fill="#545454"/>
+  <!-- Competitor C: 0 -->
+  <text class="t" x="40" y="200">Competitor C</text>
+  <!-- Competitor D: 2 surface -->
+  <text class="t" x="40" y="250">Competitor D</text>
+  <rect x="170" y="234" width="220" height="26" fill="#545454"/>
+
+  <!-- legend -->
+  <rect x="170" y="345" width="16" height="16" fill="#C8102E"/>
+  <text class="l" x="194" y="358">Substantive (strategy vs. execution)</text>
+  <rect x="430" y="345" width="16" height="16" fill="#545454"/>
+  <text class="l" x="454" y="358">Surface (tone variation by channel)</text>
+
+  <text class="g" x="40" y="392">Not all contradictions are problems. Some are strategic. The matrix surfaces</text>
+  <text class="g" x="40" y="410">them; the practitioner decides which kind they are.</text>
+</svg>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Broken Provenance Chain</title>
+<style>
+:root{
+  --color-white:#FFFFFF;
+  --color-ink:#2a1a0e;
+  --color-red:#C8102E;
+  --color-secondary:#545454;
+  --color-border:#D4D4D4;
+  --color-ochre:#C8860E;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-white:#111111;
+    --color-ink:#F0EBE3;
+    --color-red:#E8243A;
+    --color-secondary:#A0978C;
+    --color-border:#2E2E2E;
+    --color-ochre:#D49A30;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--color-white);color:var(--color-ink);font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+#chart{width:100%;padding:24px;}
+.chart-title{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;fill:var(--color-ink);}
+.chart-subtitle{font-family:'Inter',sans-serif;font-size:13px;fill:var(--color-secondary);}
+.node-label{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;}
+.annot{font-family:'JetBrains Mono','Fira Code',monospace;font-size:10px;fill:var(--color-red);}
+.tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-ink);color:var(--color-white);
+  border:1px solid var(--color-border);padding:8px 10px;font-family:'Inter',sans-serif;font-size:13px;}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+// level: 0 = claim (top), 1 = intermediate, 2 = sources (bottom)
+const FALLBACK_DATA = {
+  nodes:[
+    {id:"claim", label:"Claim", level:0, kind:"claim"},
+    {id:"report", label:"Report", level:1, kind:"artifact"},
+    {id:"summary", label:"Model summary", level:1, kind:"generated"},
+    {id:"clientData", label:"Client data", level:2, kind:"source"},
+    {id:"publicAnalyses", label:"Public analyses", level:2, kind:"source"}
+  ],
+  links:[
+    {source:"claim", target:"report", broken:false},
+    {source:"report", target:"summary", broken:false},
+    {source:"summary", target:"clientData", broken:false},
+    {source:"summary", target:"publicAnalyses", broken:true, note:"source not checked for date/methodology"}
+  ]
+};
+const kindColor = {
+  claim:"var(--color-red)",
+  artifact:"var(--color-ink)",
+  generated:"var(--color-ochre)",
+  source:"var(--color-secondary)"
+};
+
+const tooltip = d3.select('body').append('div').attr('class','tooltip');
+function showTooltip(event,html){tooltip.html(html).style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px').transition().duration(150).style('opacity',1);}
+function moveTooltip(event){tooltip.style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px');}
+function hideTooltip(){tooltip.transition().duration(100).style('opacity',0);}
+
+async function loadData(){
+  try { return await d3.json('./03-the-verified-brand-data-contract-fig-02/data.json'); }
+  catch { return FALLBACK_DATA; }
+}
+
+function render(data){
+  const container = document.getElementById('chart');
+  const totalWidth = Math.max(container.clientWidth-48,560);
+  const totalHeight = 400;
+  d3.select('#chart').selectAll('svg').remove();
+
+  const svg = d3.select('#chart').append('svg')
+    .attr('width',totalWidth).attr('height',totalHeight)
+    .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+  svg.append('title').attr('id','chart-title').text('The Broken Provenance Chain');
+  svg.append('desc').attr('id','chart-desc').text('A claim at the top traced backward through a report and a model summary down to client data and public analyses. The link to the public analyses is broken and labelled source not checked. The model summary is flagged as a generated artifact, not evidence by default.');
+
+  svg.append('defs').append('marker').attr('id','arrow-chain')
+    .attr('markerWidth',9).attr('markerHeight',7).attr('refX',8).attr('refY',3.5).attr('orient','auto')
+    .append('polygon').attr('points','0 0, 9 3.5, 0 7').attr('fill','var(--color-ink)');
+
+  svg.append('text').attr('class','chart-title').attr('x',24).attr('y',30).text('The broken provenance chain');
+  svg.append('text').attr('class','chart-subtitle').attr('x',24).attr('y',52).text('A visible break localizes where human review must focus — it does not invalidate the whole chain.');
+
+  const levelY = {0:96, 1:200, 2:320};
+  const byLevel = d3.group(data.nodes, d=>d.level);
+  byLevel.forEach((nodes)=>{
+    const n = nodes.length;
+    nodes.forEach((d,i)=>{ d._x = totalWidth*(i+1)/(n+1); d._y = levelY[d.level]; });
+  });
+  const byId = new Map(data.nodes.map(d=>[d.id,d]));
+
+  // links
+  data.links.forEach(l=>{
+    const s = byId.get(l.source), t = byId.get(l.target);
+    if(l.broken){
+      // two short stubs with a gap = the break
+      const midX = (s._x+t._x)/2, midY = (s._y+t._y)/2;
+      svg.append('line').attr('aria-hidden','true')
+        .attr('x1',s._x).attr('y1',s._y+22).attr('x2',midX-14).attr('y2',midY-8)
+        .attr('stroke','var(--color-red)').attr('stroke-width',1.6);
+      svg.append('line').attr('aria-hidden','true')
+        .attr('x1',midX+14).attr('y1',midY+8).attr('x2',t._x).attr('y2',t._y-22)
+        .attr('stroke','var(--color-red)').attr('stroke-width',1.6).attr('marker-end','url(#arrow-chain)');
+      svg.append('text').attr('class','annot').attr('x',midX+8).attr('y',midY+2).text(l.note||'break');
+    } else {
+      svg.append('line').attr('aria-hidden','true')
+        .attr('x1',s._x).attr('y1',s._y+22).attr('x2',t._x).attr('y2',t._y-22)
+        .attr('stroke','var(--color-ink)').attr('stroke-width',1.4).attr('marker-end','url(#arrow-chain)');
+    }
+  });
+
+  // nodes
+  data.nodes.forEach(d=>{
+    const g = svg.append('g').attr('tabindex',0)
+      .attr('aria-label',`${d.label}${d.kind==='generated'?', generated artifact, not evidence by default':''}`)
+      .on('mouseover',function(event){showTooltip(event,`<strong>${d.label}</strong>${d.kind==='generated'?'<br>generated artifact — not evidence by default':''}`);})
+      .on('mousemove',moveTooltip).on('mouseout',hideTooltip);
+    const w=120,h=40;
+    g.append('rect').attr('x',d._x-w/2).attr('y',d._y-h/2).attr('width',w).attr('height',h)
+      .attr('rx',8).attr('fill','var(--color-white)')
+      .attr('stroke',kindColor[d.kind]).attr('stroke-width', d.kind==='claim'?2.5:1.8)
+      .attr('stroke-dasharray', d.kind==='generated'?'5 3':null);
+    g.append('text').attr('class','node-label').attr('x',d._x).attr('y',d._y+4)
+      .attr('text-anchor','middle').attr('fill',kindColor[d.kind]).text(d.label);
+  });
+}
+
+function draw(){ loadData().then(render); }
+draw();
+const ro = new ResizeObserver(()=>draw());
+ro.observe(document.getElementById('chart'));
+</script>
+</body>
+</html>

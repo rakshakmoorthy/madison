@@ -1,0 +1,54 @@
+<!--
+  The Execution–Judgment Boundary
+  Book: Madison Plus One
+  Chapter: 00-introduction
+  Figure 01
+  Type: conceptual map
+  Generated 2026-06-15
+  Source: pantry/00-introduction-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+  <title id="fig-title-01">The Execution–Judgment Boundary</title>
+  <desc>Two regions separated by a central boundary. The left region is execution, producing an artifact cheaply and fast. The right region is judgment, where accountability concentrates. One arrow crosses the boundary, showing an artifact must pass into judgment before it can be trusted.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="00-introduction" figure-number="01" figure-title="The Execution–Judgment Boundary" figure-slug="the-execution-judgment-boundary" figure-type="conceptual map" priority="Important" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/00-introduction-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="44" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The execution–judgment boundary</text>
+
+  <!-- Left region: Execution -->
+  <rect x="32" y="86" width="288" height="252" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+  <text x="176" y="118" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">EXECUTION</text>
+  <text x="176" y="138" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">producing the artifact</text>
+
+  <rect x="76" y="176" width="200" height="44" fill="#FFFFFF" stroke="#545454" stroke-width="1.5"/>
+  <text x="176" y="203" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Draft, generate, format</text>
+
+  <text x="176" y="262" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">cheap · fast</text>
+  <text x="176" y="282" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">the part that got easier</text>
+
+  <!-- Right region: Judgment -->
+  <rect x="380" y="86" width="288" height="252" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+  <text x="524" y="118" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">JUDGMENT</text>
+  <text x="524" y="138" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">deciding whether it should exist</text>
+
+  <rect x="404" y="160" width="240" height="26" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="524" y="178" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Is it right?</text>
+  <rect x="404" y="192" width="240" height="26" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="524" y="210" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Does it fit the situation?</text>
+  <rect x="404" y="224" width="240" height="26" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="524" y="242" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">What does it omit?</text>
+  <rect x="404" y="256" width="240" height="26" fill="#C8102E"/>
+  <text x="524" y="274" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">Who is accountable?</text>
+
+  <text x="524" y="312" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">where accountability concentrates</text>
+
+  <!-- Central boundary -->
+  <line x1="350" y1="86" x2="350" y2="338" stroke="#2a1a0e" stroke-width="2"/>
+
+  <!-- Crossing arrow -->
+  <line x1="276" y1="376" x2="424" y2="376" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="350" y="400" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">an artifact must cross into judgment before it can be trusted</text>
+</svg>

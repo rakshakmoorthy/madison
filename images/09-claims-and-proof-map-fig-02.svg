@@ -1,0 +1,56 @@
+<!--
+  The Claims/Proof Matrix Anatomy
+  Book: Madison Plus One
+  Chapter: 09-claims-and-proof-map
+  Figure 02
+  Type: structural schematic
+  Generated 2026-06-15
+  Source: pantry/09-claims-and-proof-map-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+  <title id="fig-title-02">The Claims/Proof Matrix Anatomy</title>
+  <desc>One row of the claims-and-proof matrix as a left-to-right pipeline of seven cells: Original Claim, Type, Proof, Risk, Rewrite, Approval Owner, Status. Proof and Status are the load-bearing decision cells, drawn with heavier borders. The status terminus resolves into four colored end-states: approved with proof, approved as qualified opinion, flagged for approval owner, and removed.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="09-claims-and-proof-map" figure-number="02" figure-title="The Claims/Proof Matrix Anatomy" figure-slug="claims-proof-matrix-anatomy" figure-type="structural schematic" priority="Critical" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/09-claims-and-proof-map-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">The Claims/Proof Matrix Anatomy</text>
+  <text x="32" y="60" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">One claim travels through classification, proof, and risk before a named human decides its status.</text>
+
+  <!-- pipeline of 7 cells -->
+  <g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">
+    <rect x="40" y="120" width="86" height="60" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="83" y="146" text-anchor="middle">Original</text><text x="83" y="159" text-anchor="middle">Claim</text>
+    <rect x="126" y="120" width="70" height="60" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="161" y="154" text-anchor="middle">Type</text>
+    <!-- Proof load-bearing -->
+    <rect x="196" y="120" width="80" height="60" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/><text x="236" y="154" text-anchor="middle">Proof</text>
+    <rect x="276" y="120" width="70" height="60" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="311" y="154" text-anchor="middle">Risk</text>
+    <rect x="346" y="120" width="80" height="60" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="386" y="154" text-anchor="middle">Rewrite</text>
+    <rect x="426" y="120" width="90" height="60" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="471" y="146" text-anchor="middle">Approval</text><text x="471" y="159" text-anchor="middle">Owner</text>
+    <!-- Status load-bearing -->
+    <rect x="516" y="120" width="80" height="60" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/><text x="556" y="154" text-anchor="middle">Status</text>
+  </g>
+
+  <!-- directional flow arrows between cells -->
+  <g stroke="#2a1a0e" stroke-width="1">
+    <line x1="126" y1="150" x2="124" y2="150"/>
+  </g>
+  <line x1="600" y1="150" x2="624" y2="150" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- four terminal states -->
+  <text x="40" y="232" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Status resolves into one of four end-states:</text>
+  <g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">
+    <rect x="40" y="248" width="20" height="20" fill="#C8102E"/><text x="70" y="263">Approved with proof</text>
+    <rect x="40" y="280" width="20" height="20" fill="#787878"/><text x="70" y="295">Approved as qualified opinion</text>
+    <rect x="40" y="312" width="20" height="20" fill="#C8860E"/><text x="70" y="327">Flagged for approval owner</text>
+    <rect x="40" y="344" width="20" height="20" fill="#2a1a0e"/><text x="70" y="359">Removed</text>
+  </g>
+
+  <!-- state markers at status terminus -->
+  <g>
+    <rect x="640" y="120" width="14" height="14" fill="#C8102E"/>
+    <rect x="640" y="136" width="14" height="14" fill="#787878"/>
+    <rect x="640" y="152" width="14" height="14" fill="#C8860E"/>
+    <rect x="640" y="168" width="14" height="14" fill="#2a1a0e"/>
+  </g>
+</svg>

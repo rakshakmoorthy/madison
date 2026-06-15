@@ -42,6 +42,9 @@ The practical division of labor is consistent across the chapters:
 
 The best Madison workflow does not make the practitioner passive. It gives the practitioner a better surface for judgment.
 
+![Radial hub-and-spoke map with the central claim — AI makes brand execution cheaper but not brand judgment cheap — at the hub and the five themes arranged around it, the human-judgment spoke emphasized to show that every theme serves the preservation of human judgment.](images/97-fundamental-themes-fig-01.png)
+*Figure 97.1 — The five themes around the central claim*
+
 ## Practitioner Doctrine
 
 1. Do not trust fluency without provenance.
@@ -58,3 +61,11 @@ The best Madison workflow does not make the practitioner passive. It gives the p
 ## How to Use This Appendix
 
 Return to this appendix whenever a chapter artifact feels too mechanical. The tables, logs, and checklists matter only because they protect the human work: judgment, taste, accountability, and learning.
+
+---
+
+## Prompts
+
+### Figure 97.1 — The five themes around the central claim
+**Files:** images/97-fundamental-themes-fig-01.svg
+**Prompt:** Radial hub-and-spoke conceptual map on white: the central claim (AI makes brand execution cheaper, not brand judgment cheap) at a slightly larger hub, with five uniform theme nodes — friction is the mechanism, phase gates make the boundary explicit, provenance beats polish, two customers, humans plus AI — each on a single spoke, the human-judgment spoke emphasized and small boundary/pairing glyphs on the phase-gate and two-customers nodes. EB Garamond hub label, Inter node labels, brutalist palette only.

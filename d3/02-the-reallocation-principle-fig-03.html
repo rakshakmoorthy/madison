@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Supervision Frame</title>
+<style>
+:root{
+  --color-white:#FFFFFF;
+  --color-ink:#2a1a0e;
+  --color-red:#C8102E;
+  --color-secondary:#545454;
+  --color-border:#D4D4D4;
+  --color-ochre:#C8860E;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-white:#111111;
+    --color-ink:#F0EBE3;
+    --color-red:#E8243A;
+    --color-secondary:#A0978C;
+    --color-border:#2E2E2E;
+    --color-ochre:#D49A30;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--color-white);color:var(--color-ink);font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+#chart{width:100%;padding:24px;}
+.chart-title{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;fill:var(--color-ink);}
+.chart-subtitle{font-family:'Inter',sans-serif;font-size:13px;fill:var(--color-secondary);}
+.node-label{font-family:'Inter',sans-serif;font-size:13px;font-weight:600;}
+.center-label{font-family:'EB Garamond','Garamond',Georgia,serif;font-size:15px;font-weight:700;}
+.annot{font-family:'JetBrains Mono','Fira Code',monospace;font-size:10px;fill:var(--color-secondary);}
+.tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-ink);color:var(--color-white);
+  border:1px solid var(--color-border);padding:8px 10px;font-family:'Inter',sans-serif;font-size:13px;}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = [
+  {node:"Scope",        q:"What was the agent allowed to do?"},
+  {node:"Approval",     q:"Who decides if this moves forward?"},
+  {node:"Verification", q:"What evidence supports this claim?"}
+];
+
+const tooltip = d3.select('body').append('div').attr('class','tooltip');
+function showTooltip(event,html){tooltip.html(html).style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px').transition().duration(150).style('opacity',1);}
+function moveTooltip(event){tooltip.style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px');}
+function hideTooltip(){tooltip.transition().duration(100).style('opacity',0);}
+
+async function loadData(){
+  try { return await d3.json('./02-the-reallocation-principle-fig-03/data.json'); }
+  catch { return FALLBACK_DATA; }
+}
+
+function render(corners){
+  const container = document.getElementById('chart');
+  const totalWidth = Math.max(container.clientWidth-48,640);
+  const totalHeight = 380;
+  d3.select('#chart').selectAll('svg').remove();
+
+  const svg = d3.select('#chart').append('svg')
+    .attr('width',totalWidth).attr('height',totalHeight)
+    .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+  svg.append('title').attr('id','chart-title').text('The Supervision Frame');
+  svg.append('desc').attr('id','chart-desc').text('A triangle of three corner nodes — Scope, Approval, Verification — surrounding a central Accountable Output node. Each corner links to the centre and to the other corners, showing the three questions are concurrent, not sequential.');
+
+  svg.append('text').attr('class','chart-title').attr('x',24).attr('y',30).text('The supervision frame');
+  svg.append('text').attr('class','chart-subtitle').attr('x',24).attr('y',52).text('Three questions, answered together, before an AI-assisted output crosses a gate.');
+
+  const cx = totalWidth/2, cy = 220, R = 120;
+  const pts = corners.map((d,i)=>{
+    const angle = -Math.PI/2 + i*(2*Math.PI/3);
+    return {...d, x:cx+R*Math.cos(angle), y:cy+R*Math.sin(angle)};
+  });
+  const cornerColor = ['var(--color-ochre)','var(--color-secondary)','var(--color-ink)'];
+
+  // triangle edges
+  for(let i=0;i<pts.length;i++){
+    const a=pts[i], b=pts[(i+1)%pts.length];
+    svg.append('line').attr('aria-hidden','true')
+      .attr('x1',a.x).attr('y1',a.y).attr('x2',b.x).attr('y2',b.y)
+      .attr('stroke','var(--color-border)').attr('stroke-width',1.2);
+  }
+  // spokes to centre
+  pts.forEach(p=>{
+    svg.append('line').attr('aria-hidden','true')
+      .attr('x1',p.x).attr('y1',p.y).attr('x2',cx).attr('y2',cy)
+      .attr('stroke','var(--color-border)').attr('stroke-width',1).attr('stroke-dasharray','4 4');
+  });
+
+  // central node (red = brand/emphasis)
+  svg.append('circle').attr('cx',cx).attr('cy',cy).attr('r',52)
+    .attr('fill','var(--color-white)').attr('stroke','var(--color-red)').attr('stroke-width',2.5);
+  svg.append('text').attr('class','center-label').attr('x',cx).attr('y',cy-4)
+    .attr('text-anchor','middle').attr('fill','var(--color-red)').text('Accountable');
+  svg.append('text').attr('class','center-label').attr('x',cx).attr('y',cy+15)
+    .attr('text-anchor','middle').attr('fill','var(--color-red)').text('Output');
+
+  // corner nodes
+  pts.forEach((p,i)=>{
+    const g = svg.append('g').attr('tabindex',0)
+      .attr('aria-label',`${p.node}: ${p.q}`)
+      .on('mouseover',function(event){showTooltip(event,`<strong>${p.node}</strong><br>${p.q}`);})
+      .on('mousemove',moveTooltip).on('mouseout',hideTooltip);
+    g.append('circle').attr('cx',p.x).attr('cy',p.y).attr('r',40)
+      .attr('fill','var(--color-white)').attr('stroke',cornerColor[i]).attr('stroke-width',2);
+    g.append('text').attr('class','node-label').attr('x',p.x).attr('y',p.y+5)
+      .attr('text-anchor','middle').attr('fill',cornerColor[i]).text(p.node);
+    const below = p.y > cy;
+    svg.append('text').attr('class','annot').attr('x',p.x).attr('y',below?p.y+56:p.y-50)
+      .attr('text-anchor','middle').text(p.q);
+  });
+}
+
+function draw(){ loadData().then(render); }
+draw();
+const ro = new ResizeObserver(()=>draw());
+ro.observe(document.getElementById('chart'));
+</script>
+</body>
+</html>

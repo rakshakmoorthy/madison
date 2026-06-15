@@ -1,0 +1,56 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">The agent–human division in a competitor scan</title>
+  <desc id="desc">Two columns of tasks meet at a central gate; the agent gathers and extracts signals, the human defines the set and decides implications, and the agent's outputs become the human's inputs.</desc>
+  <style>
+    .h{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;fill:#2a1a0e;}
+    .e{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;fill:#545454;}
+    .t{font-family:'Inter',sans-serif;font-size:13px;fill:#2a1a0e;}
+    .g{font-family:'EB Garamond',Georgia,serif;font-size:14px;font-style:italic;fill:#545454;}
+  </style>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+
+  <text class="e" x="40" y="40">Agent</text>
+  <text class="e" x="470" y="40">Human</text>
+
+  <!-- agent column -->
+  <g>
+    <rect x="40" y="56" width="230" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text class="t" x="56" y="81">Gather public signals</text>
+    <rect x="40" y="104" width="230" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text class="t" x="56" y="129">Extract observable features</text>
+    <rect x="40" y="152" width="230" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text class="t" x="56" y="177">Normalize vocabulary</text>
+    <rect x="40" y="200" width="230" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text class="t" x="56" y="225">Flag contradictions</text>
+    <rect x="40" y="248" width="230" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text class="t" x="56" y="273">Identify patterns</text>
+  </g>
+
+  <!-- gate -->
+  <rect x="318" y="56" width="64" height="232" fill="#FFFFFF" stroke="#C8860E" stroke-width="3"/>
+  <text class="e" x="350" y="176" text-anchor="middle" transform="rotate(-90 350 176)" fill="#C8860E">The gate</text>
+
+  <!-- human column -->
+  <g>
+    <rect x="430" y="56" width="230" height="40" fill="#FFFFFF" stroke="#2a1a0e"/>
+    <text class="t" x="446" y="81">Define the competitor set</text>
+    <rect x="430" y="104" width="230" height="40" fill="#FFFFFF" stroke="#2a1a0e"/>
+    <text class="t" x="446" y="129">Assess category relevance</text>
+    <rect x="430" y="152" width="230" height="40" fill="#FFFFFF" stroke="#2a1a0e"/>
+    <text class="t" x="446" y="177">Interpret strategic meaning</text>
+    <rect x="430" y="200" width="230" height="40" fill="#FFFFFF" stroke="#2a1a0e"/>
+    <text class="t" x="446" y="225">Decide implications</text>
+  </g>
+
+  <!-- single-headed arrows through gate -->
+  <defs>
+    <marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#C8102E"/>
+    </marker>
+  </defs>
+  <line x1="270" y1="172" x2="318" y2="172" stroke="#C8102E" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="382" y1="172" x2="430" y2="172" stroke="#C8102E" stroke-width="2" marker-end="url(#arr)"/>
+
+  <text class="g" x="40" y="330">The columns meet at the gate. The agent's outputs become the human's</text>
+  <text class="g" x="40" y="350">inputs, not the human's conclusions.</text>
+</svg>

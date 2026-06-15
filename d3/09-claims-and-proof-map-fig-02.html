@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The claims/proof matrix anatomy</title>
+<style>
+  :root{--color-white:#FFFFFF;--color-ink:#2a1a0e;--color-red:#C8102E;
+    --color-secondary:#545454;--color-border:#D4D4D4;--color-ochre:#C8860E;}
+  @media (prefers-color-scheme: dark){
+    :root{--color-white:#111111;--color-ink:#F0EBE3;--color-red:#E8243A;
+      --color-secondary:#A0978C;--color-border:#2E2E2E;--color-ochre:#D49A30;}}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--color-white);color:var(--color-ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+  #chart{width:100%;}
+  .cell{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;fill:var(--color-ink);}
+  .state{font-family:'Inter',sans-serif;font-size:11px;fill:var(--color-secondary);}
+  .cap{font-family:'EB Garamond',Georgia,serif;font-size:13px;font-style:italic;fill:var(--color-secondary);}
+  .tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-white);
+    border:1px solid var(--color-border);padding:6px 10px;font-size:13px;color:var(--color-ink);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA={
+  cells:["Original claim","Type","Proof","Risk","Rewrite","Approval owner","Status"],
+  heavy:["Proof","Status"],
+  states:[
+    {label:"Approved with proof",color:"var(--color-secondary)"},
+    {label:"Approved as qualified opinion",color:"var(--color-secondary)"},
+    {label:"Flagged for approval owner",color:"var(--color-ochre)"},
+    {label:"Removed",color:"var(--color-red)"}
+  ]
+};
+const tooltip=d3.select('body').append('div').attr('class','tooltip');
+function showTip(e,h){tooltip.html(h).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px')
+  .transition().duration(150).style('opacity',1);}
+function moveTip(e){tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px');}
+function hideTip(){tooltip.transition().duration(100).style('opacity',0);}
+function draw(data){
+  d3.select('#chart').selectAll('*').remove();
+  const W=document.getElementById('chart').clientWidth||700, H=320;
+  const svg=d3.select('#chart').append('svg').attr('width',W).attr('height',H)
+    .attr('role','img').attr('aria-labelledby','c-title c-desc');
+  svg.append('title').attr('id','c-title').text('The claims/proof matrix anatomy');
+  svg.append('desc').attr('id','c-desc').text('One matrix row as a horizontal pipeline of seven cells with proof and status weighted heaviest and four colored end-states.');
+  svg.append('defs').append('marker').attr('id','ar').attr('markerWidth',9).attr('markerHeight',9).attr('refX',7).attr('refY',4).attr('orient','auto')
+    .append('path').attr('d','M0,0 L8,4 L0,8 z').attr('fill','var(--color-secondary)');
+  const m=20, y=60, ch=60;
+  const x=d3.scaleBand().domain(data.cells).range([m,W-m]).padding(0.06);
+  data.cells.forEach(c=>{
+    const heavy=data.heavy.includes(c);
+    svg.append('rect').attr('x',x(c)).attr('y',y).attr('width',x.bandwidth()).attr('height',ch)
+      .attr('fill','var(--color-white)').attr('stroke',heavy?'var(--color-red)':'var(--color-border)')
+      .attr('stroke-width',heavy?2:1).attr('tabindex',0).attr('aria-label','Column: '+c)
+      .on('mouseover',(e)=>showTip(e,'<strong>'+c+'</strong>'+(heavy?'<br>decision point':''))).on('mousemove',moveTip).on('mouseout',hideTip);
+    svg.append('text').attr('class','cell').attr('x',x(c)+x.bandwidth()/2).attr('y',y+ch/2+4).attr('text-anchor','middle').text(c);
+  });
+  // directional flow arrow under the band
+  svg.append('line').attr('x1',m).attr('y1',y+ch+18).attr('x2',W-m).attr('y2',y+ch+18)
+    .attr('stroke','var(--color-secondary)').attr('stroke-width',1.5).attr('marker-end','url(#ar)').attr('aria-hidden','true');
+  // four end states
+  const stateY=y+ch+50;
+  data.states.forEach((s,i)=>{
+    const sx=m+i*((W-2*m)/4);
+    svg.append('rect').attr('x',sx).attr('y',stateY).attr('width',14).attr('height',14).attr('fill',s.color);
+    svg.append('text').attr('class','state').attr('x',sx+20).attr('y',stateY+12).text(s.label);
+  });
+  svg.append('text').attr('class','cap').attr('x',m).attr('y',H-14)
+    .text('A claim travels classification → proof → risk before reaching a named human decision.');
+}
+async function load(){try{return await d3.json('./09-claims-and-proof-map-fig-02/data.json');}catch{return FALLBACK_DATA;}}
+load().then(d=>{draw(d);const ro=new ResizeObserver(()=>draw(d));ro.observe(document.getElementById('chart'));});
+</script>
+</body>
+</html>

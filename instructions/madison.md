@@ -2,6 +2,7 @@
 
 Madison turns marketing signals into verified, auditable intelligence (INFO 7375 Branding & AI). Project-specific rules:
 
+- Read `_MANIFEST.md` for the portable read-first map — what is canonical, task-relevant, generated, quarantined, or private (a thin index over `SNICKERDOODLE.md` / `DOMAIN.md`; machine-readable twin in `.ai/manifest.yaml`).
 - Use lowercase `scripts/`; never create `SCRIPTS/`.
 - Manuscript content lives in `chapters/` — no scripts or data there.
 - `scripts/madison-main/`, `docs/madison-main/`, `data/madison-main/` are **quarantined Tier 3** — do not read, load, or treat as source unless explicitly asked for a named file inside them.
@@ -11,7 +12,7 @@ Madison turns marketing signals into verified, auditable intelligence (INFO 7375
 When the user's message is just `help` (or `/help`), reply with **exactly** the fenced block below — verbatim, nothing before or after — then stop and wait:
 
 ```
-MADISON — branding & marketing intelligence (a Mycroft domain)
+MADISON — branding & marketing intelligence (a Snickerdoodle domain)
 Turn marketing signals into verified, auditable intelligence. The rule of the house:
 fluency is the first sign of trouble — the human owns the irreducible judgment.
 
@@ -32,7 +33,7 @@ WHAT YOU CAN DO
 
 HOW IT WORKS
   Every finding traces report -> log -> recipe -> source. Gates are hard stops a named
-  human clears. Machines verify conformance; humans verify adequacy. (Constitution: MYCROFT.md)
+  human clears. Machines verify conformance; humans verify adequacy. (Constitution: SNICKERDOODLE.md)
 
 TRY
   "show me the marketmind recipe"   ·   "list the exercises"

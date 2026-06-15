@@ -1,0 +1,65 @@
+<!--
+  Title: Launch Readiness Pack Row Anatomy
+  Book: Madison Plus One
+  Chapter: 13-launch-readiness-and-trafficking-qa
+  Figure 02
+  Type: structural schematic
+  Generated 2026-06-15
+  Source: pantry/13-launch-readiness-and-trafficking-qa-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+<title id="fig-title-02">Launch Readiness Pack Row Anatomy</title>
+<desc>One launch-readiness-pack row shown as eight adjacent cells: check category, item, required state, current state, evidence/source, blocker severity, owner and resolved status. Required state and current state are bracketed together to expose the gap. The evidence cell carries a date stamp; the severity cell a four-state indicator: critical, significant, minor, clear.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="13-launch-readiness-and-trafficking-qa" figure-number="02" figure-title="Launch Readiness Pack Row Anatomy" figure-slug="launch-readiness-pack-row-anatomy" figure-type="structural schematic" priority="Critical" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/13-launch-readiness-and-trafficking-qa-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="350" y="40" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Launch Readiness Pack Row Anatomy</text>
+
+<!-- 8 cells: x 40..660 width 620 cell 77.5 -->
+<g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11">
+<rect x="40" y="150" width="77.5" height="90" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="117.5" y="150" width="77.5" height="90" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="195" y="150" width="77.5" height="90" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="272.5" y="150" width="77.5" height="90" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="350" y="150" width="77.5" height="90" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="427.5" y="150" width="77.5" height="90" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="505" y="150" width="77.5" height="90" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="582.5" y="150" width="77.5" height="90" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+</g>
+
+<g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">
+<text x="78" y="180">Check</text><text x="78" y="194">category</text>
+<text x="156" y="187">Item</text>
+<text x="233" y="180">Required</text><text x="233" y="194">state</text>
+<text x="311" y="180">Current</text><text x="311" y="194">state</text>
+<text x="388" y="180">Evidence</text><text x="388" y="194">/ source</text>
+<text x="466" y="180">Blocker</text><text x="466" y="194">severity</text>
+<text x="543" y="187">Owner</text>
+<text x="621" y="187">Resolved?</text>
+</g>
+
+<!-- required/current pairing bracket -->
+<path d="M198 146 L198 138 L350 138 L350 146" fill="none" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="274" y="130" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#2a1a0e">expose the gap</text>
+
+<!-- date glyph on evidence cell -->
+<rect x="372" y="206" width="32" height="22" fill="#FFFFFF" stroke="#545454" stroke-width="1"/>
+<line x1="372" y1="213" x2="404" y2="213" stroke="#545454" stroke-width="1"/>
+<line x1="380" y1="206" x2="380" y2="210" stroke="#545454" stroke-width="1"/>
+<line x1="396" y1="206" x2="396" y2="210" stroke="#545454" stroke-width="1"/>
+
+<!-- four-state severity indicator -->
+<rect x="436" y="208" width="14" height="14" fill="#C8102E"/>
+<rect x="452" y="208" width="14" height="14" fill="#C8860E"/>
+<rect x="468" y="208" width="14" height="14" fill="#787878"/>
+<rect x="484" y="208" width="14" height="14" fill="#545454"/>
+
+<!-- severity legend -->
+<rect x="150" y="282" width="12" height="12" fill="#C8102E"/><text x="167" y="292" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">critical</text>
+<rect x="240" y="282" width="12" height="12" fill="#C8860E"/><text x="257" y="292" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">significant</text>
+<rect x="350" y="282" width="12" height="12" fill="#787878"/><text x="367" y="292" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">minor</text>
+<rect x="430" y="282" width="12" height="12" fill="#545454"/><text x="447" y="292" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">clear</text>
+
+<text x="350" y="338" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">The row collapses a distributed campaign state into a single inspectable record.</text>
+<text x="350" y="362" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Evidence has dates: a three-week-old screenshot is not current evidence.</text>
+</svg>

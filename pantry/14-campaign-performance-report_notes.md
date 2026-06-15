@@ -37,7 +37,7 @@ This chapter should teach the report chain from raw export to verified table, me
 ## Repo Source Map
 
 - TIKTOC.md
-- MYCROFT.md
+- SNICKERDOODLE.md
 - DOMAIN.md
 - DATA_CONTRACT.md
 - docs/data-and-provenance.md

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contradiction frequency across a competitor set</title>
+<style>
+  :root{
+    --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+    --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{--color-white:#111111;--color-ink:#F0EBE3;--color-red:#E8243A;
+      --color-secondary:#A0978C;--color-border:#2E2E2E;--color-ochre:#D49A30;}
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--color-white);color:var(--color-ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+  #chart{width:100%;}
+  .chart-title{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;fill:var(--color-ink);}
+  .chart-sub{font-family:'Inter',sans-serif;font-size:13px;fill:var(--color-secondary);}
+  .axis text{font-family:'JetBrains Mono',monospace;font-size:11px;fill:var(--color-secondary);}
+  .axis path,.axis line{stroke:var(--color-border);}
+  .y-label{font-family:'Inter',sans-serif;font-size:13px;fill:var(--color-ink);}
+  .legend{font-family:'Inter',sans-serif;font-size:12px;fill:var(--color-secondary);}
+  .tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-white);
+    border:1px solid var(--color-border);padding:6px 10px;font-size:13px;color:var(--color-ink);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = [
+  {competitor:"Competitor A", substantive:1, surface:0},
+  {competitor:"Competitor B", substantive:1, surface:2},
+  {competitor:"Competitor C", substantive:0, surface:0},
+  {competitor:"Competitor D", substantive:0, surface:2}
+];
+const tooltip = d3.select('body').append('div').attr('class','tooltip');
+function showTip(event,html){tooltip.html(html).style('left',(event.pageX+12)+'px')
+  .style('top',(event.pageY-28)+'px').transition().duration(150).style('opacity',1);}
+function moveTip(event){tooltip.style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px');}
+function hideTip(){tooltip.transition().duration(100).style('opacity',0);}
+
+function draw(data){
+  d3.select('#chart').selectAll('*').remove();
+  const margin={top:64,right:40,bottom:56,left:160};
+  const totalWidth=document.getElementById('chart').clientWidth||700;
+  const totalHeight=420;
+  const chartWidth=totalWidth-margin.left-margin.right;
+  const chartHeight=totalHeight-margin.top-margin.bottom;
+  const series=['substantive','surface'];
+  const colorOf=k=>k==='substantive'?'var(--color-red)':'var(--color-secondary)';
+  const labelOf=k=>k==='substantive'?'Substantive (strategy vs. execution)':'Surface (tone variation by channel)';
+
+  const svg=d3.select('#chart').append('svg')
+    .attr('width',totalWidth).attr('height',totalHeight)
+    .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+  svg.append('title').attr('id','chart-title').text('Contradiction frequency across a competitor set');
+  svg.append('desc').attr('id','chart-desc').text('Stacked horizontal bars of contradiction flags per competitor, split into substantive and surface contradictions.');
+
+  svg.append('text').attr('class','chart-title').attr('x',margin.left-120).attr('y',24).text('Contradiction flags per competitor');
+  svg.append('text').attr('class','chart-sub').attr('x',margin.left-120).attr('y',44).text('Substantive contradictions are strategic signal; surface ones are usually noise.');
+
+  const g=svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+  const stacked=d3.stack().keys(series)(data);
+  const maxX=d3.max(data,d=>d.substantive+d.surface)||1;
+  const xScaleLinear=d3.scaleLinear().domain([0,Math.max(maxX,4)]).range([0,chartWidth]);
+  const yScaleBand=d3.scaleBand().domain(data.map(d=>d.competitor)).range([0,chartHeight]).padding(0.3);
+
+  g.append('g').attr('class','axis')
+    .call(d3.axisLeft(yScaleBand).tickSize(0)).select('.domain').remove();
+  g.append('g').attr('class','axis').attr('transform',`translate(0,${chartHeight})`)
+    .call(d3.axisBottom(xScaleLinear).ticks(Math.max(maxX,4)).tickFormat(d3.format('d')));
+
+  g.selectAll('.series').data(stacked).join('g').attr('class','series')
+    .attr('fill',d=>colorOf(d.key))
+    .selectAll('rect').data(d=>d.map(seg=>({seg,key:d.key}))).join('rect')
+      .attr('x',d=>xScaleLinear(d.seg[0]))
+      .attr('y',d=>yScaleBand(d.seg.data.competitor))
+      .attr('width',d=>xScaleLinear(d.seg[1])-xScaleLinear(d.seg[0]))
+      .attr('height',yScaleBand.bandwidth())
+      .attr('tabindex',0)
+      .attr('aria-label',d=>`${d.seg.data.competitor}: ${d.seg[1]-d.seg[0]} ${labelOf(d.key)}`)
+      .on('mouseover',(e,d)=>showTip(e,`<strong>${d.seg.data.competitor}</strong><br>${labelOf(d.key)}: ${d.seg[1]-d.seg[0]}`))
+      .on('mousemove',moveTip).on('mouseout',hideTip);
+
+  const lg=svg.append('g').attr('transform',`translate(${margin.left-120},${totalHeight-12})`);
+  series.forEach((k,i)=>{
+    const x=i*260;
+    lg.append('rect').attr('x',x).attr('y',-12).attr('width',14).attr('height',14).attr('fill',colorOf(k));
+    lg.append('text').attr('class','legend').attr('x',x+20).attr('y',-1).text(labelOf(k));
+  });
+}
+async function load(){try{return await d3.json('./06-competitor-signal-scan-fig-04/data.json');}catch{return FALLBACK_DATA;}}
+load().then(data=>{draw(data);const ro=new ResizeObserver(()=>draw(data));ro.observe(document.getElementById('chart'));});
+</script>
+</body>
+</html>

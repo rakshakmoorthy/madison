@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice finding anatomy</title>
+<style>
+  :root {
+    --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+    --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+      --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+  #chart { width: 100%; }
+  .weak-node { fill: var(--color-white); stroke: var(--color-secondary); stroke-width: 1; stroke-dasharray: 4 3; }
+  .strong-node { fill: var(--color-fill); stroke: var(--color-ink); stroke-width: 1.5; }
+  .strong-node.anchor { stroke: var(--color-red); stroke-width: 2; }
+  .node-label { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-ink); }
+  .weak-label { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-secondary); }
+  .panel-label { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; fill: var(--color-secondary); letter-spacing: 0.06em; }
+  .flow { stroke: var(--color-ink); stroke-width: 1.5; fill: none; }
+  .divider { stroke: var(--color-border); stroke-width: 1; }
+  .chart-title { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; fill: var(--color-ink); }
+  .caption { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-secondary); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = {
+  strong: [
+    { label: ["Rule reference", "(§ number)"], anchor: true },
+    { label: ["Specific evidence", "(quoted lines)"] },
+    { label: ["Finding statement"] },
+    { label: ["Severity"] },
+    { label: ["Recommendation"] },
+    { label: ["Owner"] }
+  ]
+};
+
+async function loadData() {
+  try { return await d3.json('./12-brand-consistency-and-voice-qa-fig-04/data.json'); }
+  catch { return FALLBACK_DATA; }
+}
+
+function draw(data) {
+  d3.select('#chart').selectAll('*').remove();
+  const W = document.getElementById('chart').clientWidth || 700;
+  const H = 420;
+  const svg = d3.select('#chart').append('svg')
+    .attr('width', W).attr('height', H).attr('viewBox', `0 0 ${W} ${H}`)
+    .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+  svg.append('title').attr('id','chart-title').text('Voice finding anatomy');
+  svg.append('desc').attr('id','chart-desc').text('A weak, opinion-based finding shown as a lone isolated node contrasted with a strong finding built from a cited rule through quoted evidence to a recommendation and a named owner.');
+
+  svg.append('defs').append('marker').attr('id','arrow')
+    .attr('markerWidth',8).attr('markerHeight',6).attr('refX',7).attr('refY',3).attr('orient','auto')
+    .append('polygon').attr('points','0 0, 8 3, 0 6').attr('fill','var(--color-ink)');
+
+  svg.append('text').attr('class','chart-title').attr('x', W/2).attr('y', 34).attr('text-anchor','middle').text('Voice finding anatomy');
+
+  const midX = W/2;
+  svg.append('line').attr('class','divider').attr('x1', midX).attr('y1', 64).attr('x2', midX).attr('y2', H-44);
+
+  // weak side
+  svg.append('text').attr('class','panel-label').attr('x', W*0.25).attr('y', 88).attr('text-anchor','middle').text('OPINION — NOT FALSIFIABLE');
+  const bw = Math.min(180, W*0.32);
+  svg.append('rect').attr('class','weak-node')
+    .attr('x', W*0.25 - bw/2).attr('y', 150).attr('width', bw).attr('height', 56).attr('tabindex',0)
+    .attr('aria-label','Opinion-based finding: a lone unsupported assertion with no rule and no evidence');
+  svg.append('text').attr('class','weak-label').attr('x', W*0.25).attr('y', 174).attr('text-anchor','middle').text('"This doesn’t sound');
+  svg.append('text').attr('class','weak-label').attr('x', W*0.25).attr('y', 190).attr('text-anchor','middle').text('like the brand"');
+
+  // strong side
+  svg.append('text').attr('class','panel-label').attr('x', W*0.75).attr('y', 88).attr('text-anchor','middle').text('RULE-CITED — FALSIFIABLE');
+  const sbw = Math.min(220, W*0.40), sbh = 34, gap = 12;
+  const startY = 104;
+  const g = svg.append('g').selectAll('g').data(data.strong).join('g')
+    .attr('transform', (d,i) => `translate(${W*0.75 - sbw/2},${startY + i*(sbh+gap)})`);
+  g.append('rect')
+    .attr('class', d => d.anchor ? 'strong-node anchor' : 'strong-node')
+    .attr('width', sbw).attr('height', sbh).attr('tabindex',0)
+    .attr('aria-label', d => d.label.join(' '));
+  g.each(function(d){
+    const t = d3.select(this);
+    if (d.label.length === 1) {
+      t.append('text').attr('class','node-label').attr('x', sbw/2).attr('y', sbh/2+4).attr('text-anchor','middle').text(d.label[0]);
+    } else {
+      t.append('text').attr('class','node-label').attr('x', sbw/2).attr('y', sbh/2-2).attr('text-anchor','middle').text(d.label[0]);
+      t.append('text').attr('class','node-label').attr('x', sbw/2).attr('y', sbh/2+12).attr('text-anchor','middle').text(d.label[1]);
+    }
+  });
+  data.strong.forEach((d,i) => {
+    if (i < data.strong.length-1) {
+      const y = startY + i*(sbh+gap) + sbh;
+      svg.append('path').attr('class','flow').attr('marker-end','url(#arrow)')
+        .attr('d', `M${W*0.75},${y} L${W*0.75},${y+gap-2}`);
+    }
+  });
+
+  svg.append('text').attr('class','caption').attr('x', W/2).attr('y', H-14).attr('text-anchor','middle')
+    .text('The test: can someone disagree by pointing to the rule? If not, it is an opinion.');
+}
+
+loadData().then(data => {
+  draw(data);
+  new ResizeObserver(() => draw(data)).observe(document.getElementById('chart'));
+});
+</script>
+</body>
+</html>

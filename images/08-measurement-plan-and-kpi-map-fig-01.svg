@@ -1,0 +1,50 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">The three-tier metric hierarchy</title>
+  <desc id="desc">A vertical stack of three tiers — outcome, leading, and diagnostic metrics — with upward links labeled "can predict" and "does not guarantee."</desc>
+  <style>
+    .h{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;fill:#2a1a0e;}
+    .e{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;fill:#FFFFFF;}
+    .t{font-family:'Inter',sans-serif;font-size:12px;fill:#545454;}
+    .a{font-family:'JetBrains Mono',monospace;font-size:11px;fill:#545454;}
+    .g{font-family:'EB Garamond',Georgia,serif;font-size:13px;font-style:italic;fill:#545454;}
+  </style>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+
+  <!-- outcome (top) -->
+  <rect x="40" y="40" width="380" height="74" fill="#C8102E"/>
+  <text class="e" x="56" y="64">Outcome metrics</text>
+  <text class="t" x="56" y="86" fill="#FFFFFF">consideration · preference · purchase intent</text>
+  <text class="t" x="56" y="104" fill="#FFFFFF">answers: did it work?</text>
+
+  <!-- leading (middle) -->
+  <rect x="40" y="164" width="380" height="74" fill="#545454"/>
+  <text class="e" x="56" y="188">Leading metrics</text>
+  <text class="t" x="56" y="210" fill="#FFFFFF">awareness · reach · share of voice</text>
+  <text class="t" x="56" y="228" fill="#FFFFFF">arrive faster; signal trajectory</text>
+
+  <!-- diagnostic (bottom) -->
+  <rect x="40" y="288" width="380" height="74" fill="#FFFFFF" stroke="#D4D4D4"/>
+  <text class="e" x="56" y="312" fill="#2a1a0e">Diagnostic metrics</text>
+  <text class="t" x="56" y="334">impressions · clicks · completion rate</text>
+  <text class="t" x="56" y="352">mechanical behavior, not effect</text>
+
+  <defs>
+    <marker id="up" markerWidth="9" markerHeight="9" refX="4" refY="2" orient="auto">
+      <path d="M0,8 L4,0 L8,8 z" fill="#C8102E"/>
+    </marker>
+  </defs>
+  <!-- arrows -->
+  <line x1="230" y1="288" x2="230" y2="240" stroke="#C8102E" stroke-width="2" marker-end="url(#up)"/>
+  <line x1="230" y1="164" x2="230" y2="116" stroke="#C8102E" stroke-width="2" marker-end="url(#up)"/>
+  <text class="a" x="246" y="266">can predict</text>
+  <text class="a" x="246" y="142">does not guarantee</text>
+
+  <!-- side note -->
+  <line x1="440" y1="40" x2="440" y2="362" stroke="#C8860E" stroke-width="3"/>
+  <text class="g" x="452" y="60">Reports that collapse all</text>
+  <text class="g" x="452" y="78">three tiers into one</text>
+  <text class="g" x="452" y="96">performance narrative</text>
+  <text class="g" x="452" y="114">conflate evidence of</text>
+  <text class="g" x="452" y="132">mechanism with evidence</text>
+  <text class="g" x="452" y="150">of effect.</text>
+</svg>

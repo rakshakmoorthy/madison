@@ -1,7 +1,7 @@
 # DOMAIN — Madison Plus One
 
 **Domain:** branding and marketing intelligence — monitor pipelines (brand reputation, market signals, accessibility standards, hiring signals), content and concierge agents, and student-built intelligence projects; plus the *Madison Plus One* book manuscript and course materials (Branding & AI; INFO 7375; Principles of Marketing).
-**Governed by:** `MYCROFT.md` (read it first — Madison is Mycroft's second domain instance, after the-reallocation-engine). This file states what is specific to this repository.
+**Governed by:** `SNICKERDOODLE.md` (read it first — Madison is a Snickerdoodle domain, the second instance after the-reallocation-engine). This file states what is specific to this repository.
 
 ## What this domain does
 
@@ -44,8 +44,8 @@ All 48 recipes are marked DRAFT as a starting point, but `logs/` contains gate d
 ## Known gaps and debts (2026-06-12)
 
 1. ~~`scripts/` contains prompts, not code — naming/placement decision pending.~~ **Resolved 2026-06-13:** prompts moved to `prompts/`; `scripts/` is code only.
-2. README is book-centric and predates MYCROFT.md — needs a pointer and an architecture section.
-3. `docs/repo-structure.md` not yet reconciled with the Mycroft layout.
+2. README is book-centric and predates SNICKERDOODLE.md — needs a pointer and an architecture section.
+3. `docs/repo-structure.md` not yet reconciled with the Snickerdoodle layout.
 4. Student recipes flag embedded credentials, local paths, and row-count discrepancies in original submissions (see RUN_LOG 2026-06-06) — review before any production run.
 5. The old `conductor/` (deleted, in git history) and `pantry/n8n-provenance/` represent two earlier generations of the same recipes — recipes/ is canonical; do not resurrect without diffing.
 
@@ -57,11 +57,11 @@ Student-named recipes in `recipes/` and `logs/student-recipe-evidence/` contain 
 
 Guest-lecture weekly sessions, each 25 pts (20 mechanics + 5 capped Glimmer), each a live-demo with a worked specimen. **Numbering tracks the Canvas assignment it backs:** exercise-0**N** backs **A**N (Figma is `01a`, a lab off A1). The `04` slot is intentionally empty — no exercise backs **A4** (the AI/build session) yet; that's the natural next one.
 
-`docs/exercises/exercise-01-brand-personal-layer.md` — Exercise One (backs INFO 7375 Assignment 1): build `brand/` — attested `resume.json` (same convention as other Mycroft domains), `brand.yml` (aspiration → audience → Dunford-frame positioning, instruments cited as the self-tests they are), media targets *derived* from aspiration-keyed evidence, and `gaps.md` with every gap mapped to the Madison build that would close it (the semester project proposal falls out of the top row). The Figma board is snapshotted (or minimally hand-built) and logged as what it is — a snapshot that will drift; the files are the truth.
+`docs/exercises/exercise-01-brand-personal-layer.md` — Exercise One (backs INFO 7375 Assignment 1): build `brand/` — attested `resume.json` (same convention as other Snickerdoodle domains), `brand.yml` (aspiration → audience → Dunford-frame positioning, instruments cited as the self-tests they are), media targets *derived* from aspiration-keyed evidence, and `gaps.md` with every gap mapped to the Madison build that would close it (the semester project proposal falls out of the top row). The Figma board is snapshotted (or minimally hand-built) and logged as what it is — a snapshot that will drift; the files are the truth.
 
 `docs/exercises/exercise-01a-madison-talks-to-figma.md` — Exercise 1A (lab between A1 and A2): the **board-audit recipe**. Madison reads the student's Figma board over the REST API (token in `.env`, never in chat) and machine-checks that every board claim traces to a `brand/` artifact: ping → dated fixture → `board-claims.json` → agent-proposed trace table → **human adjudication of every row** (the gate). Untraceable claims resolved with reasons; the whole thing wrapped as `recipes/board-audit.md` with run evidence — most students' first recipe promoted above DRAFT. Conceptual source text: the Figma API book (chapters 1–3: snapshot/drift, what the API exposes, the file as document graph). Write-direction (Plugin API render) deliberately out of scope — verify before automating writes.
 
-`docs/exercises/exercise-02-target-gap-prd-recipe.md` — Exercise Two (one 25-pt live-demo, backs A2): target → gap → PRD → recipe-at-DRAFT, the A2 chain mapped onto the Mycroft lifecycle. `targets.json` (machine captures + SOC/O*NET-maps a real posting; human selects top-3, attests the SOC code), the gap table *run* by the agent and *audited* by the student (three correction directions), the PRD *defended* from resume+aspiration+target (no fun-but-orphaned build), the architecture as a recipe at `status: DRAFT` with real attested n8n nodes + a WON'T-build list. Worked specimen: `examples/targets.json`. Canonical-profile aggregation is the multi-week arc (N postings → the lane's real demands).
+`docs/exercises/exercise-02-target-gap-prd-recipe.md` — Exercise Two (one 25-pt live-demo, backs A2): target → gap → PRD → recipe-at-DRAFT, the A2 chain mapped onto the Snickerdoodle lifecycle. `targets.json` (machine captures + SOC/O*NET-maps a real posting; human selects top-3, attests the SOC code), the gap table *run* by the agent and *audited* by the student (three correction directions), the PRD *defended* from resume+aspiration+target (no fun-but-orphaned build), the architecture as a recipe at `status: DRAFT` with real attested n8n nodes + a WON'T-build list. Worked specimen: `examples/targets.json`. Canonical-profile aggregation is the multi-week arc (N postings → the lane's real demands).
 
 `docs/exercises/exercise-03-gather-validate-defend.md` — Exercise Three (one 25-pt live-demo, backs A3): the **build** — the Exercise Two DRAFT recipe walked to `RUNNABLE-SAMPLE`. A working n8n pipeline that *gathers* from 3+ Tier-1 sources **and validates** (the `data/raw → data/verified` gate: dedup, date-standardize, critical-field, **coercion audit**), then the graded human work: the **data defense** = conformance numbers (machine) + adequacy argument (human — "why exactly N rows?", fitness scorecard, cleaning report with the *assumption* column filled). Forcing function: *you cannot defend what you did not validate* — kills quantity-over-quality structurally. Reference texts: *GIGO* (validation tooling — coercion audit, cleaning report) and *Computational Skepticism for AI* (interrogation — four skeptical moves, "why N rows", access/boundary). Worked specimen: `examples/data-defense.md`. Ships the data layer; the agent that consumes it is A4 (`RUNNABLE-SAMPLE → VERIFIED`).
 

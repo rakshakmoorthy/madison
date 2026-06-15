@@ -17,7 +17,18 @@ A content post is not neutral. Every post makes a claim about the brand — abou
 
 This means that the question "is this a good post?" has two parts. One is a craft question: is the copy clear, the image compelling, the format right for the channel? That is the question most content review processes ask. The other is an evidence question: is the claim this post makes something we can defend? Is it sourced? Is it targeted to an audience we have evidence to address? Is the timing right given what we know about the competitive environment and the current conversation?
 
-<!-- → [TABLE: Two-part post evaluation — columns: Craft Dimension (what most reviews assess) and Evidence Dimension (what provenance adds) — rows: Copy quality / Claim accuracy and sourcing, Visual execution / Asset approval status, Format/channel fit / Audience match (evidence-based), Call to action clarity / CTA alignment with campaign objective, Tone consistency / Brand voice authorization. Caption: Most content review processes stop at the left column. Provenance adds the right column — the evidence layer that makes a post defensible, not just polished.] -->
+| Craft Dimension (what most reviews assess) | Evidence Dimension (what provenance adds) |
+| --- | --- |
+| Copy quality | Claim accuracy and sourcing |
+| Visual execution | Asset approval status |
+| Format / channel fit | Audience match (evidence-based) |
+| Call-to-action clarity | CTA alignment with campaign objective |
+| Tone consistency | Brand voice authorization |
+
+*Most content review processes stop at the left column. Provenance adds the right column — the evidence layer that makes a post defensible, not just polished.*
+
+![Two-column comparison pairing five craft dimensions on the left with their evidence-dimension counterparts on the right, showing the evidence layer extends rather than replaces the craft layer.](images/11-content-calendar-with-provenance-fig-01.png)
+*Figure 11.1 — Two-part post evaluation*
 
 The evidence question is harder, which is why it usually does not get asked. A content calendar that requires every row to have a source, a proof reference, and an audience designation is more work to build than one that requires only copy and a publish date. It is also far more valuable — because it converts the calendar from a task list into a record of decisions, which means that six weeks into the campaign when a post gets questioned, the team can answer.
 
@@ -45,7 +56,15 @@ A content calendar row with provenance has more columns than the typical schedul
 
 **Approval status.** Whether the row has been reviewed and cleared by whoever holds approval authority. Draft, reviewed, approved, or holds. No row moves to published without an approval status of "approved."
 
-<!-- → [TABLE: Full provenance row — columns: Date, Channel, Audience, Message Pillar, Source/Proof, Asset, Owner, CTA, Risk Flag, Approval Status — one sample row filled: "March 12 / Instagram / Existing customers – loyalty tier / Product efficacy / Internal trial results doc v3.2 / Product hero shot (approved 3/8) / J. Morales / Visit product page – spring offer / None / Approved (A. Chen, 3/10)" — second row showing a problem case: "March 14 / LinkedIn / General audience / TBD / None / Asset TBD / — / TBD / — / Draft" — caption: The second row should not exist in a calendar that is ready to execute. Each blank field is a decision that has not been made.] -->
+| Date | Channel | Audience | Message Pillar | Source / Proof | Asset | Owner | CTA | Risk Flag | Approval Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| March 12 | Instagram | Existing customers – loyalty tier | Product efficacy | Internal trial results doc v3.2 | Product hero shot (approved 3/8) | J. Morales | Visit product page – spring offer | None | Approved (A. Chen, 3/10) |
+| March 14 | LinkedIn | General audience | TBD | None | Asset TBD | — | TBD | — | Draft |
+
+*The second row should not exist in a calendar that is ready to execute. Each blank field is a decision that has not been made.*
+
+![Two stacked ten-cell calendar rows: a fully populated row above and a problem row below whose blank cells are marked as unmade decisions.](images/11-content-calendar-with-provenance-fig-02.png)
+*Figure 11.2 — The anatomy of a provenance row*
 
 The calendar is complete when every row has every column filled and every "draft" status has an owner who knows what needs to happen before it moves to "approved." It is not complete when every row has a piece of content in it.
 
@@ -58,6 +77,9 @@ AI assistance accelerates the row-generation step significantly. Given a brief, 
 What it will not have is provenance. The agent can fill in the logistical fields. It cannot supply the source (because it does not have access to the proof map), the specific audience designation (because it does not know the evidence base for each segment), or the approval status (because it is not part of the approval process). The risk flag requires human contextual judgment about timing and sensitivity that the agent does not have.
 
 This creates a specific workflow discipline: use the agent to build the skeleton, then complete the provenance fields as a human act. The sequence matters. Running the agent first and then treating the output as a complete calendar is the failure mode — the fields left empty get filled with nothing, the approvals get assumed, and the calendar that looked like it was done is actually a draft with a scheduling interface laid on top of it.
+
+![Five-stage calendar build flow: human-set brief and pillars, an AI-assisted row-generation step, then human review, provenance completion, and approval — with unconnected rows discarded at the review stage.](images/11-content-calendar-with-provenance-fig-03.png)
+*Figure 11.3 — Calendar build sequence*
 
 <!-- → [DIAGRAM: Calendar build sequence — five stages: (1) Brief → Message Pillars → Audience Evidence (human) → (2) Agent generates candidate rows (AI) → (3) Human reviews rows for strategic alignment, removes unconnected rows (human) → (4) Human completes provenance fields: source, owner, risk, CTA (human) → (5) Approval workflow: owner confirms, approver signs off (human) — annotated: stages 1, 3, 4, 5 are human-required; stage 2 is AI-assisted. Caption: The agent accelerates stage 2. It does not substitute for stages 3–5, where the decisions that make the calendar defensible get made.] -->
 
@@ -73,7 +95,18 @@ A risk flag is not a quality rating. It is a record that someone noticed a condi
 
 In each case, the risk flag does two things. It records that the condition was seen. And it documents that the owner accepted responsibility for the decision to proceed. An unmarked row implies that no risks were identified. A flagged row with an approved status implies that risks were identified and a named person decided they were acceptable.
 
-<!-- → [TABLE: Risk flag examples — columns: Risk Type, Example Entry, Required Response — rows: Legal / "Claim 'clinically proven' under review — legal response expected by 3/15" / Hold approval until legal clears or rewrite claim without assertion; Timing / "Competitor product launch week of 3/18 — saturation risk" / Owner decides whether to move post or proceed with awareness of context; Source recency / "Stat sourced from 2022 industry report — no newer data available" / Owner notes in approval record that recency was considered; Cultural / "Holiday timing — verify no conflict with community calendar for target audience" / Owner verifies and documents clearance; Audience / "Segment evidence is directional only — no strong survey data for this demographic" / Owner notes evidentiary weakness; mark as 'can suggest' per evidence standard.] Caption: Risk flags are not reasons to cancel a post. They are records that the conditions were seen and a person made a decision.] -->
+| Risk Type | Example Entry | Required Response |
+| --- | --- | --- |
+| Legal | "Claim 'clinically proven' under review — legal response expected by 3/15" | Hold approval until legal clears or rewrite claim without assertion |
+| Timing | "Competitor product launch week of 3/18 — saturation risk" | Owner decides whether to move post or proceed with awareness of context |
+| Source recency | "Stat sourced from 2022 industry report — no newer data available" | Owner notes in approval record that recency was considered |
+| Cultural | "Holiday timing — verify no conflict with community calendar for target audience" | Owner verifies and documents clearance |
+| Audience | "Segment evidence is directional only — no strong survey data for this demographic" | Owner notes evidentiary weakness; mark as 'can suggest' per evidence standard |
+
+*Risk flags are not reasons to cancel a post. They are records that the conditions were seen and a person made a decision.*
+
+![Five risk types — legal, timing, source recency, cultural, audience — each paired with the response it requires, with the legal/hold case marked as the one that can halt publication.](images/11-content-calendar-with-provenance-fig-04.png)
+*Figure 11.4 — Risk flag types and responses*
 
 The risk flag column is also where the warranted-verb discipline from Chapter 5 connects to the content calendar. A post that makes a claim the evidence cannot support should either have the claim rewritten to match the evidence, or carry a risk flag noting the evidentiary limitation and a named approver who accepted that limitation. What it should not do is carry an unqualified claim without any record that its basis was examined.
 
@@ -143,3 +176,23 @@ Give the LLM a five-row calendar section and ask it to identify which rows lack 
 **Challenge**
 
 9. *(Open-ended)* "Still Puzzling" notes that approval status cannot distinguish between nominal review and genuine review — both produce the same calendar entry. Design a review protocol for a content team that would make review quality more visible without creating friction that causes the protocol to be abandoned. What would reviewers be required to record? What would trigger escalation to a more thorough review? How would you audit whether the protocol was being followed genuinely or nominally? *What this tests: whether you can reason about the limits of accountability systems and design improvements that engage with those limits honestly.*
+
+---
+
+## Prompts
+
+### Figure 11.1 — Two-part post evaluation
+**Files:** images/11-content-calendar-with-provenance-fig-01.svg
+**Prompt:** Two-column comparison panel in the brutalist palette: five aligned rows pairing a craft dimension (left, neutral secondary) with its evidence-dimension counterpart (right, brand red), a vertical divider, and a thin tie across each pair so the evidence layer reads as extending rather than replacing craft. White canvas, EB Garamond title, Inter labels, no decorative color.
+
+### Figure 11.2 — The anatomy of a provenance row
+**Files:** images/11-content-calendar-with-provenance-fig-02.svg
+**Prompt:** Structural schematic of two stacked ten-cell calendar rows on white: a fully populated row above and a problem row below whose blank cells are hatched to signal unmade decisions, column-aligned for immediate contrast. Ink hairlines, JetBrains Mono numerals, red used only to mark the blocking blank cells.
+
+### Figure 11.3 — Calendar build sequence
+**Files:** images/11-content-calendar-with-provenance-fig-03.svg · d3/11-content-calendar-with-provenance-fig-03.html
+**Prompt:** Five-stage left-to-right flow on white: human stages in ink, the single AI-assisted row-generation stage in ochre, single-headed arrows, and a red dashed side-branch at the review stage discarding unconnected rows. Brutalist palette only, EB Garamond title, Inter labels, zero decorative fill.
+
+### Figure 11.4 — Risk flag types and responses
+**Files:** images/11-content-calendar-with-provenance-fig-04.svg
+**Prompt:** Categorical mapping panel: five risk-type markers on the left each joined by a single-headed arrow to the response they require, with the legal/hold row in brand red to mark the one case that can halt publication and the remaining owner-decision rows in neutral ink. White canvas, Inter labels, no icons beyond simple glyphs.

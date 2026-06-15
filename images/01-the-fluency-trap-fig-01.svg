@@ -1,0 +1,51 @@
+<!--
+  The Five Claim Types
+  Book: Madison Plus One
+  Chapter: 01-the-fluency-trap
+  Figure 01
+  Type: hierarchy/taxonomy
+  Generated 2026-06-15
+  Source: pantry/01-the-fluency-trap-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+  <title id="fig-title-01">The Five Claim Types</title>
+  <desc>A reference ladder of five claim types found inside any fluent artifact, stacked from least to most consequential: verified, inferred, unsupported, taste judgment, and approval-needed. Each row carries a color band and a one-line definition. No arrows; this is a taxonomy, not a sequence.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="01-the-fluency-trap" figure-number="01" figure-title="The Five Claim Types" figure-slug="the-five-claim-types" figure-type="hierarchy/taxonomy" priority="Critical" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/01-the-fluency-trap-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="44" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The five claim types inside any fluent artifact</text>
+
+  <!-- Row template: band + box + label + definition -->
+  <!-- Verified -->
+  <rect x="32" y="72" width="636" height="58" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <rect x="32" y="72" width="10" height="58" fill="#2a1a0e"/>
+  <text x="64" y="98" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" font-weight="bold" fill="#2a1a0e">Verified</text>
+  <text x="64" y="118" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">Has a traceable source you can follow back to evidence.</text>
+
+  <!-- Inferred -->
+  <rect x="32" y="138" width="636" height="58" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <rect x="32" y="138" width="10" height="58" fill="#787878"/>
+  <text x="64" y="164" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" font-weight="bold" fill="#2a1a0e">Inferred</text>
+  <text x="64" y="184" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">Follows reasonably from evidence, but is not directly measured.</text>
+
+  <!-- Unsupported -->
+  <rect x="32" y="204" width="636" height="58" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <rect x="32" y="204" width="10" height="58" fill="#C8102E"/>
+  <text x="64" y="230" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" font-weight="bold" fill="#2a1a0e">Unsupported</text>
+  <text x="64" y="250" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">Stated as fact with no visible trail back to anything.</text>
+
+  <!-- Taste judgment -->
+  <rect x="32" y="270" width="636" height="58" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <rect x="32" y="270" width="10" height="58" fill="#ADADAD"/>
+  <text x="64" y="296" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" font-weight="bold" fill="#2a1a0e">Taste judgment</text>
+  <text x="64" y="316" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">Evaluative, not fact-checkable; a matter of preference or fit.</text>
+
+  <!-- Approval-needed -->
+  <rect x="32" y="336" width="636" height="58" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <rect x="32" y="336" width="10" height="58" fill="#787878"/>
+  <text x="64" y="362" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" font-weight="bold" fill="#2a1a0e">Approval-needed</text>
+  <text x="64" y="382" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">Requires authorization before it can move forward.</text>
+</svg>

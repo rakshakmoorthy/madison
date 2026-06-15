@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The response gate</title>
+<style>
+  :root {
+    --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+    --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+      --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+  #chart { width: 100%; }
+  .stage { fill: var(--color-fill); stroke: var(--color-ink); stroke-width: 1.5; }
+  .stage.human { stroke-width: 2; }
+  .stage-label { font-family: 'Inter', sans-serif; font-size: 10.5px; fill: var(--color-ink); }
+  .flow { stroke: var(--color-ink); stroke-width: 1.5; fill: none; }
+  .gate { stroke: var(--color-red); stroke-width: 2; }
+  .gate-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; fill: var(--color-red); letter-spacing: 0.04em; }
+  .band-agent { fill: var(--color-ochre); }
+  .band-human { fill: var(--color-ink); }
+  .band-label { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; fill: var(--color-secondary); }
+  .band-item  { font-family: 'Inter', sans-serif; font-size: 10.5px; fill: var(--color-ink); }
+  .chart-title { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; fill: var(--color-ink); }
+  .caption { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-secondary); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = {
+  stages: [
+    { label: ["Signal", "detected"], human: false },
+    { label: ["Digest entry", "created"], human: false },
+    { label: ["Owner", "reviews"], human: false },
+    { label: ["Response", "authorized"], human: true },
+    { label: ["Response", "sent"], human: true }
+  ],
+  agent: ["Monitor", "Classify", "Summarize", "Draft candidates"],
+  humanActions: ["Confirm severity", "Set escalation path", "Approve response content", "Decide timing"]
+};
+
+async function loadData() {
+  try { return await d3.json('./15-media-coverage-and-issue-routing-fig-04/data.json'); }
+  catch { return FALLBACK_DATA; }
+}
+
+function draw(data) {
+  d3.select('#chart').selectAll('*').remove();
+  const W = document.getElementById('chart').clientWidth || 700;
+  const H = 420;
+  const svg = d3.select('#chart').append('svg')
+    .attr('width', W).attr('height', H).attr('viewBox', `0 0 ${W} ${H}`)
+    .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+  svg.append('title').attr('id','chart-title').text('The response gate');
+  svg.append('desc').attr('id','chart-desc').text('A five-stage flow with a gate between owner review and response authorization. Agent-capable actions sit above the gate; human-required authorizations sit below it.');
+
+  svg.append('defs').append('marker').attr('id','arrow')
+    .attr('markerWidth',8).attr('markerHeight',6).attr('refX',7).attr('refY',3).attr('orient','auto')
+    .append('polygon').attr('points','0 0, 8 3, 0 6').attr('fill','var(--color-ink)');
+
+  svg.append('text').attr('class','chart-title').attr('x', W/2).attr('y', 34).attr('text-anchor','middle').text('The response gate');
+
+  const padX = 24;
+  const n = data.stages.length;
+  const boxW = (W - 2*padX - (n-1)*16) / n;
+  const boxH = 50;
+  const rowY = H/2 - boxH/2;
+
+  data.stages.forEach((s, i) => {
+    const x = padX + i*(boxW+16);
+    const g = svg.append('g').attr('tabindex',0).attr('role','group').attr('aria-label', `${s.label.join(' ')} (${s.human ? 'human-required' : 'agent-capable'})`);
+    g.append('rect').attr('class', s.human ? 'stage human' : 'stage').attr('x', x).attr('y', rowY).attr('width', boxW).attr('height', boxH);
+    s.label.forEach((ln, li) => g.append('text').attr('class','stage-label').attr('x', x+boxW/2).attr('y', rowY+boxH/2-3+li*14).attr('text-anchor','middle').text(ln));
+    if (i < n-1) {
+      svg.append('path').attr('class','flow').attr('marker-end','url(#arrow)')
+        .attr('d', `M${x+boxW},${rowY+boxH/2} L${x+boxW+12},${rowY+boxH/2}`);
+    }
+  });
+
+  // gate line between stage 3 (index 2) and stage 4 (index 3)
+  const gateX = padX + 3*(boxW+16) - 8;
+  svg.append('line').attr('class','gate').attr('x1', gateX).attr('y1', 80).attr('x2', gateX).attr('y2', H-72);
+  svg.append('text').attr('class','gate-label').attr('x', gateX).attr('y', 72).attr('text-anchor','middle').text('HUMAN DECISION REQUIRED');
+
+  // agent band (above gate, left)
+  svg.append('text').attr('class','band-label').attr('x', padX).attr('y', 100).text('Agent can');
+  data.agent.forEach((a, i) => {
+    svg.append('rect').attr('class','band-agent').attr('x', padX).attr('y', 112 + i*0).attr('width', 0).attr('height', 0);
+    svg.append('circle').attr('cx', padX+5).attr('cy', 118+i*18).attr('r', 3).attr('fill','var(--color-ochre)');
+    svg.append('text').attr('class','band-item').attr('x', padX+14).attr('y', 122+i*18).text(a);
+  });
+
+  // human band (below gate, right)
+  const hx = gateX + 16;
+  svg.append('text').attr('class','band-label').attr('x', hx).attr('y', H-92).text('Human required');
+  data.humanActions.forEach((a, i) => {
+    svg.append('circle').attr('cx', hx+5).attr('cy', H-78+i*18).attr('r', 3).attr('fill','var(--color-ink)');
+    svg.append('text').attr('class','band-item').attr('x', hx+14).attr('y', H-74+i*18).text(a);
+  });
+
+  svg.append('text').attr('class','caption').attr('x', padX).attr('y', H-14).text('The gate is not a bottleneck. It is where professional accountability lives.');
+}
+
+loadData().then(data => {
+  draw(data);
+  new ResizeObserver(() => draw(data)).observe(document.getElementById('chart'));
+});
+</script>
+</body>
+</html>

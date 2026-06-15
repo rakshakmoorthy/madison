@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendar build sequence</title>
+<style>
+  :root {
+    --color-white:     #FFFFFF;
+    --color-ink:       #2a1a0e;
+    --color-red:       #C8102E;
+    --color-secondary: #545454;
+    --color-border:    #D4D4D4;
+    --color-ochre:     #C8860E;
+    --color-fill:      #F5F5F5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-white:     #111111;
+      --color-ink:       #F0EBE3;
+      --color-red:       #E8243A;
+      --color-secondary: #A0978C;
+      --color-border:    #2E2E2E;
+      --color-ochre:     #D49A30;
+      --color-fill:      #1A1A1A;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', -apple-system, 'Helvetica Neue', sans-serif; }
+  #chart { width: 100%; }
+  .stage-box { fill: var(--color-fill); stroke: var(--color-ink); stroke-width: 1.5; }
+  .stage-box.ai { stroke: var(--color-ochre); stroke-width: 2; }
+  .accent-bar { fill: var(--color-ink); }
+  .accent-bar.ai { fill: var(--color-ochre); }
+  .stage-label { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-ink); }
+  .stage-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: var(--color-secondary); }
+  .flow-arrow { stroke: var(--color-ink); stroke-width: 1.5; fill: none; }
+  .removal { stroke: var(--color-red); stroke-width: 1.5; stroke-dasharray: 4 3; }
+  .removal-box { fill: var(--color-white); stroke: var(--color-red); stroke-width: 1; }
+  .removal-label { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-red); }
+  .chart-title { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; fill: var(--color-ink); }
+  .caption { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-secondary); }
+  .legend-label { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-secondary); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = {
+  stages: [
+    { n: 1, lines: ["Brief, pillars,", "audience evidence"], role: "human" },
+    { n: 2, lines: ["Agent generates", "candidate rows"],     role: "ai" },
+    { n: 3, lines: ["Human reviews", "for alignment"],        role: "human" },
+    { n: 4, lines: ["Complete provenance:", "source, owner, risk"], role: "human" },
+    { n: 5, lines: ["Approval: owner", "confirms, signs off"], role: "human" }
+  ]
+};
+
+async function loadData() {
+  try { return await d3.json('./11-content-calendar-with-provenance-fig-03/data.json'); }
+  catch { return FALLBACK_DATA; }
+}
+
+function draw(data) {
+  d3.select('#chart').selectAll('*').remove();
+  const totalWidth  = document.getElementById('chart').clientWidth || 700;
+  const totalHeight = 420;
+  const svg = d3.select('#chart').append('svg')
+    .attr('width', totalWidth).attr('height', totalHeight)
+    .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+    .attr('role', 'img')
+    .attr('aria-labelledby', 'chart-title chart-desc');
+  svg.append('title').attr('id', 'chart-title').text('Calendar build sequence');
+  svg.append('desc').attr('id', 'chart-desc')
+    .text('Five-stage flow: stage two (agent generates rows) is AI-assisted; the other four stages are human-required. Stage three discards unconnected rows.');
+
+  const defs = svg.append('defs');
+  defs.append('marker').attr('id', 'arrow')
+    .attr('markerWidth', 8).attr('markerHeight', 6).attr('refX', 7).attr('refY', 3).attr('orient', 'auto')
+    .append('polygon').attr('points', '0 0, 8 3, 0 6').attr('fill', 'var(--color-ink)');
+
+  svg.append('text').attr('class', 'chart-title').attr('x', totalWidth/2).attr('y', 34).attr('text-anchor', 'middle').text('Calendar build sequence');
+
+  // legend
+  svg.append('rect').attr('x', totalWidth/2-120).attr('y', 52).attr('width', 14).attr('height', 14).attr('fill', 'var(--color-ink)');
+  svg.append('text').attr('class', 'legend-label').attr('x', totalWidth/2-102).attr('y', 64).text('Human-required');
+  svg.append('rect').attr('x', totalWidth/2+18).attr('y', 52).attr('width', 14).attr('height', 14).attr('fill', 'var(--color-ochre)');
+  svg.append('text').attr('class', 'legend-label').attr('x', totalWidth/2+36).attr('y', 64).text('AI-assisted');
+
+  const boxW = 122, boxH = 70, gap = (totalWidth - 64 - 5*boxW) / 4;
+  const rowY = 130;
+  const topStages = data.stages.slice(0, 4);
+
+  const g = svg.append('g').attr('class', 'g-stages');
+  topStages.forEach((s, i) => {
+    const x = 32 + i * (boxW + gap);
+    const node = g.append('g');
+    node.append('rect').attr('class', s.role === 'ai' ? 'stage-box ai' : 'stage-box')
+      .attr('x', x).attr('y', rowY).attr('width', boxW).attr('height', boxH).attr('tabindex', 0)
+      .attr('aria-label', `Stage ${s.n}: ${s.lines.join(' ')} (${s.role === 'ai' ? 'AI-assisted' : 'human-required'})`);
+    node.append('rect').attr('class', s.role === 'ai' ? 'accent-bar ai' : 'accent-bar')
+      .attr('x', x).attr('y', rowY).attr('width', 6).attr('height', boxH);
+    node.append('text').attr('class', 'stage-num').attr('x', x + boxW - 8).attr('y', rowY + 16).attr('text-anchor', 'end').text(s.n);
+    s.lines.forEach((ln, li) => {
+      node.append('text').attr('class', 'stage-label').attr('x', x + boxW/2).attr('y', rowY + 36 + li*16).attr('text-anchor', 'middle').text(ln);
+    });
+    if (i < 3) {
+      svg.append('path').attr('class', 'flow-arrow').attr('marker-end', 'url(#arrow)')
+        .attr('d', `M${x+boxW},${rowY+boxH/2} L${x+boxW+gap-4},${rowY+boxH/2}`);
+    }
+  });
+
+  // removal branch from stage 3
+  const x3 = 32 + 2*(boxW+gap) + boxW/2;
+  svg.append('path').attr('class', 'removal').attr('marker-end', 'url(#arrow)')
+    .attr('d', `M${x3},${rowY+boxH} L${x3},${rowY+boxH+56}`);
+  svg.append('rect').attr('class', 'removal-box')
+    .attr('x', x3 - boxW/2).attr('y', rowY+boxH+60).attr('width', boxW).attr('height', 44);
+  svg.append('text').attr('class', 'removal-label').attr('x', x3).attr('y', rowY+boxH+80).attr('text-anchor', 'middle').text('Discard');
+  svg.append('text').attr('class', 'removal-label').attr('x', x3).attr('y', rowY+boxH+96).attr('text-anchor', 'middle').text('unconnected rows');
+
+  // stage 5 below stage 4
+  const s5 = data.stages[4];
+  const x5 = 32 + 3*(boxW+gap);
+  const y5 = rowY + boxH + 60;
+  svg.append('path').attr('class', 'flow-arrow').attr('marker-end', 'url(#arrow)')
+    .attr('d', `M${x5+boxW/2},${rowY+boxH} L${x5+boxW/2},${y5-2}`);
+  const node5 = svg.append('g');
+  node5.append('rect').attr('class', 'stage-box').attr('x', x5).attr('y', y5).attr('width', boxW).attr('height', boxH)
+    .attr('tabindex', 0).attr('aria-label', `Stage 5: ${s5.lines.join(' ')} (human-required)`);
+  node5.append('rect').attr('class', 'accent-bar').attr('x', x5).attr('y', y5).attr('width', 6).attr('height', boxH);
+  node5.append('text').attr('class', 'stage-num').attr('x', x5+boxW-8).attr('y', y5+16).attr('text-anchor', 'end').text(5);
+  s5.lines.forEach((ln, li) => {
+    node5.append('text').attr('class', 'stage-label').attr('x', x5+boxW/2).attr('y', y5+36+li*16).attr('text-anchor', 'middle').text(ln);
+  });
+
+  svg.append('text').attr('class', 'caption').attr('x', totalWidth/2).attr('y', totalHeight-12).attr('text-anchor', 'middle')
+    .text('The agent accelerates one middle step; decisions cluster around it.');
+}
+
+loadData().then(data => {
+  draw(data);
+  const ro = new ResizeObserver(() => draw(data));
+  ro.observe(document.getElementById('chart'));
+});
+</script>
+</body>
+</html>

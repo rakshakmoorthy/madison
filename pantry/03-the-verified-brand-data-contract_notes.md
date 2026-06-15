@@ -37,7 +37,7 @@ This chapter should define Madison's evidence ladder: raw inputs, verified recor
 ## Repo Source Map
 
 - TIKTOC.md
-- MYCROFT.md
+- SNICKERDOODLE.md
 - DOMAIN.md
 - DATA_CONTRACT.md
 - docs/data-and-provenance.md

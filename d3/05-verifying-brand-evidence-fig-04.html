@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evidence Workflow with the Four-List Gate</title>
+<style>
+:root{
+  --color-white:#FFFFFF;
+  --color-ink:#2a1a0e;
+  --color-red:#C8102E;
+  --color-secondary:#545454;
+  --color-border:#D4D4D4;
+  --color-ochre:#C8860E;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-white:#111111;
+    --color-ink:#F0EBE3;
+    --color-red:#E8243A;
+    --color-secondary:#A0978C;
+    --color-border:#2E2E2E;
+    --color-ochre:#D49A30;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--color-white);color:var(--color-ink);font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+#chart{width:100%;padding:24px;}
+.chart-title{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;fill:var(--color-ink);}
+.chart-subtitle{font-family:'Inter',sans-serif;font-size:13px;fill:var(--color-secondary);}
+.node-label{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;}
+.annot{font-family:'JetBrains Mono','Fira Code',monospace;font-size:10px;fill:var(--color-secondary);}
+.tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-ink);color:var(--color-white);
+  border:1px solid var(--color-border);padding:8px 10px;font-family:'Inter',sans-serif;font-size:13px;}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = [
+  {stage:"Data Collection",     owner:"ai"},
+  {stage:"AI Analysis",         owner:"ai"},
+  {stage:"Artifact Production",  owner:"ai"},
+  {stage:"GATE: Four-List Sort", owner:"gate"},
+  {stage:"Warranted-Verb Rewrite", owner:"human"},
+  {stage:"Recommendation",      owner:"human"}
+];
+const ownerColor = {ai:"var(--color-secondary)", human:"var(--color-ink)", gate:"var(--color-red)"};
+
+const tooltip = d3.select('body').append('div').attr('class','tooltip');
+function showTooltip(event,html){tooltip.html(html).style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px').transition().duration(150).style('opacity',1);}
+function moveTooltip(event){tooltip.style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px');}
+function hideTooltip(){tooltip.transition().duration(100).style('opacity',0);}
+
+async function loadData(){
+  try { return await d3.json('./05-verifying-brand-evidence-fig-04/data.json'); }
+  catch { return FALLBACK_DATA; }
+}
+
+function render(stages){
+  const container = document.getElementById('chart');
+  const totalWidth = Math.max(container.clientWidth-48,560);
+  const totalHeight = 360;
+  d3.select('#chart').selectAll('svg').remove();
+
+  const svg = d3.select('#chart').append('svg')
+    .attr('width',totalWidth).attr('height',totalHeight)
+    .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+  svg.append('title').attr('id','chart-title').text('Evidence Workflow with the Four-List Gate');
+  svg.append('desc').attr('id','chart-desc').text('Six stages connected by forward arrows: Data Collection, AI Analysis, Artifact Production, an emphasized Gate that is the human four-list sort, Warranted-Verb Rewrite, and Recommendation. The early stages are AI-assistable; the Gate and the steps after it are human-owned.');
+
+  svg.append('defs').append('marker').attr('id','arrow-ev')
+    .attr('markerWidth',9).attr('markerHeight',7).attr('refX',8).attr('refY',3.5).attr('orient','auto')
+    .append('polygon').attr('points','0 0, 9 3.5, 0 7').attr('fill','var(--color-ink)');
+
+  svg.append('text').attr('class','chart-title').attr('x',24).attr('y',30).text('Evidence workflow with the four-list gate');
+  svg.append('text').attr('class','chart-subtitle').attr('x',24).attr('y',52).text('Fast artifacts, slow accountability — the gate is the step that makes the analysis defensible.');
+
+  // wrap into two rows of 3 for narrow widths
+  const cols = 3;
+  const startY = 110;
+  const cellW = (totalWidth-48)/cols;
+  const rowGap = 130;
+  const nodeW = cellW-36, nodeH = 56;
+
+  stages.forEach((d,i)=>{
+    const row = Math.floor(i/cols);
+    const col = i%cols;
+    // serpentine ordering so arrows flow continuously
+    const realCol = (row%2===0)?col:(cols-1-col);
+    d._x = 24 + realCol*cellW + (cellW-nodeW)/2;
+    d._y = startY + row*rowGap;
+    d._cx = d._x+nodeW/2; d._cy = d._y+nodeH/2;
+  });
+
+  // arrows
+  for(let i=1;i<stages.length;i++){
+    const a=stages[i-1], b=stages[i];
+    if(Math.abs(a._cy-b._cy)<1){
+      const x1 = (a._cx<b._cx)?a._x+nodeW+3:a._x-3;
+      const x2 = (a._cx<b._cx)?b._x-5:b._x+nodeW+5;
+      svg.append('line').attr('aria-hidden','true').attr('x1',x1).attr('y1',a._cy).attr('x2',x2).attr('y2',b._cy)
+        .attr('stroke','var(--color-ink)').attr('stroke-width',1.4).attr('marker-end','url(#arrow-ev)');
+    } else {
+      svg.append('line').attr('aria-hidden','true').attr('x1',a._cx).attr('y1',a._y+nodeH+3).attr('x2',b._cx).attr('y2',b._y-5)
+        .attr('stroke','var(--color-ink)').attr('stroke-width',1.4).attr('marker-end','url(#arrow-ev)');
+    }
+  }
+
+  stages.forEach(d=>{
+    const emph = d.owner==='gate';
+    const g = svg.append('g').attr('tabindex',0).attr('aria-label',`${d.stage} (${d.owner==='ai'?'AI-assistable':d.owner==='gate'?'human gate':'human'})`)
+      .on('mouseover',function(event){showTooltip(event,`<strong>${d.stage}</strong><br>${d.owner==='ai'?'AI-assistable':d.owner==='gate'?'named reviewer decides the list':'human-owned'}`);})
+      .on('mousemove',moveTooltip).on('mouseout',hideTooltip);
+    g.append('rect').attr('x',d._x).attr('y',emph?d._y-4:d._y).attr('width',nodeW).attr('height',emph?nodeH+8:nodeH)
+      .attr('rx',8).attr('fill','var(--color-white)')
+      .attr('stroke',ownerColor[d.owner]).attr('stroke-width',emph?3:1.8);
+    g.append('text').attr('class','node-label').attr('x',d._cx).attr('y',d._cy+4)
+      .attr('text-anchor','middle').attr('fill',ownerColor[d.owner])
+      .each(function(){
+        const words = d.stage.split(' ');
+        const t = d3.select(this);
+        if(words.length>2){
+          t.text(null);
+          const mid = Math.ceil(words.length/2);
+          t.append('tspan').attr('x',d._cx).attr('dy','-0.3em').text(words.slice(0,mid).join(' '));
+          t.append('tspan').attr('x',d._cx).attr('dy','1.2em').text(words.slice(mid).join(' '));
+        } else { t.text(d.stage); }
+      });
+  });
+
+  // gate annotation
+  const gate = stages.find(s=>s.owner==='gate');
+  if(gate){
+    svg.append('text').attr('class','annot').attr('x',gate._cx).attr('y',gate._y+nodeH+22)
+      .attr('text-anchor','middle').attr('fill','var(--color-red)')
+      .text('named reviewer decides — AI only flags candidates');
+  }
+}
+
+function draw(){ loadData().then(render); }
+draw();
+const ro = new ResizeObserver(()=>draw());
+ro.observe(document.getElementById('chart'));
+</script>
+</body>
+</html>

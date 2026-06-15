@@ -37,7 +37,7 @@ This chapter should frame the creative brief as an evidence-bound assembly, not 
 ## Repo Source Map
 
 - TIKTOC.md
-- MYCROFT.md
+- SNICKERDOODLE.md
 - DOMAIN.md
 - DATA_CONTRACT.md
 - docs/data-and-provenance.md

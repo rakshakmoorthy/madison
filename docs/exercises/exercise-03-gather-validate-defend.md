@@ -6,7 +6,7 @@
 **Time:** one sitting to gather + validate; the defense and cleanup at your pace within the week.
 **You need:** Exercise Two done (a `DRAFT` recipe exists), n8n installed (`npm install -g n8n`, `n8n start`, open `localhost:5678`), your Madison fork, your Assignment-2 problem in front of you.
 
-The spine (from `MYCROFT.md`, P1 and P2): **the machine gathers and runs the checks; you select the sources, attest the numbers, and argue the adequacy.** *Verified data is structural* — nothing enters `data/verified/` without passing the validation gate. And the rule that makes the whole thing honest: **you cannot defend what you did not validate.** A 1,000-row scrape you can't stand behind scores *below* 100 clean rows you can. Quality wins because it's the only thing you can argue for.
+The spine (from `SNICKERDOODLE.md`, P1 and P2): **the machine gathers and runs the checks; you select the sources, attest the numbers, and argue the adequacy.** *Verified data is structural* — nothing enters `data/verified/` without passing the validation gate. And the rule that makes the whole thing honest: **you cannot defend what you did not validate.** A 1,000-row scrape you can't stand behind scores *below* 100 clean rows you can. Quality wins because it's the only thing you can argue for.
 
 > **Two reference texts for this exercise.** *GIGO* is the validation tooling — the coercion audit, the cleaning report, the defect taxonomy (mechanical / analytical / judgment). *Computational Skepticism for AI* is the interrogation — the four skeptical moves, "why are there exactly N rows?", the access/boundary question. Procedural checks are necessary but not sufficient; the interrogation is the human part, and it is the defense.
 

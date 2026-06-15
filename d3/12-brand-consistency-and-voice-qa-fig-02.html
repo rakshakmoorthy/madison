@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The recipe input chain</title>
+<style>
+  :root {
+    --color-white:     #FFFFFF;
+    --color-ink:       #2a1a0e;
+    --color-red:       #C8102E;
+    --color-secondary: #545454;
+    --color-border:    #D4D4D4;
+    --color-ochre:     #C8860E;
+    --color-fill:      #F5F5F5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+      --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+  #chart { width: 100%; }
+  .node { fill: var(--color-fill); stroke: var(--color-ink); stroke-width: 1.5; }
+  .node.matrix { stroke-width: 2; }
+  .node.decision { fill: var(--color-fill); stroke: var(--color-red); stroke-width: 2; }
+  .node-label { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-ink); }
+  .flow { stroke: var(--color-ink); stroke-width: 1.5; fill: none; }
+  .flow.parallel { stroke: var(--color-ochre); stroke-dasharray: 5 3; }
+  .chart-title { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; fill: var(--color-ink); }
+  .caption { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-secondary); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = {
+  nodes: [
+    { id: "rules",   label: ["Brand rules"],        x: 0.10, y: 0.30, type: "source" },
+    { id: "voice",   label: ["Voice guide"],        x: 0.10, y: 0.55, type: "source" },
+    { id: "criteria",label: ["Review", "criteria"],  x: 0.34, y: 0.42, type: "mid" },
+    { id: "touch",   label: ["Touchpoints"],         x: 0.56, y: 0.42, type: "mid" },
+    { id: "access",  label: ["Accessibility", "check"], x: 0.34, y: 0.78, type: "parallel" },
+    { id: "claims",  label: ["Claims /", "proof map"], x: 0.56, y: 0.78, type: "parallel" },
+    { id: "matrix",  label: ["QA matrix"],           x: 0.78, y: 0.55, type: "matrix" },
+    { id: "decision",label: ["Human", "decision"],    x: 0.93, y: 0.55, type: "decision" }
+  ],
+  links: [
+    { s: "rules", t: "criteria" }, { s: "voice", t: "criteria" },
+    { s: "criteria", t: "touch" }, { s: "touch", t: "matrix" },
+    { s: "access", t: "matrix", parallel: true }, { s: "claims", t: "matrix", parallel: true },
+    { s: "matrix", t: "decision" }
+  ]
+};
+
+async function loadData() {
+  try { return await d3.json('./12-brand-consistency-and-voice-qa-fig-02/data.json'); }
+  catch { return FALLBACK_DATA; }
+}
+
+function draw(data) {
+  d3.select('#chart').selectAll('*').remove();
+  const W = document.getElementById('chart').clientWidth || 700;
+  const H = 420;
+  const svg = d3.select('#chart').append('svg')
+    .attr('width', W).attr('height', H).attr('viewBox', `0 0 ${W} ${H}`)
+    .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+  svg.append('title').attr('id','chart-title').text('The recipe input chain');
+  svg.append('desc').attr('id','chart-desc').text('Brand rules and voice guide feed review criteria applied to touchpoints; accessibility runs as a parallel check; the claims/proof map supplies the evidentiary layer; all converge in the QA matrix and close at a human decision.');
+
+  svg.append('defs').append('marker').attr('id','arrow')
+    .attr('markerWidth',8).attr('markerHeight',6).attr('refX',7).attr('refY',3).attr('orient','auto')
+    .append('polygon').attr('points','0 0, 8 3, 0 6').attr('fill','var(--color-ink)');
+
+  svg.append('text').attr('class','chart-title').attr('x', W/2).attr('y', 34).attr('text-anchor','middle').text('The recipe input chain');
+
+  const padX = 60, padTop = 70, padBot = 60;
+  const px = d => padX + d.x * (W - 2*padX);
+  const py = d => padTop + d.y * (H - padTop - padBot);
+  const bw = 96, bh = 44;
+  const byId = Object.fromEntries(data.nodes.map(n => [n.id, n]));
+
+  svg.append('g').selectAll('path').data(data.links).join('path')
+    .attr('class', d => d.parallel ? 'flow parallel' : 'flow')
+    .attr('marker-end','url(#arrow)')
+    .attr('d', d => {
+      const a = byId[d.s], b = byId[d.t];
+      return `M${px(a)+bw/2},${py(a)} L${px(b)-bw/2-4},${py(b)}`;
+    });
+
+  const g = svg.append('g').selectAll('g').data(data.nodes).join('g')
+    .attr('transform', d => `translate(${px(d)-bw/2},${py(d)-bh/2})`);
+  g.append('rect')
+    .attr('class', d => d.type === 'decision' ? 'node decision' : d.type === 'matrix' ? 'node matrix' : 'node')
+    .attr('width', bw).attr('height', bh).attr('tabindex', 0)
+    .attr('aria-label', d => d.label.join(' '));
+  g.each(function(d){
+    const t = d3.select(this);
+    d.label.forEach((ln, i) => {
+      t.append('text').attr('class','node-label').attr('x', bw/2)
+       .attr('y', bh/2 + 4 + (i - (d.label.length-1)/2)*13).attr('text-anchor','middle').text(ln);
+    });
+  });
+
+  svg.append('text').attr('class','caption').attr('x', W/2).attr('y', H-12).attr('text-anchor','middle')
+    .text('Missing inputs do not stop the process; they change the epistemic status of the findings.');
+}
+
+loadData().then(data => {
+  draw(data);
+  new ResizeObserver(() => draw(data)).observe(document.getElementById('chart'));
+});
+</script>
+</body>
+</html>

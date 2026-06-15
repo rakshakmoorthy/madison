@@ -4,7 +4,7 @@
 **Publisher:** Humanitarians AI Incorporated, a 501(c)(3) nonprofit organization  
 **Edition:** 2026
 
-> **Agents and contributors:** the source of truth for this repository is [`MYCROFT.md`](MYCROFT.md) (the agent-operating constitution — Madison is Mycroft's second domain instance); [`DOMAIN.md`](DOMAIN.md) describes this repository's branding-and-marketing domain, its layout, and what is runnable today. Read both before structural work.
+> **Agents and contributors:** the source of truth for this repository is [`SNICKERDOODLE.md`](SNICKERDOODLE.md) (the agent-operating constitution — Madison is a Snickerdoodle domain, the second instance after the-reallocation-engine); [`DOMAIN.md`](DOMAIN.md) describes this repository's branding-and-marketing domain, its layout, and what is runnable today. Read both before structural work.
 
 ## Overview
 

@@ -1,0 +1,56 @@
+<!--
+  The Recipe Structure
+  Book: Madison Plus One
+  Chapter: 03-the-verified-brand-data-contract
+  Figure 03
+  Type: process flowchart
+  Generated 2026-06-15
+  Source: pantry/03-the-verified-brand-data-contract-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+  <title id="fig-title-03">The Recipe Structure</title>
+  <desc>The minimal recipe used across the method: Inputs, Steps, Outputs, a prominently emphasized Gate, and a Log. The agent prepares the ground through Inputs, Steps, and Outputs. The Gate is the professional moment where the accountable human decides. What crosses the Gate is recorded in the Log.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="03-the-verified-brand-data-contract" figure-number="03" figure-title="The Recipe Structure" figure-slug="the-recipe-structure" figure-type="process flowchart" priority="Important" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/03-the-verified-brand-data-contract-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="44" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The recipe: inputs, steps, outputs, gate, log</text>
+
+  <!-- Inputs -->
+  <rect x="32" y="150" width="120" height="56" fill="#FFFFFF" stroke="#787878" stroke-width="1.5"/>
+  <text x="92" y="184" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Inputs</text>
+  <line x1="152" y1="178" x2="172" y2="178" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Steps -->
+  <rect x="174" y="150" width="120" height="56" fill="#FFFFFF" stroke="#787878" stroke-width="1.5"/>
+  <text x="234" y="184" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Steps</text>
+  <line x1="294" y1="178" x2="314" y2="178" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Outputs -->
+  <rect x="316" y="150" width="120" height="56" fill="#FFFFFF" stroke="#787878" stroke-width="1.5"/>
+  <text x="376" y="184" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Outputs</text>
+  <line x1="436" y1="178" x2="456" y2="178" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Gate (emphasized, larger) -->
+  <rect x="458" y="134" width="140" height="88" fill="#C8102E"/>
+  <text x="528" y="176" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF">GATE</text>
+  <text x="528" y="196" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">the human decides</text>
+
+  <!-- Gate -> Log -->
+  <line x1="528" y1="222" x2="528" y2="266" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Log -->
+  <rect x="468" y="268" width="120" height="56" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="528" y="302" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Log</text>
+
+  <!-- annotation bands -->
+  <line x1="32" y1="240" x2="436" y2="240" stroke="#545454" stroke-width="1"/>
+  <text x="234" y="258" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">the agent prepares the ground</text>
+
+  <text x="608" y="178" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">the human</text>
+  <text x="608" y="192" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">crosses here</text>
+
+  <text x="528" y="350" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">what crossed is recorded</text>
+</svg>

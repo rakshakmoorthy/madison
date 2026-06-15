@@ -30,6 +30,9 @@ In world two, it appears in an AI-generated brief. The brief has the same headin
 
 In world one, the sentence is evidence. In world two, it is a hypothesis — or possibly just a pattern that sounded plausible to the language model during generation. The problem is that both sentences look identical on the screen.
 
+![Two equal panels — on the left an identical claim rests on three evidence elements, a survey, a competitor analysis, and a sales note, joined by links; on the right the same claim has nothing beneath it plus a second equally smooth but unsupported claim — the headlines look identical, only what sits underneath differs](images/01-the-fluency-trap-fig-02.png)
+*Figure 1.2 — Two worlds: same sentence, different status*
+
 ---
 
 This is what I mean when I say the artifact looks finished precisely because it is fluent. Finish, in the pre-AI world, was an earned signal. A document that looked polished had usually been through several drafts, some review, and some connection to primary sources — not always, but often enough that polish was weakly correlated with rigor. AI severs that correlation. You can produce a polished document in seconds from no primary sources at all. The polish now tells you nothing about the quality of the underlying claims.
@@ -54,6 +57,9 @@ The fourth is a **taste judgment**: an evaluative claim that isn't fact-checkabl
 
 The fifth is an **approval-needed claim**: a commitment that someone in the organization has to authorize before the brand can make it. *"We will match any competitor's price."* There's a legal and commercial decision hiding inside that sentence, and no matter how fluent it reads, it cannot move downstream without a signature.
 
+![A reference ladder of five claim types found inside any fluent artifact, stacked from least to most consequential — verified, inferred, unsupported, taste judgment, and approval-needed — each row carrying a color band and a one-line definition slot, with no arrows because this is a taxonomy, not a sequence](images/01-the-fluency-trap-fig-01.png)
+*Figure 1.3 — The five claim types*
+
 The audit does not resolve any of these claims. It surfaces them. The point is to make visible what kind of work remains.
 
 ---
@@ -72,7 +78,18 @@ Your job, once you understand this mechanism, is to be immune to it. Not cynical
 
 Now consider the kind of claim-classification table that Madison produces as its primary output from this work.
 
-<!-- → [TABLE: Claim Audit Table — columns: Claim | Type | Source | Evidence Status | Risk | Rewrite | Owner] -->
+![A seven-column audit table template with a header row and empty body rows — columns left to right: Claim, Type, Source, Evidence Status, Risk, Rewrite, and Owner — with the Owner column emphasized because attaching a named person is what changes behavior](images/01-the-fluency-trap-fig-03.png)
+*Figure 1.4 — The claim audit table structure*
+
+| Claim | Type | Source | Evidence Status | Risk | Rewrite | Owner |
+|---|---|---|---|---|---|---|
+| "Our core audience is millennial women aged 25–34." | Verified | survey-2025-q3.csv | Present | Low | — | Strategist |
+| "Sustainability outranks price as a purchase driver." | Inferred | survey + sales notes | Partial | Medium — drives positioning | "In this sample, sustainability scored above price; not yet tested against behavior." | Strategist |
+| "Our audience is deeply skeptical of traditional advertising." | Unsupported | — | Missing | High — shapes whole media plan | "No source; flag as hypothesis pending audience research." | Account lead |
+| "This concept feels bold without being reckless." | Taste judgment | n/a | Not applicable | Low | — | Creative director |
+| "We will match any competitor's price." | Approval-needed | — | Missing | High — legal and commercial commitment | Hold pending sign-off. | Legal + brand |
+
+*Table 1.1 — A claim audit splits a fluent artifact into individual claims and asks, for each, what kind of thing it is and whether its kind requires evidence. The Owner column is what changes behavior.*
 
 The table has seven columns. Claim: the exact language from the artifact. Type: verified, inferred, unsupported, taste judgment, or approval-needed. Source: the path or URL, if one exists. Evidence status: present, missing, or not applicable. Risk: what happens if this claim is wrong and ships. Rewrite: a version of the claim that accurately represents what is actually known. Owner: the human who is responsible for the decision about this claim.
 
@@ -110,3 +127,17 @@ Once you can see fluent artifacts as mixtures of evidence, inference, and judgme
 
 <!-- LLM EXERCISE -->
 **Exercise for further inquiry.** Take a brand brief, persona document, or content plan — ideally one generated with AI assistance. Without looking at the underlying sources, write down every factual claim in the document. Then classify each claim using the five types described in this chapter: verified, inferred, unsupported, taste judgment, approval-needed. For each unsupported claim, write one sentence describing what kind of evidence would make it verifiable. Compare the resulting table to what the artifact implied about its own reliability. What changed in your reading of the document once you had the table?
+
+## Prompts
+
+### Figure 1.2 — Two worlds: same sentence, different status
+**Files:** images/01-the-fluency-trap-fig-02.svg
+**Prompt:** Render a brutalist two-panel comparison: left panel, one claim resting on three short evidence links; right panel, the identical claim with empty space beneath plus a second unsupported claim. Keep the headlines structurally identical so polish reads the same in both. Hardcoded palette (ink #2a1a0e, red #C8102E for the unsupported/empty zone, secondary #545454, border #D4D4D4, white #FFFFFF), no rendered sentences, no checkmarks.
+
+### Figure 1.3 — The five claim types
+**Files:** images/01-the-fluency-trap-fig-01.svg
+**Prompt:** Render a brutalist taxonomy ladder of five parallel rows — verified, inferred, unsupported, taste judgment, approval-needed — each with a left-edge color band and a reserved definition slot, no connecting arrows. Hardcoded palette (ink #2a1a0e, red #C8102E, secondary #545454, border #D4D4D4, ochre #C8860E decorative, white #FFFFFF), Inter labels, calm reference register.
+
+### Figure 1.4 — The claim audit table structure
+**Files:** images/01-the-fluency-trap-fig-03.svg
+**Prompt:** Render a brutalist empty seven-column table schematic — Claim, Type, Source, Evidence Status, Risk, Rewrite, Owner — with one header row, empty body cells, and the Owner column visually emphasized. Hardcoded palette (ink #2a1a0e for grid lines, red #C8102E to emphasize the Owner column, border #D4D4D4, fill #F5F5F5 header, white #FFFFFF cells), no filled-in data.

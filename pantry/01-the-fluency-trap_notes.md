@@ -30,14 +30,14 @@ This chapter should open with a polished AI-generated brand artifact that feels 
 
 ## E. Current State and Teaching Considerations
 
-**Current Madison state:** The repo already contains the right contrast: fluent prompt suites in `prompts/` and verification rules in `MYCROFT.md`, `DATA_CONTRACT.md`, and `docs/data-and-provenance.md`. The missing chapter should make that contrast explicit and operational.
+**Current Madison state:** The repo already contains the right contrast: fluent prompt suites in `prompts/` and verification rules in `SNICKERDOODLE.md`, `DATA_CONTRACT.md`, and `docs/data-and-provenance.md`. The missing chapter should make that contrast explicit and operational.
 
 **Teaching considerations:** Make the first exercise visceral: give students a good-looking artifact and force a slow claim audit. The lesson lands when the artifact remains useful but loses its false aura of certainty.
 
 ## Repo Source Map
 
 - TIKTOC.md
-- MYCROFT.md
+- SNICKERDOODLE.md
 - DOMAIN.md
 - DATA_CONTRACT.md
 - docs/data-and-provenance.md

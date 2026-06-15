@@ -1,0 +1,57 @@
+<!--
+  Title: Caveat Placement Guide
+  Book: Madison Plus One
+  Chapter: 14-campaign-performance-report
+  Figure 04
+  Type: comparison panels
+  Generated 2026-06-15
+  Source: pantry/14-campaign-performance-report-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04">
+<title id="fig-title-04">Caveat Placement Guide</title>
+<desc>Five report limitations connected to where each caveat belongs within a report column. Sample size sits below the metric result, confound in the interpretation section, source lag in data sources, attribution as a standing caveat in the executive summary, and baseline mismatch below the baseline comparison. Caveats belong adjacent to the claims they qualify.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="14-campaign-performance-report" figure-number="04" figure-title="Caveat Placement Guide" figure-slug="caveat-placement-guide" figure-type="comparison panels" priority="Supplementary" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/14-campaign-performance-report-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="350" y="40" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Caveat Placement Guide</text>
+
+<text x="150" y="74" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Limitation type</text>
+<text x="560" y="74" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Placement in report</text>
+
+<!-- limitation markers (left) -->
+<!-- attribution highlighted -->
+<rect x="40" y="86" width="220" height="44" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="150" y="113" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8102E">Attribution (no holdout)</text>
+
+<rect x="40" y="138" width="220" height="44" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+<text x="150" y="165" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Sample size</text>
+
+<rect x="40" y="190" width="220" height="44" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+<text x="150" y="217" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Confound</text>
+
+<rect x="40" y="242" width="220" height="44" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+<text x="150" y="269" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Source lag</text>
+
+<rect x="40" y="294" width="220" height="44" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+<text x="150" y="321" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Baseline mismatch</text>
+
+<!-- report column (faint, right) -->
+<rect x="500" y="86" width="160" height="252" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+<g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454" text-anchor="middle">
+<rect x="500" y="86" width="160" height="44" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="0.75"/><text x="580" y="112">Executive summary</text>
+<rect x="500" y="138" width="160" height="50" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="0.75"/><text x="580" y="167">Metric rows</text>
+<rect x="500" y="196" width="160" height="50" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="0.75"/><text x="580" y="225">Interpretation</text>
+<rect x="500" y="254" width="160" height="40" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="0.75"/><text x="580" y="278">Data sources</text>
+<rect x="500" y="302" width="160" height="36" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="0.75"/><text x="580" y="324">Baseline comparison</text>
+</g>
+
+<!-- connectors -->
+<line x1="260" y1="108" x2="498" y2="108" stroke="#C8102E" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="260" y1="160" x2="498" y2="163" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="260" y1="212" x2="498" y2="221" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="260" y1="264" x2="498" y2="274" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="260" y1="316" x2="498" y2="320" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<text x="350" y="372" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Caveat placement is a deliberate act of adjacency — not a buried footnote.</text>
+<text x="350" y="394" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8102E">The attribution caveat stands in the summary because it qualifies every outcome claim.</text>
+</svg>

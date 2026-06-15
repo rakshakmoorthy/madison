@@ -12,7 +12,7 @@ mkdirSync(logsDir, { recursive: true });
 
 const sharedSources = [
   "TIKTOC.md",
-  "MYCROFT.md",
+  "SNICKERDOODLE.md",
   "DOMAIN.md",
   "DATA_CONTRACT.md",
   "docs/data-and-provenance.md",
@@ -682,7 +682,7 @@ After this chapter, you will be able to ${chapter.capability.toLowerCase()}
 
 ${chapter.role}
 
-This is the Madison posture: use AI for pattern work, structure, drafting, extraction, formatting, and completeness checks; protect the human work of judgment, verification, taste, accountability, and approval. See \`MYCROFT.md\`, \`DATA_CONTRACT.md\`, and \`docs/phase-gates.md\` for the repository rules behind that posture.
+This is the Madison posture: use AI for pattern work, structure, drafting, extraction, formatting, and completeness checks; protect the human work of judgment, verification, taste, accountability, and approval. See \`SNICKERDOODLE.md\`, \`DATA_CONTRACT.md\`, and \`docs/phase-gates.md\` for the repository rules behind that posture.
 
 ## The Recipe Concept
 

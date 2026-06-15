@@ -1,0 +1,71 @@
+<!--
+  Title: Calendar Build Sequence
+  Book: Madison Plus One
+  Chapter: 11-content-calendar-with-provenance
+  Figure 03
+  Type: process flowchart
+  Generated 2026-06-15
+  Source: pantry/11-content-calendar-with-provenance-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03 fig-desc-03">
+<title id="fig-title-03">Calendar Build Sequence</title>
+<desc id="fig-desc-03">A five-stage left-to-right flow of building a content calendar. Stages one, three, four and five are human-required; stage two, where an agent generates candidate rows, is the single AI-assisted step. Stage three has a side branch discarding unconnected rows.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<text x="350" y="40" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">Calendar build sequence</text>
+
+<!-- legend -->
+<rect x="180" y="62" width="14" height="14" fill="#2a1a0e"/>
+<text x="200" y="74" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Human-required</text>
+<rect x="320" y="62" width="14" height="14" fill="#C8860E"/>
+<text x="340" y="74" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">AI-assisted</text>
+
+<!-- Stage 1 -->
+<rect x="32" y="170" width="110" height="70" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<rect x="32" y="170" width="6" height="70" fill="#2a1a0e"/>
+<text x="90" y="198" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Brief, pillars,</text>
+<text x="90" y="214" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">audience</text>
+<text x="90" y="230" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">evidence</text>
+
+<line x1="142" y1="205" x2="178" y2="205" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- Stage 2 (AI) -->
+<rect x="182" y="170" width="110" height="70" fill="#F5F5F5" stroke="#C8860E" stroke-width="2"/>
+<rect x="182" y="170" width="6" height="70" fill="#C8860E"/>
+<text x="240" y="200" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Agent generates</text>
+<text x="240" y="216" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">candidate rows</text>
+
+<line x1="292" y1="205" x2="328" y2="205" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- Stage 3 -->
+<rect x="332" y="170" width="110" height="70" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<rect x="332" y="170" width="6" height="70" fill="#2a1a0e"/>
+<text x="390" y="200" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Human reviews</text>
+<text x="390" y="216" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">for alignment</text>
+
+<!-- removal branch -->
+<line x1="387" y1="240" x2="387" y2="300" stroke="#C8102E" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+<rect x="332" y="304" width="110" height="44" fill="#FFFFFF" stroke="#C8102E" stroke-width="1"/>
+<text x="387" y="324" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8102E">Discard</text>
+<text x="387" y="338" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8102E">unconnected rows</text>
+
+<line x1="442" y1="205" x2="478" y2="205" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- Stage 4 -->
+<rect x="482" y="170" width="110" height="70" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<rect x="482" y="170" width="6" height="70" fill="#2a1a0e"/>
+<text x="540" y="194" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Complete</text>
+<text x="540" y="210" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">provenance:</text>
+<text x="540" y="226" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">source, owner, risk</text>
+
+<!-- Stage 5 below stage 4 to fit -->
+<line x1="540" y1="240" x2="540" y2="300" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="482" y="304" width="110" height="70" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<rect x="482" y="304" width="6" height="70" fill="#2a1a0e"/>
+<text x="540" y="332" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Approval:</text>
+<text x="540" y="348" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">owner confirms,</text>
+<text x="540" y="364" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">approver signs off</text>
+
+<text x="350" y="404" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">The agent accelerates one middle step; decisions cluster around it.</text>
+</svg>

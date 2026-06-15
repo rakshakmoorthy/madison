@@ -3,6 +3,8 @@ output/
 *.pdf
 *.docx
 .DS_Store
+.env
+.env.*
 
 # generated prompt-suite adapters (rebuild with scripts/build-prompts.mjs)
 prompts/**/.build/

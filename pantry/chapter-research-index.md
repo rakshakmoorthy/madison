@@ -45,7 +45,7 @@ This research pass treats the Madison repository itself as the primary source. T
 ## Primary Repo Evidence Layers
 
 - `TIKTOC.md` for chapter sequence, capability statements, whole tasks, and assessments.
-- `MYCROFT.md`, `DOMAIN.md`, and `DATA_CONTRACT.md` for constitution, domain, and evidence rules.
+- `SNICKERDOODLE.md`, `DOMAIN.md`, and `DATA_CONTRACT.md` for constitution, domain, and evidence rules.
 - `recipes/` for practitioner workflows and output contracts.
 - `prompts/` for brand, review, copy, identity, pitch, and shared critique patterns.
 - `docs/exercises/` for teaching sequence and assessment scaffolding.

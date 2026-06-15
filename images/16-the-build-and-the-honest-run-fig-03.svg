@@ -1,0 +1,58 @@
+<!--
+  Title: Run Gate Decision Record
+  Book: Madison Plus One
+  Chapter: 16-the-build-and-the-honest-run
+  Figure 03
+  Type: structural schematic
+  Generated 2026-06-15
+  Source: pantry/16-the-build-and-the-honest-run-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+<title id="fig-title-03">Run Gate Decision Record</title>
+<desc>One run-gate-decision-record row as six adjacent cells: gate, decision type, evidence state at decision, open items, decision owner and timestamp. The decision-type cell holds a four-state indicator for proceed, conditional, hold and close with findings. Evidence state and open items are bracketed together; the owner cell carries an accountability marker.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="16-the-build-and-the-honest-run" figure-number="03" figure-title="Run Gate Decision Record" figure-slug="run-gate-decision-record" figure-type="structural schematic" priority="Supplementary" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/16-the-build-and-the-honest-run-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="350" y="40" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Run Gate Decision Record</text>
+
+<!-- 6 cells: x 44..656 width 612 cell 102 -->
+<g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11">
+<rect x="44" y="150" width="102" height="96" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="146" y="150" width="102" height="96" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="248" y="150" width="102" height="96" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="350" y="150" width="102" height="96" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="452" y="150" width="102" height="96" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="554" y="150" width="102" height="96" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+</g>
+
+<g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">
+<text x="95" y="185">Gate</text>
+<text x="197" y="178">Decision</text><text x="197" y="192">type</text>
+<text x="299" y="178">Evidence</text><text x="299" y="192">state</text>
+<text x="401" y="178">Open</text><text x="401" y="192">items</text>
+<text x="503" y="178">Decision</text><text x="503" y="192">owner</text>
+<text x="605" y="185">Timestamp</text>
+</g>
+
+<!-- four-state decision indicator -->
+<rect x="160" y="206" width="16" height="16" fill="#545454"/>
+<rect x="178" y="206" width="16" height="16" fill="#C8102E"/>
+<rect x="196" y="206" width="16" height="16" fill="#C8102E"/>
+<rect x="214" y="206" width="16" height="16" fill="#545454"/>
+
+<!-- evidence-state / open-items pairing bracket -->
+<path d="M251 146 L251 138 L451 138 L451 146" fill="none" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="351" y="130" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#2a1a0e">known &amp; deferred</text>
+
+<!-- accountability marker on owner -->
+<circle cx="503" cy="214" r="9" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+<polyline points="498,214 502,219 509,209" fill="none" stroke="#2a1a0e" stroke-width="1.5"/>
+
+<!-- decision legend -->
+<rect x="120" y="284" width="12" height="12" fill="#545454"/><text x="137" y="294" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">proceed</text>
+<rect x="215" y="284" width="12" height="12" fill="#C8102E"/><text x="232" y="294" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">conditional</text>
+<rect x="325" y="284" width="12" height="12" fill="#C8102E"/><text x="342" y="294" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">hold</text>
+<rect x="400" y="284" width="12" height="12" fill="#545454"/><text x="417" y="294" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">close with findings</text>
+
+<text x="350" y="344" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">The row is organizational memory of what was known, decided, and deferred at each gate.</text>
+</svg>

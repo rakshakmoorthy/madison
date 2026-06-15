@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brief fields and their evidence thresholds</title>
+<style>
+  :root{--color-white:#FFFFFF;--color-ink:#2a1a0e;--color-red:#C8102E;
+    --color-secondary:#545454;--color-border:#D4D4D4;--color-ochre:#C8860E;}
+  @media (prefers-color-scheme: dark){
+    :root{--color-white:#111111;--color-ink:#F0EBE3;--color-red:#E8243A;
+      --color-secondary:#A0978C;--color-border:#2E2E2E;--color-ochre:#D49A30;}}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--color-white);color:var(--color-ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+  #chart{width:100%;}
+  .field{font-family:'Inter',sans-serif;font-size:14px;fill:var(--color-ink);}
+  .status{font-family:'JetBrains Mono',monospace;font-size:11px;fill:var(--color-secondary);}
+  .cap{font-family:'EB Garamond',Georgia,serif;font-size:14px;font-style:italic;fill:var(--color-secondary);}
+  .tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-white);
+    border:1px solid var(--color-border);padding:6px 10px;font-size:13px;color:var(--color-ink);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA=[
+  {field:"Objective",req:"Confirmed",accent:"var(--color-secondary)",hot:false},
+  {field:"Audience",req:"Confirmed (often only Inferred)",accent:"var(--color-secondary)",hot:false},
+  {field:"Insight",req:"Inferred at best",accent:"var(--color-secondary)",hot:false},
+  {field:"Single-minded proposition",req:"Approval-needed",accent:"var(--color-red)",hot:true},
+  {field:"Tone",req:"Owned taste judgment",accent:"var(--color-ochre)",hot:false},
+  {field:"Mandatories",req:"Confirmed / documented",accent:"var(--color-secondary)",hot:false}
+];
+const tooltip=d3.select('body').append('div').attr('class','tooltip');
+function showTip(e,h){tooltip.html(h).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px')
+  .transition().duration(150).style('opacity',1);}
+function moveTip(e){tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px');}
+function hideTip(){tooltip.transition().duration(100).style('opacity',0);}
+function draw(data){
+  d3.select('#chart').selectAll('*').remove();
+  const totalWidth=document.getElementById('chart').clientWidth||700;
+  const rowH=44, m=20, top=20;
+  const totalHeight=top+data.length*rowH+44;
+  const svg=d3.select('#chart').append('svg').attr('width',totalWidth).attr('height',totalHeight)
+    .attr('role','img').attr('aria-labelledby','c-title c-desc');
+  svg.append('title').attr('id','c-title').text('Brief fields and their evidence thresholds');
+  svg.append('desc').attr('id','c-desc').text('Six brief fields mapped to the status each should reach, with the proposition flagged as highest exposure.');
+  const chipX=totalWidth-260;
+  data.forEach((d,i)=>{
+    const y=top+i*rowH;
+    svg.append('rect').attr('x',m).attr('y',y).attr('width',totalWidth-2*m).attr('height',rowH-8)
+      .attr('fill','var(--color-white)').attr('stroke',d.hot?'var(--color-red)':'var(--color-border)')
+      .attr('stroke-width',d.hot?2:1).attr('tabindex',0)
+      .attr('aria-label',d.field+' should reach '+d.req)
+      .on('mouseover',(e)=>showTip(e,'<strong>'+d.field+'</strong><br>'+d.req)).on('mousemove',moveTip).on('mouseout',hideTip);
+    svg.append('text').attr('class','field').attr('x',m+14).attr('y',y+24).text(d.field);
+    svg.append('rect').attr('x',chipX).attr('y',y+6).attr('width',12).attr('height',rowH-20).attr('fill',d.accent);
+    svg.append('text').attr('class','status').attr('x',chipX+20).attr('y',y+24).text(d.req);
+  });
+  svg.append('text').attr('class','cap').attr('x',m).attr('y',totalHeight-14)
+    .text('The evidence threshold varies by field. The proposition carries the highest exposure.');
+}
+async function load(){try{return await d3.json('./07-the-creative-brief-builder-fig-02/data.json');}catch{return FALLBACK_DATA;}}
+load().then(d=>{draw(d);const ro=new ResizeObserver(()=>draw(d));ro.observe(document.getElementById('chart'));});
+</script>
+</body>
+</html>

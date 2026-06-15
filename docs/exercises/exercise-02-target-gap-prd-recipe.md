@@ -6,7 +6,7 @@
 **Time:** one sitting (≈ the class session); cleanup at your pace within the week.
 **You need:** Exercise One done (`brand/` exists), Exercise 1A done (you have a `board-audit` recipe), a CLI agent, your Madison fork, awareness access to the-reallocation-engine (for the O*NET/SOC pattern).
 
-The spine, four times over (from `MYCROFT.md`, P1): **the machine captures and runs; you select, attest, and argue.** Extraction, mapping, and table-joins are conformance — the machine does them better and won't fudge. Which O*NET code is right, which three requirements matter, why this build for you, what you *won't* build — those are yours. Watch where, in the live run, I hand work to the agent and where I take it back. That handoff is the whole lesson.
+The spine, four times over (from `SNICKERDOODLE.md`, P1): **the machine captures and runs; you select, attest, and argue.** Extraction, mapping, and table-joins are conformance — the machine does them better and won't fudge. Which O*NET code is right, which three requirements matter, why this build for you, what you *won't* build — those are yours. Watch where, in the live run, I hand work to the agent and where I take it back. That handoff is the whole lesson.
 
 ---
 

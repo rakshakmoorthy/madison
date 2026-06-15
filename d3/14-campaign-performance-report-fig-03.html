@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next-test recommendation structure</title>
+<style>
+  :root {
+    --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+    --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+      --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+  #chart { width: 100%; }
+  .node { fill: var(--color-fill); stroke-width: 1.5; }
+  .node.finding  { stroke: var(--color-secondary); }
+  .node.question { stroke: var(--color-ink); }
+  .node.test     { stroke: var(--color-red); }
+  .node-label { font-family: 'Inter', sans-serif; font-size: 10.5px; fill: var(--color-ink); }
+  .col-head { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; fill: var(--color-secondary); letter-spacing: 0.05em; }
+  .flow { stroke: var(--color-ink); stroke-width: 1.5; fill: none; }
+  .chart-title { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; fill: var(--color-ink); }
+  .caption { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-secondary); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = {
+  chains: [
+    { finding: ["35–44 over-indexed", "on consideration"], question: ["Is 25–34 non-response", "message or targeting?"], test: ["A/B: tighter targeting", "vs. modified creative"] },
+    { finding: ["CTR above target,", "consideration below"], question: ["Is high CTR driving", "unqualified traffic?"], test: ["Add conversion track +", "post-click survey"] },
+    { finding: ["SOV up, competitor", "activity down"], question: ["Campaign-driven or", "competitor-driven?"], test: ["Monitor competitor", "week-by-week"] }
+  ]
+};
+
+async function loadData() {
+  try { return await d3.json('./14-campaign-performance-report-fig-03/data.json'); }
+  catch { return FALLBACK_DATA; }
+}
+
+function draw(data) {
+  d3.select('#chart').selectAll('*').remove();
+  const W = document.getElementById('chart').clientWidth || 700;
+  const H = 420;
+  const svg = d3.select('#chart').append('svg')
+    .attr('width', W).attr('height', H).attr('viewBox', `0 0 ${W} ${H}`)
+    .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+  svg.append('title').attr('id','chart-title').text('Next-test recommendation structure');
+  svg.append('desc').attr('id','chart-desc').text('Three stacked chains, each running from a finding to the open question it raises to a proposed test design.');
+
+  svg.append('defs').append('marker').attr('id','arrow')
+    .attr('markerWidth',8).attr('markerHeight',6).attr('refX',7).attr('refY',3).attr('orient','auto')
+    .append('polygon').attr('points','0 0, 8 3, 0 6').attr('fill','var(--color-ink)');
+
+  svg.append('text').attr('class','chart-title').attr('x', W/2).attr('y', 34).attr('text-anchor','middle').text('Next-test recommendation structure');
+
+  const padX = 30, padTop = 78, padBot = 56;
+  const cols = ['finding','question','test'];
+  const heads = ['FINDING','OPEN QUESTION','PROPOSED TEST'];
+  const classes = ['finding','question','test'];
+  const colGap = 24;
+  const nodeW = (W - 2*padX - 2*colGap) / 3;
+  const nodeH = 56;
+  const rowGap = ((H - padTop - padBot) - 3*nodeH) / 2;
+
+  heads.forEach((h, c) => {
+    svg.append('text').attr('class','col-head').attr('x', padX + c*(nodeW+colGap) + nodeW/2).attr('y', padTop-14).attr('text-anchor','middle').text(h);
+  });
+
+  data.chains.forEach((chain, r) => {
+    const y = padTop + r*(nodeH+rowGap);
+    cols.forEach((key, c) => {
+      const x = padX + c*(nodeW+colGap);
+      const g = svg.append('g').attr('tabindex',0).attr('role','group').attr('aria-label', `${heads[c]}: ${chain[key].join(' ')}`);
+      g.append('rect').attr('class', 'node '+classes[c]).attr('x', x).attr('y', y).attr('width', nodeW).attr('height', nodeH);
+      chain[key].forEach((ln, li) => {
+        g.append('text').attr('class','node-label').attr('x', x+nodeW/2).attr('y', y+nodeH/2 - 4 + li*15).attr('text-anchor','middle').text(ln);
+      });
+      if (c < 2) {
+        svg.append('path').attr('class','flow').attr('marker-end','url(#arrow)')
+          .attr('d', `M${x+nodeW},${y+nodeH/2} L${x+nodeW+colGap-4},${y+nodeH/2}`);
+      }
+    });
+  });
+
+  svg.append('text').attr('class','caption').attr('x', W/2).attr('y', H-14).attr('text-anchor','middle')
+    .text('Each finding becomes the first step of a learning cycle, not a period at the end.');
+}
+
+loadData().then(data => {
+  draw(data);
+  new ResizeObserver(() => draw(data)).observe(document.getElementById('chart'));
+});
+</script>
+</body>
+</html>

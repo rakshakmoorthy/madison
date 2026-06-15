@@ -1,0 +1,52 @@
+<!--
+  Evidence Boundary
+  Book: Madison Plus One
+  Chapter: 09-claims-and-proof-map
+  Figure 04
+  Type: comparison panels
+  Generated 2026-06-15
+  Source: pantry/09-claims-and-proof-map-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04">
+  <title id="fig-title-04">Evidence Boundary</title>
+  <desc>Three zones separate the inputs to a claims audit by who is accountable. The verified-evidence zone holds source documents, metrics, testimonials, screenshots, and approved boilerplate. The model-judgment zone holds claim classification and rewrite suggestions. A heavier divider marks the phase gate before the human-judgment zone, which holds risk tolerance, brand fit, and final copy approval. The model prepares; the human signs.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="09-claims-and-proof-map" figure-number="04" figure-title="Evidence Boundary" figure-slug="evidence-boundary" figure-type="comparison panels" priority="Important" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/09-claims-and-proof-map-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">Evidence Boundary</text>
+  <text x="32" y="60" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">The model prepares the matrix. The human signs the claim. The phase gate marks who is accountable.</text>
+
+  <!-- Verified zone -->
+  <rect x="40" y="92" width="190" height="280" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+  <text x="135" y="114" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">VERIFIED EVIDENCE</text>
+  <g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">
+    <rect x="56" y="132" width="158" height="34" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="135" y="154" text-anchor="middle">Source documents</text>
+    <rect x="56" y="174" width="158" height="34" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="135" y="196" text-anchor="middle">Metrics</text>
+    <rect x="56" y="216" width="158" height="34" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="135" y="238" text-anchor="middle">Testimonials</text>
+    <rect x="56" y="258" width="158" height="34" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="135" y="280" text-anchor="middle">Screenshots</text>
+    <rect x="56" y="300" width="158" height="34" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="135" y="322" text-anchor="middle">Approved boilerplate</text>
+  </g>
+
+  <!-- Model judgment zone -->
+  <rect x="250" y="92" width="190" height="280" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+  <text x="345" y="114" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#C8860E" text-anchor="middle">MODEL JUDGMENT</text>
+  <g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">
+    <rect x="266" y="156" width="158" height="40" fill="#FFFFFF" stroke="#C8860E" stroke-width="1"/><text x="345" y="180" text-anchor="middle">Claim classification</text>
+    <rect x="266" y="216" width="158" height="40" fill="#FFFFFF" stroke="#C8860E" stroke-width="1"/><text x="345" y="240" text-anchor="middle">Rewrite suggestions</text>
+  </g>
+
+  <!-- phase gate divider (heavier) -->
+  <line x1="455" y1="92" x2="455" y2="372" stroke="#C8102E" stroke-width="2.5"/>
+  <text x="455" y="86" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#C8102E" text-anchor="middle">PHASE GATE</text>
+
+  <!-- Human judgment zone (dominant) -->
+  <rect x="470" y="92" width="190" height="280" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <text x="565" y="114" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#C8102E" text-anchor="middle">HUMAN JUDGMENT</text>
+  <g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">
+    <rect x="486" y="146" width="158" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="1"/><text x="565" y="170" text-anchor="middle">Risk tolerance</text>
+    <rect x="486" y="200" width="158" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="1"/><text x="565" y="224" text-anchor="middle">Brand fit</text>
+    <rect x="486" y="254" width="158" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="1"/><text x="565" y="278" text-anchor="middle">Final copy approval</text>
+  </g>
+</svg>

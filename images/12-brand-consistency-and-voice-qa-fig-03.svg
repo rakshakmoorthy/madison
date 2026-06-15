@@ -1,0 +1,52 @@
+<!--
+  Title: Severity Levels
+  Book: Madison Plus One
+  Chapter: 12-brand-consistency-and-voice-qa
+  Figure 03
+  Type: comparison panels
+  Generated 2026-06-15
+  Source: pantry/12-brand-consistency-and-voice-qa-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+<title id="fig-title-03">Severity Levels</title>
+<desc>Four stacked tiers ordered from most to least consequential: critical, major, minor, note. Each row pairs the level with the action it requires. A gating marker shows critical and major carry launch-decision weight while minor and note carry revision-cycle weight. Severity exists to prioritize, not to alarm.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="12-brand-consistency-and-voice-qa" figure-number="03" figure-title="Severity Levels" figure-slug="severity-levels" figure-type="comparison panels" priority="Important" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/12-brand-consistency-and-voice-qa-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="350" y="40" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Severity Levels</text>
+
+<!-- weight side labels -->
+<text x="70" y="100" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">launch-decision weight</text>
+<text x="70" y="262" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">revision-cycle weight</text>
+
+<!-- gating bracket -->
+<line x1="56" y1="106" x2="56" y2="234" stroke="#C8102E" stroke-width="1.5"/>
+<line x1="56" y1="268" x2="56" y2="380" stroke="#787878" stroke-width="1"/>
+
+<!-- critical -->
+<rect x="70" y="106" width="36" height="56" fill="#C8102E"/>
+<rect x="120" y="106" width="540" height="56" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="134" y="138" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#C8102E">Critical</text>
+<text x="240" y="138" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Blocks launch — resolve before anything ships.</text>
+
+<!-- major -->
+<rect x="70" y="170" width="36" height="56" fill="#C8860E"/>
+<rect x="120" y="170" width="540" height="56" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+<text x="134" y="202" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Major</text>
+<text x="240" y="195" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Address before launch, or a named owner</text>
+<text x="240" y="211" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">documents the decision to ship anyway.</text>
+
+<!-- minor -->
+<rect x="70" y="290" width="36" height="56" fill="#787878"/>
+<rect x="120" y="290" width="540" height="56" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+<text x="134" y="322" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Minor</text>
+<text x="240" y="322" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Noted for the next revision cycle — does not block.</text>
+
+<!-- note -->
+<rect x="70" y="354" width="36" height="40" fill="#ADADAD"/>
+<rect x="120" y="354" width="540" height="40" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1"/>
+<text x="134" y="379" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">Note</text>
+<text x="240" y="379" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">An observation — not a finding.</text>
+
+<text x="350" y="258" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Severity prioritizes; a matrix full of critical findings can no longer communicate.</text>
+</svg>

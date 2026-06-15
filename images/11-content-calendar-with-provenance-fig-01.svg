@@ -1,0 +1,64 @@
+<!--
+  Title: Two-Part Post Evaluation
+  Book: Madison Plus One
+  Chapter: 11-content-calendar-with-provenance
+  Figure 01
+  Type: comparison panels
+  Generated 2026-06-15
+  Source: pantry/11-content-calendar-with-provenance-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+<title id="fig-title-01">Two-Part Post Evaluation</title>
+<desc>A two-column comparison. The left column lists five craft dimensions a typical content review stops at; the right column lists the matching evidence dimensions provenance adds. Each craft row ties across to its evidence counterpart, showing evidence extends rather than replaces craft.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="11-content-calendar-with-provenance" figure-number="01" figure-title="Two-Part Post Evaluation" figure-slug="two-part-post-evaluation" figure-type="comparison panels" priority="Important" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/11-content-calendar-with-provenance-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="350" y="40" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Two-Part Post Evaluation</text>
+
+<!-- column headers -->
+<text x="190" y="74" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">Craft (where most reviews stop)</text>
+<text x="510" y="74" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Evidence (what provenance adds)</text>
+
+<!-- divider -->
+<line x1="350" y1="86" x2="350" y2="392" stroke="#D4D4D4" stroke-width="1"/>
+
+<!-- Row 1 -->
+<rect x="40" y="96" width="252" height="48" rx="0" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+<text x="166" y="124" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Copy quality</text>
+<line x1="292" y1="120" x2="408" y2="120" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="408" y="96" width="252" height="48" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="534" y="118" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Claim accuracy</text>
+<text x="534" y="132" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">and sourcing</text>
+
+<!-- Row 2 -->
+<rect x="40" y="154" width="252" height="48" rx="0" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+<text x="166" y="182" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Visual execution</text>
+<line x1="292" y1="178" x2="408" y2="178" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="408" y="154" width="252" height="48" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="534" y="182" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Asset approval status</text>
+
+<!-- Row 3 -->
+<rect x="40" y="212" width="252" height="48" rx="0" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+<text x="166" y="240" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Format / channel fit</text>
+<line x1="292" y1="236" x2="408" y2="236" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="408" y="212" width="252" height="48" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="534" y="234" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Audience match</text>
+<text x="534" y="248" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">(evidence-based)</text>
+
+<!-- Row 4 -->
+<rect x="40" y="270" width="252" height="48" rx="0" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+<text x="166" y="298" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Call-to-action clarity</text>
+<line x1="292" y1="294" x2="408" y2="294" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="408" y="270" width="252" height="48" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="534" y="292" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">CTA alignment with</text>
+<text x="534" y="306" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">campaign objective</text>
+
+<!-- Row 5 -->
+<rect x="40" y="328" width="252" height="48" rx="0" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+<text x="166" y="356" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Tone consistency</text>
+<line x1="292" y1="352" x2="408" y2="352" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="408" y="328" width="252" height="48" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="534" y="356" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Brand-voice authorization</text>
+
+<text x="350" y="408" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Each evidence dimension extends, rather than replaces, its craft counterpart.</text>
+</svg>

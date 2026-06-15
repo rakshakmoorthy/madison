@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Five Work Types Flow</title>
+<style>
+:root{
+  --color-white:#FFFFFF;
+  --color-ink:#2a1a0e;
+  --color-red:#C8102E;
+  --color-secondary:#545454;
+  --color-border:#D4D4D4;
+  --color-ochre:#C8860E;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-white:#111111;
+    --color-ink:#F0EBE3;
+    --color-red:#E8243A;
+    --color-secondary:#A0978C;
+    --color-border:#2E2E2E;
+    --color-ochre:#D49A30;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--color-white);color:var(--color-ink);font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+#chart{width:100%;padding:24px;}
+.chart-title{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;fill:var(--color-ink);}
+.chart-subtitle{font-family:'Inter',sans-serif;font-size:13px;fill:var(--color-secondary);}
+.node-label{font-family:'Inter',sans-serif;font-size:13px;font-weight:600;}
+.annot{font-family:'JetBrains Mono','Fira Code',monospace;font-size:10px;fill:var(--color-secondary);}
+.tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-ink);color:var(--color-white);
+  border:1px solid var(--color-border);padding:8px 10px;font-family:'Inter',sans-serif;font-size:13px;}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = [
+  {stage:"Execution", role:"AI-assistable"},
+  {stage:"Evidence",  role:"AI-assistable"},
+  {stage:"Judgment",  role:"Human-only"},
+  {stage:"Approval",  role:"Human-only"},
+  {stage:"Learning",  role:"Human-only"}
+];
+const roleColor = {"AI-assistable":"var(--color-secondary)","Human-only":"var(--color-red)"};
+
+const tooltip = d3.select('body').append('div').attr('class','tooltip');
+function showTooltip(event,html){tooltip.html(html).style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px').transition().duration(150).style('opacity',1);}
+function moveTooltip(event){tooltip.style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px');}
+function hideTooltip(){tooltip.transition().duration(100).style('opacity',0);}
+
+async function loadData(){
+  try { return await d3.json('./02-the-reallocation-principle-fig-01/data.json'); }
+  catch { return FALLBACK_DATA; }
+}
+
+function render(stages){
+  const container = document.getElementById('chart');
+  const totalWidth = Math.max(container.clientWidth-48,640);
+  const totalHeight = 360;
+  d3.select('#chart').selectAll('svg').remove();
+
+  const svg = d3.select('#chart').append('svg')
+    .attr('width',totalWidth).attr('height',totalHeight)
+    .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+  svg.append('title').attr('id','chart-title').text('The Five Work Types Flow');
+  svg.append('desc').attr('id','chart-desc').text('Five stages of brand work — Execution, Evidence, Judgment, Approval, Learning — connected by forward arrows, with a feedback arrow returning from Learning to Execution. Execution and Evidence are AI-assistable; Judgment, Approval, and Learning interpretation are human-only.');
+
+  svg.append('defs').append('marker').attr('id','arrow-flow')
+    .attr('markerWidth',9).attr('markerHeight',7).attr('refX',8).attr('refY',3.5).attr('orient','auto')
+    .append('polygon').attr('points','0 0, 9 3.5, 0 7').attr('fill','var(--color-ink)');
+
+  svg.append('text').attr('class','chart-title').attr('x',24).attr('y',30).text('The five work types');
+  svg.append('text').attr('class','chart-subtitle').attr('x',24).attr('y',52).text('Linear within a campaign, cyclical across campaigns. Red stages stay human.');
+
+  const margin = {top:90,left:24,right:24};
+  const nodeW = (totalWidth - margin.left - margin.right - (stages.length-1)*22) / stages.length;
+  const nodeH = 64;
+  const y = margin.top;
+
+  const gNodes = svg.append('g');
+  stages.forEach((d,i)=>{
+    const x = margin.left + i*(nodeW+22);
+    d._x = x; d._cx = x+nodeW/2; d._cy = y+nodeH/2;
+    // forward arrow
+    if(i>0){
+      const prev = stages[i-1];
+      svg.append('line').attr('aria-hidden','true')
+        .attr('x1',prev._x+nodeW+3).attr('y1',y+nodeH/2)
+        .attr('x2',x-5).attr('y2',y+nodeH/2)
+        .attr('stroke','var(--color-ink)').attr('stroke-width',1.4)
+        .attr('marker-end','url(#arrow-flow)');
+    }
+    const g = gNodes.append('g').attr('tabindex',0)
+      .attr('aria-label',`${d.stage}: ${d.role}`)
+      .on('mouseover',function(event){showTooltip(event,`<strong>${d.stage}</strong><br>${d.role}`);})
+      .on('mousemove',moveTooltip).on('mouseout',hideTooltip);
+    g.append('rect').attr('x',x).attr('y',y).attr('width',nodeW).attr('height',nodeH)
+      .attr('rx',8).attr('fill','var(--color-white)')
+      .attr('stroke',roleColor[d.role]).attr('stroke-width',2);
+    g.append('text').attr('class','node-label').attr('x',x+nodeW/2).attr('y',y+nodeH/2+5)
+      .attr('text-anchor','middle').attr('fill',roleColor[d.role]).text(d.stage);
+    svg.append('text').attr('class','annot').attr('x',x+nodeW/2).attr('y',y+nodeH+18)
+      .attr('text-anchor','middle').text(d.role==='AI-assistable'?'AI assists':'human acts');
+  });
+
+  // feedback arrow Learning -> Execution
+  const last = stages[stages.length-1];
+  const first = stages[0];
+  const fy = y+nodeH+44;
+  const path = `M ${last._cx} ${y+nodeH} C ${last._cx} ${fy}, ${first._cx} ${fy}, ${first._cx} ${y+nodeH}`;
+  svg.append('path').attr('aria-hidden','true').attr('d',path)
+    .attr('fill','none').attr('stroke','var(--color-ochre)').attr('stroke-width',1.4)
+    .attr('stroke-dasharray','5 4').attr('marker-end','url(#arrow-flow)');
+  svg.append('text').attr('class','annot').attr('x',(first._cx+last._cx)/2).attr('y',fy+16)
+    .attr('text-anchor','middle').attr('fill','var(--color-ochre)').text('learning feeds the next round');
+}
+
+function draw(){ loadData().then(render); }
+draw();
+const ro = new ResizeObserver(()=>draw());
+ro.observe(document.getElementById('chart'));
+</script>
+</body>
+</html>

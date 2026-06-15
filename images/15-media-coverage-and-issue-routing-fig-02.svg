@@ -1,0 +1,82 @@
+<!--
+  Title: Issue Taxonomy Decision Tree
+  Book: Madison Plus One
+  Chapter: 15-media-coverage-and-issue-routing
+  Figure 02
+  Type: process flowchart
+  Generated 2026-06-15
+  Source: pantry/15-media-coverage-and-issue-routing-cajal.md
+-->
+<svg viewBox="0 0 700 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+<title id="fig-title-02">Issue Taxonomy Decision Tree</title>
+<desc>A decision tree classifying an incoming monitoring signal into one of seven issue classes. Five cascading yes/no tests route the signal to factual error, product complaint, reputation risk, crisis signal or competitive mention; if all are no it falls through to neutral or positive coverage. Crisis signal and reputation risk are high-stakes; neutral/positive is the benign terminus.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="15-media-coverage-and-issue-routing" figure-number="02" figure-title="Issue Taxonomy Decision Tree" figure-slug="issue-taxonomy-decision-tree" figure-type="process flowchart" priority="Critical" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/15-media-coverage-and-issue-routing-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="350" y="40" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Issue Taxonomy Decision Tree</text>
+
+<!-- entry -->
+<rect x="160" y="58" width="160" height="40" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<text x="240" y="82" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Incoming signal</text>
+<line x1="240" y1="98" x2="240" y2="116" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- helper: each diamond at x=240, terminals to the right at x=560 -->
+<!-- Diamond 1: factual error? -->
+<polygon points="240,118 330,150 240,182 150,150" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<text x="240" y="147" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">Factual error</text>
+<text x="240" y="160" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">about brand?</text>
+<line x1="330" y1="150" x2="478" y2="150" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="404" y="144" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">yes</text>
+<rect x="480" y="130" width="180" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="570" y="154" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Factual error</text>
+<line x1="240" y1="182" x2="240" y2="206" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- Diamond 2: product complaint? -->
+<polygon points="240,208 330,240 240,272 150,240" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<text x="240" y="237" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">Product / service</text>
+<text x="240" y="250" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">problem?</text>
+<line x1="330" y1="240" x2="478" y2="240" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="404" y="234" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">yes</text>
+<rect x="480" y="220" width="180" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="570" y="244" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Product complaint</text>
+<line x1="240" y1="272" x2="240" y2="296" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- Diamond 3: controversy? -->
+<polygon points="240,298 330,330 240,362 150,330" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<text x="240" y="327" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">Controversy</text>
+<text x="240" y="340" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">association?</text>
+<line x1="330" y1="330" x2="478" y2="330" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="404" y="324" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">yes</text>
+<rect x="480" y="310" width="180" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="570" y="334" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8102E">Reputation risk</text>
+<line x1="240" y1="362" x2="240" y2="386" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- Diamond 4: rapid escalation? -->
+<polygon points="240,388 330,420 240,452 150,420" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<text x="240" y="417" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">Rapid escalation</text>
+<text x="240" y="430" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">pattern?</text>
+<line x1="330" y1="420" x2="478" y2="420" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="404" y="414" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">yes</text>
+<rect x="480" y="400" width="180" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="570" y="424" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8102E">Crisis signal</text>
+<line x1="240" y1="452" x2="240" y2="476" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- Diamond 5: competitor comparison? -->
+<polygon points="240,478 320,505 240,532 160,505" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<text x="240" y="502" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">Competitor</text>
+<text x="240" y="515" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">comparison?</text>
+<line x1="320" y1="505" x2="478" y2="500" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="404" y="494" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">yes</text>
+<rect x="480" y="480" width="180" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="570" y="504" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Competitive mention</text>
+
+<!-- all-no fall through to neutral/positive -->
+<line x1="160" y1="505" x2="60" y2="505" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="110" y="498" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">all no</text>
+<line x1="60" y1="505" x2="60" y2="79" stroke="#2a1a0e" stroke-width="1.5"/>
+<line x1="60" y1="79" x2="358" y2="79" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<!-- neutral/positive terminus (active) -->
+<rect x="360" y="60" width="120" height="40" fill="#545454" stroke="#545454" stroke-width="1"/>
+<text x="420" y="78" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">Neutral /</text>
+<text x="420" y="92" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">positive coverage</text>
+</svg>

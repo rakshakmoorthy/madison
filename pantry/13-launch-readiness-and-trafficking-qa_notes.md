@@ -37,7 +37,7 @@ This chapter should teach the practical launch pack: asset inventory, specs, URL
 ## Repo Source Map
 
 - TIKTOC.md
-- MYCROFT.md
+- SNICKERDOODLE.md
 - DOMAIN.md
 - DATA_CONTRACT.md
 - docs/data-and-provenance.md

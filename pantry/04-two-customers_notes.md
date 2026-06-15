@@ -26,7 +26,7 @@ This chapter should teach the reader to design every Madison recipe for two cust
 
 - Explains why later chapters ask for both tables/logs and memos/reports.
 - Supports Chapter 13's launch readiness pack and Chapter 16's honest run.
-- Connects to `MYCROFT.md` rules about runnable, reviewable recipes.
+- Connects to `SNICKERDOODLE.md` rules about runnable, reviewable recipes.
 
 ## E. Current State and Teaching Considerations
 
@@ -37,7 +37,7 @@ This chapter should teach the reader to design every Madison recipe for two cust
 ## Repo Source Map
 
 - TIKTOC.md
-- MYCROFT.md
+- SNICKERDOODLE.md
 - DOMAIN.md
 - DATA_CONTRACT.md
 - docs/data-and-provenance.md

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time Reallocation: Current vs Reallocated Week</title>
+<style>
+:root{
+  --color-white:#FFFFFF;
+  --color-ink:#2a1a0e;
+  --color-red:#C8102E;
+  --color-secondary:#545454;
+  --color-border:#D4D4D4;
+  --color-ochre:#C8860E;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-white:#111111;
+    --color-ink:#F0EBE3;
+    --color-red:#E8243A;
+    --color-secondary:#A0978C;
+    --color-border:#2E2E2E;
+    --color-ochre:#D49A30;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--color-white);color:var(--color-ink);font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+#chart{width:100%;padding:24px;}
+.chart-title{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;fill:var(--color-ink);}
+.chart-subtitle{font-family:'Inter',sans-serif;font-size:13px;fill:var(--color-secondary);}
+.tick text,.value-label{font-family:'JetBrains Mono','Fira Code','Courier New',monospace;font-size:11px;fill:var(--color-secondary);}
+.bar-label{font-family:'JetBrains Mono',monospace;font-size:11px;fill:var(--color-secondary);}
+.legend-label{font-family:'Inter',sans-serif;font-size:12px;fill:var(--color-ink);}
+.tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-ink);color:var(--color-white);
+  border:1px solid var(--color-border);padding:8px 10px;font-family:'Inter',sans-serif;font-size:13px;}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = [
+  {week:"Current",    Execution:60, Evidence:10, Judgment:12, Approval:6, Learning:12},
+  {week:"Reallocated",Execution:30, Evidence:12, Judgment:26, Approval:8, Learning:24}
+];
+const categories = ["Execution","Evidence","Judgment","Approval","Learning"];
+// Red is the brand/primary series (Execution); remaining are neutrals per DESIGN.md.
+const catColor = {
+  Execution:"var(--color-red)",
+  Evidence:"#787878",
+  Judgment:"var(--color-ink)",
+  Approval:"#ADADAD",
+  Learning:"var(--color-secondary)"
+};
+
+const tooltip = d3.select('body').append('div').attr('class','tooltip');
+function showTooltip(event,html){tooltip.html(html).style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px').transition().duration(150).style('opacity',1);}
+function moveTooltip(event){tooltip.style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px');}
+function hideTooltip(){tooltip.transition().duration(100).style('opacity',0);}
+
+async function loadData(){
+  try { return await d3.json('./02-the-reallocation-principle-fig-02/data.json'); }
+  catch { return FALLBACK_DATA; }
+}
+
+function render(data){
+  const margin = {top:72,right:40,bottom:80,left:120};
+  const container = document.getElementById('chart');
+  const totalWidth = Math.max(container.clientWidth-48,640);
+  const totalHeight = 360;
+  const chartWidth = totalWidth-margin.left-margin.right;
+  const chartHeight = totalHeight-margin.top-margin.bottom;
+
+  d3.select('#chart').selectAll('svg').remove();
+  const svg = d3.select('#chart').append('svg')
+    .attr('width',totalWidth).attr('height',totalHeight)
+    .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+  svg.append('title').attr('id','chart-title').text('Time Reallocation: Current vs Reallocated Week');
+  svg.append('desc').attr('id','chart-desc').text('Two horizontal stacked bars of equal length. The current week is dominated by Execution at sixty percent; the reallocated week compresses Execution to thirty percent and expands Judgment and Learning. Values are illustrative.');
+  svg.append('text').attr('class','chart-title').attr('x',24).attr('y',30).text('Where the brand-team week goes');
+  svg.append('text').attr('class','chart-subtitle').attr('x',24).attr('y',52).text('Reallocation reinvests freed Execution time into Judgment and Learning (illustrative).');
+
+  const gChart = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+
+  const xScaleLinear = d3.scaleLinear().domain([0,100]).range([0,chartWidth]);
+  const yScaleBand = d3.scaleBand().domain(data.map(d=>d.week)).range([0,chartHeight]).padding(0.4);
+
+  const stacked = d3.stack().keys(categories)(data);
+
+  const gBars = gChart.append('g').attr('class','g-bars');
+  gBars.selectAll('g.series')
+    .data(stacked)
+    .join('g').attr('class','series')
+      .attr('fill',d=>catColor[d.key])
+    .selectAll('rect')
+    .data(d=>d.map(seg=>({seg,key:d.key})))
+    .join('rect')
+      .attr('class','bar-rect')
+      .attr('tabindex',0)
+      .attr('y',d=>yScaleBand(d.seg.data.week))
+      .attr('x',d=>xScaleLinear(d.seg[0]))
+      .attr('height',yScaleBand.bandwidth())
+      .attr('width',d=>xScaleLinear(d.seg[1])-xScaleLinear(d.seg[0]))
+      .attr('aria-label',d=>`${d.seg.data.week} week, ${d.key}: ${d.seg.data[d.key]} percent`)
+      .on('mouseover',function(event,d){
+        d3.select(this).attr('opacity',1);
+        gBars.selectAll('rect').filter(function(){return this!==event.currentTarget;}).attr('opacity',0.35);
+        showTooltip(event,`<strong>${d.key}</strong><br>${d.seg.data.week} week: ${d.seg.data[d.key]}%`);
+      })
+      .on('mousemove',moveTooltip)
+      .on('mouseout',function(){gBars.selectAll('rect').attr('opacity',1);hideTooltip();});
+
+  // value labels for the dominant Execution segment
+  gChart.selectAll('.value-label').data(data).join('text')
+    .attr('class','value-label')
+    .attr('x',d=>xScaleLinear(d.Execution/2))
+    .attr('y',d=>yScaleBand(d.week)+yScaleBand.bandwidth()/2+4)
+    .attr('text-anchor','middle')
+    .attr('fill','var(--color-white)')
+    .text(d=>d.Execution+'%');
+
+  // bar labels
+  gChart.selectAll('.bar-label').data(data).join('text')
+    .attr('class','bar-label')
+    .attr('x',-12)
+    .attr('y',d=>yScaleBand(d.week)+yScaleBand.bandwidth()/2+4)
+    .attr('text-anchor','end')
+    .text(d=>d.week);
+
+  // zero baseline
+  gChart.append('line').attr('aria-hidden','true')
+    .attr('x1',0).attr('y1',-8).attr('x2',0).attr('y2',chartHeight+8)
+    .attr('stroke','var(--color-ink)').attr('stroke-width',1);
+
+  // legend
+  const gLegend = svg.append('g').attr('transform',`translate(${margin.left},${totalHeight-26})`);
+  let lx=0;
+  categories.forEach(c=>{
+    const g=gLegend.append('g').attr('transform',`translate(${lx},0)`);
+    g.append('rect').attr('width',12).attr('height',12).attr('fill',catColor[c]).attr('aria-hidden','true');
+    g.append('text').attr('class','legend-label').attr('x',18).attr('y',11).text(c);
+    lx += c.length*7+44;
+  });
+}
+
+function draw(){ loadData().then(render); }
+draw();
+const ro = new ResizeObserver(()=>draw());
+ro.observe(document.getElementById('chart'));
+</script>
+</body>
+</html>

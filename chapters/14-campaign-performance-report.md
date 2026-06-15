@@ -21,6 +21,9 @@ The second layer is interpretation: what the metric movement means. This is wher
 
 The third layer is recommendation: what action follows. This is the decision layer. It answers the question the client is actually asking: given what we now know, what should we do next? Maintain current spend? Shift budget to a performing channel? Change the creative? Test a different audience segment? Run a follow-up study? The recommendation should follow from the interpretation. If the interpretation says "consideration moved significantly above target, driven by the 35-44 segment," the recommendation should name what that means for the next campaign decision, not just restate the finding.
 
+![Vertical three-tier stack: description at the base (AI extracts and formats), interpretation in the middle (AI surfaces candidates, human decides meaning), and recommendation at the top (human accountable), with accountability shifting from machine-assisted to human-owned.](images/14-campaign-performance-report-fig-01.png)
+*Figure 14.1 — The three layers of a performance report*
+
 <!-- → [DIAGRAM: Three-layer report structure — vertical stack with three labeled tiers: Description (bottom), Interpretation (middle), Recommendation (top) — each tier annotated with what it contains and what it requires — Description: metric values, source files, export dates / AI can extract and format / verified against KPI map; Interpretation: baseline comparisons, anomaly flags, signal vs. noise judgment / AI can surface candidates / human decides meaning; Recommendation: action, next test, decision owner / AI cannot supply / human accountable. Caption: Most reports present all three layers as the same kind of content. They are not. The distinction determines who is responsible for each claim.] -->
 
 The structural discipline of a good performance report is keeping these three layers visually and rhetorically distinct. A sentence that reads "CTR increased 56% versus prior campaign, indicating the new creative is driving stronger audience activation, which suggests we should increase investment in this format next quarter" is doing all three things in a single sentence — and it is doing them without labeling which claims are factual, which are inferential, and which are recommendations. Pull them apart and you can assess each one. Collapse them and you cannot.
@@ -33,7 +36,25 @@ The performance report should not be designed from scratch when it is time to wr
 
 This discipline solves the most common performance reporting failure: the report answers questions nobody asked while omitting answers to questions that were agreed to matter. If the KPI map specified brand consideration as the primary outcome metric, the report should lead with brand consideration — not with impressions, which are easier to get and look more impressive, or with engagement rate, which moved in an interesting direction but was never the decision metric.
 
-<!-- → [TABLE: KPI map to report mapping — columns: KPI Map Field (Objective, Metric, Definition, Baseline, Target, Decision Use) paired with Report Section Field (Outcome Reported, Result, Definition Used, Comparison Point, Target Status, Decision Supported) — two rows filled showing the connection: Row 1 "Increase consideration / Brand consideration (aided) / % selecting brand after prompt / 29% pre-wave / 34% by end of flight / Determines whether to extend campaign" maps to "Brand consideration measured / 33% post-wave / % selecting brand after prompt / +4 pts vs. 29% baseline / 1 pt below target / Recommendation: extend flight two weeks to close gap" — Row 2 "Drive product page traffic / CTR / Clicks/Impressions / 0.8% prior campaign / 1.2% / Triggers creative review if <0.6%" maps to "CTR result / 1.4% / Clicks/Impressions / +0.6 pts vs. prior / Above target / Recommendation: maintain current creative in next flight." Caption: The report is not a fresh document. It is a populated version of the KPI map.] -->
+| KPI Map Field | Map Entry | → | Report Section Field | Report Entry |
+| --- | --- | :-: | --- | --- |
+| Objective | Increase consideration | → | Outcome reported | Brand consideration measured |
+| Metric | Brand consideration (aided) | → | Result | 33% post-wave |
+| Definition | % selecting brand after prompt | → | Definition used | % selecting brand after prompt |
+| Baseline | 29% pre-wave | → | Comparison point | +4 pts vs. 29% baseline |
+| Target | 34% by end of flight | → | Target status | 1 pt below target |
+| Decision use | Determines whether to extend campaign | → | Decision supported | Recommendation: extend flight two weeks to close gap |
+| Objective | Drive product page traffic | → | Outcome reported | CTR result |
+| Metric | CTR | → | Result | 1.4% |
+| Definition | Clicks / impressions | → | Definition used | Clicks / impressions |
+| Baseline | 0.8% prior campaign | → | Comparison point | +0.6 pts vs. prior |
+| Target | 1.2% | → | Target status | Above target |
+| Decision use | Triggers creative review if < 0.6% | → | Decision supported | Recommendation: maintain current creative in next flight |
+
+*The report is not a fresh document. It is a populated version of the KPI map.*
+
+![Two aligned horizontal bands joined by per-field connectors: the upper KPI-map planning layer and the lower populated-report layer, with the target-status connector weighted to show an underperforming metric cannot be quietly dropped.](images/14-campaign-performance-report-fig-02.png)
+*Figure 14.2 — KPI map to report mapping*
 
 A report built against the KPI map is also accountable in a specific way: it cannot quietly drop a metric that underperformed. If the map committed to measuring something and the report does not include it, that omission is visible. The metric was either not measured (a planning failure that should be noted) or the result was unfavorable (a finding that should be included). Selective reporting — including the metrics that look good and omitting the ones that do not — is harder when the report structure is determined by a prior agreement rather than by post-hoc selection.
 
@@ -45,7 +66,18 @@ Every performance report has limitations. The data has coverage gaps. The measur
 
 A caveat placed near the conclusion it qualifies is a professional act. It says: I saw this limitation, I am telling you it is there, and I am still making this recommendation because the evidence, with its limitations, is sufficient to support it. That is accountability. A report with no caveats is either working with unusually clean data or is not being honest about its evidence.
 
-<!-- → [TABLE: Caveat placement guide — columns: Limitation Type, Example Caveat, Where to Place It — rows: Sample size / "Post-wave survey n=312; directional at segment level, not projectable to full population" / Immediately below the consideration metric result; Confound / "Week 3 saw significant earned media coverage; consideration lift may reflect both paid and organic effects" / In the interpretation section for the consideration finding; Source lag / "Social sentiment data has 48-hour processing lag; final week of flight not fully represented" / In the data sources section and flagged in the relevant metric row; Attribution / "Campaign ran without a holdout group; reported lift is correlated with campaign exposure, not attributable to it" / In the executive summary as a standing caveat on all outcome claims; Baseline / "Pre-campaign baseline estimated from Q4 tracker; different survey vendor than post-wave" / Below baseline comparison anywhere it appears.] Caption: Caveats are not footnotes to be buried. They are qualifications that belong adjacent to the claims they qualify.] -->
+| Limitation Type | Example Caveat | Where to Place It |
+| --- | --- | --- |
+| Sample size | "Post-wave survey n=312; directional at segment level, not projectable to full population" | Immediately below the consideration metric result |
+| Confound | "Week 3 saw significant earned media coverage; consideration lift may reflect both paid and organic effects" | In the interpretation section for the consideration finding |
+| Source lag | "Social sentiment data has 48-hour processing lag; final week of flight not fully represented" | In the data sources section and flagged in the relevant metric row |
+| Attribution | "Campaign ran without a holdout group; reported lift is correlated with campaign exposure, not attributable to it" | In the executive summary as a standing caveat on all outcome claims |
+| Baseline | "Pre-campaign baseline estimated from Q4 tracker; different survey vendor than post-wave" | Below the baseline comparison anywhere it appears |
+
+*Caveats are not footnotes to be buried. They are qualifications that belong adjacent to the claims they qualify.*
+
+![Five limitation types — sample size, confound, source lag, attribution, baseline mismatch — each connected to a placement location within a faint report column, with the attribution caveat marked as a standing qualifier on all outcome claims.](images/14-campaign-performance-report-fig-04.png)
+*Figure 14.4 — Caveat placement guide*
 
 The causal language discipline from Chapter 5 applies here with particular force. A performance report is exactly the context where "caused" and "drove" want to appear — the campaign ran, the metrics moved, it feels like the campaign caused the movement. But without a holdout group, a pre-post design with no competing explanations, or some form of causal control, the campaign and the metric movement are correlated in time, not causally linked. The warranted verb is "is associated with," "coincided with," or "occurred during a period of" — not "caused" or "drove." The distinction is not pedantic when the client is deciding how much to spend on the next campaign based on a causal claim that the evidence cannot support.
 
@@ -56,6 +88,9 @@ The causal language discipline from Chapter 5 applies here with particular force
 A performance report that ends with findings and no forward direction has done half the job. The decision the report supports is not just "did this work?" It is "what should we do next, and what should we test to know if we are right?"
 
 The next-test recommendation is a specific element: a proposed experimental variation for the next campaign that would produce evidence bearing on an open question from this one. If the current report shows that the 35-44 segment drove disproportionate consideration movement but the 25-34 segment did not respond, the next test is not "run the same campaign again." It is: run a variant in the 25-34 segment with modified creative to test whether the non-response was a targeting issue, a message issue, or a genuine lack of category interest in that segment.
+
+![Three stacked three-node chains, each running from a finding to the open question it raises to a proposed test design, echoing the description-interpretation-recommendation color logic of the report.](images/14-campaign-performance-report-fig-03.png)
+*Figure 14.3 — Next-test recommendation structure*
 
 <!-- → [DIAGRAM: Next-test recommendation structure — three-node flow: (1) Finding from current report → (2) Open question it raises → (3) Proposed test design — three example chains shown: "35-44 over-indexed on consideration" → "Is 25-34 non-response a message or targeting issue?" → "A/B test: same creative, tighter 25-34 targeting vs. modified creative for 25-34" | "CTR above target, consideration below target" → "Is high CTR driving unqualified traffic?" → "Add landing page conversion tracking and post-click survey next flight" | "Share of voice increased, competitor activity decreased" → "Is SOV gain campaign-driven or competitor-driven?" → "Monitor competitor activity week-by-week, isolate before attributing SOV movement to campaign." Caption: The next-test recommendation turns a report into the first step of a learning cycle rather than a period at the end of a campaign.] -->
 
@@ -71,7 +106,17 @@ The human-review field is not a formality. It is the boundary between an AI-assi
 
 The review itself has a checklist: Do the metrics in the report match the KPI map? Is every source named and dated? Are the caveats present and adjacent to the conclusions they qualify? Does the report contain any causal claims that the evidence does not support? Does the recommendation follow from the interpretation, or is it a separate assertion? Does the report end with a forward direction?
 
-<!-- → [TABLE: Performance report review checklist — two columns: Check and Status — rows: Metrics match KPI map / □ Verified | □ Discrepancy noted; Sources named and dated / □ All sourced | □ Gaps flagged; Causal language audit / □ No unwarranted causal claims | □ Claims rewritten; Caveats adjacent to conclusions / □ Placed correctly | □ Moved; Recommendation follows from interpretation / □ Connected | □ Disconnect noted; Forward direction included / □ Next test specified | □ Missing — requires revision; Reviewer name and date / [field]. Caption: The checklist is not a quality rating. It is a record that a named person examined these specific elements before the report moved.] -->
+| Check | Status |
+| --- | --- |
+| Metrics match KPI map | ☐ Verified ☐ Discrepancy noted |
+| Sources named and dated | ☐ All sourced ☐ Gaps flagged |
+| Causal language audit | ☐ No unwarranted causal claims ☐ Claims rewritten |
+| Caveats adjacent to conclusions | ☐ Placed correctly ☐ Moved |
+| Recommendation follows from interpretation | ☐ Connected ☐ Disconnect noted |
+| Forward direction included | ☐ Next test specified ☐ Missing — requires revision |
+| Reviewer name and date | __________________________ |
+
+*The checklist is not a quality rating. It is a record that a named person examined these specific elements before the report moved.*
 
 A report that passes this checklist is not a perfect report — no report that depends on imperfect data can be perfect. It is a defensible report: one in which the claims are inspectable, the limitations are visible, and the recommendation is traceable to the evidence that supports it. That is the standard Madison sets for performance reporting, and it is a higher standard than most campaign reports currently meet.
 
@@ -129,3 +174,23 @@ Give the LLM two or three key findings from a campaign report. Ask it to generat
 **Challenge**
 
 9. *(Open-ended)* "Still Puzzling" raises the question of when quasi-experimental approaches — difference-in-differences, geographic holdouts, synthetic controls — are practical for mid-market brand teams. Research or reason through one of these approaches: what does it require in terms of data, design, and timeline? Under what conditions would a typical brand team with a modest measurement budget be able to implement it? What would the resulting claim be able to say that a standard pre-post comparison cannot? What would it still not be able to say? *What this tests: whether you can engage with the causal inference problem as a practical design question rather than a theoretical one.*
+
+---
+
+## Prompts
+
+### Figure 14.1 — The three layers of a performance report
+**Files:** images/14-campaign-performance-report-fig-01.svg · d3/14-campaign-performance-report-fig-01.html
+**Prompt:** Vertical three-tier stack on white, foundation to apex: description (AI extracts and formats, secondary accent), interpretation (AI surfaces candidates, human decides, ink accent), recommendation (human accountable, red accent), with a red dashed boundary between interpretation and recommendation marking the AI-to-human accountability shift. EB Garamond title, Inter labels, brutalist palette only.
+
+### Figure 14.2 — KPI map to report mapping
+**Files:** images/14-campaign-performance-report-fig-02.svg
+**Prompt:** Structural schematic of two aligned horizontal bands on white joined by six single-headed per-field connectors — the upper KPI-map planning layer and the lower populated-report layer — with the target-status connector weighted to encode that an underperforming metric cannot be quietly dropped. JetBrains Mono numerals, no example values, brutalist palette only.
+
+### Figure 14.3 — Next-test recommendation structure
+**Files:** images/14-campaign-performance-report-fig-03.svg · d3/14-campaign-performance-report-fig-03.html
+**Prompt:** Three stacked left-to-right chains on white, each running finding to open question to proposed test, joined by single-headed arrows, with node strokes echoing the report's three-layer logic (finding secondary, question ink, test red). EB Garamond title, Inter labels, brutalist palette only.
+
+### Figure 14.4 — Caveat placement guide
+**Files:** images/14-campaign-performance-report-fig-04.svg
+**Prompt:** Mapping panel on white: five limitation-type markers on the left each connected by a single-headed arrow to a placement location within a faint right-side report column of stacked sections, with the attribution standing caveat drawn in red since it qualifies all outcome claims. Inter labels, no footnote symbols, brutalist palette only.

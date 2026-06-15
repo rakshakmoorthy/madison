@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evidence-Quality Quadrant Map</title>
+<style>
+:root{
+  --color-white:#FFFFFF;
+  --color-ink:#2a1a0e;
+  --color-red:#C8102E;
+  --color-secondary:#545454;
+  --color-border:#D4D4D4;
+  --color-ochre:#C8860E;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-white:#111111;
+    --color-ink:#F0EBE3;
+    --color-red:#E8243A;
+    --color-secondary:#A0978C;
+    --color-border:#2E2E2E;
+    --color-ochre:#D49A30;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--color-white);color:var(--color-ink);font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+#chart{width:100%;padding:24px;}
+.chart-title{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;fill:var(--color-ink);}
+.chart-subtitle{font-family:'Inter',sans-serif;font-size:13px;fill:var(--color-secondary);}
+.axis-title{font-family:'Inter',sans-serif;font-size:12px;fill:var(--color-secondary);}
+.quad-label{font-family:'Inter',sans-serif;font-size:13px;font-weight:600;}
+.quad-eg{font-family:'JetBrains Mono','Fira Code',monospace;font-size:10px;fill:var(--color-secondary);}
+.note{font-family:'JetBrains Mono',monospace;font-size:10px;fill:var(--color-ochre);}
+.tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-ink);color:var(--color-white);
+  border:1px solid var(--color-border);padding:8px 10px;font-family:'Inter',sans-serif;font-size:13px;}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = [
+  {q:"TR", label:"Strongest claims",   eg:"broad + recent",  strength:3},
+  {q:"TL", label:"Historical context", eg:"broad + old",     strength:2},
+  {q:"BR", label:"Local signal",       eg:"narrow + recent", strength:2},
+  {q:"BL", label:"Weakest claims",     eg:"narrow + old",    strength:1}
+];
+// strength encodes warrant: red (brand/primary) = strongest, then ink, then greys
+const strengthColor = {3:"var(--color-red)",2:"var(--color-secondary)",1:"#ADADAD"};
+
+const tooltip = d3.select('body').append('div').attr('class','tooltip');
+function showTooltip(event,html){tooltip.html(html).style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px').transition().duration(150).style('opacity',1);}
+function moveTooltip(event){tooltip.style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px');}
+function hideTooltip(){tooltip.transition().duration(100).style('opacity',0);}
+
+async function loadData(){
+  try { return await d3.json('./05-verifying-brand-evidence-fig-02/data.json'); }
+  catch { return FALLBACK_DATA; }
+}
+
+function render(quads){
+  const container = document.getElementById('chart');
+  const totalWidth = Math.max(container.clientWidth-48,520);
+  const totalHeight = 420;
+  d3.select('#chart').selectAll('svg').remove();
+
+  const svg = d3.select('#chart').append('svg')
+    .attr('width',totalWidth).attr('height',totalHeight)
+    .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+  svg.append('title').attr('id','chart-title').text('Evidence-Quality Quadrant Map');
+  svg.append('desc').attr('id','chart-desc').text('A two-axis map: coverage runs narrow to broad on the x-axis, recency runs old to recent on the y-axis. Top-right broad-and-recent gives the strongest claims; bottom-left narrow-and-old gives the weakest. Method quality and sample limits act as a third dimension that can weaken even strong evidence.');
+
+  svg.append('defs').append('marker').attr('id','arrow-ax')
+    .attr('markerWidth',9).attr('markerHeight',7).attr('refX',8).attr('refY',3.5).attr('orient','auto')
+    .append('polygon').attr('points','0 0, 9 3.5, 0 7').attr('fill','var(--color-ink)');
+
+  svg.append('text').attr('class','chart-title').attr('x',24).attr('y',30).text('Evidence-quality quadrant map');
+  svg.append('text').attr('class','chart-subtitle').attr('x',24).attr('y',52).text('Coverage and recency set the ceiling; method and sample can lower it.');
+
+  const m = {top:78,left:96,right:48,bottom:64};
+  const w = totalWidth-m.left-m.right;
+  const h = totalHeight-m.top-m.bottom;
+  const cx = m.left+w/2, cy = m.top+h/2;
+
+  // axes
+  svg.append('line').attr('aria-hidden','true').attr('x1',m.left).attr('y1',cy).attr('x2',m.left+w).attr('y2',cy)
+    .attr('stroke','var(--color-ink)').attr('stroke-width',1.4).attr('marker-end','url(#arrow-ax)');
+  svg.append('line').attr('aria-hidden','true').attr('x1',cx).attr('y1',m.top+h).attr('x2',cx).attr('y2',m.top)
+    .attr('stroke','var(--color-ink)').attr('stroke-width',1.4).attr('marker-end','url(#arrow-ax)');
+
+  svg.append('text').attr('class','axis-title').attr('x',m.left+w).attr('y',cy+18).attr('text-anchor','end').text('Coverage: narrow → broad');
+  svg.append('text').attr('class','axis-title').attr('x',cx+8).attr('y',m.top-4).text('Recency: old → recent');
+
+  const pos = {
+    TR:{x:cx,y:m.top,w:w/2,h:h/2},
+    TL:{x:m.left,y:m.top,w:w/2,h:h/2},
+    BR:{x:cx,y:cy,w:w/2,h:h/2},
+    BL:{x:m.left,y:cy,w:w/2,h:h/2}
+  };
+  quads.forEach(d=>{
+    const p = pos[d.q];
+    const g = svg.append('g').attr('tabindex',0).attr('aria-label',`${d.label}: ${d.eg}`)
+      .on('mouseover',function(event){showTooltip(event,`<strong>${d.label}</strong><br>${d.eg}`);})
+      .on('mousemove',moveTooltip).on('mouseout',hideTooltip);
+    g.append('rect').attr('x',p.x+6).attr('y',p.y+6).attr('width',p.w-12).attr('height',p.h-12)
+      .attr('rx',8).attr('fill','#F5F5F5').attr('stroke',strengthColor[d.strength]).attr('stroke-width',2);
+    g.append('text').attr('class','quad-label').attr('x',p.x+p.w/2).attr('y',p.y+p.h/2-2)
+      .attr('text-anchor','middle').attr('fill',strengthColor[d.strength]).text(d.label);
+    g.append('text').attr('class','quad-eg').attr('x',p.x+p.w/2).attr('y',p.y+p.h/2+16)
+      .attr('text-anchor','middle').text(d.eg);
+  });
+
+  svg.append('text').attr('class','note').attr('x',m.left).attr('y',totalHeight-14)
+    .text('Third dimension: method quality + sample limits can weaken even broad, recent evidence.');
+}
+
+function draw(){ loadData().then(render); }
+draw();
+const ro = new ResizeObserver(()=>draw());
+ro.observe(document.getElementById('chart'));
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The four field-status labels</title>
+<style>
+  :root{--color-white:#FFFFFF;--color-ink:#2a1a0e;--color-red:#C8102E;
+    --color-secondary:#545454;--color-border:#D4D4D4;--color-ochre:#C8860E;}
+  @media (prefers-color-scheme: dark){
+    :root{--color-white:#111111;--color-ink:#F0EBE3;--color-red:#E8243A;
+      --color-secondary:#A0978C;--color-border:#2E2E2E;--color-ochre:#D49A30;}}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--color-white);color:var(--color-ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+  #chart{width:100%;}
+  .lab{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;fill:var(--color-ink);}
+  .def{font-family:'Inter',sans-serif;font-size:11px;fill:var(--color-secondary);}
+  .cap{font-family:'EB Garamond',Georgia,serif;font-size:14px;font-style:italic;fill:var(--color-secondary);}
+  .tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-white);
+    border:1px solid var(--color-border);padding:6px 10px;font-size:13px;color:var(--color-ink);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA=[
+  {label:"Confirmed",def:"Reflects approved organizational inputs",accent:"var(--color-secondary)"},
+  {label:"Inferred",def:"A reasonable read of evidence, not yet reviewed",accent:"var(--color-secondary)"},
+  {label:"Unknown",def:"Information needed is not available — say so",accent:"var(--color-ochre)"},
+  {label:"Approval-needed",def:"A strategic choice no one with authority has made",accent:"var(--color-red)"}
+];
+const tooltip=d3.select('body').append('div').attr('class','tooltip');
+function showTip(e,h){tooltip.html(h).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px')
+  .transition().duration(150).style('opacity',1);}
+function moveTip(e){tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px');}
+function hideTip(){tooltip.transition().duration(100).style('opacity',0);}
+function wrap(text,str,x,y,lh,w){
+  const words=str.split(' ');let line=[],ln=0;
+  let t=text.append('text').attr('class','def').attr('x',x).attr('y',y);
+  words.forEach(word=>{line.push(word);t.text(line.join(' '));
+    if(t.node().getComputedTextLength()>w&&line.length>1){line.pop();t.text(line.join(' '));
+      line=[word];ln++;t=text.append('text').attr('class','def').attr('x',x).attr('y',y+ln*lh).text(word);}});
+}
+function draw(data){
+  d3.select('#chart').selectAll('*').remove();
+  const totalWidth=document.getElementById('chart').clientWidth||700;
+  const totalHeight=300;
+  const svg=d3.select('#chart').append('svg').attr('width',totalWidth).attr('height',totalHeight)
+    .attr('role','img').attr('aria-labelledby','c-title c-desc');
+  svg.append('title').attr('id','c-title').text('The four field-status labels');
+  svg.append('desc').attr('id','c-desc').text('Four equal boxes: Confirmed, Inferred, Unknown, Approval-needed, each with a short definition.');
+  const m=20, gap=16, cols=data.length;
+  const bw=(totalWidth-2*m-gap*(cols-1))/cols, bh=160, y=30;
+  data.forEach((d,i)=>{
+    const x=m+i*(bw+gap);
+    svg.append('rect').attr('x',x).attr('y',y).attr('width',bw).attr('height',bh)
+      .attr('fill','var(--color-white)').attr('stroke',d.accent).attr('stroke-width',2)
+      .attr('tabindex',0).attr('aria-label',d.label+': '+d.def)
+      .on('mouseover',(e)=>showTip(e,'<strong>'+d.label+'</strong><br>'+d.def)).on('mousemove',moveTip).on('mouseout',hideTip);
+    svg.append('rect').attr('x',x).attr('y',y).attr('width',bw).attr('height',6).attr('fill',d.accent);
+    svg.append('text').attr('class','lab').attr('x',x+12).attr('y',y+38).text(d.label);
+    wrap(svg,d.def,x+12,y+66,16,bw-24);
+  });
+  svg.append('text').attr('class','cap').attr('x',m).attr('y',totalHeight-14)
+    .text('Equal boxes: these are categories of readiness, not a quality ranking.');
+}
+async function load(){try{return await d3.json('./07-the-creative-brief-builder-fig-01/data.json');}catch{return FALLBACK_DATA;}}
+load().then(d=>{draw(d);const ro=new ResizeObserver(()=>draw(d));ro.observe(document.getElementById('chart'));});
+</script>
+</body>
+</html>

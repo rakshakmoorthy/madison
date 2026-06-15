@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evidence rows to warranted claims</title>
+<style>
+  :root{--color-white:#FFFFFF;--color-ink:#2a1a0e;--color-red:#C8102E;
+    --color-secondary:#545454;--color-border:#D4D4D4;--color-ochre:#C8860E;}
+  @media (prefers-color-scheme: dark){
+    :root{--color-white:#111111;--color-ink:#F0EBE3;--color-red:#E8243A;
+      --color-secondary:#A0978C;--color-border:#2E2E2E;--color-ochre:#D49A30;}}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--color-white);color:var(--color-ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+  #chart{width:100%;}
+  .node{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;fill:var(--color-ink);}
+  .lab{font-family:'Inter',sans-serif;font-size:10px;fill:var(--color-secondary);}
+  .cap{font-family:'EB Garamond',Georgia,serif;font-size:13px;font-style:italic;fill:var(--color-secondary);}
+  .tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-white);
+    border:1px solid var(--color-border);padding:6px 10px;font-size:13px;color:var(--color-ink);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA={
+  stages:["Cluster","Confidence label","Contradiction handling","Exclusion","Warranted claims"],
+  sources:["interviews","surveys","tickets","CRM","sales","social"]
+};
+const tooltip=d3.select('body').append('div').attr('class','tooltip');
+function showTip(e,h){tooltip.html(h).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px')
+  .transition().duration(150).style('opacity',1);}
+function moveTip(e){tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px');}
+function hideTip(){tooltip.transition().duration(100).style('opacity',0);}
+function draw(data){
+  d3.select('#chart').selectAll('*').remove();
+  const W=document.getElementById('chart').clientWidth||700, H=380;
+  const svg=d3.select('#chart').append('svg').attr('width',W).attr('height',H)
+    .attr('viewBox',`0 0 ${W} ${H}`).attr('role','img').attr('aria-labelledby','c-title c-desc');
+  svg.append('title').attr('id','c-title').text('Evidence rows to warranted claims');
+  svg.append('desc').attr('id','c-desc').text('Evidence rows pass through clustering, labeling, contradiction handling, and exclusion to warranted claims; unsourced details divert to an excluded-assumptions lane.');
+  const defs=svg.append('defs');
+  defs.append('marker').attr('id','ar').attr('markerWidth',9).attr('markerHeight',9).attr('refX',7).attr('refY',4).attr('orient','auto')
+    .append('path').attr('d','M0,0 L8,4 L0,8 z').attr('fill','var(--color-secondary)');
+  defs.append('marker').attr('id','div').attr('markerWidth',9).attr('markerHeight',9).attr('refX',7).attr('refY',4).attr('orient','auto')
+    .append('path').attr('d','M0,0 L8,4 L0,8 z').attr('fill','var(--color-ochre)');
+  // evidence rows column
+  const m=14, rowY=40;
+  data.sources.forEach((s,i)=>{
+    const y=rowY+i*34;
+    svg.append('rect').attr('x',m).attr('y',y).attr('width',96).attr('height',26).attr('fill','var(--color-white)').attr('stroke','var(--color-border)')
+      .attr('tabindex',0).attr('aria-label','Evidence source: '+s)
+      .on('mouseover',(e)=>showTip(e,'evidence row: '+s)).on('mousemove',moveTip).on('mouseout',hideTip);
+    svg.append('text').attr('class','lab').attr('x',m+8).attr('y',y+17).text(s);
+  });
+  // stage nodes
+  const n=data.stages.length, startX=140, gap=18;
+  const sw=(W-startX-m-gap*(n-1))/n, sy=120, sh=56;
+  data.stages.forEach((st,i)=>{
+    const x=startX+i*(sw+gap);
+    const last=(i===n-1), excl=(st==='Exclusion');
+    svg.append('rect').attr('x',x).attr('y',sy).attr('width',sw).attr('height',sh)
+      .attr('fill',last?'#F5F5F5':'var(--color-white)').attr('stroke',last?'var(--color-red)':'var(--color-secondary)').attr('stroke-width',last?2:1)
+      .attr('tabindex',0).attr('aria-label',st)
+      .on('mouseover',(e)=>showTip(e,'<strong>'+st+'</strong>')).on('mousemove',moveTip).on('mouseout',hideTip);
+    svg.append('text').attr('class','node').attr('x',x+6).attr('y',sy+sh/2+4).text(st);
+    if(i>0)
+      svg.append('line').attr('x1',startX+i*(sw+gap)-gap).attr('y1',sy+sh/2).attr('x2',x).attr('y2',sy+sh/2)
+        .attr('stroke','var(--color-secondary)').attr('stroke-width',1.5).attr('marker-end','url(#ar)').attr('aria-hidden','true');
+    if(excl){
+      const cx=x+sw/2;
+      svg.append('line').attr('x1',cx).attr('y1',sy+sh).attr('x2',cx).attr('y2',sy+sh+56)
+        .attr('stroke','var(--color-ochre)').attr('stroke-width',2).attr('marker-end','url(#div)').attr('aria-hidden','true');
+      svg.append('rect').attr('x',cx-90).attr('y',sy+sh+56).attr('width',180).attr('height',40)
+        .attr('fill','var(--color-white)').attr('stroke','var(--color-ochre)')
+        .attr('tabindex',0).attr('aria-label','Excluded-assumptions lane')
+        .on('mouseover',(e)=>showTip(e,'excluded-assumptions lane (research agenda)')).on('mousemove',moveTip).on('mouseout',hideTip);
+      svg.append('text').attr('class','lab').attr('x',cx-82).attr('y',sy+sh+80).text('excluded-assumptions lane');
+    }
+  });
+  // feed arrow from rows to first stage
+  svg.append('line').attr('x1',m+96).attr('y1',rowY+3*34).attr('x2',startX).attr('y2',sy+sh/2)
+    .attr('stroke','var(--color-secondary)').attr('stroke-width',1.5).attr('marker-end','url(#ar)').attr('aria-hidden','true');
+  svg.append('text').attr('class','cap').attr('x',m).attr('y',H-12)
+    .text('Synthesis moves evidence rows to warranted claims; unsourced details divert, not vanish.');
+}
+async function load(){try{return await d3.json('./10-audience-persona-evidence-synthesis-fig-01/data.json');}catch{return FALLBACK_DATA;}}
+load().then(d=>{draw(d);const ro=new ResizeObserver(()=>draw(d));ro.observe(document.getElementById('chart'));});
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One number, three baselines</title>
+<style>
+  :root{--color-white:#FFFFFF;--color-ink:#2a1a0e;--color-red:#C8102E;
+    --color-secondary:#545454;--color-border:#D4D4D4;--color-ochre:#C8860E;}
+  @media (prefers-color-scheme: dark){
+    :root{--color-white:#111111;--color-ink:#F0EBE3;--color-red:#E8243A;
+      --color-secondary:#A0978C;--color-border:#2E2E2E;--color-ochre:#D49A30;}}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--color-white);color:var(--color-ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+  #chart{width:100%;}
+  .chart-title{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;fill:var(--color-ink);}
+  .panel{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;fill:var(--color-ink);}
+  .a{font-family:'JetBrains Mono',monospace;font-size:11px;fill:var(--color-secondary);}
+  .verdict{font-family:'JetBrains Mono',monospace;font-size:11px;fill:var(--color-secondary);}
+  .cap{font-family:'EB Garamond',Georgia,serif;font-size:14px;font-style:italic;fill:var(--color-secondary);}
+  .tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-white);
+    border:1px solid var(--color-border);padding:6px 10px;font-size:13px;color:var(--color-ink);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA=[
+  {panel:"No reference",value:34,ref:null,refLabel:null,verdict:"Uninterpretable"},
+  {panel:"vs prior period",value:34,ref:29,refLabel:"prior 29%",verdict:"Movement: +5 pts"},
+  {panel:"vs benchmark",value:34,ref:38,refLabel:"benchmark 38%",verdict:"Gap: -4 pts"}
+];
+const tooltip=d3.select('body').append('div').attr('class','tooltip');
+function showTip(e,h){tooltip.html(h).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px')
+  .transition().duration(150).style('opacity',1);}
+function moveTip(e){tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px');}
+function hideTip(){tooltip.transition().duration(100).style('opacity',0);}
+function draw(data){
+  d3.select('#chart').selectAll('*').remove();
+  const totalWidth=document.getElementById('chart').clientWidth||700;
+  const totalHeight=420;
+  const margin={top:64,right:20,bottom:64,left:20};
+  const svg=d3.select('#chart').append('svg').attr('width',totalWidth).attr('height',totalHeight)
+    .attr('role','img').attr('aria-labelledby','c-title c-desc');
+  svg.append('title').attr('id','c-title').text('One number, three baselines');
+  svg.append('desc').attr('id','c-desc').text('The same brand-consideration bar shown at identical height in three panels; only the reference line changes the verdict.');
+  svg.append('text').attr('class','chart-title').attr('x',margin.left).attr('y',32).text('Brand consideration: one number, three baselines');
+  const innerW=totalWidth-margin.left-margin.right;
+  const innerH=totalHeight-margin.top-margin.bottom;
+  const panelW=innerW/3;
+  const y=d3.scaleLinear().domain([0,40]).range([margin.top+innerH,margin.top]);
+  const barW=Math.min(70,panelW*0.4);
+  data.forEach((d,i)=>{
+    const px=margin.left+i*panelW;
+    const cx=px+panelW/2-barW/2;
+    svg.append('text').attr('class','panel').attr('x',px+10).attr('y',margin.top-8).text(d.panel);
+    // zero baseline
+    svg.append('line').attr('x1',px+8).attr('y1',y(0)).attr('x2',px+panelW-8).attr('y2',y(0))
+      .attr('stroke','var(--color-ink)').attr('stroke-width',1.5).attr('aria-hidden','true');
+    // bar
+    svg.append('rect').attr('x',cx).attr('y',y(d.value)).attr('width',barW).attr('height',y(0)-y(d.value))
+      .attr('fill','var(--color-secondary)').attr('tabindex',0)
+      .attr('aria-label',d.panel+': value 34%, '+d.verdict)
+      .on('mouseover',(e)=>showTip(e,'<strong>'+d.panel+'</strong><br>34% — '+d.verdict)).on('mousemove',moveTip).on('mouseout',hideTip);
+    svg.append('text').attr('class','a').attr('x',cx+barW/2).attr('y',y(d.value)-6).attr('text-anchor','middle').attr('fill','var(--color-ink)').text('34%');
+    if(d.ref!==null){
+      svg.append('line').attr('x1',px+8).attr('y1',y(d.ref)).attr('x2',px+panelW-8).attr('y2',y(d.ref))
+        .attr('stroke','var(--color-red)').attr('stroke-width',2).attr('stroke-dasharray','6 4').attr('aria-hidden','true');
+      svg.append('text').attr('class','a').attr('x',px+8).attr('y',y(d.ref)-5).attr('fill','var(--color-red)').text(d.refLabel);
+    }
+    svg.append('text').attr('class','verdict').attr('x',px+10).attr('y',margin.top+innerH+24).text(d.verdict);
+  });
+  svg.append('text').attr('class','cap').attr('x',margin.left).attr('y',totalHeight-16)
+    .text('The bar is the same height in all three. Only the reference line changes.');
+}
+async function load(){try{return await d3.json('./08-measurement-plan-and-kpi-map-fig-02/data.json');}catch{return FALLBACK_DATA;}}
+load().then(d=>{draw(d);const ro=new ResizeObserver(()=>draw(d));ro.observe(document.getElementById('chart'));});
+</script>
+</body>
+</html>

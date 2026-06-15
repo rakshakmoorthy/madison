@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brief, register, and the gate before asset work</title>
+<style>
+  :root{--color-white:#FFFFFF;--color-ink:#2a1a0e;--color-red:#C8102E;
+    --color-secondary:#545454;--color-border:#D4D4D4;--color-ochre:#C8860E;}
+  @media (prefers-color-scheme: dark){
+    :root{--color-white:#111111;--color-ink:#F0EBE3;--color-red:#E8243A;
+      --color-secondary:#A0978C;--color-border:#2E2E2E;--color-ochre:#D49A30;}}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--color-white);color:var(--color-ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+  #chart{width:100%;}
+  .node{font-family:'Inter',sans-serif;font-size:12px;font-weight:700;fill:var(--color-ink);}
+  .small{font-family:'Inter',sans-serif;font-size:10px;fill:var(--color-secondary);}
+  .cap{font-family:'EB Garamond',Georgia,serif;font-size:14px;font-style:italic;fill:var(--color-secondary);}
+  .tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-white);
+    border:1px solid var(--color-border);padding:6px 10px;font-size:13px;color:var(--color-ink);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA=["Brief","Assumption register","Gate","Asset generation"];
+const tooltip=d3.select('body').append('div').attr('class','tooltip');
+function showTip(e,h){tooltip.html(h).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px')
+  .transition().duration(150).style('opacity',1);}
+function moveTip(e){tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px');}
+function hideTip(){tooltip.transition().duration(100).style('opacity',0);}
+function draw(nodes){
+  d3.select('#chart').selectAll('*').remove();
+  const totalWidth=document.getElementById('chart').clientWidth||700;
+  const totalHeight=320;
+  const svg=d3.select('#chart').append('svg').attr('width',totalWidth).attr('height',totalHeight)
+    .attr('viewBox',`0 0 ${totalWidth} ${totalHeight}`)
+    .attr('role','img').attr('aria-labelledby','c-title c-desc');
+  svg.append('title').attr('id','c-title').text('Brief, register, and the gate before asset work');
+  svg.append('desc').attr('id','c-desc').text('A flow from brief to register to gate to asset generation, with two permitted crossings and one blocked default-drift path.');
+  const defs=svg.append('defs');
+  defs.append('marker').attr('id','ok').attr('markerWidth',9).attr('markerHeight',9).attr('refX',7).attr('refY',4).attr('orient','auto')
+    .append('path').attr('d','M0,0 L8,4 L0,8 z').attr('fill','var(--color-secondary)');
+  defs.append('marker').attr('id','bad').attr('markerWidth',9).attr('markerHeight',9).attr('refX',7).attr('refY',4).attr('orient','auto')
+    .append('path').attr('d','M0,0 L8,4 L0,8 z').attr('fill','var(--color-red)');
+  const nw=Math.min(150,(totalWidth-2*20-3*30)/4), nh=56, y=60, m=20, gap=30;
+  nodes.forEach((n,i)=>{
+    const x=m+i*(nw+gap);
+    const isGate=(n==='Gate');
+    svg.append('rect').attr('x',x).attr('y',y).attr('width',nw).attr('height',nh)
+      .attr('fill','var(--color-white)').attr('stroke',isGate?'var(--color-ochre)':'var(--color-ink)')
+      .attr('stroke-width',isGate?3:1).attr('tabindex',0).attr('aria-label',n)
+      .on('mouseover',(e)=>showTip(e,'<strong>'+n+'</strong>')).on('mousemove',moveTip).on('mouseout',hideTip);
+    svg.append('text').attr('class','node').attr('text-anchor','middle').attr('x',x+nw/2).attr('y',y+nh/2+4).text(n);
+    if(i<nodes.length-1){
+      const x1=x+nw, x2=x+nw+gap;
+      svg.append('line').attr('x1',x1).attr('y1',y+nh/2).attr('x2',x2).attr('y2',y+nh/2)
+        .attr('stroke','var(--color-secondary)').attr('stroke-width',2).attr('marker-end','url(#ok)').attr('aria-hidden','true');
+    }
+  });
+  // gate annotations
+  const gateX=m+2*(nw+gap)+nw/2;
+  svg.append('text').attr('class','small').attr('text-anchor','middle').attr('x',gateX).attr('y',y-14).text('gaps resolved, or risk accepted by a named person');
+  // blocked default-drift path below
+  const by=y+nh+70;
+  svg.append('line').attr('x1',m+nw/2).attr('y1',by).attr('x2',m+3*(nw+gap)+nw/2).attr('y2',by)
+    .attr('stroke','var(--color-red)').attr('stroke-width',2).attr('stroke-dasharray','6 5').attr('aria-hidden','true');
+  svg.append('line').attr('x1',gateX-14).attr('y1',by-12).attr('x2',gateX+14).attr('y2',by+12)
+    .attr('stroke','var(--color-red)').attr('stroke-width',3).attr('aria-hidden','true');
+  svg.append('text').attr('class','small').attr('text-anchor','middle').attr('x',gateX).attr('y',by+26)
+    .attr('fill','var(--color-red)').text('Forbidden: drift forward by default with invisible gaps');
+  svg.append('text').attr('class','cap').attr('x',m).attr('y',totalHeight-14)
+    .text('No downstream asset work treats an Inferred or Unknown field as approved strategy.');
+}
+async function load(){try{return await d3.json('./07-the-creative-brief-builder-fig-03/data.json');}catch{return FALLBACK_DATA;}}
+load().then(n=>{draw(n);const ro=new ResizeObserver(()=>draw(n));ro.observe(document.getElementById('chart'));});
+</script>
+</body>
+</html>

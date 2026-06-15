@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The three-tier metric hierarchy</title>
+<style>
+  :root{--color-white:#FFFFFF;--color-ink:#2a1a0e;--color-red:#C8102E;
+    --color-secondary:#545454;--color-border:#D4D4D4;--color-ochre:#C8860E;}
+  @media (prefers-color-scheme: dark){
+    :root{--color-white:#111111;--color-ink:#F0EBE3;--color-red:#E8243A;
+      --color-secondary:#A0978C;--color-border:#2E2E2E;--color-ochre:#D49A30;}}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--color-white);color:var(--color-ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+  #chart{width:100%;}
+  .tier{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;}
+  .ex{font-family:'Inter',sans-serif;font-size:11px;}
+  .a{font-family:'JetBrains Mono',monospace;font-size:11px;fill:var(--color-secondary);}
+  .cap{font-family:'EB Garamond',Georgia,serif;font-size:13px;font-style:italic;fill:var(--color-secondary);}
+  .tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-white);
+    border:1px solid var(--color-border);padding:6px 10px;font-size:13px;color:var(--color-ink);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA=[
+  {tier:"Outcome metrics",ex:"consideration · preference · purchase intent",fill:"var(--color-red)",dark:true},
+  {tier:"Leading metrics",ex:"awareness · reach · share of voice",fill:"var(--color-secondary)",dark:true},
+  {tier:"Diagnostic metrics",ex:"impressions · clicks · completion rate",fill:"var(--color-white)",dark:false}
+];
+const tooltip=d3.select('body').append('div').attr('class','tooltip');
+function showTip(e,h){tooltip.html(h).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px')
+  .transition().duration(150).style('opacity',1);}
+function moveTip(e){tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px');}
+function hideTip(){tooltip.transition().duration(100).style('opacity',0);}
+function draw(data){
+  d3.select('#chart').selectAll('*').remove();
+  const totalWidth=document.getElementById('chart').clientWidth||700;
+  const totalHeight=360;
+  const svg=d3.select('#chart').append('svg').attr('width',totalWidth).attr('height',totalHeight)
+    .attr('role','img').attr('aria-labelledby','c-title c-desc');
+  svg.append('title').attr('id','c-title').text('The three-tier metric hierarchy');
+  svg.append('desc').attr('id','c-desc').text('Outcome metrics on top, leading in the middle, diagnostic at the bottom, with upward links can predict and does not guarantee.');
+  svg.append('defs').append('marker').attr('id','up').attr('markerWidth',9).attr('markerHeight',9)
+    .attr('refX',4).attr('refY',2).attr('orient','auto')
+    .append('path').attr('d','M0,8 L4,0 L8,8 z').attr('fill','var(--color-red)');
+  const m=20, bw=Math.min(380,totalWidth-220), bh=74, gap=50;
+  data.forEach((d,i)=>{
+    const yy=m+i*(bh+gap);
+    svg.append('rect').attr('x',m).attr('y',yy).attr('width',bw).attr('height',bh)
+      .attr('fill',d.fill).attr('stroke',d.dark?'none':'var(--color-border)')
+      .attr('tabindex',0).attr('aria-label',d.tier+': '+d.ex)
+      .on('mouseover',(e)=>showTip(e,'<strong>'+d.tier+'</strong><br>'+d.ex)).on('mousemove',moveTip).on('mouseout',hideTip);
+    svg.append('text').attr('class','tier').attr('x',m+14).attr('y',yy+28).attr('fill',d.dark?'var(--color-white)':'var(--color-ink)').text(d.tier);
+    svg.append('text').attr('class','ex').attr('x',m+14).attr('y',yy+50).attr('fill',d.dark?'var(--color-white)':'var(--color-secondary)').text(d.ex);
+    if(i<data.length-1){
+      const ax=m+bw/2;
+      svg.append('line').attr('x1',ax).attr('y1',m+(i+1)*(bh+gap)).attr('x2',ax).attr('y2',m+(i+1)*(bh+gap)-gap+6)
+        .attr('stroke','var(--color-red)').attr('stroke-width',2).attr('marker-end','url(#up)').attr('aria-hidden','true');
+      svg.append('text').attr('class','a').attr('x',ax+14).attr('y',m+(i+1)*(bh+gap)-gap/2+4).text(i===1?'can predict':'does not guarantee');
+    }
+  });
+  svg.append('line').attr('x1',m+bw+24).attr('y1',m).attr('x2',m+bw+24).attr('y2',totalHeight-30).attr('stroke','var(--color-ochre)').attr('stroke-width',3);
+  svg.append('text').attr('class','cap').attr('x',m+bw+34).attr('y',m+24).text('Each tier answers a');
+  svg.append('text').attr('class','cap').attr('x',m+bw+34).attr('y',m+42).text('different question.');
+}
+async function load(){try{return await d3.json('./08-measurement-plan-and-kpi-map-fig-01/data.json');}catch{return FALLBACK_DATA;}}
+load().then(d=>{draw(d);const ro=new ResizeObserver(()=>draw(d));ro.observe(document.getElementById('chart'));});
+</script>
+</body>
+</html>

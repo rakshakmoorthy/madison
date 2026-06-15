@@ -1,0 +1,61 @@
+<!--
+  Brief Fields and Their Evidence Thresholds
+  Book: Madison Plus One
+  Chapter: 07-the-creative-brief-builder
+  Figure 02
+  Type: structural schematic
+  Generated 2026-06-15
+  Source: pantry/07-the-creative-brief-builder-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+  <title id="fig-title-02">Brief Fields and Their Evidence Thresholds</title>
+  <desc>Six creative-brief fields, each with the evidence status it requires: Objective should be Confirmed; Audience should be Confirmed but is often only Inferred; Insight is Inferred at best; the Single-Minded Proposition is Approval-needed and is the highest-exposure field; Tone is an owned taste judgment; Mandatories must be Confirmed from a documented source.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="07-the-creative-brief-builder" figure-number="02" figure-title="Brief Fields and Their Evidence Thresholds" figure-slug="brief-fields-evidence-thresholds" figure-type="structural schematic" priority="Critical" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/07-the-creative-brief-builder-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">Brief Fields and Their Evidence Thresholds</text>
+  <text x="32" y="60" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">The evidence bar is not uniform. Each field requires a different status before it can stand.</text>
+
+  <!-- column headers -->
+  <text x="48" y="92" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">FIELD</text>
+  <text x="270" y="92" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">REQUIRED STATUS</text>
+  <text x="470" y="92" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">EVIDENCE NOTE</text>
+  <line x1="48" y1="98" x2="668" y2="98" stroke="#D4D4D4" stroke-width="1"/>
+
+  <!-- rows -->
+  <g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">
+    <!-- Objective -->
+    <rect x="48" y="106" width="200" height="40" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/><text x="60" y="130">Objective</text>
+    <rect x="270" y="116" width="16" height="20" fill="#C8102E"/><text x="294" y="130">Confirmed</text>
+    <text x="470" y="130" fill="#545454">From approved organizational goals</text>
+
+    <!-- Audience -->
+    <rect x="48" y="150" width="200" height="40" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/><text x="60" y="174">Audience</text>
+    <rect x="270" y="160" width="16" height="20" fill="#787878"/><text x="294" y="174">Confirmed / often Inferred</text>
+    <text x="470" y="174" fill="#545454">Verify against real audience data</text>
+
+    <!-- Insight -->
+    <rect x="48" y="194" width="200" height="40" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/><text x="60" y="218">Insight</text>
+    <rect x="270" y="204" width="16" height="20" fill="#787878"/><text x="294" y="218">Inferred at best</text>
+    <text x="470" y="218" fill="#545454">Label it as interpretation</text>
+
+    <!-- Single-Minded Proposition (emphasized) -->
+    <rect x="48" y="238" width="200" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/><text x="60" y="262">Single-Minded Proposition</text>
+    <rect x="270" y="248" width="16" height="20" fill="#C8860E"/><text x="294" y="262">Approval-needed</text>
+    <text x="470" y="262" fill="#C8102E">Highest exposure: needs claim-and-proof review</text>
+
+    <!-- Tone -->
+    <rect x="48" y="282" width="200" height="40" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/><text x="60" y="306">Tone</text>
+    <rect x="270" y="292" width="16" height="20" fill="#ADADAD"/><text x="294" y="306">Owned taste judgment</text>
+    <text x="470" y="306" fill="#545454">A deliberate, owned choice</text>
+
+    <!-- Mandatories -->
+    <rect x="48" y="326" width="200" height="40" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/><text x="60" y="350">Mandatories</text>
+    <rect x="270" y="336" width="16" height="20" fill="#C8102E"/><text x="294" y="350">Confirmed</text>
+    <text x="470" y="350" fill="#545454">From a documented source</text>
+  </g>
+
+  <text x="48" y="392" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" font-style="italic" fill="#545454">A proposition that outruns its proof is a legal and reputational exposure.</text>
+</svg>

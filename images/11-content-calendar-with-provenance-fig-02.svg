@@ -1,0 +1,76 @@
+<!--
+  Title: The Provenance Row Anatomy
+  Book: Madison Plus One
+  Chapter: 11-content-calendar-with-provenance
+  Figure 02
+  Type: structural schematic
+  Generated 2026-06-15
+  Source: pantry/11-content-calendar-with-provenance-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+<title id="fig-title-02">The Provenance Row Anatomy</title>
+<desc>Two stacked, column-aligned bands of ten calendar cells. The top band is fully populated and ends in an approved status. The bottom band is a problem row where message pillar, source, asset, owner, CTA and approval are blank and hatched, marking each empty field as an unmade decision.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="11-content-calendar-with-provenance" figure-number="02" figure-title="The Provenance Row Anatomy" figure-slug="the-provenance-row-anatomy" figure-type="structural schematic" priority="Critical" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/11-content-calendar-with-provenance-cajal.md"/></metadata>
+<defs>
+<marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#C8102E" stroke-width="1"/></pattern>
+</defs>
+
+<text x="350" y="40" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The Provenance Row Anatomy</text>
+
+<!-- column header labels (rotated) -->
+<g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="9" fill="#545454" text-anchor="start">
+<text transform="translate(64,86) rotate(-40)">Date</text>
+<text transform="translate(127,86) rotate(-40)">Channel</text>
+<text transform="translate(190,86) rotate(-40)">Audience</text>
+<text transform="translate(253,86) rotate(-40)">Message pillar</text>
+<text transform="translate(316,86) rotate(-40)">Source / proof</text>
+<text transform="translate(379,86) rotate(-40)">Asset status</text>
+<text transform="translate(442,86) rotate(-40)">Owner</text>
+<text transform="translate(505,86) rotate(-40)">CTA</text>
+<text transform="translate(568,86) rotate(-40)">Risk flag</text>
+<text transform="translate(631,86) rotate(-40)">Approval</text>
+</g>
+
+<!-- top band: complete row -->
+<text x="36" y="118" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454" transform="rotate(-90 36 165)">Complete</text>
+<g>
+<rect x="50" y="98" width="63" height="56" fill="#C8102E" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+<rect x="113" y="98" width="63" height="56" fill="#C8102E" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+<rect x="176" y="98" width="63" height="56" fill="#C8102E" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+<rect x="239" y="98" width="63" height="56" fill="#C8102E" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+<rect x="302" y="98" width="63" height="56" fill="#C8102E" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+<rect x="365" y="98" width="63" height="56" fill="#C8102E" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+<rect x="428" y="98" width="63" height="56" fill="#C8102E" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+<rect x="491" y="98" width="63" height="56" fill="#C8102E" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+<rect x="554" y="98" width="63" height="56" fill="#C8102E" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+<rect x="617" y="98" width="63" height="56" fill="#545454" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="50" y="98" width="630" height="56" fill="none" stroke="#2a1a0e" stroke-width="1"/>
+<text x="648" y="130" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">OK</text>
+</g>
+
+<!-- bottom band: problem row -->
+<text x="36" y="280" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454" transform="rotate(-90 36 280)">Problem</text>
+<g>
+<rect x="50" y="252" width="63" height="56" fill="#C8102E" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+<rect x="113" y="252" width="63" height="56" fill="#C8102E" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+<rect x="176" y="252" width="63" height="56" fill="#C8102E" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+<!-- blank: message pillar -->
+<rect x="239" y="252" width="63" height="56" fill="url(#hatch)" stroke="#C8102E" stroke-width="1"/>
+<!-- blank: source -->
+<rect x="302" y="252" width="63" height="56" fill="url(#hatch)" stroke="#C8102E" stroke-width="1"/>
+<!-- blank: asset -->
+<rect x="365" y="252" width="63" height="56" fill="url(#hatch)" stroke="#C8102E" stroke-width="1"/>
+<!-- blank: owner -->
+<rect x="428" y="252" width="63" height="56" fill="url(#hatch)" stroke="#C8102E" stroke-width="1"/>
+<!-- blank: CTA -->
+<rect x="491" y="252" width="63" height="56" fill="url(#hatch)" stroke="#C8102E" stroke-width="1"/>
+<rect x="554" y="252" width="63" height="56" fill="#C8102E" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+<!-- blank: approval -->
+<rect x="617" y="252" width="63" height="56" fill="url(#hatch)" stroke="#C8102E" stroke-width="1"/>
+<rect x="50" y="252" width="630" height="56" fill="none" stroke="#2a1a0e" stroke-width="1"/>
+</g>
+
+<text x="350" y="356" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Each blank cell is a decision that has not been made.</text>
+<text x="350" y="378" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Completeness means every column filled, not merely that content exists.</text>
+</svg>

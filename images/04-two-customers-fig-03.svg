@@ -1,0 +1,64 @@
+<!--
+  The Latch-less Gate vs the Real Gate
+  Book: Madison Plus One
+  Chapter: 04-two-customers
+  Figure 03
+  Type: structural schematic
+  Generated 2026-06-15
+  Source: pantry/04-two-customers-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+  <title id="fig-title-03">The Latch-less Gate vs the Real Gate</title>
+  <desc>Two gates contrasted. The latch-less gate is a single undifferentiated instruction to review, with an open pass-through anything can cross unchecked. The real gate contains four components an output must satisfy before crossing: review criteria, a named decision, a named owner, and a logged record. The first stops nothing; the second holds and evaluates.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="04-two-customers" figure-number="03" figure-title="The Latch-less Gate vs the Real Gate" figure-slug="the-latch-less-gate-vs-the-real-gate" figure-type="structural schematic" priority="Important" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/04-two-customers-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="44" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">A gate with no latch vs a real decision gate</text>
+
+  <!-- TOP: latch-less gate -->
+  <text x="32" y="80" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" font-weight="bold" fill="#2a1a0e">Latch-less gate</text>
+
+  <!-- output approaching -->
+  <line x1="80" y1="120" x2="270" y2="120" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="80" y="108" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">output</text>
+
+  <!-- single weak node, open -->
+  <rect x="280" y="96" width="160" height="48" fill="#FFFFFF" stroke="#787878" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="360" y="124" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">"review required"</text>
+
+  <!-- pass-through unobstructed -->
+  <line x1="440" y1="120" x2="650" y2="120" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="560" y="108" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">anything crosses unchecked</text>
+
+  <!-- divider -->
+  <line x1="32" y1="172" x2="668" y2="172" stroke="#D4D4D4" stroke-width="1"/>
+
+  <!-- BOTTOM: real gate -->
+  <text x="32" y="206" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" font-weight="bold" fill="#2a1a0e">Real gate</text>
+
+  <line x1="80" y1="280" x2="170" y2="280" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="80" y="268" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">output</text>
+
+  <!-- real gate node containing four components -->
+  <rect x="180" y="222" width="340" height="116" fill="#C8102E"/>
+  <g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">
+    <rect x="196" y="238" width="146" height="38" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+    <text x="269" y="261" text-anchor="middle">Review criteria</text>
+    <rect x="358" y="238" width="146" height="38" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+    <text x="431" y="261" text-anchor="middle">Named decision (yes/no)</text>
+    <rect x="196" y="284" width="146" height="38" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+    <text x="269" y="307" text-anchor="middle">Named owner</text>
+    <rect x="358" y="284" width="146" height="38" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+    <text x="431" y="307" text-anchor="middle">Logged record</text>
+  </g>
+
+  <!-- controlled crossing -->
+  <line x1="520" y1="280" x2="650" y2="280" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="585" y="268" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">crosses only if it</text>
+  <text x="585" y="300" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">satisfies all four</text>
+
+  <text x="350" y="372" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">A gate is only a gate if something can fail it.</text>
+</svg>

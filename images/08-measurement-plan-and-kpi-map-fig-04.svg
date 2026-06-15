@@ -1,0 +1,71 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">KPI workflow with labor division</title>
+  <desc id="desc">A five-stage workflow — define objectives, build the map, collect baselines, run campaign, report — with an AI-assist lane and a human-decides lane running across all stages.</desc>
+  <style>
+    .h{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;fill:#2a1a0e;}
+    .e{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;fill:#545454;}
+    .s{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;fill:#2a1a0e;}
+    .t{font-family:'Inter',sans-serif;font-size:9.5px;fill:#545454;}
+    .g{font-family:'EB Garamond',Georgia,serif;font-size:13px;font-style:italic;fill:#545454;}
+  </style>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+  <text class="h" x="20" y="34">The KPI workflow and its division of labor</text>
+
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L7,4 L0,8 z" fill="#2a1a0e"/>
+    </marker>
+  </defs>
+
+  <!-- stage nodes row -->
+  <!-- 5 stages -->
+  <g>
+    <rect x="20" y="56" width="120" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text class="s" x="28" y="73">Define</text><text class="s" x="28" y="88">objectives</text>
+    <rect x="160" y="56" width="120" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text class="s" x="168" y="73">Build</text><text class="s" x="168" y="88">KPI map</text>
+    <rect x="300" y="56" width="120" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text class="s" x="308" y="73">Collect</text><text class="s" x="308" y="88">baselines</text>
+    <rect x="440" y="56" width="120" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text class="s" x="448" y="73">Run</text><text class="s" x="448" y="88">campaign</text>
+    <rect x="580" y="56" width="100" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text class="s" x="588" y="73">Report vs</text><text class="s" x="588" y="88">map</text>
+  </g>
+  <line x1="140" y1="76" x2="160" y2="76" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="280" y1="76" x2="300" y2="76" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="420" y1="76" x2="440" y2="76" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="560" y1="76" x2="580" y2="76" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <!-- AI-assist lane -->
+  <text class="e" x="20" y="130">AI can assist</text>
+  <g>
+    <rect x="20" y="138" width="120" height="60" fill="#FFFFFF" stroke="#545454"/>
+    <text class="t" x="28" y="156">surface prior</text><text class="t" x="28" y="170">objectives</text>
+    <rect x="160" y="138" width="120" height="60" fill="#FFFFFF" stroke="#545454"/>
+    <text class="t" x="168" y="156">suggest metrics,</text><text class="t" x="168" y="170">flag gaps</text>
+    <rect x="300" y="138" width="120" height="60" fill="#FFFFFF" stroke="#545454"/>
+    <text class="t" x="308" y="156">locate source</text><text class="t" x="308" y="170">systems</text>
+    <rect x="440" y="138" width="120" height="60" fill="#FFFFFF" stroke="#545454"/>
+    <text class="t" x="448" y="156">monitor and flag</text><text class="t" x="448" y="170">anomalies</text>
+    <rect x="580" y="138" width="100" height="60" fill="#FFFFFF" stroke="#545454"/>
+    <text class="t" x="588" y="156">extract and</text><text class="t" x="588" y="170">format</text>
+  </g>
+
+  <!-- human-decides lane -->
+  <text class="e" x="20" y="234" fill="#C8102E">Human must decide</text>
+  <g>
+    <rect x="20" y="242" width="120" height="60" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+    <text class="t" x="28" y="260">this campaign's</text><text class="t" x="28" y="274">purpose</text>
+    <rect x="160" y="242" width="120" height="60" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+    <text class="t" x="168" y="260">decision uses,</text><text class="t" x="168" y="274">sign-off</text>
+    <rect x="300" y="242" width="120" height="60" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+    <text class="t" x="308" y="260">confirm baseline</text><text class="t" x="308" y="274">validity</text>
+    <rect x="440" y="242" width="120" height="60" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+    <text class="t" x="448" y="260">whether to</text><text class="t" x="448" y="274">adjust</text>
+    <rect x="580" y="242" width="100" height="60" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+    <text class="t" x="588" y="260">interpret vs</text><text class="t" x="588" y="274">decision uses</text>
+  </g>
+
+  <text class="g" x="20" y="346">The labor division is not about AI capability limits. It is about where</text>
+  <text class="g" x="20" y="366">professional accountability lives.</text>
+</svg>

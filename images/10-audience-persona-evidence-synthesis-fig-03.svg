@@ -1,0 +1,57 @@
+<!--
+  The Inclusion Test
+  Book: Madison Plus One
+  Chapter: 10-audience-persona-evidence-synthesis
+  Figure 03
+  Type: process flowchart
+  Generated 2026-06-15
+  Source: pantry/10-audience-persona-evidence-synthesis-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+  <title id="fig-title-03">The Inclusion Test</title>
+  <desc>A single-question test governs whether a detail enters a persona: can the evidence this claim rests on be described in one sentence? Yes includes the detail with a label; no excludes it and routes it to the excluded-assumptions list as a hypothesis to test. An evidence-supported inference is admissible; pattern-completion from outside is rejected. Exclusion is deferral, not deletion.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="10-audience-persona-evidence-synthesis" figure-number="03" figure-title="The Inclusion Test" figure-slug="inclusion-test" figure-type="process flowchart" priority="Important" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/10-audience-persona-evidence-synthesis-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">The Inclusion Test</text>
+  <text x="32" y="60" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">One question decides whether a detail enters the persona. Exclusion here is deferral, not deletion.</text>
+
+  <!-- two adjacent input types -->
+  <rect x="40" y="100" width="150" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="1"/>
+  <text x="115" y="118" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e" text-anchor="middle">Evidence-supported</text>
+  <text x="115" y="131" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e" text-anchor="middle">inference (accepted)</text>
+  <rect x="40" y="148" width="150" height="40" fill="#FFFFFF" stroke="#787878" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="115" y="166" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454" text-anchor="middle">Pattern-completion</text>
+  <text x="115" y="179" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454" text-anchor="middle">from outside (rejected)</text>
+
+  <!-- entry node -->
+  <line x1="190" y1="144" x2="218" y2="144" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="224" y="122" width="140" height="44" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+  <text x="294" y="142" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Candidate</text>
+  <text x="294" y="156" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">persona detail</text>
+
+  <!-- diamond decision -->
+  <line x1="364" y1="144" x2="392" y2="144" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <polygon points="490,98 590,144 490,190 390,144" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+  <text x="490" y="138" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e" text-anchor="middle">Can the evidence be</text>
+  <text x="490" y="151" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e" text-anchor="middle">said in one sentence?</text>
+
+  <!-- yes branch -->
+  <line x1="490" y1="190" x2="490" y2="246" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="500" y="218" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">yes</text>
+  <rect x="410" y="254" width="160" height="46" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <text x="490" y="274" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Include</text>
+  <text x="490" y="290" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">with a label</text>
+
+  <!-- no branch -->
+  <line x1="590" y1="144" x2="624" y2="144" stroke="#2a1a0e" stroke-width="1.5"/>
+  <line x1="624" y1="144" x2="624" y2="246" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="600" y="138" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">no</text>
+  <rect x="540" y="254" width="160" height="46" fill="#FFFFFF" stroke="#C8860E" stroke-width="1.5"/>
+  <text x="620" y="274" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Exclude → route to</text>
+  <text x="620" y="290" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">assumptions list</text>
+
+  <text x="40" y="340" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" font-style="italic" fill="#545454">A routed detail is a hypothesis to test later — kept, not discarded.</text>
+</svg>

@@ -19,7 +19,17 @@ The digest does not write the response. It does not recommend whether to respond
 
 That last element — holding language — deserves a moment of attention before going further. A holding response is not a response to the substance of an issue. It is an acknowledgment that the brand is aware of the situation and is looking into it. "Thank you for sharing this — we're looking into it and will follow up shortly." That sentence commits to nothing, creates no new claims, and buys time for the people who need to assess the situation to do so. The agent can draft it efficiently. The human approves it before it goes anywhere. That division of labor is appropriate — generating the language is pattern work; authorizing it to represent the brand in public is not.
 
-<!-- → [TABLE: Issue-routing digest structure — columns: source URL, capture timestamp, issue class, sentiment label (marked as model judgment), severity, assigned owner, recommended action, response gate, holding language (optional). Show four rows using the four signals from the chapter opening. Caption: The digest is a decision-support document. Every column exists to inform the owner's judgment, not to replace it.] -->
+| Source | Captured | Issue Class | Sentiment | Severity | Owner | Recommended Action | Response Gate | Holding Language |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Trade publication mention ("adequate but struggling to scale") | 6/14 08:10 | Competitive / reputation | Negative (model judgment) | Minor | Comms lead | Monitor; assess relationship before any reply | Comms lead confirms severity and decides reply vs. no reply | — |
+| Comparison-site review, 2 stars (feature misunderstood) | 6/14 08:15 | Product complaint | Negative (model judgment) | Minor | Customer success | Assess whether misunderstanding is common; consider correction | CS lead reviews source; decides whether response amplifies | — |
+| Regional outlet pickup of last week's national story | 6/14 08:22 | Neutral coverage | Neutral (model judgment) | Minor | Comms lead | Log; confirm no new claim introduced | Comms lead confirms no daylight from original story | — |
+| Social post, 3 hrs old, engagement rising | 6/14 08:30 | Crisis signal (candidate) | Divided (model judgment) | Major | Senior comms lead | Verify amplification source; assess trajectory urgently | Senior comms lead confirms severity, authorizes holding language or no response | "Thank you for sharing this — we're looking into it and will follow up shortly." (draft) |
+
+*The digest is a decision-support document. Every column exists to inform the owner's judgment, not to replace it.*
+
+![Schematic of one digest row as nine aligned cells, with the sentiment cell flagged as model judgment, the response-gate cell weighted as load-bearing, and the holding-language cell drawn dashed to mark it as an optional candidate.](images/15-media-coverage-and-issue-routing-fig-01.png)
+*Figure 15.1 — The issue-routing digest structure*
 
 ---
 
@@ -28,6 +38,9 @@ The classification step is where the agent adds the most value in this workflow,
 An issue taxonomy for a brand monitoring workflow typically includes: product complaint (a user or customer describing a specific problem with the product or service), factual error (a publication or post stating something demonstrably incorrect about the brand, product, or category), reputation risk (a mention that creates association between the brand and something harmful, controversial, or unwanted), crisis signal (early indicators of a situation that could escalate to require coordinated response), competitive mention (a piece that compares the brand to competitors in a way that may require response or tracking), neutral coverage (monitoring-worthy but not action-requiring), and positive coverage (worth logging and potentially amplifying).
 
 The taxonomy should be defined in the response policy document before the monitoring workflow begins, not constructed in real time as signals arrive. The agent classifies against the defined taxonomy; the human reviews the classification and corrects it when the agent has miscategorized. Miscategorization is common enough to be expected — the line between a reputation risk and a product complaint, or between a crisis signal and a piece of negative coverage that does not escalate, requires contextual knowledge the agent does not have. The classification is a starting point for the owner's judgment, not a substitute for it.
+
+![Decision-tree flowchart routing an incoming signal through a cascade of yes/no tests into one of seven issue classes — factual error, product complaint, reputation risk, crisis signal, competitive mention, or neutral/positive coverage — with the high-stakes classes marked.](images/15-media-coverage-and-issue-routing-fig-02.png)
+*Figure 15.2 — Issue taxonomy decision tree*
 
 <!-- → [DIAGRAM: Issue taxonomy decision tree — starting from "incoming signal," branching through: does it contain a factual error about the brand? (yes → factual error class); does it describe a product or service problem from a customer? (yes → product complaint class); does it associate the brand with controversy? (yes → reputation risk class); does the engagement pattern or source suggest rapid escalation? (yes → crisis signal class); does it compare the brand to competitors? (yes → competitive mention class); otherwise → neutral or positive coverage. Caption: The tree is a starting point, not a final answer. The agent classifies; the human confirms.] -->
 
@@ -43,7 +56,19 @@ The factors that increase severity: the source has high reach or editorial autho
 
 The factors that decrease severity: the source has limited reach and no demonstrated amplification history; the claim is a matter of opinion rather than fact; the engagement is low and flat; the issue is isolated rather than part of a pattern; the brand has no existing relationship with the source that inaction would damage.
 
-<!-- → [TABLE: Severity factors for media signals — two columns: factors that increase severity and factors that decrease severity. Each factor listed with a brief explanation of why it matters for the routing decision. Caption: Severity is not a feeling about how bad something looks. It is a structured assessment of how much damage could be done and how quickly.] -->
+| Factors That Increase Severity | Factors That Decrease Severity |
+| --- | --- |
+| High reach or editorial authority — the source can move the conversation | Limited reach, no amplification history — the signal stays contained |
+| Factually incorrect claim that could spread — error compounds if unaddressed | A matter of opinion, not fact — there is nothing to correct |
+| Accelerating engagement pattern — the signal is catching, not decaying | Low, flat engagement — the signal is not gaining momentum |
+| Connects to a sensitive topic (safety, discrimination, regulation) — heightened exposure | Isolated rather than patterned — no broader trend behind it |
+| Originates from a source with an existing brand relationship — inaction could damage it | No existing relationship to damage — inaction carries no relational cost |
+| Already picked up by secondary sources — circulation is widening | Not yet picked up elsewhere — still a single point |
+
+*Severity is not a feeling about how bad something looks. It is a structured assessment of how much damage could be done and how quickly.*
+
+![Two mirrored columns balanced on a central fulcrum: factors that raise a media signal's severity on one side and the factors that lower it on the other, framing severity as a weighing rather than a feeling.](images/15-media-coverage-and-issue-routing-fig-03.png)
+*Figure 15.3 — Severity factors for media signals*
 
 The severity rating in the digest determines the escalation path. A critical severity signal — a factually incorrect claim in a high-reach publication that is accelerating — goes to the senior communications lead immediately, with a recommended response window. A major severity signal — a product complaint from a customer with a visible audience, accurate in its description of the problem — goes to the customer success lead and the communications lead, with a recommended response window and the option to begin drafting. A minor severity signal — a negative sentiment post in a low-reach context with flat engagement — gets logged, assigned for monitoring, and reviewed at the next regular check-in rather than triggering an immediate escalation.
 
@@ -56,6 +81,9 @@ The gate is the professional moment this chapter has been building toward, and i
 That rule is not about distrust of AI capability. The agent can draft a response that is accurate, appropriate in register, and well-timed. The rule is about accountability. A public response from the brand is a statement that the brand is responsible for, that can be quoted, screenshotted, and cited in future coverage, that creates legal and reputational exposure if it is wrong, and that may affect the brand's relationship with the person or organization it is responding to in ways that extend beyond the immediate exchange. No automated system can carry that accountability. It belongs to a named person who has the authority to speak for the brand and who will be responsible for the consequences.
 
 The holding language draft that the agent produces is subject to the same gate. It is a candidate, not a communication. The owner reviews it, edits it if needed, and authorizes it before it goes anywhere. The agent's efficiency at drafting is genuinely useful — it means the owner is reviewing and approving rather than writing from scratch under time pressure, which is better for the quality of the output. But the review and approval are not optional steps that can be removed when the situation is moving quickly. Speed that skips the gate is not a feature. It is a liability.
+
+![Horizontal flow from signal detected through digest entry, owner review, response authorized, to response sent, with a vertical gate line between review and authorization separating agent-capable actions above from human-required authorizations below.](images/15-media-coverage-and-issue-routing-fig-04.png)
+*Figure 15.4 — The response gate*
 
 <!-- → [DIAGRAM: The response gate — a horizontal flow from "signal detected" through "digest entry created" through "owner reviews" through "response authorized" to "response sent." A vertical gate line between "owner reviews" and "response authorized," labeled "human decision required." Above the gate: what the agent can do (monitor, classify, summarize, draft candidates). Below the gate: what requires human authorization (severity confirmation, escalation path, response content, timing). Caption: The gate is not a bottleneck. It is where professional accountability lives.] -->
 
@@ -88,3 +116,23 @@ Prompt suggestion: *"Help me design an issue-routing response policy for a brand
 Take a completed routing digest and review each classification for accuracy. For each entry, ask: does the issue class match the signal's actual character, or has the agent defaulted to a category that is close but not right? For each misclassification you find, write a correction and a note explaining what signal feature the agent likely over-weighted or under-weighted to reach the wrong classification. Then identify the two or three signal types that are most likely to be systematically misclassified by a language model and explain what human review step would catch each one.
 
 Prompt suggestion: *"Here is a routing digest with ten entries. Review each classification against the issue taxonomy. For each one, tell me whether the class is correct, and if not, what it should be and why the model likely got it wrong. Then tell me which two or three issue types in this taxonomy are most likely to produce systematic misclassification and what the human review step should be for each."*
+
+---
+
+## Prompts
+
+### Figure 15.1 — The issue-routing digest structure
+**Files:** images/15-media-coverage-and-issue-routing-fig-01.svg
+**Prompt:** Structural schematic of one digest row as nine aligned cells on white, with a small qualifier glyph marking the sentiment cell as model judgment, the response-gate cell drawn at a heavier stroke as the load-bearing cell, and the holding-language cell drawn with a dashed outline to mark it as an optional candidate. JetBrains Mono numerals, no example values, brutalist palette only.
+
+### Figure 15.2 — Issue taxonomy decision tree
+**Files:** images/15-media-coverage-and-issue-routing-fig-02.svg · d3/15-media-coverage-and-issue-routing-fig-02.html
+**Prompt:** Decision-tree flowchart on white: an incoming signal cascades through five ink diamonds, each yes-branching to one of seven rounded class termini and continuing down on no, falling through to neutral or positive coverage; the crisis-signal and reputation-risk termini drawn in red as high-stakes classes. Single-headed arrows, EB Garamond title, brutalist palette only.
+
+### Figure 15.3 — Severity factors for media signals
+**Files:** images/15-media-coverage-and-issue-routing-fig-03.svg
+**Prompt:** Balanced two-column comparison on white with a central fulcrum motif: factors that raise a media signal's severity stacked on one side and their mirror factors that lower it on the other, framing severity as a weighing rather than a feeling. Inter labels, no alarm iconography, brutalist palette only.
+
+### Figure 15.4 — The response gate
+**Files:** images/15-media-coverage-and-issue-routing-fig-04.svg · d3/15-media-coverage-and-issue-routing-fig-04.html
+**Prompt:** Horizontal five-stage flow on white — signal detected, digest entry, owner reviews, response authorized, response sent — with a red vertical gate line between review and authorization, agent-capable actions banded above and human-required authorizations banded below. Single-headed arrows, EB Garamond title, brutalist palette only.

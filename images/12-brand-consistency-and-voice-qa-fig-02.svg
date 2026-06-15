@@ -1,0 +1,66 @@
+<!--
+  Title: The Recipe Input Chain
+  Book: Madison Plus One
+  Chapter: 12-brand-consistency-and-voice-qa
+  Figure 02
+  Type: systems diagram
+  Generated 2026-06-15
+  Source: pantry/12-brand-consistency-and-voice-qa-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+<title id="fig-title-02">The Recipe Input Chain</title>
+<desc>A systems diagram of QA inputs. Brand rules and the voice guide feed review criteria, which the agent applies to touchpoints. An accessibility check runs in parallel and a claims/proof map feeds the evidentiary layer. All streams converge on the QA matrix, which closes at a human-decision gate. Missing inputs change the epistemic status of findings, not the process.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="12-brand-consistency-and-voice-qa" figure-number="02" figure-title="The Recipe Input Chain" figure-slug="the-recipe-input-chain" figure-type="systems diagram" priority="Important" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/12-brand-consistency-and-voice-qa-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="350" y="40" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The Recipe Input Chain</text>
+
+<!-- source nodes -->
+<rect x="32" y="92" width="104" height="40" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<text x="84" y="116" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Brand rules</text>
+<rect x="32" y="152" width="104" height="40" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<text x="84" y="176" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Voice guide</text>
+
+<line x1="136" y1="112" x2="194" y2="138" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="136" y1="172" x2="194" y2="146" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- review criteria -->
+<rect x="198" y="122" width="104" height="44" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<text x="250" y="141" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Review</text>
+<text x="250" y="156" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">criteria</text>
+
+<line x1="302" y1="144" x2="360" y2="144" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- touchpoints (agent applies) -->
+<rect x="364" y="122" width="104" height="44" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<text x="416" y="141" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Touchpoints</text>
+<text x="416" y="156" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">(agent applies)</text>
+
+<!-- parallel accessibility (dashed) -->
+<rect x="198" y="40" width="120" height="36" fill="#FFFFFF" stroke="#C8860E" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="258" y="62" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8860E">Accessibility check</text>
+<line x1="318" y1="62" x2="510" y2="120" stroke="#C8860E" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+<!-- claims/proof map feeding evidentiary -->
+<rect x="198" y="206" width="120" height="40" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<text x="258" y="225" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Claims / proof</text>
+<text x="258" y="239" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">map</text>
+<line x1="318" y1="226" x2="510" y2="166" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<line x1="468" y1="144" x2="506" y2="144" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- QA matrix (convergence) -->
+<rect x="510" y="120" width="120" height="50" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="570" y="141" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">QA matrix</text>
+<text x="570" y="156" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">(convergence)</text>
+
+<line x1="570" y1="170" x2="570" y2="262" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- human decision close (dominant) -->
+<rect x="490" y="266" width="160" height="50" fill="#2a1a0e" stroke="#2a1a0e" stroke-width="1"/>
+<text x="570" y="288" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#FFFFFF">Human decision</text>
+<text x="570" y="303" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#FFFFFF">closes each row</text>
+
+<text x="350" y="356" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">The accessibility check runs concurrently; every stream resolves at the human gate.</text>
+<text x="350" y="378" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Missing inputs change the epistemic status of findings, not the process.</text>
+</svg>

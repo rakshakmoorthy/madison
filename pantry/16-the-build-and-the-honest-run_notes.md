@@ -25,7 +25,7 @@ This chapter should require one complete, bounded Madison run: choose a brand or
 ## D. Connections and Dependencies
 
 - Integrates every prior chapter.
-- Mirrors the repository's own governance model from `MYCROFT.md`.
+- Mirrors the repository's own governance model from `SNICKERDOODLE.md`.
 - Provides the capstone artifact for a portfolio or workplace handoff.
 
 ## E. Current State and Teaching Considerations
@@ -37,7 +37,7 @@ This chapter should require one complete, bounded Madison run: choose a brand or
 ## Repo Source Map
 
 - TIKTOC.md
-- MYCROFT.md
+- SNICKERDOODLE.md
 - DOMAIN.md
 - DATA_CONTRACT.md
 - docs/data-and-provenance.md

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Issue taxonomy decision tree</title>
+<style>
+  :root {
+    --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+    --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+      --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+  #chart { width: 100%; }
+  .diamond { fill: var(--color-fill); stroke: var(--color-ink); stroke-width: 1.5; }
+  .term { fill: var(--color-fill); stroke: var(--color-secondary); stroke-width: 1.5; }
+  .term.high { stroke: var(--color-red); stroke-width: 2; }
+  .term.pos  { stroke: var(--color-ink); stroke-width: 1.5; }
+  .lbl { font-family: 'Inter', sans-serif; font-size: 10.5px; fill: var(--color-ink); }
+  .lbl-q { font-family: 'Inter', sans-serif; font-size: 10px; fill: var(--color-secondary); }
+  .yes { font-family: 'JetBrains Mono', monospace; font-size: 9px; fill: var(--color-secondary); }
+  .flow { stroke: var(--color-ink); stroke-width: 1.5; fill: none; }
+  .chart-title { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; fill: var(--color-ink); }
+  .caption { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-secondary); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = {
+  steps: [
+    { q: ["Factual error", "about the brand?"], cls: "Factual error",      kind: "norm" },
+    { q: ["Product / service", "problem?"],      cls: "Product complaint",  kind: "norm" },
+    { q: ["Controversy", "association?"],         cls: "Reputation risk",    kind: "high" },
+    { q: ["Rapid escalation", "pattern?"],        cls: "Crisis signal",      kind: "high" },
+    { q: ["Competitor", "comparison?"],           cls: "Competitive mention",kind: "norm" }
+  ],
+  fall: { cls: ["Neutral or", "positive coverage"], kind: "pos" }
+};
+
+async function loadData() {
+  try { return await d3.json('./15-media-coverage-and-issue-routing-fig-02/data.json'); }
+  catch { return FALLBACK_DATA; }
+}
+
+function draw(data) {
+  d3.select('#chart').selectAll('*').remove();
+  const W = document.getElementById('chart').clientWidth || 700;
+  const H = 420;
+  const svg = d3.select('#chart').append('svg')
+    .attr('width', W).attr('height', H).attr('viewBox', `0 0 ${W} ${H}`)
+    .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+  svg.append('title').attr('id','chart-title').text('Issue taxonomy decision tree');
+  svg.append('desc').attr('id','chart-desc').text('An incoming signal cascades through five yes/no tests, branching to one of seven issue classes; if all tests are no it falls through to neutral or positive coverage.');
+
+  svg.append('defs').append('marker').attr('id','arrow')
+    .attr('markerWidth',8).attr('markerHeight',6).attr('refX',7).attr('refY',3).attr('orient','auto')
+    .append('polygon').attr('points','0 0, 8 3, 0 6').attr('fill','var(--color-ink)');
+
+  svg.append('text').attr('class','chart-title').attr('x', W/2).attr('y', 34).attr('text-anchor','middle').text('Issue taxonomy decision tree');
+
+  const leftX = Math.max(90, W*0.18);
+  const termX = Math.min(W-110, W*0.66);
+  const top = 70, bot = 56;
+  const n = data.steps.length;
+  const rowH = (H - top - bot) / (n + 0.5);
+  const dW = 70, dH = 36, tW = 130, tH = 32;
+
+  function diamond(cx, cy) {
+    return `${cx},${cy-dH/2} ${cx+dW/2},${cy} ${cx},${cy+dH/2} ${cx-dW/2},${cy}`;
+  }
+
+  // entry label
+  svg.append('text').attr('class','lbl-q').attr('x', leftX).attr('y', top-18).attr('text-anchor','middle').text('Incoming signal');
+
+  data.steps.forEach((s, i) => {
+    const cy = top + i*rowH + dH;
+    // diamond
+    const g = svg.append('g').attr('tabindex',0).attr('role','group').attr('aria-label', `${s.q.join(' ')} If yes: ${s.cls}.`);
+    g.append('polygon').attr('class','diamond').attr('points', diamond(leftX, cy));
+    s.q.forEach((ln, li) => g.append('text').attr('class','lbl-q').attr('x', leftX).attr('y', cy-3+li*11).attr('text-anchor','middle').text(ln));
+    // yes branch to terminal
+    svg.append('text').attr('class','yes').attr('x', leftX+dW/2+8).attr('y', cy-4).text('yes');
+    svg.append('path').attr('class','flow').attr('marker-end','url(#arrow)')
+      .attr('d', `M${leftX+dW/2},${cy} L${termX-tW/2-4},${cy}`);
+    // terminal
+    const cls = s.kind === 'high' ? 'term high' : 'term';
+    const t = svg.append('g');
+    t.append('rect').attr('class', cls).attr('x', termX-tW/2).attr('y', cy-tH/2).attr('width', tW).attr('height', tH);
+    t.append('text').attr('class','lbl').attr('x', termX).attr('y', cy+4).attr('text-anchor','middle').text(s.cls);
+    // down to next (no branch)
+    if (i < n-1) {
+      const ny = top + (i+1)*rowH + dH;
+      svg.append('text').attr('class','yes').attr('x', leftX+6).attr('y', cy+dH/2+12).text('no');
+      svg.append('path').attr('class','flow').attr('marker-end','url(#arrow)')
+        .attr('d', `M${leftX},${cy+dH/2} L${leftX},${ny-dH/2-2}`);
+    }
+  });
+
+  // fall-through terminal
+  const lastCy = top + (n-1)*rowH + dH;
+  const fy = lastCy + rowH*0.9;
+  svg.append('text').attr('class','yes').attr('x', leftX+6).attr('y', lastCy+dH/2+12).text('no');
+  svg.append('path').attr('class','flow').attr('marker-end','url(#arrow)')
+    .attr('d', `M${leftX},${lastCy+dH/2} L${leftX},${fy-tH/2-2}`);
+  const ft = svg.append('g');
+  ft.append('rect').attr('class','term pos').attr('x', leftX-tW/2).attr('y', fy-tH/2).attr('width', tW).attr('height', tH);
+  data.fall.cls.forEach((ln, li) => ft.append('text').attr('class','lbl').attr('x', leftX).attr('y', fy-3+li*13).attr('text-anchor','middle').text(ln));
+
+  svg.append('text').attr('class','caption').attr('x', W/2).attr('y', H-14).attr('text-anchor','middle')
+    .text('The agent classifies; the human confirms.');
+}
+
+loadData().then(data => {
+  draw(data);
+  new ResizeObserver(() => draw(data)).observe(document.getElementById('chart'));
+});
+</script>
+</body>
+</html>

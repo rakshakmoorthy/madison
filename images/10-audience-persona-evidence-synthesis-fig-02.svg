@@ -1,0 +1,52 @@
+<!--
+  Persona Evidence Sheet Structure
+  Book: Madison Plus One
+  Chapter: 10-audience-persona-evidence-synthesis
+  Figure 02
+  Type: structural schematic
+  Generated 2026-06-15
+  Source: pantry/10-audience-persona-evidence-synthesis-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+  <title id="fig-title-02">Persona Evidence Sheet Structure</title>
+  <desc>One annotated row of the seven-column persona evidence sheet: Evidence, Source, Audience Dimension, Inference, Confidence, Contradiction, and an accented Excluded Assumption cell with an outbound arrow. The audience-dimension cell sorts each row into need, pain, trigger, objection, or context. The confidence cell shows three states: single source, multiple sources, contradicted.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="10-audience-persona-evidence-synthesis" figure-number="02" figure-title="Persona Evidence Sheet Structure" figure-slug="persona-evidence-sheet-structure" figure-type="structural schematic" priority="Critical" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/10-audience-persona-evidence-synthesis-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">Persona Evidence Sheet Structure</text>
+  <text x="32" y="60" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">The sheet captures observations plus their provenance, corroboration, conflicts, and what was left out.</text>
+
+  <!-- 7 cells, uniform height. x 40..660 -->
+  <g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">
+    <rect x="40" y="110" width="80" height="150" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="80" y="130" text-anchor="middle">Evidence</text>
+    <rect x="120" y="110" width="70" height="150" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="155" y="130" text-anchor="middle">Source</text>
+    <!-- Audience Dimension with 5 sub-markers -->
+    <rect x="190" y="110" width="120" height="150" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="250" y="130" text-anchor="middle">Audience dim.</text>
+    <rect x="202" y="142" width="96" height="18" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/><text x="250" y="155" text-anchor="middle">need</text>
+    <rect x="202" y="164" width="96" height="18" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/><text x="250" y="177" text-anchor="middle">pain</text>
+    <rect x="202" y="186" width="96" height="18" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/><text x="250" y="199" text-anchor="middle">trigger</text>
+    <rect x="202" y="208" width="96" height="18" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/><text x="250" y="221" text-anchor="middle">objection</text>
+    <rect x="202" y="230" width="96" height="18" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/><text x="250" y="243" text-anchor="middle">context</text>
+
+    <rect x="310" y="110" width="80" height="150" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="350" y="130" text-anchor="middle">Inference</text>
+    <!-- Confidence with 3-state indicator -->
+    <rect x="390" y="110" width="100" height="150" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="440" y="130" text-anchor="middle">Confidence</text>
+    <rect x="404" y="150" width="72" height="22" fill="#C8102E"/><text x="440" y="165" fill="#FFFFFF" text-anchor="middle">multiple</text>
+    <rect x="404" y="178" width="72" height="22" fill="#787878"/><text x="440" y="193" fill="#FFFFFF" text-anchor="middle">single</text>
+    <rect x="404" y="206" width="72" height="22" fill="#2a1a0e"/><text x="440" y="221" fill="#FFFFFF" text-anchor="middle">contradicted</text>
+
+    <rect x="490" y="110" width="80" height="150" fill="#FFFFFF" stroke="#787878" stroke-width="1"/><text x="530" y="130" text-anchor="middle">Contradict.</text>
+    <!-- Excluded Assumption accented -->
+    <rect x="570" y="110" width="90" height="150" fill="#FFFFFF" stroke="#C8860E" stroke-width="1.5"/><text x="615" y="126" text-anchor="middle">Excluded</text><text x="615" y="139" text-anchor="middle">assumption</text>
+  </g>
+
+  <!-- outbound arrow from excluded cell -->
+  <line x1="660" y1="185" x2="680" y2="185" stroke="#C8860E" stroke-width="1.5"/>
+  <line x1="615" y1="260" x2="615" y2="300" stroke="#C8860E" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <text x="615" y="318" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454" text-anchor="middle">becomes a tracked</text>
+  <text x="615" y="332" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454" text-anchor="middle">research question</text>
+
+  <text x="40" y="294" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" font-style="italic" fill="#545454">The excluded assumption is a research agenda, not a failure record.</text>
+</svg>

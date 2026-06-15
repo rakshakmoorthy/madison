@@ -17,7 +17,18 @@ Before you can reallocate anything, you need a vocabulary for the different kind
 
 But there is other work that has no pattern. Deciding whether a campaign idea is true to a brand's actual identity requires knowing things that aren't in any brief — the accumulated history of what the brand has claimed and whether those claims held up, the tacit understanding of how this particular client responds to risk, the judgment about whether this cultural moment is the right one or the wrong one. That work cannot be delegated. Not because the tool lacks capability in some narrow technical sense, but because the output of that work is not a file. It is accountability. Someone's professional judgment is attached to it. The decision is theirs.
 
-<!-- → [TABLE: Two-column classification of brand work — left column: "Pattern Work (AI-assistable)," right column: "Judgment Work (Human-only)" — rows include: drafting variants, headline generation, brief formatting, claim extraction, research summarization (left) vs. audience prioritization, claim approval, brand identity calls, campaign strategy, legal clearance decisions (right) — caption: The point is not which list is longer; the point is that collapsing the two categories is where professional risk accumulates.] -->
+| Pattern Work (AI-assistable) | Judgment Work (Human-only) |
+|---|---|
+| Drafting variants | Audience prioritization |
+| Headline generation | Claim approval |
+| Brief formatting | Brand identity calls |
+| Claim extraction | Campaign strategy |
+| Research summarization | Legal clearance decisions |
+
+*Table 2.1 — The point is not which list is longer; the point is that collapsing the two categories is where professional risk accumulates.*
+
+![A two-column comparison panel contrasting two kinds of brand work — the left column holds five reserved rows for pattern work that AI can assist with (drafting variants, headline generation, brief formatting, claim extraction, research summarization); the right column holds five reserved rows for judgment work that must stay human (audience prioritization, claim approval, brand identity calls, campaign strategy, legal clearance), separated by a thin vertical divider](images/02-the-reallocation-principle-fig-04.png)
+*Figure 2.4 — Pattern work vs judgment work*
 
 Call these two categories execution and judgment, for short. Execution is the work that produces artifacts from known inputs according to known patterns. Judgment is the work that decides what the artifacts are for, whether they are good enough, and who is accountable when they move.
 
@@ -26,6 +37,9 @@ A third category sits between them: evidence. Evidence is the work of making cla
 Then there is approval. Approval is the gate. It is the moment when a practitioner says, in effect: I have seen what this artifact claims, I understand what it will do when it moves forward, and I accept responsibility for that. No AI participates in approval. The gate is a human act. This is not a technical limitation. It is the definition of what professional accountability means.
 
 And finally there is learning. Learning is the work of extracting signal from outcomes — did this campaign claim perform? Was the audience hypothesis correct? What does a pattern across the last six months tell us about what works for this client? Learning is chronically under-resourced in agency and brand team work because execution pressure is relentless. But without learning, the team runs the same experiments and draws the same wrong conclusions on an accelerating treadmill.
+
+![Five sequential stages of brand work connected by single forward arrows — Execution, Evidence, Judgment, Approval, Learning — with a curved feedback arrow returning from Learning to Execution; the AI-assistable stages (Execution, Evidence) are distinguished from the human-only stages (Judgment, Approval, Learning interpretation)](images/02-the-reallocation-principle-fig-01.png)
+*Figure 2.1 — The five work types flow*
 
 <!-- → [DIAGRAM: Linear flow of five work types — Execution → Evidence → Judgment → Approval → Learning — with a feedback arrow from Learning back to Execution. Annotated to show where AI can assist (Execution, Evidence gathering) vs. where humans must act (Judgment, Approval, and the interpretation half of Learning). Caption: The flow is linear per campaign but cyclical across campaigns; the learning gate feeds the next round of execution.] -->
 
@@ -43,7 +57,15 @@ This is where teams go wrong most reliably. A tool that produces a well-formatte
 
 The test for whether a task is an automation candidate is this: if the AI produces the output and no human makes an explicit decision about it, what happens? If the answer is "nothing breaks visibly" — that is a warning sign, not clearance. What breaks invisibly is the chain of accountability. Two months later when a claim is challenged, nobody can say who decided it was the right claim. Nobody logged the verification step. The artifact exists; the professional judgment does not.
 
-<!-- → [TABLE: Automation candidate assessment — columns: Task, Category, AI can assist with, Human must decide, Approval gate — sample rows: "draft headline variants" (Execution / yes / which variant advances / creative director sign-off), "summarize research report" (Evidence / yes / whether summary is accurate / strategist verification), "audience segmentation" (Judgment / no / who the audience is and why / account lead + client), "legal claim review" (Approval / no / whether claim is cleared / legal + brand), "post-campaign analysis" (Learning / partially / pattern identification / strategist interpretation). Caption: The AI column and the Human column are not competitive; they are complementary. Both must be populated.] -->
+| Task | Category | AI can assist with | Human must decide | Approval gate |
+|---|---|---|---|---|
+| Draft headline variants | Execution | Yes | Which variant advances | Creative director sign-off |
+| Summarize research report | Evidence | Yes | Whether summary is accurate | Strategist verification |
+| Audience segmentation | Judgment | No | Who the audience is and why | Account lead + client |
+| Legal claim review | Approval | No | Whether claim is cleared | Legal + brand |
+| Post-campaign analysis | Learning | Partially | Pattern identification | Strategist interpretation |
+
+*Table 2.2 — The AI column and the Human column are not competitive; they are complementary. Both must be populated.*
 
 A properly classified task list tells you where your attention should go. Not where the AI cannot help — the AI can help with more than people use it for. But where the professional stakes live. The judgment tasks, the approval gates, and the learning synthesis are the places where a practitioner's expertise is non-substitutable. If those are being squeezed because execution now takes less time, the team is trading its professional core for throughput.
 
@@ -56,6 +78,9 @@ Suppose the reallocation works. AI handles execution. The team frees up three ho
 This is not rhetorical. Teams that implement automation without specifying reinvestment watch the freed time disappear into the ambient pressure of more work — more execution, faster cycles, higher volume. The output number goes up. The judgment quality stays flat or degrades because judgment requires sustained attention and that attention is now getting interrupted by the additional volume.
 
 The reinvestment decision is the Reallocation Principle in practice. It requires naming, specifically, what decision is going to improve because AI is handling lower-level work. Not "we will have more time for strategy." That is a category, not a decision. The specific form is: "We are going to invest the time we recover from brief formatting into a weekly audience review, which will let us make an explicit decision about audience prioritization rather than inheriting the default from the previous campaign."
+
+![Two horizontal stacked bars of equal length comparing a brand team's week — the current week is dominated by Execution at roughly sixty percent, while the reallocated week compresses Execution to about thirty percent and expands Judgment and Learning; each segment keeps a consistent colour across both bars and the values are illustrative](images/02-the-reallocation-principle-fig-02.png)
+*Figure 2.2 — Time reallocation: current vs reallocated week*
 
 <!-- → [CHART: Before/after time allocation bar chart — two horizontal stacked bars, one labeled "Current Week" and one labeled "Reallocated Week" — segments for Execution, Evidence, Judgment, Approval, Learning — Current Week shows Execution at approximately 60%, other categories thin — Reallocated Week shows Execution compressed to approximately 30%, Learning and Judgment expanded — caption: The numbers are illustrative; the point is that reallocation without explicit reinvestment means the freed time fills with more execution, not better judgment.] -->
 
@@ -79,6 +104,9 @@ Approval: who decides whether the output moves forward? This is the gate questio
 
 Verification: what evidence would make the output defensible? This is the evidence question. A generated claim is not evidence. A claim with a traceable source, a logged verification step, and a named reviewer is evidence. The distinction is not pedantic. When a campaign claim gets challenged — by a client, by legal, by a regulator, by the market — the question is not whether the claim is in a document. It is whether anyone checked it.
 
+![A triangular systems diagram with three corner nodes — Scope, Approval, Verification — surrounding a central emphasized node labelled Accountable Output; each corner is linked to the centre and to the other corners, signalling a mutually reinforcing set rather than a sequence](images/02-the-reallocation-principle-fig-03.png)
+*Figure 2.3 — The supervision frame*
+
 <!-- → [DIAGRAM: Three-node supervision frame — nodes labeled Scope, Approval, Verification — arranged as a triangle with arrows between each — central label "Accountable Output" — each node annotated with the question it answers (Scope: "What was the agent allowed to do?", Approval: "Who decides if this moves forward?", Verification: "What evidence supports this claim?"). Caption: The three questions are not sequential; they must all be answered before an AI-assisted output crosses a professional gate.] -->
 
 The Madison posture — the operating framework this book is built around — uses the supervision frame as the minimum standard for any AI-assisted workflow. Execution work moves through AI assistance; judgment, approval, and evidence work stays explicitly human; the boundary between them is logged, not assumed.
@@ -97,7 +125,16 @@ The hypothesis is one sentence. "By automating [X], we free [Y hours] to reinves
 
 If you cannot write the hypothesis, you do not have a plan. You have a list. The hypothesis is the thing that makes the list purposeful — it names the decision that is supposed to get better, which means you can check in a week whether it did.
 
-<!-- → [TABLE: Sample reallocation plan — columns: Task, Current Time, Category, AI Assistance, Human Gate — rows: "Draft social variants" (4 hrs / Execution / generate options / creative director selects and approves), "Summarize brief inputs" (2 hrs / Evidence / extract and organize / strategist verifies accuracy), "Audience prioritization" (1 hr / Judgment / none / account lead decides with client context), "Claim verification" (1 hr / Approval / identify claims for review / legal and brand confirm), "Post-sprint retro" (1 hr / Learning / generate pattern summary / team interprets and logs decisions) — final row: Reinvestment Hypothesis with text spanning columns. Caption: The plan is a hypothesis, not a contract. Its value is in making the expected decision improvement explicit so the team can check whether it happened.] -->
+| Task | Current Time | Category | AI Assistance | Human Gate |
+|---|---|---|---|---|
+| Draft social variants | 4 hrs | Execution | Generate options | Creative director selects and approves |
+| Summarize brief inputs | 2 hrs | Evidence | Extract and organize | Strategist verifies accuracy |
+| Audience prioritization | 1 hr | Judgment | None | Account lead decides with client context |
+| Claim verification | 1 hr | Approval | Identify claims for review | Legal and brand confirm |
+| Post-sprint retro | 1 hr | Learning | Generate pattern summary | Team interprets and logs decisions |
+| **Reinvestment Hypothesis** | colspan → | By automating social-variant drafting we free ~3 hrs/week, reinvested into a weekly audience review, which should improve the explicitness of the audience-prioritization decision — checkable against next sprint's brief. | | |
+
+*Table 2.3 — The plan is a hypothesis, not a contract. Its value is in making the expected decision improvement explicit so the team can check whether it happened.*
 
 One constraint worth keeping: no approval gate disappears in the plan. If execution gets faster, the approval work should get better — more thorough, more explicit, more traceable — not eliminated. A workflow in which automation speeds up execution and compresses approval is a workflow optimizing for volume at the expense of accountability. That trade degrades in the same direction as the social variant story at the start of this chapter: twenty artifacts, zero ownership, two days of argument.
 
@@ -159,3 +196,23 @@ Ask the LLM to help you draft a reallocation plan in table form using the five-c
 **Challenge**
 
 9. *(Open-ended)* The Reallocation Principle assumes that professional accountability in advertising is load-bearing — that better judgment decisions produce meaningfully better outcomes. The counter-argument is that approval gates are largely ceremonial, and that producing more artifacts faster is the rational response to market pressure regardless of decision quality. Design a test you could run over four weeks that would produce evidence bearing on this question. What would you measure? What result would support the Reallocation Principle? What result would challenge it? *What this tests: whether you can treat the chapter's central claim as a hypothesis rather than a conclusion, and reason about what evidence would actually move the question.*
+
+---
+
+## Prompts
+
+### Figure 2.1 — The five work types flow
+**Files:** images/02-the-reallocation-principle-fig-01.svg · d3/02-the-reallocation-principle-fig-01.html
+**Prompt:** Render a brutalist left-to-right flow of five rounded-rectangle stages — Execution, Evidence, Judgment, Approval, Learning — with single-headed forward arrows and one ochre dashed feedback arrow looping Learning back to Execution. Stroke AI-assistable stages (Execution, Evidence) in secondary grey and human-only stages (Judgment, Approval, Learning) in red. Hardcoded palette (ink #2a1a0e, red #C8102E, secondary #545454, border #D4D4D4, ochre #C8860E, white #FFFFFF), no robot or person icons.
+
+### Figure 2.2 — Time reallocation: current vs reallocated week
+**Files:** images/02-the-reallocation-principle-fig-02.svg · d3/02-the-reallocation-principle-fig-02.html
+**Prompt:** Render a brutalist two-bar horizontal stacked chart, both bars equal length anchored at a common left zero, segmented Execution / Evidence / Judgment / Approval / Learning in fixed order. Current week: Execution ~60% in red, others thin neutral greys. Reallocated week: Execution ~30%, Judgment and Learning expanded. JetBrains Mono value labels, Inter legend. Hardcoded palette (Execution #C8102E, neutrals #787878 / #2a1a0e / #ADADAD / #545454, white #FFFFFF), zero baseline, no 3D.
+
+### Figure 2.3 — The supervision frame
+**Files:** images/02-the-reallocation-principle-fig-03.svg · d3/02-the-reallocation-principle-fig-03.html
+**Prompt:** Render a brutalist triangle of three corner nodes — Scope, Approval, Verification — with hairline edges between them and dashed spokes to a central red Accountable Output node. Place each corner's guiding question beside it in JetBrains Mono. No sequence numbers, no ordered arrows. Hardcoded palette (corners ochre #C8860E / secondary #545454 / ink #2a1a0e, central node red #C8102E, edges/border #D4D4D4, white #FFFFFF).
+
+### Figure 2.4 — Pattern work vs judgment work
+**Files:** images/02-the-reallocation-principle-fig-04.svg
+**Prompt:** Render a brutalist two-column comparison with a thin vertical divider — left column "Pattern Work (AI-assistable)" with five empty rounded rows, right column "Judgment Work (Human-only)" with five empty rounded rows. Distinguish the headers (secondary grey left, red right) without implying one column is superior. Hardcoded palette (ink #2a1a0e, red #C8102E, secondary #545454, border #D4D4D4, fill #F5F5F5 rows, white #FFFFFF), no arrows, no rendered task text.

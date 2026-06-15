@@ -1,0 +1,56 @@
+<!--
+  The Two Customers of a Recipe
+  Book: Madison Plus One
+  Chapter: 04-two-customers
+  Figure 01
+  Type: comparison panels
+  Generated 2026-06-15
+  Source: pantry/04-two-customers-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+  <title id="fig-title-01">The Two Customers of a Recipe</title>
+  <desc>Two equal columns joined by a shared spine, showing the two customers every recipe must serve at once. The executing agent needs explicit inputs, a clear transformation, an output schema, and graceful anomaly handling. The human maintainer needs the purpose, the decision it supports, the review point and its meaning, and the ability to modify the recipe. Their needs are partly in tension.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="04-two-customers" figure-number="01" figure-title="The Two Customers of a Recipe" figure-slug="the-two-customers-of-a-recipe" figure-type="comparison panels" priority="Critical" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/04-two-customers-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="44" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Every recipe serves two customers at once</text>
+
+  <!-- Left header -->
+  <rect x="32" y="72" width="300" height="40" fill="#787878"/>
+  <text x="182" y="92" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">The executing agent needs</text>
+
+  <!-- Right header -->
+  <rect x="368" y="72" width="300" height="40" fill="#C8102E"/>
+  <text x="518" y="92" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">The human maintainer needs</text>
+
+  <!-- shared spine -->
+  <line x1="350" y1="64" x2="350" y2="356" stroke="#2a1a0e" stroke-width="2"/>
+  <text x="350" y="378" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">one recipe must satisfy both — their needs are partly in tension</text>
+
+  <!-- Left rows -->
+  <g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">
+    <rect x="32" y="124" width="300" height="50" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+    <text x="48" y="154">Explicit inputs</text>
+    <rect x="32" y="182" width="300" height="50" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+    <text x="48" y="212">Clear transformation</text>
+    <rect x="32" y="240" width="300" height="50" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+    <text x="48" y="270">Output schema</text>
+    <rect x="32" y="298" width="300" height="50" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+    <text x="48" y="328">Graceful anomaly handling</text>
+  </g>
+
+  <!-- Right rows -->
+  <g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">
+    <rect x="368" y="124" width="300" height="50" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+    <text x="384" y="154">Purpose and decision supported</text>
+    <rect x="368" y="182" width="300" height="50" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+    <text x="384" y="212">Where the review point is</text>
+    <rect x="368" y="240" width="300" height="50" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+    <text x="384" y="270">Context enough to judge output</text>
+    <rect x="368" y="298" width="300" height="50" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+    <text x="384" y="328">Ability to modify the recipe</text>
+  </g>
+</svg>

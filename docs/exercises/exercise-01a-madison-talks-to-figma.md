@@ -5,7 +5,7 @@
 **Time:** one sitting if Exercise One is done; the untraceable-claims cleanup at your pace.
 **You need:** Exercise One complete (`brand/` exists; your Step 5 snapshot flagged some untraceable claims — those are this exercise's test data), a CLI agent, your Madison fork, a free Figma account.
 
-The principle (from `MYCROFT.md`, P1): **machines verify conformance; humans verify adequacy.** In Exercise One a grader eyeballed "every board claim traceable." Today that check becomes a program — and you'll see exactly where the program stops and your judgment starts. The board was a snapshot the day you captured it; from now on, Madison can tell you when it drifts.
+The principle (from `SNICKERDOODLE.md`, P1): **machines verify conformance; humans verify adequacy.** In Exercise One a grader eyeballed "every board claim traceable." Today that check becomes a program — and you'll see exactly where the program stops and your judgment starts. The board was a snapshot the day you captured it; from now on, Madison can tell you when it drifts.
 
 ---
 

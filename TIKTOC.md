@@ -199,9 +199,9 @@ This TIKTOC is grounded in `books/madison` as it exists now.
 
 ## Constitution and Domain Layer
 
-- `MYCROFT.md`: the governing constitution. It defines labor separation, verified data, provenance, gates, two customers, recipe lifecycle, comments, trust, and logging.
+- `SNICKERDOODLE.md`: the governing constitution. It defines labor separation, verified data, provenance, gates, two customers, recipe lifecycle, comments, trust, and logging.
 - `DOMAIN.md`: the Madison domain index: branding and marketing intelligence, current layout, runnable surfaces, quarantined folders, and course materials.
-- `AGENTS.md` and `CLAUDE.md`: generated instruction files. They enforce the house rule: read `MYCROFT.md` and `DOMAIN.md` before acting.
+- `AGENTS.md` and `CLAUDE.md`: generated instruction files. They enforce the house rule: read `SNICKERDOODLE.md` and `DOMAIN.md` before acting.
 - `logs/RUN_LOG.md`: the canonical history of meaningful runs, blockers, artifacts, and gate decisions.
 
 ## Recipe Layer
@@ -391,7 +391,7 @@ chapters/
 
 **Capability built:** Understand the book, repository, reader, and operating method.
 
-The introduction frames Madison as both a book and a working recipe repository. It names the central shift: AI makes brand execution cheaper, but it does not make audience judgment, claims judgment, taste, approval, or release judgment cheap. It orients the reader to `MYCROFT.md`, `DOMAIN.md`, `recipes/`, `prompts/`, `data/`, `logs/`, and `reports/`.
+The introduction frames Madison as both a book and a working recipe repository. It names the central shift: AI makes brand execution cheaper, but it does not make audience judgment, claims judgment, taste, approval, or release judgment cheap. It orients the reader to `SNICKERDOODLE.md`, `DOMAIN.md`, `recipes/`, `prompts/`, `data/`, `logs/`, and `reports/`.
 
 **Whole task:** Write a baseline inventory of the reader's current brand workflow and label each step as execution, evidence, judgment, or approval.  
 **Assessment:** Baseline brand-work allocation note.

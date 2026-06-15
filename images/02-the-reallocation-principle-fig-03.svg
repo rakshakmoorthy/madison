@@ -1,0 +1,50 @@
+<!--
+  The Supervision Frame
+  Book: Madison Plus One
+  Chapter: 02-the-reallocation-principle
+  Figure 03
+  Type: systems diagram
+  Generated 2026-06-15
+  Source: pantry/02-the-reallocation-principle-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+  <title id="fig-title-03">The Supervision Frame</title>
+  <desc>A triangle of three concurrent supervision questions surrounding a central accountable output. Scope asks what the agent was allowed to do. Approval asks who decides whether the output moves forward. Verification asks what evidence supports the claim. The three corners reinforce one another rather than running in sequence.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="02-the-reallocation-principle" figure-number="03" figure-title="The Supervision Frame" figure-slug="the-supervision-frame" figure-type="systems diagram" priority="Important" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/02-the-reallocation-principle-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="44" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The supervision frame around an accountable output</text>
+
+  <!-- Triangle edges (plain, non-directional) -->
+  <line x1="350" y1="96" x2="150" y2="332" stroke="#D4D4D4" stroke-width="1"/>
+  <line x1="350" y1="96" x2="550" y2="332" stroke="#D4D4D4" stroke-width="1"/>
+  <line x1="150" y1="332" x2="550" y2="332" stroke="#D4D4D4" stroke-width="1"/>
+
+  <!-- corner-to-center connectors -->
+  <line x1="350" y1="124" x2="350" y2="184" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="200" y1="320" x2="312" y2="236" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="500" y1="320" x2="388" y2="236" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Central accountable output -->
+  <rect x="280" y="190" width="140" height="56" fill="#C8102E"/>
+  <text x="350" y="214" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">Accountable</text>
+  <text x="350" y="232" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">output</text>
+
+  <!-- Top corner: Scope -->
+  <rect x="288" y="68" width="124" height="48" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="350" y="97" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Scope</text>
+  <text x="350" y="56" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">What was the agent allowed to do?</text>
+
+  <!-- Bottom-left corner: Approval -->
+  <rect x="64" y="316" width="124" height="48" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="126" y="345" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Approval</text>
+  <text x="126" y="384" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Who decides it moves forward?</text>
+
+  <!-- Bottom-right corner: Verification -->
+  <rect x="512" y="316" width="124" height="48" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="574" y="345" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Verification</text>
+  <text x="574" y="384" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">What evidence supports the claim?</text>
+</svg>

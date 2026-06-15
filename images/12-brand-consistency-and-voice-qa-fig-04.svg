@@ -1,0 +1,57 @@
+<!--
+  Title: Voice Finding Anatomy
+  Book: Madison Plus One
+  Chapter: 12-brand-consistency-and-voice-qa
+  Figure 04
+  Type: annotated example
+  Generated 2026-06-15
+  Source: pantry/12-brand-consistency-and-voice-qa-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04">
+<title id="fig-title-04">Voice Finding Anatomy</title>
+<desc>A side-by-side comparison. On the left, a weak opinion-based finding is a single faint isolated node. On the right, a strong finding is a connected chain of six components: rule reference, specific evidence, finding statement, severity, recommendation and owner. Only the right one is falsifiable.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="12-brand-consistency-and-voice-qa" figure-number="04" figure-title="Voice Finding Anatomy" figure-slug="voice-finding-anatomy" figure-type="annotated example" priority="Important" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/12-brand-consistency-and-voice-qa-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="350" y="40" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Voice Finding Anatomy</text>
+
+<!-- divider -->
+<line x1="240" y1="60" x2="240" y2="392" stroke="#D4D4D4" stroke-width="1"/>
+
+<!-- left: opinion -->
+<text x="136" y="80" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">Opinion</text>
+<rect x="76" y="190" width="120" height="56" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="136" y="214" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#ADADAD">Unsupported</text>
+<text x="136" y="230" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#ADADAD">assertion</text>
+<text x="136" y="290" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">No rule.</text>
+<text x="136" y="306" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Not falsifiable.</text>
+
+<!-- right: built chain -->
+<text x="470" y="80" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Defensible finding</text>
+
+<!-- anchor: rule reference (active green) -->
+<rect x="290" y="90" width="360" height="36" fill="#FFFFFF" stroke="#545454" stroke-width="1.5"/>
+<text x="305" y="113" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Rule reference (section marker)</text>
+<line x1="470" y1="126" x2="470" y2="138" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="290" y="140" width="360" height="36" fill="#FFFFFF" stroke="#C8102E" stroke-width="1"/>
+<text x="305" y="163" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Specific evidence (quoted line)</text>
+<line x1="470" y1="176" x2="470" y2="188" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="290" y="190" width="360" height="36" fill="#FFFFFF" stroke="#C8102E" stroke-width="1"/>
+<text x="305" y="213" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Finding statement</text>
+<line x1="470" y1="226" x2="470" y2="238" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="290" y="240" width="360" height="36" fill="#FFFFFF" stroke="#C8102E" stroke-width="1"/>
+<text x="305" y="263" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Severity</text>
+<line x1="470" y1="276" x2="470" y2="288" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="290" y="290" width="360" height="36" fill="#FFFFFF" stroke="#C8102E" stroke-width="1"/>
+<text x="305" y="313" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Recommendation</text>
+<line x1="470" y1="326" x2="470" y2="338" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="290" y="340" width="360" height="36" fill="#FFFFFF" stroke="#C8102E" stroke-width="1"/>
+<text x="305" y="363" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Owner</text>
+
+<text x="350" y="408" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">The test: can someone disagree by pointing to the rule? If not, it is an opinion.</text>
+</svg>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The persona evidence sheet structure</title>
+<style>
+  :root{--color-white:#FFFFFF;--color-ink:#2a1a0e;--color-red:#C8102E;
+    --color-secondary:#545454;--color-border:#D4D4D4;--color-ochre:#C8860E;}
+  @media (prefers-color-scheme: dark){
+    :root{--color-white:#111111;--color-ink:#F0EBE3;--color-red:#E8243A;
+      --color-secondary:#A0978C;--color-border:#2E2E2E;--color-ochre:#D49A30;}}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--color-white);color:var(--color-ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+  #chart{width:100%;}
+  .col{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;fill:var(--color-ink);}
+  .sub{font-family:'JetBrains Mono',monospace;font-size:8px;fill:var(--color-secondary);}
+  .cap{font-family:'EB Garamond',Georgia,serif;font-size:13px;font-style:italic;fill:var(--color-secondary);}
+  .tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-white);
+    border:1px solid var(--color-border);padding:6px 10px;font-size:13px;color:var(--color-ink);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA={
+  cols:["Evidence","Source","Dimension","Inference","Confidence","Contradiction","Excluded assumption"],
+  dimensions:["need","pain","trigger","objection","context"],
+  confidence:[{l:"single",c:"var(--color-secondary)"},{l:"multiple",c:"var(--color-ink)"},{l:"contradicted",c:"var(--color-red)"}]
+};
+const tooltip=d3.select('body').append('div').attr('class','tooltip');
+function showTip(e,h){tooltip.html(h).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px')
+  .transition().duration(150).style('opacity',1);}
+function moveTip(e){tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px');}
+function hideTip(){tooltip.transition().duration(100).style('opacity',0);}
+function draw(data){
+  d3.select('#chart').selectAll('*').remove();
+  const W=document.getElementById('chart').clientWidth||700, H=300;
+  const svg=d3.select('#chart').append('svg').attr('width',W).attr('height',H)
+    .attr('role','img').attr('aria-labelledby','c-title c-desc');
+  svg.append('title').attr('id','c-title').text('The persona evidence sheet structure');
+  svg.append('desc').attr('id','c-desc').text('One row of the seven-column persona evidence sheet with dimension sub-markers, a three-state confidence indicator, and an accented excluded-assumption cell.');
+  svg.append('defs').append('marker').attr('id','out').attr('markerWidth',9).attr('markerHeight',9).attr('refX',7).attr('refY',4).attr('orient','auto')
+    .append('path').attr('d','M0,0 L8,4 L0,8 z').attr('fill','var(--color-ochre)');
+  const m=14, y=60, ch=100;
+  const x=d3.scaleBand().domain(data.cols).range([m,W-m]).padding(0.05);
+  data.cols.forEach(c=>{
+    const excl=(c==='Excluded assumption');
+    svg.append('rect').attr('x',x(c)).attr('y',y).attr('width',x.bandwidth()).attr('height',ch)
+      .attr('fill','var(--color-white)').attr('stroke',excl?'var(--color-ochre)':'var(--color-border)').attr('stroke-width',excl?2:1)
+      .attr('tabindex',0).attr('aria-label','Column: '+c)
+      .on('mouseover',(e)=>showTip(e,'<strong>'+c+'</strong>')).on('mousemove',moveTip).on('mouseout',hideTip);
+    svg.append('text').attr('class','col').attr('x',x(c)+4).attr('y',y-6).text(c);
+    if(c==='Dimension'){
+      data.dimensions.forEach((dm,i)=>{
+        svg.append('rect').attr('x',x(c)+6).attr('y',y+10+i*16).attr('width',10).attr('height',10).attr('fill','var(--color-secondary)');
+        svg.append('text').attr('class','sub').attr('x',x(c)+20).attr('y',y+19+i*16).text(dm);
+      });
+    }
+    if(c==='Confidence'){
+      data.confidence.forEach((cf,i)=>{
+        svg.append('rect').attr('x',x(c)+6).attr('y',y+18+i*24).attr('width',10).attr('height',10).attr('fill',cf.c);
+        svg.append('text').attr('class','sub').attr('x',x(c)+20).attr('y',y+27+i*24).text(cf.l);
+      });
+    }
+    if(excl){
+      svg.append('line').attr('x1',x(c)+x.bandwidth()).attr('y1',y+ch/2).attr('x2',x(c)+x.bandwidth()+10).attr('y2',y+ch/2)
+        .attr('stroke','var(--color-ochre)').attr('stroke-width',2).attr('marker-end','url(#out)').attr('aria-hidden','true');
+    }
+  });
+  svg.append('text').attr('class','cap').attr('x',m).attr('y',H-12)
+    .text('The sheet captures observations, provenance, corroboration, conflicts, and what was left out.');
+}
+async function load(){try{return await d3.json('./10-audience-persona-evidence-synthesis-fig-02/data.json');}catch{return FALLBACK_DATA;}}
+load().then(d=>{draw(d);const ro=new ResizeObserver(()=>draw(d));ro.observe(document.getElementById('chart'));});
+</script>
+</body>
+</html>

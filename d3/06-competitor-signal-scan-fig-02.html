@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The agent–human division in a competitor scan</title>
+<style>
+  :root{
+    --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+    --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{--color-white:#111111;--color-ink:#F0EBE3;--color-red:#E8243A;
+      --color-secondary:#A0978C;--color-border:#2E2E2E;--color-ochre:#D49A30;}
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--color-white);color:var(--color-ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+  #chart{width:100%;}
+  .eyebrow{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;
+    letter-spacing:.06em;text-transform:uppercase;fill:var(--color-secondary);}
+  .node{font-family:'Inter',sans-serif;font-size:13px;fill:var(--color-ink);}
+  .gate{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;
+    letter-spacing:.06em;text-transform:uppercase;fill:var(--color-ochre);}
+  .cap{font-family:'EB Garamond',Georgia,serif;font-size:14px;font-style:italic;fill:var(--color-secondary);}
+  .tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-white);
+    border:1px solid var(--color-border);padding:6px 10px;font-size:13px;color:var(--color-ink);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = {
+  agent:["Gather public signals","Extract observable features","Normalize vocabulary","Flag contradictions","Identify patterns"],
+  human:["Define the competitor set","Assess category relevance","Interpret strategic meaning","Decide implications"]
+};
+const tooltip=d3.select('body').append('div').attr('class','tooltip');
+function showTip(event,html){tooltip.html(html).style('left',(event.pageX+12)+'px')
+  .style('top',(event.pageY-28)+'px').transition().duration(150).style('opacity',1);}
+function moveTip(event){tooltip.style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px');}
+function hideTip(){tooltip.transition().duration(100).style('opacity',0);}
+
+function draw(data){
+  d3.select('#chart').selectAll('*').remove();
+  const totalWidth=document.getElementById('chart').clientWidth||700;
+  const totalHeight=420;
+  const svg=d3.select('#chart').append('svg')
+    .attr('width',totalWidth).attr('height',totalHeight)
+    .attr('viewBox',`0 0 ${totalWidth} ${totalHeight}`)
+    .attr('role','img').attr('aria-labelledby','c-title c-desc');
+  svg.append('title').attr('id','c-title').text('The agent–human division in a competitor scan');
+  svg.append('desc').attr('id','c-desc').text('Two columns of tasks meet at a central gate; the agent gathers and extracts, the human decides implications.');
+
+  svg.append('defs').append('marker').attr('id','arr')
+    .attr('markerWidth',9).attr('markerHeight',9).attr('refX',7).attr('refY',4).attr('orient','auto')
+    .append('path').attr('d','M0,0 L8,4 L0,8 z').attr('fill','var(--color-red)');
+
+  const colW=Math.min(230,(totalWidth-160)/2);
+  const leftX=20, gateX=leftX+colW+20, gateW=60, rightX=gateX+gateW+20;
+  const rowH=40, gap=8, topY=56;
+
+  svg.append('text').attr('class','eyebrow').attr('x',leftX).attr('y',40).text('Agent');
+  svg.append('text').attr('class','eyebrow').attr('x',rightX).attr('y',40).text('Human');
+
+  svg.selectAll('.agent').data(data.agent).join('g').attr('class','agent').each(function(d,i){
+    const gg=d3.select(this);
+    gg.append('rect').attr('x',leftX).attr('y',topY+i*(rowH+gap)).attr('width',colW).attr('height',rowH)
+      .attr('fill','var(--color-white)').attr('stroke','var(--color-border)')
+      .attr('tabindex',0).attr('aria-label','Agent task: '+d)
+      .on('mouseover',(e)=>showTip(e,'<strong>Agent</strong><br>'+d)).on('mousemove',moveTip).on('mouseout',hideTip);
+    gg.append('text').attr('class','node').attr('x',leftX+14).attr('y',topY+i*(rowH+gap)+25).text(d);
+  });
+
+  const gateH=data.agent.length*(rowH+gap)-gap;
+  svg.append('rect').attr('x',gateX).attr('y',topY).attr('width',gateW).attr('height',gateH)
+    .attr('fill','var(--color-white)').attr('stroke','var(--color-ochre)').attr('stroke-width',3);
+  svg.append('text').attr('class','gate').attr('text-anchor','middle')
+    .attr('transform',`translate(${gateX+gateW/2},${topY+gateH/2}) rotate(-90)`).text('The gate');
+
+  svg.selectAll('.human').data(data.human).join('g').attr('class','human').each(function(d,i){
+    const gg=d3.select(this);
+    gg.append('rect').attr('x',rightX).attr('y',topY+i*(rowH+gap)).attr('width',colW).attr('height',rowH)
+      .attr('fill','var(--color-white)').attr('stroke','var(--color-ink)')
+      .attr('tabindex',0).attr('aria-label','Human task: '+d)
+      .on('mouseover',(e)=>showTip(e,'<strong>Human</strong><br>'+d)).on('mousemove',moveTip).on('mouseout',hideTip);
+    gg.append('text').attr('class','node').attr('x',rightX+14).attr('y',topY+i*(rowH+gap)+25).text(d);
+  });
+
+  const midY=topY+gateH/2;
+  svg.append('line').attr('x1',leftX+colW).attr('y1',midY).attr('x2',gateX).attr('y2',midY)
+    .attr('stroke','var(--color-red)').attr('stroke-width',2).attr('marker-end','url(#arr)').attr('aria-hidden','true');
+  svg.append('line').attr('x1',gateX+gateW).attr('y1',midY).attr('x2',rightX).attr('y2',midY)
+    .attr('stroke','var(--color-red)').attr('stroke-width',2).attr('marker-end','url(#arr)').attr('aria-hidden','true');
+
+  svg.append('text').attr('class','cap').attr('x',leftX).attr('y',topY+gateH+34)
+    .text("The agent's outputs become the human's inputs, not the human's conclusions.");
+}
+async function load(){try{return await d3.json('./06-competitor-signal-scan-fig-02/data.json');}catch{return FALLBACK_DATA;}}
+load().then(data=>{draw(data);const ro=new ResizeObserver(()=>draw(data));ro.observe(document.getElementById('chart'));});
+</script>
+</body>
+</html>

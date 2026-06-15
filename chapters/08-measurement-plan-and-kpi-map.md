@@ -19,7 +19,15 @@ A metric is a claim about the world, expressed as a number. That framing sounds 
 
 Clicks are easy. A click is a click. But "engagement rate" is not a click — it is a constructed ratio, and its meaning depends entirely on how you defined the numerator and denominator. Engagement rate using impressions in the denominator tells you something different from engagement rate using reach. Both are legitimate calculations. They answer different questions. If the metric is not defined — if it just says "engagement rate" with no formula — then every person reading the report is silently assuming their own denominator, and the discussion that follows is arguments about different numbers dressed up as arguments about the same one.
 
-<!-- → [TABLE: Common brand metrics with definitions unpacked — columns: Metric Name, Numerator, Denominator, What It Measures, What It Does Not Measure — rows: Engagement Rate (engagements / impressions — content response rate — not whether content drove behavior), Click-Through Rate (clicks / impressions — ad activation rate — not whether clicks converted), Brand Consideration (survey respondents selecting brand / total respondents — stated intent signal — not revealed preference), Share of Voice (brand mentions / total category mentions — relative share of conversation — not quality or sentiment of mentions), Cost Per Acquisition (total spend / conversions — efficiency of conversion — not long-term value of acquired customers). Caption: Every metric is a definition, not a fact. The definition is a choice, and the choice encodes a priority.] -->
+| Metric | Numerator | Denominator | What it measures | What it does not measure |
+|---|---|---|---|---|
+| Engagement rate | Engagements | Impressions | Content response rate | Whether content drove behavior |
+| Click-through rate | Clicks | Impressions | Ad activation rate | Whether clicks converted |
+| Brand consideration | Respondents selecting brand | Total respondents | Stated intent signal | Revealed preference |
+| Share of voice | Brand mentions | Total category mentions | Relative share of conversation | Quality or sentiment of mentions |
+| Cost per acquisition | Total spend | Conversions | Efficiency of conversion | Long-term value of acquired customers |
+
+*Every metric is a definition, not a fact. The definition is a choice, and the choice encodes a priority.*
 
 The definition problem compounds when AI assistance enters the workflow. An agent asked to "pull the performance metrics" will produce metrics — but which metrics, defined how, drawn from which source? The agent cannot know what the business question is unless it was told explicitly. It will produce plausible-looking numbers. Those numbers will land in the report. They will look like answers. Whether they are answers to the question the client is actually asking is a separate matter, and it does not get resolved by the quality of the agent's extraction work.
 
@@ -37,6 +45,9 @@ Brand campaigns produce data at multiple points in the audience journey. Not all
 
 **Diagnostic metrics** tell you what happened mechanically without asserting that it mattered. Impressions are diagnostic. Clicks are diagnostic. Completion rate is diagnostic. These numbers explain the campaign's mechanical behavior — where it ran, what it triggered, how the algorithm served it. They are valuable for troubleshooting and for explaining anomalies. They become a problem when they migrate into the "did it work?" conversation, because they cannot answer that question. A campaign can generate ten million impressions and produce no movement in consideration. Impressions happened. Nothing changed.
 
+![A three-tier vertical stack — outcome metrics on top, leading metrics in the middle, diagnostic metrics at the bottom — with upward arrows labeled "can predict" and "does not guarantee," and a side note warning against collapsing the tiers into one narrative.](images/08-measurement-plan-and-kpi-map-fig-01.png)
+*Figure 8.1 — The three-tier metric hierarchy*
+
 <!-- → [DIAGRAM: Three-tier metric hierarchy — vertical stack, top tier "Outcome Metrics" (consideration, preference, purchase intent), middle tier "Leading Metrics" (awareness, reach, share of voice), bottom tier "Diagnostic Metrics" (impressions, clicks, completion rate) — arrows from bottom to middle to top labeled "can predict" and "does not guarantee" — right-side annotation: "Reports that collapse all three into one performance narrative are conflating evidence of mechanism with evidence of effect." Caption: The hierarchy is not about which metrics matter more. It is about what question each tier can answer.] -->
 
 Most campaign reports collapse all three into a single performance narrative. The diagnostic numbers fill the most space because there are more of them and they look precise. The outcome metrics get a sentence at the end, if they exist at all. The reader comes away with a detailed picture of what happened mechanically and almost no information about what the campaign achieved.
@@ -53,6 +64,9 @@ The baseline is the number that gives the metric its meaning. Without it, a 34% 
 
 This is not an obscure methodological point. It is the thing that makes reports either useful or merely informative. A report that provides numbers without baselines informs the reader. It does not support a decision. To support a decision, the reader needs to know whether the number represents movement in the right direction, how much movement, and whether the movement is meaningful relative to what was spent.
 
+![Three panels showing the identical 34% brand-consideration bar at the same height; with no reference it is uninterpretable, against a lower prior baseline it reads as +5 points, against a higher benchmark it reads as a 4-point shortfall.](images/08-measurement-plan-and-kpi-map-fig-02.png)
+*Figure 8.2 — One number, three baselines*
+
 <!-- → [CHART: Baseline illustration — single metric "Brand Consideration" shown three ways: (1) standalone number 34% with no context (labeled "Uninterpretable"), (2) same number with prior-period baseline of 29% (labeled "Movement: +5 points"), (3) same number with category benchmark of 38% (labeled "Gap to benchmark: -4 points") — caption: The number does not change. Its meaning depends entirely on the baseline it is read against.] -->
 
 Baselines require advance work. You cannot construct a valid pre-campaign baseline after the campaign has run. This is the most common measurement plan failure: the team decides to measure consideration lift but did not run a pre-wave survey before launch. Now the lift cannot be calculated. The report will have consideration numbers, but they will be post-campaign numbers with no denominator. They look like measurement. They are not.
@@ -67,7 +81,15 @@ Every metric in the KPI map should have a decision use — a statement of the de
 
 Decision use is a simple concept and a demanding discipline. "This metric will tell us whether to continue the campaign at current spend, increase it, or redirect to a different channel" is a decision use. "Track weekly" is not. "For awareness" is not. A decision use names a specific choice and connects the metric to the moment when that choice must be made.
 
-<!-- → [TABLE: KPI map structure — columns: Objective, Metric, Definition, Source, Baseline, Target, Cadence, Decision Use, Owner, Sign-off — two sample rows filled: Row 1: "Increase brand consideration among 25-34 target / Brand consideration (aided) / % of survey respondents selecting brand after prompt / Quarterly brand tracker / 29% (Q4 prior year) / 34% by end of campaign / Monthly survey wave / Determines whether to extend campaign flight or shift spend to conversion / Account director / [sign-off field]" — Row 2: "Drive traffic to product page / Click-through rate / Clicks / Impressions / Ad platform export / 0.8% (prior campaign average) / 1.2% / Weekly / Diagnostic — flags creative fatigue or targeting drift, triggers creative review at <0.6% / Media planner / [sign-off field]." Caption: The sign-off field is not decorative. It is the accountability record — the moment when a named practitioner confirmed the metric, definition, and decision use before the campaign ran.] -->
+| Objective | Metric | Definition | Source | Baseline | Target | Cadence | Decision use | Owner | Sign-off |
+|---|---|---|---|---|---|---|---|---|---|
+| Increase brand consideration among 25–34 target | Brand consideration (aided) | % of survey respondents selecting brand after prompt | Quarterly brand tracker | 29% (Q4 prior year) | 34% by end of campaign | Monthly survey wave | Determines whether to extend campaign flight or shift spend to conversion | Account director | _name / date_ |
+| Drive traffic to product page | Click-through rate | Clicks / impressions | Ad platform export | 0.8% (prior campaign avg) | 1.2% | Weekly | Diagnostic — flags creative fatigue or targeting drift; triggers creative review at <0.6% | Media planner | _name / date_ |
+
+*The sign-off field is not decorative. It is the accountability record — the moment when a named practitioner confirmed the metric, definition, and decision use before the campaign ran.*
+
+![An empty seven-column grid schematic of the KPI map — Metric, Definition, Baseline, Target, Cadence, Decision Use, Sign-off — with the Decision Use column emphasized and the Sign-off column accented as the accountability record.](images/08-measurement-plan-and-kpi-map-fig-03.png)
+*Figure 8.3 — The KPI map, core columns*
 
 The decision use column also forces a useful question: is this metric actually connected to a decision, or is it just being tracked because it is available? Many metrics that appear in brand reports are tracked because the platform provides them, not because anyone is going to change behavior based on what they show. Diagnostic metrics often fall into this category. They belong in the report because they help explain mechanical outcomes. They do not belong in the decision-use column unless there is an actual choice they inform.
 
@@ -92,6 +114,9 @@ The sign-off also protects the practitioner. Measurement standards set after the
 The KPI map workflow has a clear division of labor. AI can do several things well here: suggest candidate metrics for a given objective, identify standard definitions used in the industry, flag gaps in the map (missing baselines, undefined cadences, metrics without decision uses), and format the completed map for distribution. These are execution tasks. The map's structure is known. The completion check is pattern-matching against a template.
 
 What AI cannot do is decide which metrics are meaningful for this specific business question. That is a judgment about what the organization is trying to achieve, what decisions are actually being made, and what level of measurement precision is warranted given the stakes and the budget. A model can suggest that "brand lift" is a relevant metric for an awareness campaign. It cannot know whether a quarterly brand tracker is the right measurement vehicle given this client's budget constraints, or whether the business decision can tolerate the lag of a survey wave versus needing faster diagnostic signals.
+
+![A five-stage workflow — define objectives, build the KPI map, collect baselines, run the campaign, report against the map — with an AI-assist lane and a human-decides lane running across every stage.](images/08-measurement-plan-and-kpi-map-fig-04.png)
+*Figure 8.4 — The KPI workflow and its division of labor*
 
 <!-- → [DIAGRAM: KPI workflow with labor division marked — five-stage flow: Define Objectives → Build KPI Map → Collect Baselines → Run Campaign → Report Against Map — each stage annotated with two columns: "AI can assist" and "Human must decide" — Stage 1: AI can surface prior objectives / Human decides this campaign's purpose; Stage 2: AI can suggest metrics and flag gaps / Human decides decision uses and signs off; Stage 3: AI can locate source systems / Human confirms baseline validity; Stage 4: AI can monitor and flag anomalies / Human decides whether to adjust; Stage 5: AI can extract and format / Human interprets against decision uses. Caption: The labor division is not about AI capability limits. It is about where professional accountability lives.] -->
 
@@ -153,3 +178,23 @@ Take the KPI map draft from Exercise 2. For each metric, ask the LLM to flag whe
 **Challenge**
 
 9. *(Open-ended)* "Still Puzzling" raises the attribution problem: consideration moved, the campaign ran, and other things happened simultaneously. Design a measurement approach for a mid-sized brand team — working within realistic budget and timeline constraints, without a randomized controlled trial — that would produce a more defensible claim about campaign contribution than "movement occurred during the flight." What design choices would you make? What would you have to give up? What level of confidence would the approach actually support, and how would you represent that in the report? *What this tests: whether you can reason about causal inference under real-world constraints, and whether you can match your conclusions to what your design actually warrants.*
+
+---
+
+## Prompts
+
+### Figure 8.1 — The three-tier metric hierarchy
+**Files:** images/08-measurement-plan-and-kpi-map-fig-01.svg · d3/08-measurement-plan-and-kpi-map-fig-01.html
+**Prompt:** Brutalist three-tier vertical stack — outcome metrics on top (red), leading in the middle (gray), diagnostic at the bottom (white outline). Upward red arrows annotated "can predict" and "does not guarantee"; an ochre-bordered side note warns against collapsing the tiers. EB Garamond / Inter / JetBrains Mono.
+
+### Figure 8.2 — One number, three baselines
+**Files:** images/08-measurement-plan-and-kpi-map-fig-02.svg · d3/08-measurement-plan-and-kpi-map-fig-02.html
+**Prompt:** Brutalist three-panel quantitative figure. The same brand-consideration bar at identical height, anchored to a common zero, appears in each panel; only the red dashed reference line changes — none, lower prior baseline, higher benchmark — flipping the verdict. JetBrains Mono ticks; one red, gray bar.
+
+### Figure 8.3 — The KPI map, core columns
+**Files:** images/08-measurement-plan-and-kpi-map-fig-03.svg · d3/08-measurement-plan-and-kpi-map-fig-03.html
+**Prompt:** Brutalist structural schematic of the KPI map as an empty seven-column grid (Metric, Definition, Baseline, Target, Cadence, Decision Use, Sign-off). Emphasize Decision Use in red; accent Sign-off. No filled data.
+
+### Figure 8.4 — The KPI workflow and its division of labor
+**Files:** images/08-measurement-plan-and-kpi-map-fig-04.svg · d3/08-measurement-plan-and-kpi-map-fig-04.html
+**Prompt:** Brutalist five-stage workflow (define objectives → build map → collect baselines → run campaign → report) with a gray AI-assist lane and a red-bordered human-decides lane running across all stages. Single-headed ink arrows between stages; one red, grays otherwise.

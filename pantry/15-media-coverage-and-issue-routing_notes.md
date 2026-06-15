@@ -37,7 +37,7 @@ This chapter should cover reputation monitoring, press clips, social listening, 
 ## Repo Source Map
 
 - TIKTOC.md
-- MYCROFT.md
+- SNICKERDOODLE.md
 - DOMAIN.md
 - DATA_CONTRACT.md
 - docs/data-and-provenance.md

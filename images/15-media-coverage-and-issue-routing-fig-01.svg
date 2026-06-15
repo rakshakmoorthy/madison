@@ -1,0 +1,54 @@
+<!--
+  Title: The Issue-Routing Digest Structure
+  Book: Madison Plus One
+  Chapter: 15-media-coverage-and-issue-routing
+  Figure 01
+  Type: structural schematic
+  Generated 2026-06-15
+  Source: pantry/15-media-coverage-and-issue-routing-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+<title id="fig-title-01">The Issue-Routing Digest Structure</title>
+<desc>One issue-routing digest row as nine adjacent cells: source URL, capture timestamp, issue class, sentiment label, severity, assigned owner, recommended action, response gate and optional holding language. The sentiment cell carries a model-judgment qualifier, the response-gate cell a heavier border, and the holding-language cell a dashed outline marking it optional.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="15-media-coverage-and-issue-routing" figure-number="01" figure-title="The Issue-Routing Digest Structure" figure-slug="the-issue-routing-digest-structure" figure-type="structural schematic" priority="Critical" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/15-media-coverage-and-issue-routing-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="350" y="40" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The Issue-Routing Digest Structure</text>
+
+<!-- 9 cells: x 40..660 width 620 cell ~68.9 -->
+<g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10">
+<rect x="40" y="160" width="68.9" height="96" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="108.9" y="160" width="68.9" height="96" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="177.8" y="160" width="68.9" height="96" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="246.7" y="160" width="68.9" height="96" fill="#FFFFFF" stroke="#545454" stroke-width="1.5"/>
+<rect x="315.6" y="160" width="68.9" height="96" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="384.5" y="160" width="68.9" height="96" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="453.4" y="160" width="68.9" height="96" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="522.3" y="160" width="68.9" height="96" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+<rect x="591.2" y="160" width="68.8" height="96" fill="#FFFFFF" stroke="#C8860E" stroke-width="1" stroke-dasharray="4 3"/>
+</g>
+
+<g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e" text-anchor="middle">
+<text x="74" y="200">Source</text><text x="74" y="213">URL</text>
+<text x="143" y="200">Capture</text><text x="143" y="213">timestamp</text>
+<text x="212" y="200">Issue</text><text x="212" y="213">class</text>
+<text x="281" y="194" fill="#545454">Sentiment</text><text x="281" y="207" fill="#545454">label</text>
+<text x="350" y="207">Severity</text>
+<text x="419" y="200">Assigned</text><text x="419" y="213">owner</text>
+<text x="488" y="200">Recommended</text><text x="488" y="213">action</text>
+<text x="557" y="194" fill="#2a1a0e">Response</text><text x="557" y="207" fill="#2a1a0e">gate</text>
+<text x="625" y="194" fill="#C8860E">Holding</text><text x="625" y="207" fill="#C8860E">language</text>
+</g>
+
+<!-- model-judgment qualifier on sentiment cell -->
+<circle cx="281" cy="232" r="8" fill="#FFFFFF" stroke="#545454" stroke-width="1.5"/>
+<text x="281" y="236" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">?</text>
+
+<!-- annotations -->
+<text x="281" y="288" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">model judgment</text>
+<text x="557" y="288" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#2a1a0e">named condition</text>
+<text x="625" y="304" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#C8860E">optional, candidate</text>
+
+<text x="350" y="338" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">The digest is decision support: every column informs the owner's judgment.</text>
+<text x="350" y="360" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Sentiment is always flagged as model judgment; no response is automatic.</text>
+</svg>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The KPI map, core columns</title>
+<style>
+  :root{--color-white:#FFFFFF;--color-ink:#2a1a0e;--color-red:#C8102E;
+    --color-secondary:#545454;--color-border:#D4D4D4;--color-ochre:#C8860E;}
+  @media (prefers-color-scheme: dark){
+    :root{--color-white:#111111;--color-ink:#F0EBE3;--color-red:#E8243A;
+      --color-secondary:#A0978C;--color-border:#2E2E2E;--color-ochre:#D49A30;}}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--color-white);color:var(--color-ink);
+    font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+  #chart{width:100%;}
+  .col{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;fill:var(--color-ink);}
+  .cap{font-family:'EB Garamond',Georgia,serif;font-size:14px;font-style:italic;fill:var(--color-secondary);}
+  .tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-white);
+    border:1px solid var(--color-border);padding:6px 10px;font-size:13px;color:var(--color-ink);}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA=["Metric","Definition","Baseline","Target","Cadence","Decision Use","Sign-off"];
+const tooltip=d3.select('body').append('div').attr('class','tooltip');
+function showTip(e,h){tooltip.html(h).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px')
+  .transition().duration(150).style('opacity',1);}
+function moveTip(e){tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px');}
+function hideTip(){tooltip.transition().duration(100).style('opacity',0);}
+function draw(cols){
+  d3.select('#chart').selectAll('*').remove();
+  const totalWidth=document.getElementById('chart').clientWidth||700;
+  const totalHeight=320;
+  const svg=d3.select('#chart').append('svg').attr('width',totalWidth).attr('height',totalHeight)
+    .attr('role','img').attr('aria-labelledby','c-title c-desc');
+  svg.append('title').attr('id','c-title').text('The KPI map, core columns');
+  svg.append('desc').attr('id','c-desc').text('Empty seven-column KPI map template with Decision Use emphasized and Sign-off accented.');
+  const m=20, top=24, headerH=34, rows=4;
+  const w=totalWidth-2*m, h=totalHeight-top-48, bodyH=(h-headerH)/rows;
+  const x=d3.scaleBand().domain(cols).range([0,w]).padding(0.04);
+  const g=svg.append('g').attr('transform',`translate(${m},${top})`);
+  cols.forEach(c=>{
+    const emph=(c==='Decision Use'), sign=(c==='Sign-off');
+    g.append('rect').attr('x',x(c)).attr('y',0).attr('width',x.bandwidth()).attr('height',headerH)
+      .attr('fill','#F5F5F5').attr('stroke',sign?'var(--color-secondary)':(emph?'var(--color-red)':'var(--color-border)'))
+      .attr('stroke-width',(emph||sign)?2:1).attr('tabindex',0).attr('aria-label','Column: '+c)
+      .on('mouseover',(e)=>showTip(e,'<strong>'+c+'</strong>')).on('mousemove',moveTip).on('mouseout',hideTip);
+    g.append('text').attr('class','col').attr('x',x(c)+4).attr('y',21).text(c);
+    for(let r=0;r<rows;r++)
+      g.append('rect').attr('x',x(c)).attr('y',headerH+r*bodyH).attr('width',x.bandwidth()).attr('height',bodyH)
+        .attr('fill','var(--color-white)').attr('stroke','var(--color-border)');
+  });
+  svg.append('text').attr('class','cap').attr('x',m).attr('y',totalHeight-16)
+    .text('Decision Use turns documentation into decision support; Sign-off records accountability.');
+}
+async function load(){try{return await d3.json('./08-measurement-plan-and-kpi-map-fig-03/data.json');}catch{return FALLBACK_DATA;}}
+load().then(c=>{draw(c);const ro=new ResizeObserver(()=>draw(c));ro.observe(document.getElementById('chart'));});
+</script>
+</body>
+</html>

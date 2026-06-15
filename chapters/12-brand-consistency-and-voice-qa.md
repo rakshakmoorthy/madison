@@ -19,7 +19,17 @@ Intentional adaptation is something different. The email is warm because the bra
 
 The QA matrix exists to make that distinction explicit and auditable. Every difference it finds gets classified: is this a rule violation, or is this a documented adaptation? If it is a rule violation, it needs a severity rating, a recommendation, and an owner. If it is a documented adaptation, it gets noted as such and passes. If it is ambiguous — if the variation looks intentional but no one can point to a rule that permits it — that is the most important finding in the matrix, because it reveals a gap in the brand documentation rather than a gap in execution.
 
-<!-- → [TABLE: The QA matrix structure — columns: touchpoint, rule reference, issue description, evidence (specific line or element), severity (critical/major/minor/note), recommendation, owner, decision. Show one row for each severity level with realistic examples. Caption: The rule reference column is not optional. An issue without a rule citation is an opinion. The matrix trades in evidence, not taste.] -->
+| Touchpoint | Rule Reference | Issue Description | Evidence (specific line or element) | Severity | Recommendation | Owner | Decision |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Homepage hero | Claims policy §2.1 (no unqualified superlatives) | Unsupported superlative claim | "the most trusted platform in the industry" | Critical | Rewrite to a warranted claim or supply third-party proof | T. Okafor | Held — pending proof |
+| Welcome email | Voice guide §3.4 (12–16 words, email) | Sentence length exceeds channel norm | Opening sentence runs 27 words | Major | Split into two sentences in next revision before send | R. Devi | Revise before launch |
+| Product page | Voice guide §3.2 (active voice primary) | Passive construction cluster | "results are delivered," "decisions are supported" | Minor | Convert to active voice in next cycle | L. Park | Logged for next cycle |
+| Loyalty email | Voice guide §1.1 (warm post-purchase register) | Tone slightly warmer than website | Casual greeting, first-name address | Note | No action — documented adaptation | A. Chen | Pass — intentional |
+
+*The rule reference column is not optional. An issue without a rule citation is an opinion. The matrix trades in evidence, not taste.*
+
+![Schematic of one QA matrix row as eight aligned cells — touchpoint, rule reference, issue, evidence, severity, recommendation, owner, decision — with the rule-reference cell weighted as load-bearing and a four-state severity indicator.](images/12-brand-consistency-and-voice-qa-fig-01.png)
+*Figure 12.1 — The QA matrix structure*
 
 ---
 
@@ -28,6 +38,9 @@ The recipe for this chapter requires inputs that are often partly missing in pra
 Inputs: brand rules, voice guide, sample touchpoints, a claims/proof map, accessibility requirements, and review criteria. Steps: inspect each touchpoint against those inputs — rule alignment, claim support, tone, jargon, accessibility, contradictions, and channel fit — assign severity, recommend action, capture the human decision. Gate: severe issues block launch until an owner has made and documented a decision. Log: touchpoint, issue, severity, recommendation, decision.
 
 The missing-inputs problem is common. A brand rules document that predates the last rebrand. A voice guide that describes aspirational voice rather than operational guidance — that says the brand is "approachable but authoritative" without specifying what that means for sentence length, vocabulary level, or how claims should be sequenced. Accessibility requirements that no one has formally adopted for this account. When the inputs are thin, the QA matrix produces findings that are harder to defend — not because the findings are wrong, but because they cannot be tied to a documented standard. The practitioner has to choose between writing findings to a standard they are constructing in the moment, which is legitimate but should be labeled as such, or noting that the finding reflects professional judgment in the absence of documented rules.
+
+![Systems diagram of QA inputs: brand rules and voice guide feed review criteria the agent applies to touchpoints, with an accessibility check running in parallel and the claims/proof map supplying the evidentiary layer; all findings converge in the QA matrix and close at a human decision.](images/12-brand-consistency-and-voice-qa-fig-02.png)
+*Figure 12.2 — The recipe input chain*
 
 <!-- → [DIAGRAM: The recipe input chain — brand rules and voice guide feed the review criteria, which the agent applies to the touchpoints; accessibility requirements run as a parallel check; the claims/proof map provides the evidentiary layer for claim-related findings; all findings flow into the QA matrix; human decisions close each row. Caption: Missing inputs do not stop the process — they change the epistemic status of the findings. Label gaps honestly.] -->
 
@@ -47,7 +60,17 @@ Minor severity means the issue is worth noting and should be addressed in the ne
 
 A note is an observation that may be useful context but does not constitute a finding. A slight tone warmth variation that probably reflects the author's natural register. A word that is on the borderline of the jargon list.
 
-<!-- → [TABLE: Severity levels with examples — four rows, one per level. For each: definition, the condition that triggers it, an example from brand/copy QA, and the action it requires. Caption: Severity exists to prioritize, not to signal alarm. A matrix full of critical findings is not a rigorous audit — it is an audit that has lost the ability to communicate.] -->
+| Severity | Definition | Triggering Condition | Example (brand/copy QA) | Action Required |
+| --- | --- | --- | --- | --- |
+| Critical | Blocks launch | Issue creates legal, accessibility, or brand-integrity risk if shipped | CTA contrast ratio below WCAG 4.5:1; claim contradicts a legal restriction | Resolve before anything ships |
+| Major | Should be fixed before launch | Off-brand or unsupported in a high-visibility context | Off-brand tone in a high-traffic touchpoint; unsupported performance claim | Address before launch, or a named owner documents the decision to ship |
+| Minor | Worth noting, non-blocking | Marginal deviation from brand standard | Sub-optimal vocabulary choice; slight template divergence | Address in the next revision cycle |
+| Note | Observation, not a finding | Variation likely reflects natural register, not a defect | Slight tone warmth in author's voice; borderline jargon word | No action required; recorded as context |
+
+*Severity exists to prioritize, not to signal alarm. A matrix full of critical findings is not a rigorous audit — it is an audit that has lost the ability to communicate.*
+
+![Four severity tiers ordered from critical to note, each paired with the action it requires, with a gating glyph distinguishing the launch-decision weight of critical and major from the revision-cycle weight of minor and note.](images/12-brand-consistency-and-voice-qa-fig-03.png)
+*Figure 12.3 — Severity levels*
 
 The distribution of severity across a real QA matrix is information. A set of three touchpoints with one critical finding, three major findings, and twelve minor findings is a different situation from a set with eight critical findings. The critical finding needs immediate owner attention. The twelve minor findings need a revision cycle. Running them together in the same conversation, at the same urgency level, is how QA matrices become noise generators that practitioners learn to ignore.
 
@@ -60,6 +83,9 @@ A voice comment that says "this doesn't sound like the brand" is not a finding. 
 The discipline is to write every voice finding to a rule and a specific line. Not "the tone feels off" but "the email opens with a self-deprecating joke; the voice guide characterizes the brand as 'confident without arrogance' and specifically flags self-deprecation as inconsistent with the brand character (Section 4.1, Tone Boundaries)." Not "this is too formal" but "average sentence length in this section is 24 words; the voice guide recommends 12–16 words for email copy (Section 3.4, Channel Norms)."
 
 When there is no rule to cite, the finding cannot be written as a rule violation. It can be written as a recommendation: "consider revising — this register may not serve the audience context, though no documented standard currently governs email tone. Flagging for review." That note is honest about its own epistemic status. It is useful. And it implicitly surfaces the gap in the documentation, which is information the brand team needs.
+
+![Side-by-side comparison: a weak, opinion-based voice finding shown as a lone isolated node, against a strong, rule-cited finding built as a connected chain of rule reference, quoted evidence, finding statement, severity, recommendation, and owner.](images/12-brand-consistency-and-voice-qa-fig-04.png)
+*Figure 12.4 — Voice finding anatomy*
 
 <!-- → [DIAGRAM: Voice finding anatomy — a single finding unpacked into its components: rule reference (with section number), specific evidence (quoted lines), finding statement, severity, recommendation, owner. Show a weak version (opinion-based) and a strong version (rule-cited) of the same finding side by side. Caption: The test for a voice finding: can someone disagree with it by pointing to the rule? If not, it's an opinion. Write it differently.] -->
 
@@ -102,3 +128,23 @@ Prompt suggestion: *"Here are five voice observations about a piece of copy, wri
 Review a QA matrix with ten findings and classify each as: rule violation requiring remediation, intentional adaptation that should be documented in the voice guide, or unclear — could be either. For the rule violations, confirm the severity and owner. For the intentional adaptations, write the documentation addition that would make them officially sanctioned. For the unclear findings, write the question you would ask the brand team to resolve the ambiguity, and describe what the answer would need to contain to close the finding in either direction.
 
 Prompt suggestion: *"Here is a QA matrix with ten findings. Help me classify each as rule violation, intentional adaptation, or unclear. For violations, confirm severity and owner. For adaptations, draft the voice guide addition that would document them. For unclear findings, write the clarifying question for the brand team and describe what answer would resolve the finding."*
+
+---
+
+## Prompts
+
+### Figure 12.1 — The QA matrix structure
+**Files:** images/12-brand-consistency-and-voice-qa-fig-01.svg
+**Prompt:** Structural schematic of one QA matrix row as eight aligned cells on white — touchpoint, rule reference, issue, evidence, severity, recommendation, owner, decision — with the rule-reference cell drawn at a heavier stroke to mark it as load-bearing and a four-state severity indicator inside the severity cell. Brutalist palette only, JetBrains Mono numerals, no baked example text.
+
+### Figure 12.2 — The recipe input chain
+**Files:** images/12-brand-consistency-and-voice-qa-fig-02.svg · d3/12-brand-consistency-and-voice-qa-fig-02.html
+**Prompt:** Systems diagram on white: brand rules and voice guide feed review criteria applied by the agent to touchpoints, with an accessibility check running as a parallel ochre dashed stream and the claims/proof map supplying the evidentiary layer, all converging in the QA matrix and closing at a red human-decision node. Single-headed arrows, EB Garamond title, Inter labels.
+
+### Figure 12.3 — Severity levels
+**Files:** images/12-brand-consistency-and-voice-qa-fig-03.svg
+**Prompt:** Four-tier comparison panel ordered critical to note, each row paired with the action it requires, using a graduated ink-to-secondary treatment so descending consequence reads at a glance and a small gating glyph separates launch-decision weight (critical, major) from revision-cycle weight (minor, note). White canvas, no alarm iconography, brutalist palette only.
+
+### Figure 12.4 — Voice finding anatomy
+**Files:** images/12-brand-consistency-and-voice-qa-fig-04.svg · d3/12-brand-consistency-and-voice-qa-fig-04.html
+**Prompt:** Side-by-side comparison on white: a weak opinion-based finding as a single faint dashed node on the left, against a strong rule-cited finding on the right built as a connected chain — rule reference (red anchor node), quoted evidence, finding statement, severity, recommendation, owner — joined by single-headed arrows. EB Garamond title, Inter labels, brutalist palette only.

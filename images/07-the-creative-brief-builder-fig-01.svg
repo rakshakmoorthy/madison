@@ -1,0 +1,48 @@
+<!--
+  The Four Field-Status Labels
+  Book: Madison Plus One
+  Chapter: 07-the-creative-brief-builder
+  Figure 01
+  Type: hierarchy/taxonomy
+  Generated 2026-06-15
+  Source: pantry/07-the-creative-brief-builder-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+  <title id="fig-title-01">The Four Field-Status Labels</title>
+  <desc>Four equal boxes naming the status every brief field must carry: Confirmed (approved organizational inputs), Inferred (a reasonable interpretation, not yet reviewed), Unknown (information not available, say so), and Approval-needed (a strategic choice not yet made by someone with authority). Equal sizing signals these are categories of readiness, not a quality ranking.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="07-the-creative-brief-builder" figure-number="01" figure-title="The Four Field-Status Labels" figure-slug="four-field-status-labels" figure-type="hierarchy/taxonomy" priority="Critical" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/07-the-creative-brief-builder-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">The Four Field-Status Labels</text>
+  <text x="32" y="60" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">Every field in the brief carries one of these. They mark epistemic readiness, not quality.</text>
+
+  <!-- Confirmed -->
+  <rect x="40" y="92" width="300" height="140" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <rect x="40" y="92" width="300" height="32" fill="#C8102E"/>
+  <text x="54" y="113" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">CONFIRMED</text>
+  <text x="54" y="148" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">The field reflects approved</text>
+  <text x="54" y="164" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">organizational inputs.</text>
+
+  <!-- Inferred -->
+  <rect x="360" y="92" width="300" height="140" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+  <rect x="360" y="92" width="300" height="32" fill="#787878"/>
+  <text x="374" y="113" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">INFERRED</text>
+  <text x="374" y="148" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">A reasonable interpretation of</text>
+  <text x="374" y="164" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">evidence, not yet reviewed.</text>
+
+  <!-- Unknown -->
+  <rect x="40" y="244" width="300" height="140" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1"/>
+  <rect x="40" y="244" width="300" height="32" fill="#ADADAD"/>
+  <text x="54" y="265" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">UNKNOWN</text>
+  <text x="54" y="300" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">The needed information isn't</text>
+  <text x="54" y="316" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">available — the field should say so.</text>
+
+  <!-- Approval-needed -->
+  <rect x="360" y="244" width="300" height="140" fill="#FFFFFF" stroke="#C8860E" stroke-width="1.5"/>
+  <rect x="360" y="244" width="300" height="32" fill="#C8860E"/>
+  <text x="374" y="265" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">APPROVAL-NEEDED</text>
+  <text x="374" y="300" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">A strategic choice not yet made</text>
+  <text x="374" y="316" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">by someone with authority.</text>
+</svg>

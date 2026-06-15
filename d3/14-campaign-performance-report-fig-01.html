@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The three layers of a performance report</title>
+<style>
+  :root {
+    --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+    --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+      --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+  #chart { width: 100%; }
+  .tier { stroke: var(--color-ink); stroke-width: 1.5; }
+  .tier-title { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; fill: var(--color-ink); }
+  .tier-sub { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-ink); }
+  .tier-acct { font-family: 'Inter', sans-serif; font-size: 11px; font-style: italic; fill: var(--color-secondary); }
+  .boundary { stroke: var(--color-red); stroke-width: 1.5; stroke-dasharray: 5 3; }
+  .boundary-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; fill: var(--color-red); letter-spacing: 0.05em; }
+  .chart-title { font-family: 'EB Garamond', Georgia, serif; font-size: 20px; fill: var(--color-ink); }
+  .caption { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-secondary); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = {
+  tiers: [
+    { key: "rec",  title: "Recommendation", sub: "Action · next test · decision owner", acct: "Human accountable",            fill: "var(--color-fill)", accent: "var(--color-red)" },
+    { key: "int",  title: "Interpretation", sub: "Baselines · anomalies · signal vs. noise", acct: "AI surfaces candidates · human decides meaning", fill: "var(--color-fill)", accent: "var(--color-ink)" },
+    { key: "desc", title: "Description",    sub: "Metric values · source files · export dates", acct: "AI extracts and formats",  fill: "var(--color-fill)", accent: "var(--color-secondary)" }
+  ]
+};
+
+async function loadData() {
+  try { return await d3.json('./14-campaign-performance-report-fig-01/data.json'); }
+  catch { return FALLBACK_DATA; }
+}
+
+function draw(data) {
+  d3.select('#chart').selectAll('*').remove();
+  const W = document.getElementById('chart').clientWidth || 700;
+  const H = 420;
+  const svg = d3.select('#chart').append('svg')
+    .attr('width', W).attr('height', H).attr('viewBox', `0 0 ${W} ${H}`)
+    .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+  svg.append('title').attr('id','chart-title').text('The three layers of a performance report');
+  svg.append('desc').attr('id','chart-desc').text('A vertical stack: description at the base is AI-assisted, interpretation in the middle is shared, and recommendation at the top is human-owned. Accountability shifts upward.');
+
+  svg.append('text').attr('class','chart-title').attr('x', W/2).attr('y', 34).attr('text-anchor','middle').text('The three layers of a performance report');
+
+  const padX = 80, top = 64, bot = 56;
+  const tierW = W - 2*padX;
+  const tierH = 84, gap = 8;
+  const startY = top;
+
+  data.tiers.forEach((t, i) => {
+    const y = startY + i*(tierH+gap);
+    const g = svg.append('g').attr('tabindex',0)
+      .attr('role','group').attr('aria-label', `${t.title}. ${t.sub}. ${t.acct}.`);
+    g.append('rect').attr('class','tier').attr('x', padX).attr('y', y).attr('width', tierW).attr('height', tierH).attr('fill', t.fill);
+    g.append('rect').attr('x', padX).attr('y', y).attr('width', 6).attr('height', tierH).attr('fill', t.accent);
+    g.append('text').attr('class','tier-title').attr('x', padX+22).attr('y', y+28).text(t.title);
+    g.append('text').attr('class','tier-sub').attr('x', padX+22).attr('y', y+48).text(t.sub);
+    g.append('text').attr('class','tier-acct').attr('x', padX+tierW-14).attr('y', y+48).attr('text-anchor','end').text(t.acct);
+  });
+
+  // accountability boundary between interpretation and recommendation
+  const by = startY + 1*(tierH+gap) - gap/2;
+  svg.append('line').attr('class','boundary').attr('x1', padX-8).attr('y1', by).attr('x2', padX+tierW+8).attr('y2', by);
+  svg.append('text').attr('class','boundary-label').attr('x', padX+tierW+8).attr('y', by-5).attr('text-anchor','end').text('ACCOUNTABILITY SHIFT — AI TO HUMAN');
+
+  svg.append('text').attr('class','caption').attr('x', W/2).attr('y', H-14).attr('text-anchor','middle')
+    .text('Three layers, three kinds of claim — and three different owners.');
+}
+
+loadData().then(data => {
+  draw(data);
+  new ResizeObserver(() => draw(data)).observe(document.getElementById('chart'));
+});
+</script>
+</body>
+</html>

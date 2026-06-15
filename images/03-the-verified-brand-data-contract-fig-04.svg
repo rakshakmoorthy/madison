@@ -1,0 +1,52 @@
+<!--
+  Looks Done vs Is Defensible
+  Book: Madison Plus One
+  Chapter: 03-the-verified-brand-data-contract
+  Figure 04
+  Type: comparison panels
+  Generated 2026-06-15
+  Source: pantry/03-the-verified-brand-data-contract-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04">
+  <title id="fig-title-04">Looks Done vs Is Defensible</title>
+  <desc>Two equal columns divided by the professional boundary that polish tends to obscure. The left column lists what a finished-looking report conveys: confidence, authority, recommendation. The right column lists what it actually requires to be defensible: a source chain, a transformation log, and a human adequacy judgment. The left is not worthless, only insufficient.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="03-the-verified-brand-data-contract" figure-number="04" figure-title="Looks Done vs Is Defensible" figure-slug="looks-done-vs-is-defensible" figure-type="comparison panels" priority="Supplementary" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/03-the-verified-brand-data-contract-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="44" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Looks done is not the same as is defensible</text>
+
+  <!-- Left header -->
+  <rect x="32" y="72" width="300" height="40" fill="#787878"/>
+  <text x="182" y="92" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">What a finished look conveys</text>
+
+  <!-- Right header -->
+  <rect x="368" y="72" width="300" height="40" fill="#C8102E"/>
+  <text x="518" y="92" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">What defensibility requires</text>
+
+  <!-- boundary -->
+  <line x1="350" y1="64" x2="350" y2="356" stroke="#2a1a0e" stroke-width="2"/>
+  <text x="350" y="378" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">the professional boundary polish obscures</text>
+
+  <!-- Left rows -->
+  <g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">
+    <rect x="32" y="132" width="300" height="60" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+    <text x="50" y="168">Confidence</text>
+    <rect x="32" y="204" width="300" height="60" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+    <text x="50" y="240">Authority</text>
+    <rect x="32" y="276" width="300" height="60" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+    <text x="50" y="312">Recommendation</text>
+  </g>
+
+  <!-- Right rows -->
+  <g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">
+    <rect x="368" y="132" width="300" height="60" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+    <text x="386" y="168">Source chain</text>
+    <rect x="368" y="204" width="300" height="60" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+    <text x="386" y="240">Transformation log</text>
+    <rect x="368" y="276" width="300" height="60" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+    <text x="386" y="312">Human adequacy judgment</text>
+  </g>
+</svg>

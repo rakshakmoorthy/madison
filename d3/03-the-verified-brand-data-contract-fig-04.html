@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Looks Done vs Is Defensible</title>
+<style>
+:root{
+  --color-white:#FFFFFF;
+  --color-ink:#2a1a0e;
+  --color-red:#C8102E;
+  --color-secondary:#545454;
+  --color-border:#D4D4D4;
+  --color-ochre:#C8860E;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-white:#111111;
+    --color-ink:#F0EBE3;
+    --color-red:#E8243A;
+    --color-secondary:#A0978C;
+    --color-border:#2E2E2E;
+    --color-ochre:#D49A30;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--color-white);color:var(--color-ink);font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;}
+#chart{width:100%;padding:24px;}
+.chart-title{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;fill:var(--color-ink);}
+.chart-subtitle{font-family:'Inter',sans-serif;font-size:13px;fill:var(--color-secondary);}
+.col-header{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;}
+.row-label{font-family:'Inter',sans-serif;font-size:13px;fill:var(--color-ink);}
+.tooltip{position:absolute;pointer-events:none;opacity:0;background:var(--color-ink);color:var(--color-white);
+  border:1px solid var(--color-border);padding:8px 10px;font-family:'Inter',sans-serif;font-size:13px;}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = {
+  left:  {header:"What polish conveys", rows:["Confidence","Authority","Recommendation"]},
+  right: {header:"What defensibility requires", rows:["Source chain","Transformation log","Human adequacy judgment"]}
+};
+
+const tooltip = d3.select('body').append('div').attr('class','tooltip');
+function showTooltip(event,html){tooltip.html(html).style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px').transition().duration(150).style('opacity',1);}
+function moveTooltip(event){tooltip.style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px');}
+function hideTooltip(){tooltip.transition().duration(100).style('opacity',0);}
+
+async function loadData(){
+  try { return await d3.json('./03-the-verified-brand-data-contract-fig-04/data.json'); }
+  catch { return FALLBACK_DATA; }
+}
+
+function render(data){
+  const container = document.getElementById('chart');
+  const totalWidth = Math.max(container.clientWidth-48,560);
+  const totalHeight = 320;
+  d3.select('#chart').selectAll('svg').remove();
+
+  const svg = d3.select('#chart').append('svg')
+    .attr('width',totalWidth).attr('height',totalHeight)
+    .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+  svg.append('title').attr('id','chart-title').text('Looks Done vs Is Defensible');
+  svg.append('desc').attr('id','chart-desc').text('Two columns separated by a vertical boundary. The left column, what a finished-looking report conveys, lists confidence, authority, and recommendation. The right column, what the report requires to be defensible, lists a source chain, a transformation log, and a human adequacy judgment.');
+
+  svg.append('text').attr('class','chart-title').attr('x',24).attr('y',30).text('Looks done vs is defensible');
+  svg.append('text').attr('class','chart-subtitle').attr('x',24).attr('y',52).text('The professional boundary that finished formatting tends to obscure.');
+
+  const margin = {top:78,left:24,right:24};
+  const gap = 28;
+  const colW = (totalWidth - margin.left - margin.right - gap)/2;
+  const colTop = margin.top;
+  const rowH = 48;
+
+  function column(x, side, colColor){
+    const g = svg.append('g');
+    g.append('text').attr('class','col-header').attr('x',x+colW/2).attr('y',colTop)
+      .attr('text-anchor','middle').attr('fill',colColor).text(side.header);
+    side.rows.forEach((r,i)=>{
+      const ry = colTop+18+i*(rowH+10);
+      const rg = g.append('g').attr('tabindex',0).attr('aria-label',`${side.header}: ${r}`)
+        .on('mouseover',function(event){showTooltip(event,`<strong>${side.header}</strong><br>${r}`);})
+        .on('mousemove',moveTooltip).on('mouseout',hideTooltip);
+      rg.append('rect').attr('x',x).attr('y',ry).attr('width',colW).attr('height',rowH)
+        .attr('rx',8).attr('fill','#F5F5F5').attr('stroke',colColor).attr('stroke-width',1.5);
+      rg.append('text').attr('class','row-label').attr('x',x+16).attr('y',ry+rowH/2+5).text(r);
+    });
+  }
+  // left header secondary; right header red (carries the real weight)
+  column(margin.left, data.left, 'var(--color-secondary)');
+  column(margin.left+colW+gap, data.right, 'var(--color-red)');
+
+  // central boundary
+  const bx = margin.left+colW+gap/2;
+  svg.append('line').attr('aria-hidden','true')
+    .attr('x1',bx).attr('y1',colTop-6).attr('x2',bx).attr('y2',totalHeight-20)
+    .attr('stroke','var(--color-ink)').attr('stroke-width',1.5);
+}
+
+function draw(){ loadData().then(render); }
+draw();
+const ro = new ResizeObserver(()=>draw());
+ro.observe(document.getElementById('chart'));
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!--
+  Evidence Workflow with the Four-List Gate
+  Book: Madison Plus One
+  Chapter: 05-verifying-brand-evidence
+  Figure 04
+  Type: process flowchart
+  Generated 2026-06-15
+  Source: pantry/05-verifying-brand-evidence-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04">
+  <title id="fig-title-04">Evidence Workflow with the Four-List Gate</title>
+  <desc>A six-stage workflow: Data Collection, AI Analysis, and Artifact Production are AI-assistable; an emphasized human Gate runs the four-list sort; then Warranted-Verb Rewrite and Recommendation. The Gate is the human-owned step where a named reviewer decides which list each candidate claim belongs in.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="05-verifying-brand-evidence" figure-number="04" figure-title="Evidence Workflow with the Four-List Gate" figure-slug="evidence-workflow-four-list-gate" figure-type="process flowchart" priority="Critical" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/05-verifying-brand-evidence-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">Evidence Workflow with the Four-List Gate</text>
+  <text x="32" y="60" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">Fast artifacts, slow accountability. The human gate is where claims are sorted before anything ships.</text>
+
+  <!-- lane labels -->
+  <text x="32" y="120" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">AI-ASSISTED</text>
+  <text x="32" y="270" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">HUMAN-OWNED</text>
+
+  <!-- AI stages row -->
+  <g>
+    <rect x="40" y="132" width="130" height="56" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+    <text x="105" y="158" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Data</text>
+    <text x="105" y="173" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Collection</text>
+  </g>
+  <line x1="170" y1="160" x2="208" y2="160" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <g>
+    <rect x="214" y="132" width="130" height="56" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+    <text x="279" y="165" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">AI Analysis</text>
+  </g>
+  <line x1="344" y1="160" x2="382" y2="160" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <g>
+    <rect x="388" y="132" width="130" height="56" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+    <text x="453" y="158" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Artifact</text>
+    <text x="453" y="173" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Production</text>
+  </g>
+  <!-- down into gate -->
+  <line x1="453" y1="188" x2="453" y2="218" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- GATE (emphasized) -->
+  <rect x="368" y="224" width="170" height="70" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+  <text x="453" y="252" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#C8102E" text-anchor="middle" font-weight="bold">GATE</text>
+  <text x="453" y="270" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Human four-list sort</text>
+
+  <!-- gate annotation -->
+  <line x1="560" y1="259" x2="600" y2="259" stroke="#2a1a0e" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="608" y="248" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Named reviewer</text>
+  <text x="608" y="262" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">decides each list.</text>
+  <text x="608" y="276" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">AI only flags candidates.</text>
+
+  <!-- human downstream row -->
+  <line x1="368" y1="280" x2="220" y2="300" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <g>
+    <rect x="40" y="310" width="160" height="56" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+    <text x="120" y="335" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Warranted-Verb</text>
+    <text x="120" y="350" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Rewrite</text>
+  </g>
+  <line x1="200" y1="338" x2="238" y2="338" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <g>
+    <rect x="244" y="310" width="160" height="56" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+    <text x="324" y="343" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Recommendation</text>
+  </g>
+</svg>

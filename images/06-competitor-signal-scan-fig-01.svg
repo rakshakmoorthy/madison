@@ -1,0 +1,67 @@
+<!--
+  The Competitor Matrix (Core Columns)
+  Book: Madison Plus One
+  Chapter: 06-competitor-signal-scan
+  Figure 01
+  Type: structural schematic
+  Generated 2026-06-15
+  Source: pantry/06-competitor-signal-scan-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+  <title id="fig-title-01">The Competitor Matrix — Core Columns</title>
+  <desc>An empty seven-column observation template: Source and Capture Date grouped as the provenance pair, then Primary Claim, Proof Offered, CTA, Audience Signal, and an accented Contradiction Flag. Body cells are left blank so the schematic reads as a reusable template, not a filled example.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="Madison Plus One" book-slug="madison" chapter="06-competitor-signal-scan" figure-number="01" figure-title="The Competitor Matrix (Core Columns)" figure-slug="competitor-matrix-core-columns" figure-type="structural schematic" priority="Critical" author="Humanitarians AI Incorporated" date-generated="2026-06-15" source-file="pantry/06-competitor-signal-scan-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">The Competitor Matrix — Core Columns</text>
+  <text x="32" y="60" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">A reusable observation template. Every row is traceable, dated, and flags any contradiction.</text>
+
+  <!-- provenance group bracket -->
+  <text x="40" y="92" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">PROVENANCE PAIR</text>
+  <line x1="40" y1="98" x2="198" y2="98" stroke="#787878" stroke-width="1"/>
+
+  <!-- column geometry: 7 cols across 40..660 (width 620) -->
+  <!-- col widths: provenance 2 narrow, then wider middle, flag accent -->
+  <!-- header row y=104 h=40 -->
+  <g font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11">
+    <!-- Source -->
+    <rect x="40" y="104" width="80" height="40" fill="#787878" stroke="#2a1a0e" stroke-width="1"/>
+    <text x="80" y="128" fill="#FFFFFF" text-anchor="middle">Source</text>
+    <!-- Capture Date -->
+    <rect x="120" y="104" width="78" height="40" fill="#787878" stroke="#2a1a0e" stroke-width="1"/>
+    <text x="159" y="122" fill="#FFFFFF" text-anchor="middle">Capture</text>
+    <text x="159" y="136" fill="#FFFFFF" text-anchor="middle">Date</text>
+    <!-- Primary Claim -->
+    <rect x="198" y="104" width="100" height="40" fill="#ADADAD" stroke="#2a1a0e" stroke-width="1"/>
+    <text x="248" y="122" fill="#2a1a0e" text-anchor="middle">Primary</text>
+    <text x="248" y="136" fill="#2a1a0e" text-anchor="middle">Claim</text>
+    <!-- Proof Offered -->
+    <rect x="298" y="104" width="100" height="40" fill="#ADADAD" stroke="#2a1a0e" stroke-width="1"/>
+    <text x="348" y="122" fill="#2a1a0e" text-anchor="middle">Proof</text>
+    <text x="348" y="136" fill="#2a1a0e" text-anchor="middle">Offered</text>
+    <!-- CTA -->
+    <rect x="398" y="104" width="78" height="40" fill="#ADADAD" stroke="#2a1a0e" stroke-width="1"/>
+    <text x="437" y="128" fill="#2a1a0e" text-anchor="middle">CTA</text>
+    <!-- Audience Signal -->
+    <rect x="476" y="104" width="100" height="40" fill="#ADADAD" stroke="#2a1a0e" stroke-width="1"/>
+    <text x="526" y="122" fill="#2a1a0e" text-anchor="middle">Audience</text>
+    <text x="526" y="136" fill="#2a1a0e" text-anchor="middle">Signal</text>
+    <!-- Contradiction Flag accent -->
+    <rect x="576" y="104" width="84" height="40" fill="#C8860E" stroke="#2a1a0e" stroke-width="1"/>
+    <text x="618" y="122" fill="#FFFFFF" text-anchor="middle">Contradict.</text>
+    <text x="618" y="136" fill="#FFFFFF" text-anchor="middle">Flag</text>
+  </g>
+
+  <!-- empty body rows -->
+  <g stroke="#D4D4D4" stroke-width="1" fill="#FFFFFF">
+    <rect x="40" y="144" width="80" height="46"/><rect x="120" y="144" width="78" height="46"/><rect x="198" y="144" width="100" height="46"/><rect x="298" y="144" width="100" height="46"/><rect x="398" y="144" width="78" height="46"/><rect x="476" y="144" width="100" height="46"/><rect x="576" y="144" width="84" height="46"/>
+    <rect x="40" y="190" width="80" height="46"/><rect x="120" y="190" width="78" height="46"/><rect x="198" y="190" width="100" height="46"/><rect x="298" y="190" width="100" height="46"/><rect x="398" y="190" width="78" height="46"/><rect x="476" y="190" width="100" height="46"/><rect x="576" y="190" width="84" height="46"/>
+    <rect x="40" y="236" width="80" height="46"/><rect x="120" y="236" width="78" height="46"/><rect x="198" y="236" width="100" height="46"/><rect x="298" y="236" width="100" height="46"/><rect x="398" y="236" width="78" height="46"/><rect x="476" y="236" width="100" height="46"/><rect x="576" y="236" width="84" height="46"/>
+    <rect x="40" y="282" width="80" height="46"/><rect x="120" y="282" width="78" height="46"/><rect x="198" y="282" width="100" height="46"/><rect x="298" y="282" width="100" height="46"/><rect x="398" y="282" width="78" height="46"/><rect x="476" y="282" width="100" height="46"/><rect x="576" y="282" width="84" height="46"/>
+  </g>
+
+  <text x="40" y="356" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" font-style="italic" fill="#545454">The live template adds competitor name, tone label, channel, and human-review note.</text>
+  <text x="40" y="374" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">The Contradiction Flag is the most valuable and most easily smoothed-away entry — keep it.</text>
+</svg>
