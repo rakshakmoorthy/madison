@@ -252,7 +252,6 @@ The current repository contains several chapter tracks:
 
 - top-level `chapters/` with front matter, introduction, themes, appendix, and back matter;
 - `chapters/branding-and-ai/` with Creative Engineer / brand-system chapters;
-- `chapters/info-7375-branding-and-ai-spring-2026/` with course chapters and cases;
 - `chapters/principles-marketing/` with broader marketing chapters.
 
 This TIKTOC proposes a new top-level practitioner-guide structure that mirrors `the-reallocation-engine/chapters/`. Existing `branding-and-ai` and course chapters become source material, not the target structure.

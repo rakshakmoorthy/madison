@@ -24,7 +24,6 @@ This repo is organized by function and audience.
 
 - `chapters/` - top-level Madison Plus One manuscript files.
 - `chapters/branding-and-ai/` - Branding and AI chapter set.
-- `chapters/info-7375-branding-and-ai-spring-2026/` - course/book chapter set
   with case studies.
 - `chapters/principles-marketing/` - principles of marketing chapter set.
 - `pantry/` - research notes and pre-manuscript drafts.

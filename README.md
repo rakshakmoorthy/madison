@@ -12,7 +12,7 @@ The first sign of trouble in brand work is usually not failure — it is fluency
 
 The book's central argument is testable and meant to be argued with: **AI makes brand execution cheaper, but it does not make brand judgment cheap.** Execution is producing the artifact; judgment is deciding whether it should exist, whether its claims hold, what it leaves out, and who owns the consequences. When execution collapses to near-zero cost, judgment becomes the whole job. The book teaches a working method for that judgment — friction as a mechanism, the phase gate where AI stops and accountability begins, provenance over polish, warranted verbs, and the open **Madison framework** in which AI extracts and drafts while humans frame, check, decide, and approve.
 
-It is written for marketers, founders, designers, brand strategists, and the engineers building the AI tools now embedded in the marketing stack. The method runs in sixteen chapters — from the fluency trap to the build and the honest run. The repository also carries a companion case library: the Spring 2026 cohort of INFO 7375, *Branding and AI*, at Northeastern University's College of Engineering, whose student projects instantiate the method.
+It is written for marketers, founders, designers, brand strategists, and the engineers building the AI tools now embedded in the marketing stack. The method runs in sixteen chapters — from the fluency trap to the build and the honest run. It grew out of INFO 7375, *Branding and AI*, taught at Northeastern University's College of Engineering.
 
 ## Table of Contents
 
@@ -42,10 +42,6 @@ It is written for marketers, founders, designers, brand strategists, and the eng
 
 - [Fundamental Themes](chapters/97-fundamental-themes.md)
 - [Appendix: Best Practices](chapters/98-appendix-best-practices.md)
-
-### Companion — INFO 7375, *Branding and AI* (Spring 2026)
-
-The course this method grew out of: a twelve-chapter theory spine and twenty-five student Brand Portfolio cases, in [`chapters/info-7375-branding-and-ai-spring-2026/`](chapters/info-7375-branding-and-ai-spring-2026/). Each case instantiates the discipline the sixteen method chapters teach.
 
 ### Back Matter
 

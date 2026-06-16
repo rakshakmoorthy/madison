@@ -17,7 +17,6 @@ source material, generated figures, and workflow documentation separate.
 Madison currently includes several chapter sets:
 
 - `chapters/branding-and-ai/`: Branding and AI book material.
-- `chapters/info-7375-branding-and-ai-spring-2026/`: course/book chapter set
   with extended case studies.
 - `chapters/principles-marketing/`: principles of marketing chapter set.
 

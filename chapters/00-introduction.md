@@ -37,7 +37,7 @@ The method runs in four movements, and every chapter closes with the same featur
 
 **Chapter 16 — the build and the honest run** assembles the pieces into a single gated, provenance-checked pass. **Chapter 97 — Fundamental Themes** gathers the load-bearing ideas, and the **Appendix** collects best practices for running the method.
 
-**Companion — INFO 7375, *Branding and AI* (Spring 2026).** The course this method grew out of lives in `chapters/info-7375-branding-and-ai-spring-2026/`: a twelve-chapter theory spine (the Creative Engineer, the Madison framework, archetypes, PRDs, pipelines, multi-agent systems, deployment, brand strategy, visual identity, storytelling, portfolio, launch) and twenty-five student Brand Portfolio cases. Read it as a worked-example library beside the method — each case instantiates the discipline these sixteen chapters teach.
+This method grew out of INFO 7375, *Branding and AI*, taught at Northeastern University's College of Engineering, where students built brand portfolios under exactly the discipline these sixteen chapters teach.
 
 ## How To Read This Book
 
