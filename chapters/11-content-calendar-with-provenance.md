@@ -179,6 +179,141 @@ Give the LLM a five-row calendar section and ask it to identify which rows lack 
 
 ---
 
+## Chapter 11 Exercises: Content Calendar With Provenance
+**Project:** Your Own Brand Intelligence System
+**This chapter adds:** a content calendar where each row carries provenance — audience, message pillar, source for every claim, owner, risk flag, and approval status — so any post can be explained, defended, and revised when the conditions that justified it change.
+
+---
+
+### Exercise 1 — When to Use AI
+**The judgment:** Three places where AI accelerates calendar work without compromising it:
+- Generating the calendar skeleton from a brief, message pillars, channel list, and date range — *Why AI works here:* producing plausible topics and channel assignments at volume is exactly the logistical drafting models are fast at, and the output is a starting scaffold you will review row by row. (Bulk generation of a checkable draft.)
+- Drafting candidate risk flags for a set of post descriptions — "what condition, if present, would require human review before this publishes?" — *Why AI works here:* surfacing the standard categories (legal, timing, source recency, cultural, audience) is a recall task you can audit against your own professional knowledge of what it missed. (Checklist generation under review.)
+- Screening a draft calendar for rows with no message-pillar or audience connection — *Why AI works here:* flagging rows that fail a structural rule is mechanical, and you make the keep/cut decision yourself. (Rule-based triage; you decide.)
+
+**The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+
+---
+
+### Exercise 2 — When NOT to Use AI
+**The judgment:** Three places where letting AI fill the provenance fields breaks the calendar:
+- Supplying the source/proof for a claim in a post — *Why AI fails here:* the model has no access to your proof map and will confidently invent an internal-doc reference or a statistic; this is missing ground truth plus hallucination, and a fabricated source is worse than a blank one.
+- Setting the risk flag's final decision — whether to ship a post the same week as a competitor's launch, or with a source that is accurate but dated — *Why AI fails here:* this is contextual professional judgment about timing, sensitivity, and acceptable exposure that the model cannot weigh, and accepting the risk is an accountability act.
+- Marking a row "approved" — *Why AI fails here:* approval is a named human accepting responsibility for the row going public; a model cannot be the owner, and an AI-assigned "approved" is the exact false-accountability the chapter warns against.
+
+**The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
+**Series connection:** Tier 6 (Accountability). The provenance schema exists so that every row names a human owner and a human approver; the model can build the skeleton (stage 2) but the decisions that make the calendar defensible — source, risk, approval — are precisely the human-required stages Tier 6 guards.
+
+---
+
+### Exercise 3 — LLM Exercise
+**What you're building this chapter:** a provenance-complete calendar section — the AI builds the skeleton, you and the prompt keep the provenance fields honest. · **Tool:** Claude (claude.ai chat) — a single calendar section is a one-pass artifact; the chat keeps the skeleton and the flagged fields visible together.
+
+**The Prompt:**
+```
+You are helping me build a content calendar with PROVENANCE — not just a scheduling
+list. There are two kinds of fields and you must respect the line between them.
+
+YOU MAY FILL (logistical / strategic skeleton):
+  Date, Channel, Audience (a specific testable segment, e.g. "existing customers —
+  loyalty tier", never "general audience"), Message pillar (from the list I give
+  you), CTA (specific and tied to a campaign objective), and a DRAFT caption.
+
+YOU MAY NOT FILL — instead mark each as [HUMAN: ...] describing what the human must do:
+  Source / proof (you have no access to my proof map — never invent a source, doc,
+    statistic, or citation), Asset approval status, Risk flag (requires human timing/
+    sensitivity judgment), Approval status (a named human must own this).
+
+Produce a 5-row calendar as a table with all ten columns: Date | Channel | Audience |
+Message pillar | Source/Proof | Asset | Owner | CTA | Risk flag | Approval status.
+
+For any row that makes a factual or product claim, put the claim text in the
+Source/Proof cell as "[HUMAN: claim '...' needs a source from the proof map]". For
+rows with no factual claim, you may write "no factual claim; brand-voice only."
+
+Then, below the table, list which fields you left for the human and why each one
+required human input you could not supply.
+
+MY INPUTS:
+Message pillars: [FILL IN: your 2–4 pillars]
+Channels: [FILL IN]
+Date range: [FILL IN]
+Audience segments I have evidence for: [FILL IN: from your persona evidence sheet]
+```
+**What this produces:** a ten-column calendar with the skeleton filled and every provenance field that needs ground truth explicitly handed back to you as a `[HUMAN: ...]` work item. **How to adapt this prompt:** *For your own brand:* the [FILL IN] audience segments should come straight from your Chapter 10 persona evidence sheet, so each row's audience field points to real evidence; the prompt is built so the model cannot quietly invent a source. *For ChatGPT / Gemini:* keep the explicit "YOU MAY FILL / YOU MAY NOT FILL" split; re-state the no-invented-source rule below the table because the model may try to be "helpful" and guess a citation. *For a Claude Project:* load your proof map and persona sheet as project knowledge — then the model can legitimately propose source matches for review instead of marking them all `[HUMAN]`, but approval and risk still stay human. **Connection to previous chapters:** this is where the claims-and-proof map (Ch 9) and the persona evidence sheet (Ch 10) get put to work — the source field cites the proof map, the audience field cites the persona sheet. **Preview of next chapter:** Chapter 12 audits the touchpoints this calendar schedules, checking each for brand-voice consistency and citing the rule behind every finding.
+
+---
+
+### Exercise 4 — CLI Exercise
+**What you're building this chapter:** a provenance-audit pass over an existing calendar file that flags every unfilled or unsupported provenance field. **Tool:** Claude Code · **Skill level:** Intermediate
+
+**Setup:**
+- [ ] Claude Code installed and opened in a folder containing a draft calendar (`./calendar/calendar.md` or `.csv`).
+- [ ] Your `./proof-inventory.md` and `./persona/persona-evidence-sheet.md` in the folder, if you have them.
+- [ ] An `./audit/` output folder you are comfortable writing into.
+
+**The Task:**
+```
+Audit ./calendar/ for provenance completeness. Do not turn it into a scheduling
+checklist — check whether each row could be defended by a teammate who did not build
+it.
+
+READ: the calendar file(s) in ./calendar/ , plus ./proof-inventory.md and
+./persona/persona-evidence-sheet.md if present.
+DO NOT MODIFY the calendar or any source file. All inputs are read-only.
+WRITE: one new file ./audit/provenance-audit.md and nothing else.
+
+For each calendar row, report:
+- Which of the ten provenance fields are blank or "TBD" (Date, Channel, Audience,
+  Message pillar, Source/Proof, Asset, Owner, CTA, Risk flag, Approval status).
+- For the Source/Proof field: if the row makes a claim, does a matching source exist
+  in ./proof-inventory.md? If yes, cite the line. If no, mark "UNSUPPORTED CLAIM —
+  needs source or rewrite." Never invent a source.
+- For the Audience field: does the named segment appear in the persona evidence
+  sheet? If not, flag "audience has no evidence base."
+- A readiness verdict per row: publish-ready / provenance-incomplete / unsupported-
+  claim.
+
+Do NOT fill in any field yourself, do NOT mark anything approved, and do NOT guess an
+owner. You are auditing, not completing.
+
+STOP when ./audit/provenance-audit.md is written. Ask before running anything else.
+
+VERIFY before finishing: report the count of rows in each readiness verdict and list
+every row carrying an unsupported claim.
+```
+**Expected output:** one audit file listing, per row, the missing fields, unsupported claims, audience-evidence gaps, and a readiness verdict. **What to inspect in the output:** confirm every "supported" source cell cites a real proof-inventory line, and that no row was marked publish-ready while still carrying a `[HUMAN]`/TBD field. **If it goes wrong:** if the model starts *filling* fields instead of flagging them, it has slipped from auditor to author — re-run with "You are auditing, not completing" emphasized; and if it cites sources not in your inventory, those are hallucinations, treat them as unsupported. **CLAUDE.md / AGENTS.md note:** add — "Calendar files are read-only during audits. The model never fills Source, Owner, Risk, or Approval. Claims without a proof-inventory match are flagged unsupported, never given an invented source." — so audits stay non-destructive and fabrication-free.
+
+---
+
+### Exercise 5 — AI Validation Exercise
+**What you're validating:** the provenance calendar from Exercise 3 or the audit from Exercise 4. **Validation type:** provenance-completeness and source-fabrication check. **Risk level:** High — these rows schedule public claims; a fabricated source or a falsely "approved" row ships exposure. **Setup:** put the calendar beside the proof inventory and persona sheet.
+
+**The Validation Task:** "Evaluate the AI output using this checklist. For each item record Pass / Fail / Cannot determine and explain."
+```
+Validation Checklist — Content Calendar With Provenance
+□ Correctness: Is each Audience a specific testable segment, and does each CTA connect
+  to a stated campaign objective?
+□ Completeness: Does every row have every one of the ten columns filled or explicitly
+  marked as a human work item — no silent blanks?
+□ Source integrity: For every row with a claim, is the Source either a real proof-
+  inventory line or an honest "needs source"? Any cited source you cannot find is a
+  fabrication.
+□ Audience evidence: Does each named segment trace to the persona evidence sheet, or
+  is it flagged as evidence-less?
+□ Accountability: Did the model leave Owner, Risk flag, and Approval to a human rather
+  than assigning them itself?
+□ Failure mode check: fluent-but-wrong (a tidy calendar that looks done but is a
+  scheduling skin over unmade decisions)? invented source citation? a row marked
+  "approved" with no human behind it? missing ground truth?
+```
+**What to do with your findings:** any fabricated source or AI-assigned approval is a stop-ship item — the row goes back to its owner. Provenance-incomplete rows become work items, not publishable content. **AI Use Disclosure prompt:** "AI generated the calendar skeleton and flagged provenance gaps; a human supplied every source from the proof map, made all risk and approval decisions, and named every owner. No source citation in this calendar originates from the model." **Series connection:** the central failure mode is the scheduling-skin illusion — a calendar that looks complete but hides unmade decisions and possibly invented sources — and the tier is Tier 6 (Accountability), which is why owner and approval must remain human.
+
+---
+**Tags:** content-provenance, calendar-accountability, source-citation, risk-flagging, audience-traceability, publish-readiness
+
+---
+
 ## Prompts
 
 ### Figure 11.1 — Two-part post evaluation

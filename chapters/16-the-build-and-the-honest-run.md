@@ -113,6 +113,113 @@ The appendix that follows this chapter gathers the principles that explain why M
 
 ---
 
+## Chapter 16 Exercises: The Build and the Honest Run
+**Project:** Your Own Brand Intelligence System
+**This chapter adds:** the assembly of every prior artifact into one Brand Intelligence System and a single bounded, fully logged, gate-by-gate honest end-to-end run.
+
+---
+
+### Exercise 1 — When to Use AI
+**The judgment:**
+- Assembling the run log into a clean chronological record from your scattered notes of prompts, outputs, sources, and decisions — *Why AI works here:* it is structured reorganization of material you already produced, a formatting task you can verify against what actually happened.
+- Drafting the evidence appendix — collecting and annotating each source with its contribution and limitations — *Why AI works here:* it is summarization over sources you supply, and you check each annotation against the source it describes.
+- Producing the human-readable report from the artifacts — the version a brand manager reads without tracing the log — *Why AI works here:* it is reformatting verified findings into a different register for a different audience, with a checkable correspondence to the underlying artifacts.
+
+**The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+
+---
+
+### Exercise 2 — When NOT to Use AI
+**The judgment:**
+- Making the gate decisions — proceed, conditional proceed, hold, close with findings — *Why AI fails here:* accountability. Each gate is a person accepting the state of the evidence at a moment in time; a proceed recorded where the honest description is conditional is exactly the dishonesty the run is built to prevent.
+- Writing the reflection on what the run proved, didn't prove, and where the evidence was weaker than expected — *Why AI fails here:* missing ground truth about your own judgment. The reflection records what you understood from the run, including which gate was hardest and why; the agent did not live the run and cannot supply that.
+- Deciding whether an open item is an acceptable conditional or a blocking hold — *Why AI fails here:* values and contextual judgment; the agent can list open items but cannot weigh whether the work is good enough to continue against the specific risk of the unresolved gap.
+
+**The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
+**Series connection:** Tier 7 (Accountability) at full weight — the entire honest run is a structure for making human gate decisions auditable; the strongest portfolio artifact is the one that shows disciplined judgment, which is precisely what no model can produce on your behalf.
+
+---
+
+### Exercise 3 — LLM Exercise
+**What you're assembling this chapter:** the full honest-run output package — run log, evidence appendix, report, gate decision record, portfolio note, and reflection — for one bounded project. **Tool:** Claude Project — the honest run spans multiple prior artifacts and benefits from persistent knowledge holding your earlier outputs and the Madison method; a single chat would lose that continuity.
+**The Prompt:**
+```
+You are helping me assemble a complete Brand Intelligence System honest run for ONE bounded project. I have completed the underlying work; you organize it into the six-artifact package and hold me to honesty, not polish.
+
+Scope of this run: [FILL IN — e.g., a competitor scan producing an evidence table, a brief built from it, a claim table, and a gate decision on brief readiness]
+
+Here is the raw material from the run — prompts used, outputs produced and where saved, sources consulted with paths/URLs, human decisions and who made them, gaps identified and whether resolved:
+[FILL IN your run material]
+
+Produce these six artifacts:
+1. RUN LOG — a sequential, chronological record of every material action, source, prompt, output (with path), and human decision. Not a narrative; a record. Test: a colleague who wasn't present should be able to reconstruct what happened.
+2. EVIDENCE APPENDIX — each source described, its contribution noted, its limitations/gaps acknowledged.
+3. REPORT — the human-readable account for the person who must act on the findings.
+4. GATE DECISION RECORD — for each gate: decision type (proceed / conditional proceed / hold / close with findings), who made it, evidence state at the time, and open items.
+5. PORTFOLIO NOTE — one page on what this run demonstrates about how I work.
+6. Leave the REFLECTION for me to write — instead, give me three pointed questions to answer in it.
+
+Rules:
+- Do not smooth gaps into completeness. Where my material shows an unresolved item, the artifact must show it unresolved.
+- Do not record a gate as a clean proceed where my notes describe unresolved open items — that is a conditional proceed.
+- Do not invent sources, decisions, or owners. If something is missing from my material, flag it as a gap in the run log rather than filling it.
+- Do not write the reflection or make any gate decision yourself.
+```
+**What this produces:** five assembled, honesty-checked artifacts plus three questions to seed the reflection you write yourself — a package where gaps stay visible and gate decisions reflect the actual evidence state. **How to adapt this prompt:** *For your own brand:* scope small for the first run — four artifacts and one gate done with full logging beats a large run with thin logs. *For ChatGPT / Gemini:* paste the same block; both tend to upgrade conditional proceeds into clean proceeds and to fill missing owners — re-paste the no-smoothing and no-invention rules and re-check the gate record. *For a Claude Project:* load your prior chapter artifacts and the Madison appendix into Project knowledge so the run is assembled against the method rather than reconstructed from memory. **Connection to previous chapters:** this run integrates everything — the evidence audit and claim table, the brief and assumption register, the launch readiness pack's go/no-go gate, the performance report's three layers, the routing digest's detection-then-human-decision discipline — into one auditable whole. **Preview of the synthesis:** the appendix that follows gathers the principles behind why Madison is built this way; you have now seen them operate, and the honest run is the best preparation for reading why they are the principles.
+
+---
+
+### Exercise 4 — CLI Exercise
+**What you're building this chapter:** an automated run-log assembler and completeness auditor over a project folder, with all gate decisions left explicitly to you. **Tool:** Cowork — the honest run spans many files across a real project folder, and Cowork's multi-file reach over the whole project is the right fit for assembling and auditing the package in place. · **Skill level:** Advanced
+**Setup:**
+- [ ] A project folder containing the run's artifacts, source files, and a `run-notes.md` capturing prompts, decisions, and gaps as they happened.
+- [ ] A clear list of the artifacts the package should contain.
+- [ ] Cowork open with read/write access to the project folder confirmed.
+**The Task:**
+```
+Read run-notes.md and survey the artifact and source files in this project folder. Assemble a file called honest-run-package.md and audit the run for completeness.
+
+Scope:
+- READ: run-notes.md, every artifact file, and every source referenced in the notes.
+- WRITE: only honest-run-package.md and gate-decision-record.md (create them; do not overwrite anything else).
+- LEAVE ALONE: all artifact and source files — do not edit, move, rename, or delete anything.
+
+In honest-run-package.md, assemble: a chronological RUN LOG (action, source path/URL, prompt purpose, output path, decision and owner), an EVIDENCE APPENDIX (each source described with contribution and limitations), and a pointer to the human-readable report.
+
+In gate-decision-record.md, build a table with columns: Gate | Decision Type | Evidence State at Decision | Open Items | Decision Owner | Timestamp. Populate every column EXCEPT Decision Type and Decision Owner from the notes; leave those two blank for me to fill — you do not decide gates or owners.
+
+Rules:
+- If a source referenced in run-notes is not findable in the folder, mark it "SOURCE NOT FOUND — gap in run" rather than omitting it.
+- If the notes describe an unresolved open item at a gate, carry it into Open Items verbatim. Do not smooth it away.
+- Do not invent decisions, owners, timestamps, or sources.
+
+Stop conditions: stop after writing the two files. Do not make any gate decision, do not assign owners, do not edit sources.
+
+Verification step: after writing, print (a) every SOURCE NOT FOUND, (b) every gate row with open items, and (c) confirmation that the Decision Type and Decision Owner columns are blank.
+```
+**Expected output:** an `honest-run-package.md` (run log + evidence appendix + report pointer) and a `gate-decision-record.md` with everything populated except the two columns only you can fill, plus a printed completeness audit. **What to inspect in the output:** whether every source in the notes was actually located (or honestly flagged missing), and whether open items were carried verbatim rather than smoothed into a clean proceed. **If it goes wrong:** if the agent fills in a decision type or owner, re-run and quote the "leave those two blank" rule; if it drops an unresolved item, the printed open-items audit is your catch — restore it before signing any gate. **CLAUDE.md / AGENTS.md note:** add: "Honest runs: the agent assembles the run log, evidence appendix, and the populated cells of the gate record; it never decides a gate type, assigns a decision owner, writes the reflection, or smooths an unresolved open item into a proceed."
+
+---
+
+### Exercise 5 — AI Validation Exercise
+**What you're validating:** the assembled honest-run package — whether a colleague who wasn't present could reconstruct the run and audit its gate decisions. **Validation type:** verification of an auditability artifact against the actual run and against the honesty standard. **Risk level:** High — a run log that hides its failures cannot be learned from, and a gate recorded dishonestly cannot be audited. **Setup:** open the package from Exercise 3 or 4 next to the real project folder and the run notes, and test reconstructability end to end.
+**The Validation Task:** "Evaluate the AI output using this checklist. For each item record Pass / Fail / Cannot determine and explain."
+```
+Validation Checklist — The Build and the Honest Run
+□ Correctness: Does every logged action, source path, and output path in the run log match what is actually in the folder?
+□ Completeness: Could a colleague who wasn't present reconstruct the sequence of actions, find every artifact, and locate every source from the log alone?
+□ Scope: Are all six artifacts present (run log, evidence appendix, report, gate decision record, portfolio note, reflection), with the gate decisions and reflection authored by a human?
+□ Gate honesty: Is each gate recorded as its true type — is any clean "proceed" actually a conditional proceed with unresolved open items?
+□ Open-item visibility: Are unresolved risks written down as open items rather than smoothed into completeness?
+□ Failure mode check: fluent-but-wrong? (a report that sounds comprehensive over a narrow evidence base?) missing ground truth? (an invented source, decision, owner, or timestamp the run did not actually have?)
+```
+**What to do with your findings:** correct any mis-typed gate to its honest type, restore any smoothed-away open item, fix or flag any source the log cannot locate, and write the reflection yourself — the package is only as useful as it is accurate. **AI Use Disclosure prompt:** "The run log, evidence appendix, and report were assembled by [tool] from my run notes and project files; every gate decision, the decision owners, and the reflection were authored by [name], and all open items and gaps are recorded as they actually stood — nothing was smoothed for appearance." **Series connection:** the failure mode is fluent-but-wrong completeness over a thin evidence base, gated at Tier 7 — the honest run exists so that human gate decisions are auditable, which is the accountability the whole Brand Intelligence System has been building toward.
+
+---
+**Tags:** honest-run, system-assembly, run-log-auditability, gate-decisions, portfolio-judgment, brand-intelligence-system
+
+---
+
 ## Prompts
 
 ### Figure 16.1 — The honest run output package

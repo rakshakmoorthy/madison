@@ -145,6 +145,131 @@ Prompt suggestion: *"I have a piece of supporting evidence that is thin — here
 
 ---
 
+## Chapter 3 Exercises: The Verified Brand Data Contract
+
+**Project:** Your Own Brand Intelligence System
+
+**This chapter adds:** The brand-data contract for the system — a labeled recipe (inputs, steps, outputs, gate, log) plus a sources-of-truth list that records the epistemic status of every input the system will ever cite.
+
+---
+
+### Exercise 1 — When to Use AI
+**The judgment:** In this chapter's work, AI assistance is appropriate for the following tasks:
+- Extracting an inventory of files, paths, and contents from a working folder — *Why AI works here:* this is **summarizing / reformatting** of material you can open yourself; the chapter says extraction is exactly what the agent does efficiently and correctly.
+- Drafting the source-map and missing-evidence list by tracing which claims connect to which inputs — *Why AI works here:* this is **clustering** outputs back to sources against a structure you supply; you can re-walk any link by hand.
+- Running machine-conformance checks (do the files exist at the expected paths, are the required log fields present, is the template fully populated) — *Why AI works here:* this is **reformatting/validation** against a fixed schema, the conformance half the chapter explicitly assigns to the agent.
+**The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+
+---
+
+### Exercise 2 — When NOT to Use AI
+**The judgment:** In this chapter's work, the following tasks require human judgment. Delegating them to AI is not appropriate — not because AI cannot produce output, but because AI output here cannot be trusted without verification that requires the same expertise as doing the task yourself.
+- Judging whether a source is *adequate* for the decision it supports — *Why AI fails here:* **source adequacy.** The chapter states the hard boundary directly: a summary of a source is not evidence the source is adequate; adequacy requires a human who understands the decision and the stakes.
+- Confirming a claim is *verified* versus merely *generated* — *Why AI fails here:* **hallucination risk.** The model's fluent summary creates the impression of authority it does not possess; treating its summary as evidence is the precise fluency trap, and only a human with access to the raw source can confirm the chain.
+- Crossing the gate — authorizing a strategic recommendation to move forward — *Why AI fails here:* **accountability.** The gate is a human act by definition; no AI participates in it. AI may prepare the ground on one side; the practitioner crosses it.
+**The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
+**Series connection:** Tier 6 Collective — the data contract makes the chain inspectable by *other people* (a teammate, a client, a future you); it converts private confidence into shared, auditable evidence.
+
+---
+
+### Exercise 3 — LLM Exercise
+**What you're building this chapter:** The brand-data contract for your system — a provenance trace for one claim, plus the sources-of-truth list that labels every input by epistemic status.
+**Tool:** A Claude Project — use a Project here (not a one-off chat) because the sources-of-truth list is reusable knowledge the whole system will draw on, so it belongs in project knowledge.
+**The Prompt:**
+```
+You are helping me build a verified brand data contract. Use these five epistemic-status labels for every input:
+- Raw data (original source as collected: files, exports, URLs, screenshots)
+- Verified data (raw data a human has checked for date, method, relevance)
+- Generated artifact (model output — NOT evidence by default; a candidate)
+- Approval record (a logged human decision authorizing something to move)
+- Report (the finished deliverable)
+
+Here is one strategic claim from a brand report:
+[FILL IN: paste one strategic claim, e.g. "The category is shifting toward trust messaging."]
+
+Here are the inputs in my working folder:
+[FILL IN: list each source file/URL/export with a one-line description and its date if you know it]
+
+Do exactly this:
+1. Trace the claim backward through each intermediate artifact to the source inputs.
+2. Label every link in the chain with one of the five epistemic-status labels.
+3. Identify any BREAK in the chain — a source not checked for date/method/relevance, or a generated artifact being treated as evidence — and name exactly where it breaks.
+4. Produce a sources-of-truth list: a table of every input | label | date | what can be cited from it | what cannot.
+5. Draft a SHORT provenance note (≤80 words) describing the chain honestly, including what it does NOT establish. If evidence is thin, say so plainly — do not soften it.
+
+Do NOT declare any source "verified" yourself — mark sources I must check as "Raw — needs human verification."
+```
+**What this produces:** A provenance trace with breaks named, a sources-of-truth table, and an honest provenance note draft — the core of your system's data contract.
+**How to adapt this prompt:**
+- *For your own brand:* paste a real claim and your real folder at [FILL IN]; then walk each "needs human verification" link and confirm dates/methods yourself.
+- *For ChatGPT / Gemini:* identical wording; if a model upgrades a source to "verified" on its own, add "Only I can mark a source verified — leave everything else as Raw."
+- *For a Claude Project:* put the five-label definitions and the finished sources-of-truth list into project knowledge so every later run inherits the same contract.
+**Connection to previous chapters:** The "verified" label here is the disciplined form of Chapter 1's verified-claim type, and the inputs you trace are the evidence-category tasks you classified in Chapter 2.
+**Preview of next chapter:** Chapter 4 writes the workflow twice — once for the agent that runs it, once for the human who maintains it.
+
+---
+
+### Exercise 4 — CLI Exercise
+**What you're building this chapter:** The `recipe.md`, `sources-of-truth.md`, and `provenance-note.md` files in your repo, plus the gate rule.
+**Tool:** Claude Code
+**Skill level:** Intermediate
+**Setup:**
+Before running this exercise, confirm:
+- [ ] You have your provenance trace and sources-of-truth table from Exercise 3.
+- [ ] Your `brand-intelligence-system/` repo exists, with the Chapter 1 and 2 files and `CLAUDE.md` already in it.
+- [ ] You will add a standing rule to `CLAUDE.md`: "No strategic recommendation moves forward unless its source chain is visible. The agent checks conformance; only a human confirms adequacy and crosses the gate."
+**The Task:**
+```
+Work only inside this project folder. Do not touch files outside it.
+
+1. Create recipe.md with this exact structure and fill ONLY the structural scaffolding (leave brand specifics as "[FILL IN]"):
+   ## Inputs
+   ## Steps  (label each input by epistemic status; connect outputs back to sources; record every transformation; flag every gap; write a provenance note)
+   ## Outputs  (source map; missing-evidence list; provenance note)
+   ## Gate  (no strategic recommendation moves unless its source chain is visible — HUMAN crosses)
+   ## Log  (source paths, run IDs, every unresolved gap)
+
+2. Create sources-of-truth.md from the table I paste. Preserve my labels exactly. Do NOT change any "Raw — needs human verification" to "Verified".
+
+3. Create provenance-note.md containing the short note I paste. Do not embellish or soften it.
+
+4. Run a CONFORMANCE check only: for each source path I listed, report whether a file with that name exists in this folder. List any missing paths. Do NOT judge whether any source is adequate — that is my job.
+
+5. Append to CLAUDE.md the gate rule above.
+
+6. Stop and show me the three files plus the conformance report. Do not commit or delete anything.
+```
+**Expected output:** Three files plus a conformance report listing which source paths exist and which are missing, with all human-verification labels preserved.
+**What to inspect in the output:** Confirm no "Raw — needs human verification" label was upgraded to "Verified," and that the conformance report makes no adequacy judgments (only existence checks).
+**If it goes wrong:** The most likely failure is the agent quietly marking sources "verified" or asserting a source is "adequate." Recovery: revert, restate the conformance-vs-adequacy boundary, re-run.
+**CLAUDE.md / AGENTS.md note:** Add the gate rule above — it separates machine conformance from human adequacy, the whole architecture of the contract.
+
+---
+
+### Exercise 5 — AI Validation Exercise
+**What you're validating:** The provenance note and sources-of-truth list from Exercise 3.
+**Validation type:** Factual claim (does the source chain actually support the stated claim?).
+**Risk level:** High — an unsourced claim that ships as decision-support is the exact "where did that come from?" meeting this chapter opens with.
+**Setup:** Use your Exercise 3 output. To surface a failure, paste this pre-generated note and grade it: `"This analysis is supported by a comprehensive review of available category intelligence."` (the chapter's example of a note that protects the practitioner instead of informing the decision-maker).
+**The Validation Task:**
+Evaluate the AI output using this checklist. For each item record Pass / Fail / Cannot determine and explain.
+```
+Validation Checklist — The Verified Brand Data Contract
+□ Correctness: Does every claim in the report trace back to a real, openable source?
+□ Completeness: Are all breaks in the chain named, or were thin/undated sources smoothed over?
+□ Scope: Did the model add claims the sources do not support, or omit a source it actually used?
+□ Conformance vs adequacy: Did the agent stay on conformance (files exist, fields present) and leave adequacy to you?
+□ Honest provenance: Does the note state what the chain does NOT establish, in plain language, without softening thin evidence?
+□ Failure mode check: fluent-but-wrong? (an unsourced trend asserted as observed) — schema-valid-but-wrong? (a structurally complete chain whose sources are stale or off-category) — missing ground truth?
+```
+**What to do with your findings:** pass → file the provenance note for use in review; one fail → revise the prompt (tighten "name every break") and re-run; multiple → trace the chain by hand, since adequacy is the human-only judgment.
+**AI Use Disclosure prompt:** write two sentences — (1) what AI produced and how you used it; (2) one thing the AI could not determine that required your judgment.
+**Series connection:** The failure mode is an unsourced claim (and schema-valid-but-wrong chains); validating that the chain is both complete and adequate is the Tier 6 collective discipline of producing evidence others can audit.
+
+---
+
+**Tags:** verified-data-contract, provenance-note, sources-of-truth, epistemic-status-labels, conformance-vs-adequacy, source-chain
+
 ## Prompts
 
 ### Figure 3.1 — Looks done vs is defensible

@@ -181,6 +181,103 @@ Take the KPI map draft from Exercise 2. For each metric, ask the LLM to flag whe
 
 ---
 
+## Chapter 8 Exercises: Measurement Plan and KPI Map
+**Project:** Your Own Brand Intelligence System
+**This chapter adds:** a measurement plan and KPI map that ties each KPI to a specific decision, with a baseline and a pre-campaign sign-off for every metric.
+---
+### Exercise 1 — When to Use AI
+**The judgment:** Building the map's scaffold — suggesting candidate metrics, writing standard definitions, flagging gaps — is checkable execution work where AI is strong.
+- Writing an explicit numerator/denominator definition for each metric name and stating what it does not measure — *Why AI works here:* this is **definition retrieval and structuring** against industry-standard formulas you can verify.
+- Flagging gaps in a draft map — missing baselines, undefined cadences, metrics with no decision use — *Why AI works here:* this is **completeness checking** against a known template, a mechanical pattern-match you can audit row by row.
+- Sorting a candidate metric list into outcome / leading / diagnostic tiers — *Why AI works here:* this is **classification** against a defined taxonomy, producing a draft you confirm against each metric's actual behavior.
+
+**The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+---
+### Exercise 2 — When NOT to Use AI
+**The judgment:** Deciding which metrics matter for this business question, what counts as success, and signing off before launch are accountability acts, not formatting tasks.
+- Writing the decision use — naming the specific choice each metric informs — *Why AI fails here:* it requires **ground truth** about what decisions the organization is actually making and when, which lives nowhere in the metric list.
+- Setting the target and confirming the baseline is valid — *Why AI fails here:* defining success after seeing data is selection bias; the pre-launch standard is a **values and accountability** commitment a named human signs, and the model cannot confirm a baseline it never measured (**source adequacy**).
+- Asserting that a campaign caused a consideration lift — *Why AI fails here:* the attribution claim outruns the design; the model will generate a confident causal sentence (**hallucinated certainty**) the measurement cannot warrant.
+
+**The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
+**Series connection:** Tier 7 — the KPI map governs whether the whole campaign is judged a success; AI assists every stage but the pre-campaign sign-off is where a named practitioner accepts accountability for the standard the report will be measured against.
+---
+### Exercise 3 — LLM Exercise
+**What you're building this chapter:** a measurement plan and KPI map where each KPI is tiered, defined, baselined, and tied to a decision — the capstone verified component of your brand repo.
+**Tool:** Claude Project. A Project is right here because the KPI map should inherit the objective from the Chapter 7 brief; loading that brief as Project knowledge keeps the measurement plan anchored to the actual campaign goal rather than a generic one.
+**The Prompt:**
+```
+You are helping me build a measurement plan and KPI map. Every metric must carry: a tier (outcome / leading / diagnostic), an explicit definition (numerator and denominator where applicable), a source, a baseline, a target, a cadence, a DECISION USE (the specific choice this metric informs and when), and a sign-off slot.
+
+Use the campaign objective from my brief (in this Project's knowledge or pasted below). Do not invent baselines or targets — if a baseline is not available, say so and tell me whether it can be collected before launch.
+
+CAMPAIGN OBJECTIVE: [FILL IN or "see brief in Project knowledge"]
+AVAILABLE DATA SOURCES: [FILL IN: e.g., quarterly brand tracker, ad platform export, CRM]
+KNOWN BASELINES: [FILL IN, or "none yet"]
+
+Do four things:
+1. Propose a KPI map as a table: Metric | Tier | Definition (num/denom) | Source | Baseline | Target | Cadence | Decision use | Sign-off (leave as [name/date]).
+2. For each metric, write a DECISION USE that names a specific choice — e.g., "determines whether to extend the flight or shift spend to conversion at month 2." Reject vague uses like "track weekly" or "for awareness."
+3. Flag every metric whose baseline is unavailable, and mark whether it is estimable from prior data or must be collected BEFORE the campaign runs.
+4. Identify any metric that has no real decision use and recommend removing it from the map (it may still appear in the report as diagnostic context).
+
+Rules: do not assert that any metric will prove the campaign caused an outcome. Distinguish outcome, leading, and diagnostic tiers explicitly. Leave all sign-off cells as [name/date] for me to complete before launch.
+```
+**What this produces:** a tiered KPI map with explicit definitions, flagged baseline gaps, a specific decision use per metric, and empty sign-off slots ready for pre-campaign approval.
+**How to adapt this prompt:** *For your own brand:* load your real Chapter 7 brief and use your actual data sources and known baselines — a KPI map with invented baselines is exactly the selection-bias trap the chapter warns about. *For ChatGPT / Gemini:* paste the brief's objective inline; if the model writes vague decision uses, add "every decision use must name a choice and a trigger threshold or timing." *For a Claude Project:* keep this as your measurement-plan Project with your standard metric definitions and sign-off roles as knowledge, so each campaign's map inherits consistent definitions.
+**What this produces (next):** a map you complete by setting targets, confirming baselines, and signing off before the campaign launches.
+**Connection to previous chapters:** the outcome metric here measures the objective field from the Chapter 7 brief, and the warranted-verb discipline from Chapter 5 governs how you will later report whether the metric moved — "consideration rose during the flight," not "the campaign caused the rise." **Preview of next chapter:** the signed-off map becomes the standard against which the post-campaign report is read, closing the loop the brand intelligence system was built to support.
+---
+### Exercise 4 — CLI Exercise
+**What you're building this chapter:** a `kpi-map.md` generated from a `measurement-inputs.md`, with a machine-conformance check that every metric has a tier, a decision use, and a sign-off slot.
+**Tool:** Claude Code.
+**Skill level:** Intermediate — reading inputs, structured table output, and a completeness check that distinguishes machine conformance from human adequacy.
+**Setup:**
+- [ ] Brand repo with `measurement-inputs.md` listing the campaign objective, available data sources, and any known baselines.
+- [ ] The verified `creative-brief.md` from Chapter 7 present in the repo for the objective.
+- [ ] Claude Code started in the repo folder.
+**The Task:**
+```
+Read measurement-inputs.md and creative-brief.md. Treat both as read-only — do NOT modify them.
+
+Create kpi-map.md with a markdown table, one row per metric, columns: Metric | Tier (outcome/leading/diagnostic) | Definition (num/denom) | Source | Baseline | Target | Cadence | Decision use | Sign-off.
+
+Rules:
+- Pull the campaign objective from creative-brief.md; the outcome metric(s) must measure that objective.
+- Do not invent baselines or targets. If a baseline is not in measurement-inputs.md, write "MISSING — collect before launch" in the Baseline cell.
+- Every Decision use must name a specific choice and a timing or threshold; if you cannot write a real one, write "NO DECISION USE — candidate for removal."
+- Leave every Sign-off cell as "[name/date]". Do not invent names or dates.
+- Do not write any cell asserting the campaign caused an outcome.
+
+Then run a CONFORMANCE CHECK and print it to the chat (do not change the file based on it): total metrics, count per tier, count of MISSING baselines, count of metrics flagged NO DECISION USE, count of sign-off cells still open. Stop after the check. Do not delete or overwrite any other file.
+```
+**Expected output:** a new `kpi-map.md` tied to the brief's objective, plus a chat conformance summary counting metrics per tier, missing baselines, decision-use-less metrics, and open sign-off cells.
+**What to inspect in the output:** confirm every outcome metric maps to the brief's objective, that no baseline was invented (every gap reads "MISSING — collect before launch"), that each decision use names a real choice, and that all sign-off cells remain "[name/date]".
+**If it goes wrong:** if the model invented a baseline or wrote a vague decision use, re-run with "for each baseline, quote its source from measurement-inputs.md or mark it MISSING; rewrite each decision use to name a choice and a trigger." If a cell implies causation, restate the no-causation rule.
+**CLAUDE.md / AGENTS.md note:** add to `CLAUDE.md`: "KPI map rule: every metric has a tier, a real decision use, and a baseline (or 'MISSING — collect before launch'); sign-off cells stay open until a named human approves pre-launch. Never invent baselines, targets, names, or causal claims."
+---
+### Exercise 5 — AI Validation Exercise
+**What you're validating:** the `kpi-map.md` from Exercise 4 (or the Exercise 3 KPI map).
+**Validation type:** decision-linkage and baseline-integrity check. **Risk level:** High — a map with invented baselines or decoration-only metrics produces a report that cannot answer "did it work?"
+**Setup:** open the map next to `measurement-inputs.md` and the Chapter 7 brief, so you can test each baseline and each decision use against its source.
+**The Validation Task:** "Evaluate the AI output using this checklist. For each item record Pass / Fail / Cannot determine and explain."
+```
+Validation Checklist — Measurement Plan and KPI Map
+□ Correctness: Is each metric's tier right, and does each definition state a checkable numerator and denominator?
+□ Completeness: Does every metric have a tier, definition, source, baseline (or MISSING flag), cadence, decision use, and a sign-off slot?
+□ Scope: Do the outcome metrics measure the brief's actual objective, with nothing imported from a generic template?
+□ Decision linkage: Does every retained metric name a specific choice and a timing/threshold — no "track weekly" placeholders?
+□ Baseline integrity: Is every baseline traceable to a source, with un-available baselines flagged for pre-launch collection rather than invented?
+□ Failure mode check: fluent-but-wrong (a metric-rich map that supports no decision)? a baseline or target invented to look complete? a causal claim the design cannot warrant? missing ground truth (success defined after the data is seen)?
+```
+**What to do with your findings:** each Fail or Cannot determine becomes a fix — restore or flag a baseline, rewrite a vague decision use, remove a decoration-only metric, or strip a causal assertion. The corrected, sign-off-ready map is the verified capstone component you commit for this chapter.
+**AI Use Disclosure prompt:** "AI proposed the KPI map, wrote metric definitions, flagged missing baselines, and drafted candidate decision uses from my objective and data sources; I confirmed each baseline, rewrote the decision uses to name real choices, removed metrics with no decision, and will sign off before launch. The model could not determine whether observed movement would be caused by the campaign, so no metric in the map asserts causation."
+**Series connection:** the failure mode is a fluent-but-wrong map — dense with metrics, signing off on none, defining success after the fact; the pre-campaign sign-off and decision-use linkage are the Tier 7 verification that makes the eventual report defensible.
+---
+**Tags:** measurement-plan · kpi-map · decision-use · metric-tiers · baseline-integrity · pre-campaign-signoff
+
+---
+
 ## Prompts
 
 ### Figure 8.1 — The three-tier metric hierarchy

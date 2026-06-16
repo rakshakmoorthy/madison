@@ -112,6 +112,116 @@ The campaign that launched well creates the conditions for useful reporting. The
 
 ---
 
+## Chapter 13 Exercises: Launch Readiness and Trafficking QA
+**Project:** Your Own Brand Intelligence System
+**This chapter adds:** a launch-readiness and trafficking QA checklist that runs all six check categories against the actual buy and routes the result through a single named human go/no-go gate.
+
+---
+
+### Exercise 1 — When to Use AI
+**The judgment:**
+- Drafting the launch readiness pack table from a scattered set of asset folders, link lists, and approval emails — *Why AI works here:* it is structured extraction and reformatting into a fixed schema, a mechanical organizing task where the source artifacts already exist and you can verify each row against them.
+- Running the asset-completeness and spec-conformance check — dimensions, file sizes, format/codec, naming — across a deliverable list — *Why AI works here:* this is rule-application against published platform specs, a deterministic comparison task with a checkable right answer.
+- Generating the first-pass severity classification (critical / significant / minor) for each detected gap — *Why AI works here:* it is pattern-matching against stated criteria that surfaces candidates fast, and a human re-rates each one, so the task is proposal generation, not final judgment.
+
+**The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+
+---
+
+### Exercise 2 — When NOT to Use AI
+**The judgment:**
+- Confirming that the proof claim in the live banner still matches the current approved proof record — *Why AI fails here:* missing ground truth. The agent does not have authoritative access to which proof version is current, and a fluent "claim matches proof" assertion on a misaligned claim is the one launch error that cannot be corrected quietly after it goes public.
+- Verifying that each link resolves to the live, correct landing page today — *Why AI fails here:* source adequacy. The agent cannot actually open the URLs in a real browser session and confirm the page state at the moment of launch; a confident "links verified" with no live test is exactly the fluent-but-wrong failure the chapter warns about.
+- Making the go/no-go decision and putting a name on it — *Why AI fails here:* accountability. The go decision is the acceptance of remaining risk by a person who is responsible for the consequences; no system can carry that, and a misaligned claim is not a risk within anyone's authority to accept.
+
+**The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
+**Series connection:** Tier 7 (Accountability) — the go decision and the proof-claim confirmation both require a named person who answers for the risk; the chapter is explicit that an unidentified approver is itself a critical blocker, which is a pure accountability failure, not a capability one.
+
+---
+
+### Exercise 3 — LLM Exercise
+**What you're building this chapter:** the launch readiness pack — a complete check table across all six categories, a severity-classified blocker list, and a go/no-go status field. **Tool:** Claude (claude.ai chat) — a single launch is a bounded, one-pass artifact that does not need persistent project memory.
+**The Prompt:**
+```
+You are helping me build a launch readiness pack for a single brand campaign before it goes public. I will give you the campaign facts; you will produce one inspectable table and a blocker list.
+
+Campaign: [FILL IN campaign name and one-line description]
+Channels and placements in this buy: [FILL IN]
+Deliverables that were supposed to be produced: [FILL IN list — banner sizes, video cuts, social formats, email variants]
+Landing page URL(s) and required UTM parameters: [FILL IN]
+Key public-facing claims and where the approved proof lives: [FILL IN]
+Required approvals and who normally signs them: [FILL IN]
+
+Build the launch readiness pack as a table with these columns: Check Category | Item | Required State | Current State | Evidence / Source | Blocker Severity | Owner | Resolved?
+
+Run all six check categories, one or more rows each:
+1. Asset completeness and specification conformance
+2. URL integrity and tracking
+3. Claims and proof alignment
+4. Approvals and disclosures
+5. Accessibility (alt text, captions, contrast)
+6. Blocker identification and severity classification
+
+Rules:
+- For any row where you do not have the information to determine the Current State, write "UNVERIFIED — requires human check" rather than guessing. Do not assert a link resolves or a claim matches proof unless I have given you evidence for it.
+- Mark each blocker as Critical, Significant, or Minor, and treat any claims-and-proof misalignment as Critical by default.
+- Note that evidence has dates: flag any evidence I gave you that is more than a week old as stale and needing re-verification.
+
+Then output a separate blocker list grouped by severity, and a final Go/No-Go status line with a blank named-approver field and timestamp field for me to fill in. Do not recommend "go" yourself.
+```
+**What this produces:** a populated six-category readiness table, a severity-grouped blocker list that distinguishes critical from significant from minor, and an unfilled go/no-go gate that you (a named person) complete. **How to adapt this prompt:** *For your own brand:* replace every [FILL IN] with your real buy, then actually open the links and compare claims to proof before marking any UNVERIFIED row as resolved. *For ChatGPT / Gemini:* paste the same block; both handle the table well, but watch for them silently filling UNVERIFIED rows with plausible states — re-read the rules line if they do. *For a Claude Project:* if you run many launches, drop your response policy and proof-record index into Project knowledge so the claims check has a stable reference, but keep the per-launch facts in the chat. **Connection to previous chapters:** the claims-and-proof check reaches back to the claim table and proof map from the brief and strategy chapters — launch is where that earlier work is re-verified, not re-invented. **Preview of next chapter:** the URL-and-tracking check you run here is the beginning of the measurement record; Chapter 14 turns the data those correctly-tagged links collect into a performance report.
+
+---
+
+### Exercise 4 — CLI Exercise
+**What you're building this chapter:** an automated asset-and-spec conformance pass plus a stale-evidence scan over a launch folder, with the human checks left explicitly unresolved. **Tool:** Claude Code · **Skill level:** Intermediate
+**Setup:**
+- [ ] A local folder containing the campaign's launch assets and a plain-text or markdown list of required deliverables and specs.
+- [ ] A file (CSV or markdown) listing each public-facing claim and the path to its approved proof.
+- [ ] Claude Code open in that folder with read access confirmed.
+**The Task:**
+```
+Read the deliverables/spec list and the claims-and-proof file in this folder. Then scan the asset files present in the folder.
+
+Produce a file called launch-readiness-pack.md containing the eight-column readiness table described to you, covering all six check categories.
+
+Scope:
+- READ: every asset file's name, dimensions/format where detectable, the spec list, and the claims-and-proof file.
+- WRITE: only launch-readiness-pack.md (create it; do not overwrite anything else).
+- LEAVE ALONE: all asset files and the source lists — do not rename, move, modify, or delete anything.
+
+For the asset-completeness rows, compare actual files against the required list and report missing or non-conforming deliverables.
+For the claims-and-proof rows, list each claim and mark it "REQUIRES HUMAN VERIFICATION — agent cannot confirm proof currency."
+For URL integrity rows, list each link found and mark it "REQUIRES LIVE BROWSER CHECK — agent did not open it."
+For any evidence reference older than 7 days from today, flag it as STALE.
+
+Stop conditions: stop after writing the file. Do not attempt to open URLs, do not edit assets, and do not mark any human-verification row as resolved.
+
+Verification step: after writing, print a summary count of rows by severity and a list of every row marked REQUIRES HUMAN VERIFICATION or STALE.
+```
+**Expected output:** a `launch-readiness-pack.md` with the full table, plus a printed summary of severity counts and a list of every row that still needs a human. **What to inspect in the output:** whether the asset-completeness check actually matched files to the required list (not just listed files), and whether every claims and URL row is honestly marked as needing a human rather than silently asserted as fine. **If it goes wrong:** if the agent marks claim or link rows as verified, it has overstepped its evidence — re-run and reinforce that it cannot open URLs or confirm proof currency; if it edits an asset, restore from your source folder and re-run with the LEAVE ALONE scope quoted back. **CLAUDE.md / AGENTS.md note:** add a standing rule: "Launch readiness packs: the agent may run asset/spec conformance and stale-evidence scans; it may never mark claims-and-proof, URL-resolution, or approval rows as resolved, and may never make a go decision."
+
+---
+
+### Exercise 5 — AI Validation Exercise
+**What you're validating:** an AI-generated launch readiness pack — specifically whether it can be trusted to inform a go/no-go decision. **Validation type:** verification of a decision-support artifact against ground truth and scope. **Risk level:** High — a wrong "ready" assessment on a claim or link becomes a permanent, public error. **Setup:** take the readiness pack from Exercise 3 or 4, open it next to the actual assets, links, and proof records, and work through every row.
+**The Validation Task:** "Evaluate the AI output using this checklist. For each item record Pass / Fail / Cannot determine and explain."
+```
+Validation Checklist — Launch Readiness and Trafficking QA
+□ Correctness: For each asset-completeness row, does the stated Current State match the actual file (dimensions, format, presence)?
+□ Completeness: Are all six check categories present, and does the asset list reflect the ACTUAL buy rather than an earlier brief version?
+□ Scope: Does every claims-and-proof, URL, and approval row defer to a human rather than asserting a verdict the agent could not earn?
+□ Severity calibration: Is every claims-and-proof misalignment rated Critical, and are severities consistent with the stated criteria?
+□ Evidence dating: Is every piece of evidence dated, and is anything older than the launch window flagged as stale?
+□ Failure mode check: fluent-but-wrong? (a "links verified / claim matches proof" assertion with no live check or no proof comparison?) missing ground truth? (did the agent invent a Current State it had no source for?)
+```
+**What to do with your findings:** every Fail or Cannot determine on a Critical or claims/URL/approval row is itself a launch blocker — resolve it with a real human check before the go decision; record the corrected pack and note which rows the agent got wrong so you can tighten the prompt next time. **AI Use Disclosure prompt:** "The launch readiness pack was drafted by [tool] from the campaign's asset list, link list, and claims file; the agent ran asset/spec conformance and flagged stale evidence. All claims-and-proof, URL-resolution, and approval rows were verified by a named human, and the go/no-go decision was made and signed by [name], not the AI." **Series connection:** the failure mode here is fluent-but-wrong on missing ground truth, and it sits at Tier 7 — the validation exists precisely because the agent cannot carry the accountability for a go decision, only inform it.
+
+---
+**Tags:** launch-readiness, trafficking-qa, go-no-go-gate, claims-proof-alignment, human-accountability, brand-intelligence-system
+
+---
+
 ## Prompts
 
 ### Figure 13.1 — The six launch check categories

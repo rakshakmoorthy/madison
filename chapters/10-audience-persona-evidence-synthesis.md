@@ -110,6 +110,143 @@ The audience evidence and the claim proof now exist as separate, inspectable bod
 
 ---
 
+## Chapter 10 Exercises: Audience Persona Evidence Synthesis
+**Project:** Your Own Brand Intelligence System
+**This chapter adds:** evidence-backed persona sheets where every trait traces to a named source, inferences are labeled as inferences, and unsourced details are exiled to an excluded-assumptions research agenda rather than smuggled into the persona.
+
+---
+
+### Exercise 1 — When to Use AI
+**The judgment:** Three places where AI genuinely helps build an honest persona:
+- Clustering a large pile of raw evidence rows (tickets, interview quotes, survey lines) into candidate themes — need, pain, trigger, objection, context — *Why AI works here:* pattern-finding across hundreds of fragments is exactly what models do well, and you can verify a cluster by reading the rows it grouped. (Pattern detection over inspectable inputs.)
+- Auditing an existing persona document to separate sourced claims from unsourced ones — *Why AI works here:* the model will mechanically ask "what is the source for this?" of every sentence without the loyalty-to-my-own-draft bias a human author carries, and the output is checkable line by line. (Rule-based triage with a verifiable result.)
+- Drafting the excluded-assumptions list as testable research questions from the details you decided to cut — *Why AI works here:* reformulating "she reads newsletters" into "is newsletter discovery actually present in this segment, and how would we test it?" is a phrasing task you can evaluate. (Reframing under your judgment.)
+
+**The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+
+---
+
+### Exercise 2 — When NOT to Use AI
+**The judgment:** Three places where the model will quietly manufacture a Busy Beth:
+- Inventing demographic or psychographic detail to make a thin persona "feel like a person" — *Why AI fails here:* this is pattern-completion presented as inference; the model has no ground truth about your audience and will fluently supply an age, a channel habit, a value, none of which has a source.
+- Resolving a genuine contradiction in the evidence (customers want more email AND feel over-contacted) by picking the tidier side — *Why AI fails here:* the model optimizes for coherent, legible output, which is exactly the failure mode this chapter warns against; the contradiction is the finding, and flattening it is a values choice the model makes invisibly.
+- Judging whether the finished persona is fair, respectful, and representative of the people it describes — *Why AI fails here:* this requires domain knowledge, ethical awareness, and accountability for who the strategy will serve and who it will exclude; it is the phase gate, and it belongs to a human.
+
+**The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
+**Series connection:** Tier 7 (Values and ethics). Persona work decides who gets seen and who gets ignored; the bias in the evidence and the temptation to invent a comfortable, familiar audience are value-laden judgments that sit above any tier of mere correctness — Tier 7 is where "is this representation fair?" lives.
+
+---
+
+### Exercise 3 — LLM Exercise
+**What you're building this chapter:** a seven-column persona evidence sheet plus a short audience brief, built only from real evidence you supply. · **Tool:** Claude (claude.ai chat) — you are reasoning interactively over one evidence set and want to see the clustering and exclusion decisions as they happen.
+
+**The Prompt:**
+```
+You are helping me build an EVIDENCE-BASED persona sheet. The cardinal rule: you may
+only use the evidence rows I paste below. You may not add any audience detail —
+demographic, psychographic, behavioral, channel, or motivational — that is not
+traceable to one of those rows. Plausibility is not a license to include.
+
+STEP 1 — Build a persona evidence sheet as a table with these seven columns:
+  Evidence (the observation, in the source's own language where possible)
+  Source (the interview ID / ticket # / report I gave you)
+  Audience dimension (one of: need / pain / trigger / objection / context)
+  Inference (if this evidence supports a broader claim, state it AND the reasoning;
+    otherwise leave blank)
+  Confidence (single source / multiple sources / contradicted)
+  Contradiction (note any conflicting row)
+  Excluded assumption (blank for now)
+
+STEP 2 — Apply the inclusion test to anything you are tempted to add: "can the
+evidence be described in one sentence?" If yes, it may be an inference (label it). If
+no, do NOT put it in the persona — instead add it to the EXCLUDED ASSUMPTIONS list
+below the table, rephrased as a testable research question.
+
+STEP 3 — Write a short audience brief (under 200 words) built ONLY from confirmed and
+labeled-inference rows. Describe the audience by needs / pains / triggers / objections
+/ contexts. Name what is inferred and on what evidence. Name what is unknown. If the
+brief is short because the evidence is thin, say so explicitly rather than padding it.
+
+Do not invent an age, a name, a gender, an income, or a discovery channel unless it
+appears in my evidence and is relevant to a brand decision.
+
+MY EVIDENCE ROWS:
+[FILL IN: paste real observations — support tickets, interview quotes, survey results,
+CRM/behavioral findings, sales notes. Include the source label for each.]
+```
+**What this produces:** a populated evidence sheet, an excluded-assumptions list rendered as research questions, and an honestly-scoped audience brief that admits its own gaps. **How to adapt this prompt:** *For your own brand:* the [FILL IN] block is the whole exercise — paste only evidence you actually have; if it is thin, the short brief you get back is the honest result, not a failure. *For ChatGPT / Gemini:* keep the three numbered steps; re-paste the "do not invent age/name/channel" line at the very end, because the urge to complete the persona is strong and tends to leak back in. *For a Claude Project:* load your evidence corpus (anonymized tickets, interview transcripts) as project knowledge so the model clusters across the full body of evidence rather than the slice you can fit in one message. **Connection to previous chapters:** this applies Chapter 9's evidence-or-flag discipline to the audience itself — a persona trait is just another claim that needs a source. **Preview of next chapter:** Chapter 11 builds a content calendar where each row's "audience" field points back to exactly this evidence sheet, so a post can name which segment it serves and on what basis.
+
+---
+
+### Exercise 4 — CLI Exercise
+**What you're building this chapter:** a `persona-evidence-sheet.md` generated from a folder of raw evidence files, with a built-in excluded-assumptions audit. **Tool:** Claude Code · **Skill level:** Intermediate
+
+**Setup:**
+- [ ] Claude Code installed and opened in a folder containing your raw audience evidence as text files (e.g. `./evidence/tickets.md`, `./evidence/interviews.md`, `./evidence/survey.csv`).
+- [ ] Each evidence file carries identifiable source labels (ticket numbers, interview IDs).
+- [ ] An empty `./persona/` output folder you are comfortable writing into.
+
+**The Task:**
+```
+Synthesize an evidence-based persona from the files in ./evidence/ .
+
+READ: every file in ./evidence/ . Treat all of them as read-only — DO NOT MODIFY,
+rename, or delete any evidence file.
+WRITE: one new file ./persona/persona-evidence-sheet.md and nothing else.
+
+Build the sheet as a seven-column table: Evidence | Source | Dimension (need/pain/
+trigger/objection/context) | Inference (with reasoning, or blank) | Confidence
+(single/multiple/contradicted) | Contradiction | Excluded assumption.
+
+Rules:
+- Every row's Source must point to a real label found in the evidence files. If you
+  cannot cite a source, the row does not go in the sheet.
+- Do NOT invent demographic, psychographic, or channel detail. Anything plausible but
+  unsourced goes in a separate "EXCLUDED ASSUMPTIONS (research agenda)" section,
+  phrased as a testable question.
+- Preserve contradictions; do not resolve them.
+
+After the table, write an audience brief under 200 words using only confirmed and
+labeled-inference rows, and state plainly anything the evidence does not support.
+
+STOP when ./persona/persona-evidence-sheet.md is written. Do not edit evidence files,
+do not delete anything, and ask before running any other command.
+
+VERIFY before finishing: list any evidence row you classified, and report how many
+candidate details you moved to the excluded-assumptions section and why.
+```
+**Expected output:** one new file with a sourced evidence table, a populated excluded-assumptions section, and a short, gap-honest brief. **What to inspect in the output:** open a few rows and confirm each Source label actually exists in the evidence files; then read the excluded-assumptions section — if it is empty, the model probably smuggled unsourced detail into the persona instead of excluding it. **If it goes wrong:** if the brief reads like a polished marketing persona with a name and an age, the model has reverted to invention — re-run with the "do not invent demographic detail" rule moved to the top. **CLAUDE.md / AGENTS.md note:** add — "Persona traits require a citable source from ./evidence/. Unsourced details are excluded as research questions, never included. Contradictions are preserved, not resolved." — so the no-invention rule survives across runs.
+
+---
+
+### Exercise 5 — AI Validation Exercise
+**What you're validating:** the persona evidence sheet and brief from Exercise 3 or 4. **Validation type:** source-traceability and bias check. **Risk level:** Medium-high — an invented persona silently misdirects budget and creative for an entire campaign. **Setup:** put the persona sheet beside the raw evidence and ask who is and is not represented in that evidence.
+
+**The Validation Task:** "Evaluate the AI output using this checklist. For each item record Pass / Fail / Cannot determine and explain."
+```
+Validation Checklist — Audience Persona Evidence Synthesis
+□ Correctness: Is each row assigned to the right dimension (need/pain/trigger/
+  objection/context), and does each confidence label match how many independent
+  sources actually back the row?
+□ Completeness: Are the major themes in the raw evidence represented, or did the
+  model drop inconvenient or contradictory observations?
+□ Scope: Is every persona trait traceable to a source line? Pick five traits and find
+  their source; any you cannot trace is invention.
+□ Inference labeling: Is every inference labeled AS an inference, with the evidence it
+  rests on named — not stated as fact?
+□ Bias check: Who is NOT represented in this evidence (channel non-users, churned
+  customers, non-converters)? Does the brief acknowledge that gap?
+□ Failure mode check: fluent-but-wrong (a vivid, coherent persona that no source
+  supports)? invented demographic detail? contradiction silently resolved? missing
+  ground truth?
+```
+**What to do with your findings:** any untraceable trait gets cut or demoted to the excluded-assumptions list; any silently-resolved contradiction gets restored. Bias-check findings become explicit limitations stated in the brief. **AI Use Disclosure prompt:** "AI clustered the raw evidence and drafted the persona sheet; a human verified every trait against a source, restored preserved contradictions, and judged the representation's fairness and gaps. No demographic detail in this persona is unsourced." **Series connection:** the headline failure mode is invented-but-plausible detail dressed as inference, and the tier is Tier 7 (Values) — validating the persona is ultimately about whether the audience representation is fair to the real people it claims to describe.
+
+---
+**Tags:** evidence-based-persona, source-traceability, inference-labeling, excluded-assumptions, audience-bias, persona-synthesis
+
+---
+
 ## Prompts
 
 ### Figure 10.1 — Evidence rows to warranted claims

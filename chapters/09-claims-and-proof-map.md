@@ -125,6 +125,145 @@ Prompt suggestion: *"Here is a claims/proof matrix. Help me populate the approva
 
 ---
 
+## Chapter 9 Exercises: Claims and Proof Map
+**Project:** Your Own Brand Intelligence System
+**This chapter adds:** a claims-and-proof map that links every public claim in your brand's copy to its supporting evidence — or flags it as unsupported and routes it to a named approval owner.
+
+---
+
+### Exercise 1 — When to Use AI
+**The judgment:** Three places where AI genuinely earns its keep in claims work:
+- Extracting every discrete claim from a flowing page of copy and laying them out in rows — *Why AI works here:* the model is patient and exhaustive in a way a tired human reader is not; it does not skim past the fifth credential claim, and "did I catch every assertion?" is a task you can verify by re-reading the copy against the list. (Mechanical extraction with a checkable output.)
+- Classifying each extracted claim into the seven-category taxonomy and naming the proof requirement each type implies — *Why AI works here:* the taxonomy is a stable, rule-bound mapping (comparative → methodology + named comparison point), and you can audit each label against the table in this chapter. (Structured classification against an explicit rubric.)
+- Drafting two contrasting rewrites of a flagged claim — one that grounds it in supplied proof, one that hedges it into defensibility — so you can see the trade-off side by side — *Why AI works here:* generating alternatives is fast and divergent, and you retain the judgment about which rewrite serves the strategy. (Option generation under your evaluation.)
+
+**The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+
+---
+
+### Exercise 2 — When NOT to Use AI
+**The judgment:** Three places where handing the work to AI crosses the line:
+- Deciding whether the proof you hold is *adequate* for the regulatory and reputational risk of the channel the copy runs in — *Why AI fails here:* the model has no access to the category's enforcement climate, the client's claims history, or the channel's exposure profile; this is missing ground truth plus a values judgment about acceptable risk.
+- Confirming that a performance number ("cuts reporting time 40%") is actually true and that the cited internal benchmark says what the copy implies — *Why AI fails here:* the model will fluently restate the number and even invent a plausible methodology; verification requires source adequacy and ground truth the model cannot reach, and a hallucinated citation reads exactly like a real one.
+- Signing off as the accountable approval owner for a high-risk comparative or credential claim — *Why AI fails here:* accountability cannot be delegated to a system that bears no consequence; a named human must own the decision to put the claim in public.
+
+**The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
+**Series connection:** Tier 6 (Accountability). The approval-owner column is the chapter's spine, and accountability is the one thing the model structurally cannot hold — it can prepare the matrix, but a person signs each claim, which is exactly the boundary Tier 6 polices.
+
+---
+
+### Exercise 3 — LLM Exercise
+**What you're building this chapter:** the claims-and-proof matrix for one page or deck section of your brand's live copy. · **Tool:** Claude (claude.ai chat) — a single self-contained pass over one artifact does not yet need persistent project memory; a chat thread keeps the whole audit in front of you.
+
+**The Prompt:**
+```
+You are helping me build a claims-and-proof map for a piece of brand copy. Work in
+two passes and do not skip ahead.
+
+PASS 1 — EXTRACT AND CLASSIFY
+Read the copy below. Extract every claim — any assertion about the product, brand,
+service, or category that a reader might take as a reason to believe, act, or choose.
+Pull each claim out of its sentence and set it in its own row. Skip navigation text
+and pure inspiration ("discover what's possible") — those are not claims.
+
+For each claim produce a row with these columns:
+- Original claim (quoted exactly)
+- Type (choose one: factual / comparative / credential / performance / audience /
+  puffery / opinion)
+- Proof requirement implied by that type (e.g. comparative needs a methodology AND a
+  named comparison point; performance needs numbers with defined conditions)
+- Risk (low / medium / high) with a one-line reason
+
+PASS 2 — REWRITE THE THREE HIGHEST-RISK CLAIMS
+For the three highest-risk claims only, write TWO rewrites each:
+  (a) a grounded rewrite that preserves the strategic intent and gets MORE specific
+      and credible — but use ONLY proof I supply below; do not invent numbers,
+      benchmarks, sample sizes, testimonials, or comparison points.
+  (b) a hedged rewrite that is defensible but loses persuasive force.
+Then say in one line which rewrite better serves the copy and why.
+
+If a claim has no proof available, do NOT fabricate any. Instead write a one-paragraph
+flag note for the approval owner naming the exact decision they must make.
+
+THE COPY:
+[FILL IN: paste one page / email / deck section of your brand's copy]
+
+THE PROOF I CAN SUPPLY (use only this; if a claim is not covered here, treat it as
+"no proof available"):
+[FILL IN: list any real numbers, sources, testimonials, comparison points you actually
+hold — or write "none" if you have nothing yet]
+```
+**What this produces:** a populated extract-and-classify table plus grounded/hedged rewrites for your three riskiest claims, with explicit flag notes wherever you had no proof to supply. **How to adapt this prompt:** *For your own brand:* paste your real homepage hero or a live email; the [FILL IN] proof block is where your brand facts live — keep it honest, because the prompt is built so that an empty proof block forces flag notes rather than invented evidence. *For ChatGPT / Gemini:* paste the same two-pass structure verbatim; both follow numbered passes well, but re-state "do not invent numbers" near the end since the instruction can get diluted in a long paste. *For a Claude Project:* once you have a voice guide and proof inventory, load them as project knowledge so the model classifies against your real proof library instead of asking you to supply it inline. **Connection to previous chapters:** this is the claim-by-claim discipline the whole book has been pointing at — it turns the brand's voice and positioning into auditable assertions. **Preview of next chapter:** Chapter 10 applies the same evidence-or-flag standard to *who* the copy is for, building persona sheets where every trait traces to a source.
+
+---
+
+### Exercise 4 — CLI Exercise
+**What you're building this chapter:** a reusable `claims-proof-map.md` that audits all the copy files in a brand folder, populating the full matrix (claim, type, proof, risk, rewrite, approval owner, status) for each. **Tool:** Claude Code · **Skill level:** Intermediate
+
+**Setup:**
+- [ ] Claude Code installed and authenticated, opened in a folder that holds your brand copy as text/markdown files.
+- [ ] At least two copy files in the folder (e.g. `homepage.md`, `launch-email.md`) and, if you have one, a `proof-inventory.md` listing real evidence.
+- [ ] A scratch output folder (`/audit/`) that you are comfortable having new files written into.
+
+**The Task:**
+```
+Audit the brand copy in this folder and produce a claims-and-proof map.
+
+READ: every .md and .txt file in ./copy/ . Also read ./proof-inventory.md if it
+exists.
+DO NOT MODIFY any source copy file. Treat all copy and proof files as read-only.
+WRITE: a single new file ./audit/claims-proof-map.md and nothing else.
+
+For each copy file, add a section with a table whose columns are:
+Original claim | Type | Proof (cite the proof-inventory line, or "none") | Risk
+(low/med/high) | Suggested rewrite | Approval owner (leave as "[NAME]" — do not
+guess a person) | Status (one of: approved with proof / approved as qualified
+opinion / flagged for approval owner / needs source).
+
+Rules:
+- Use ONLY ./proof-inventory.md for proof. Never invent a source, number, or
+  comparison point. If a claim's proof is not in the inventory, mark proof "none"
+  and status "flagged for approval owner."
+- Classify type using exactly: factual, comparative, credential, performance,
+  audience, puffery, opinion.
+
+STOP when ./audit/claims-proof-map.md is written. Do not edit source files, do not
+delete anything, and do not run any other commands without asking me first.
+
+VERIFY before finishing: re-open each copy file and confirm every claim you found
+appears as a row, and report any claim you were unsure whether to count.
+```
+**Expected output:** one new file, `./audit/claims-proof-map.md`, with a per-file table and every high-risk/no-proof claim landing in "flagged for approval owner" status. **What to inspect in the output:** check the proof column — every non-"none" entry must point to a real line in your inventory, not a plausible-sounding invention; and confirm no source copy file was touched. **If it goes wrong:** the most common failure is the model filling proof cells with invented benchmarks; if you see numbers that are not in your inventory, that is a hallucination, not a finding — re-run with the "use ONLY ./proof-inventory.md" line emphasized. **CLAUDE.md / AGENTS.md note:** add a standing rule — "Copy files are read-only during audits. Never invent proof; uncited claims are flagged, not filled. Approval owner is always left as a placeholder for a human." — so every future audit inherits the no-fabrication discipline.
+
+---
+
+### Exercise 5 — AI Validation Exercise
+**What you're validating:** the claims-and-proof matrix the AI produced in Exercise 3 or 4. **Validation type:** evidence-adequacy and fabrication check. **Risk level:** High — these are public claims with legal and reputational exposure. **Setup:** put the AI's matrix next to your real proof inventory and the original copy.
+
+**The Validation Task:** "Evaluate the AI output using this checklist. For each item record Pass / Fail / Cannot determine and explain."
+```
+Validation Checklist — Claims and Proof Map
+□ Correctness: Is every claim classified into the right type, and does the stated
+  proof requirement match that type (comparative → methodology + named comparison)?
+□ Completeness: Does every claim in the original copy appear as a row? Re-read the
+  copy and look for assertions the model skimmed past.
+□ Scope: Did the model stay inside the supplied proof, or did it import outside
+  knowledge / "industry-typical" numbers it was never given?
+□ Fabrication check: For every non-"none" proof cell, can you point to the exact
+  source line it cites? Any proof you cannot trace is a fabrication, not evidence.
+□ Accountability check: Is every high-risk claim routed to an approval owner rather
+  than silently marked "approved"?
+□ Failure mode check: fluent-but-wrong (a confident rewrite that quietly changes the
+  meaning of the claim)? invented citation that reads exactly like a real one?
+  missing ground truth (proof asserted the model never actually had)?
+```
+**What to do with your findings:** every Fail on the fabrication or accountability line is a stop-ship item — pull the claim or send it to a named owner before any of this copy runs. Cannot-determine items become research-agenda entries. **AI Use Disclosure prompt:** "AI extracted and classified the claims and drafted candidate rewrites; a human verified every proof citation against the source inventory and made all approval decisions. No proof in this matrix originates from the model." **Series connection:** the dominant failure mode here is the invented-citation hallucination, and the tier is Tier 6 (Accountability) — the validation exists precisely because the model can produce a defensible-looking matrix that no human has actually stood behind.
+
+---
+**Tags:** claims-audit, evidence-provenance, claim-classification, fabrication-check, approval-accountability, brand-copy-review
+
+---
+
 ## Prompts
 
 ### Figure 9.1 — Claim type taxonomy

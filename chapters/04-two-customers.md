@@ -108,6 +108,122 @@ A recipe that serves both customers can still overclaim. It can be runnable, leg
 <!-- LLM EXERCISE -->
 **Exercise for further inquiry.** Take a workflow or recipe you currently use — a prompt chain, a content brief process, a reporting routine, anything that runs repeatedly and produces an artifact that someone acts on. Annotate it in two columns: what each element provides to the executing system, and what each element provides to the human who reviews and maintains it. Then ask: if the person who built this recipe left tomorrow and a new teammate had to run it next week, which column would they find sufficient? Which would leave them guessing? Write one sentence describing the smallest addition that would close the largest gap on the weaker side.
 
+## Chapter 4 Exercises: Two Customers
+
+**Project:** Your Own Brand Intelligence System
+
+**This chapter adds:** One brand workflow written twice — the agent recipe (complete, explicit, operational) and the human card (summary, drill-down) — so the system serves both its executing agent and its human maintainer.
+
+---
+
+### Exercise 1 — When to Use AI
+**The judgment:** In this chapter's work, AI assistance is appropriate for the following tasks:
+- Drafting the agent-facing recipe: explicit inputs, ordered steps, parameters, output schema, log fields — *Why AI works here:* this is **drafting / reformatting** operational specification to a known structure; ambiguity is the failure to avoid, and you can read the spec back for completeness yourself.
+- Annotating an existing recipe in two columns (what each element gives the agent vs. the human) — *Why AI works here:* this is **clustering** each recipe element against a two-customer frame you supply; the chapter's Table 4.1 is your answer key.
+- Running the agent-layer anomaly test — generating malformed inputs (missing field, wrong format, out-of-range value) to probe whether the recipe fails gracefully — *Why AI works here:* this is **option-generation** of test cases; you judge whether the failure was loud or silent.
+**The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+
+---
+
+### Exercise 2 — When NOT to Use AI
+**The judgment:** In this chapter's work, the following tasks require human judgment. Delegating them to AI is not appropriate — not because AI cannot produce output, but because AI output here cannot be trusted without verification that requires the same expertise as doing the task yourself.
+- Writing the decision-gate criteria — what makes the output acceptable vs. unacceptable, and the named owner — *Why AI fails here:* **values judgment / accountability.** The chapter is explicit that a real gate names the decision, the owner, and the criteria; an AI-written gate is the latch-less "review required" that makes the phase gate fictional.
+- Authoring the human card's purpose and "what it refuses to decide" — *Why AI fails here:* **missing ground truth.** Why this workflow exists, and the decision it deliberately will not make, are facts about your brand strategy the model cannot know; it will produce plausible purpose-prose that may not match the real intent.
+- Writing the maintenance note — what changes if the world changes — *Why AI fails here:* **source adequacy.** What breaks when audience data refreshes or a platform's API updates depends on your specific dependencies; only the person who understands the brand context can say what to revisit.
+**The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
+**Series connection:** Tier 7 Wisdom — serving both customers at once is the practical wisdom of designing for the absent person (the maintainer who inherits this in a year), balancing operational precision against human serviceability.
+
+---
+
+### Exercise 3 — LLM Exercise
+**What you're building this chapter:** The two-customer workflow for your system — one brand workflow written as a complete agent recipe AND as a human card, with a two-column serviceability annotation.
+**Tool:** A Claude Project — use a Project so the agent recipe and human card sit in shared knowledge alongside the data contract from Chapter 3, since this workflow runs repeatedly.
+**The Prompt:**
+```
+You are helping me write one brand workflow for TWO customers: the executing agent and the human maintainer.
+
+The agent needs operational specificity: explicit inputs (source, format, what to do if a field is missing), ordered transformation steps with parameters, an output schema and destination, and log fields.
+The human needs serviceability: the workflow's PURPOSE, the decision it supports and the decision it refuses to make, where the review point is and what to look at there, enough context to judge if the output is reasonable, and a maintenance note.
+
+Here is the workflow:
+[FILL IN: describe one workflow you run repeatedly — e.g. a weekly competitor-content pull, a content-brief routine, a reporting job]
+
+Do exactly this:
+1. AGENT RECIPE: write the complete operational spec (Inputs, Steps, Output Schema, Log fields). Be explicit; flag anything I must specify as "[FILL IN]".
+2. HUMAN CARD: write a short summary a colleague could read in 30 seconds (purpose, the decision it supports, where to review) with a drill-down to detail.
+3. ANNOTATION TABLE: for each recipe element (input spec, transformation steps, output schema, log format, human review fields, decision gate, maintenance notes), state what it gives the AGENT, what it gives the HUMAN, and WHICH customer is underserved.
+4. For the decision gate and the maintenance note, write only "[I WILL WRITE THIS MYSELF]" — do NOT draft gate criteria, owners, or maintenance notes.
+
+Do not write the gate criteria or the maintenance note. Leave the workflow's "what it refuses to decide" for me.
+```
+**What this produces:** A complete agent recipe, a human card, and a serviceability annotation table — with the gate criteria, owner, and maintenance note reserved for you.
+**How to adapt this prompt:**
+- *For your own brand:* describe your real workflow at [FILL IN]; then write the gate criteria, owner, "refuses to decide" line, and maintenance note by hand.
+- *For ChatGPT / Gemini:* identical wording; if a model drafts gate criteria anyway, add "The gate is mine to write — leave it as a placeholder."
+- *For a Claude Project:* put the agent recipe and human card into project knowledge so future runs and teammates inherit both customer views.
+**Connection to previous chapters:** The agent recipe is the labeled recipe from Chapter 3 made fully operational; the gate you reserve is the human approval gate you protected in Chapter 2.
+**Preview of next chapter:** The next chapter addresses what a recipe is allowed to *claim* about what it found — the honest boundary between analysis and assertion.
+
+---
+
+### Exercise 4 — CLI Exercise
+**What you're building this chapter:** The `agent-recipe.md`, `human-card.md`, and `serviceability-annotation.md` files in your repo, with both customer-layer tests wired in.
+**Tool:** Claude Code
+**Skill level:** Advanced
+**Setup:**
+Before running this exercise, confirm:
+- [ ] You have the agent recipe, human card, and annotation from Exercise 3.
+- [ ] Your `brand-intelligence-system/` repo holds the Chapter 1–3 files and `CLAUDE.md`.
+- [ ] You will add a standing rule to `CLAUDE.md`: "Every recipe is written for two customers. A decision gate must name criteria, the decision, and an owner — never just 'review required'. The agent never writes gate criteria or maintenance notes."
+**The Task:**
+```
+Work only inside this project folder. Do not touch files outside it.
+
+1. Create agent-recipe.md from my operational spec (Inputs, Steps, Output Schema, Log fields). Preserve every "[FILL IN]" I left.
+
+2. Create human-card.md from my summary + drill-down. Preserve my "Decision it refuses to make" and "Maintenance note" sections exactly; if I left them as "[I WILL WRITE THIS MYSELF]", leave them.
+
+3. Create serviceability-annotation.md from my two-column table (Recipe Element | Agent | Human | Underserved).
+
+4. AGENT-LAYER TEST: read agent-recipe.md and propose three deliberate anomalies (a missing field, an unexpected format, an out-of-range value). For each, state what the recipe's stated steps say should happen. Do NOT modify the recipe — just report whether each anomaly would fail loudly (flagged) or silently (plausible-but-wrong output).
+
+5. HUMAN-LAYER TEST: report whether human-card.md answers three questions — what is this for? what do I do at review? what changes if the underlying data refreshes? — Pass/Fail each. Do not fill gaps; just report them.
+
+6. Append the two-customer standing rule to CLAUDE.md.
+
+7. Stop and show me the three files plus both test reports. Do not commit or delete anything.
+```
+**Expected output:** Three files plus an agent-layer anomaly report (loud vs. silent failure per anomaly) and a human-layer serviceability report (Pass/Fail per question).
+**What to inspect in the output:** Confirm the gate criteria and maintenance note were left as your placeholders, and that the anomaly test names at least one silent-failure risk if one exists.
+**If it goes wrong:** The most likely failure is the agent "completing" the human card by writing gate criteria or a maintenance note. Recovery: revert those sections to placeholders, restate the standing rule, re-run.
+**CLAUDE.md / AGENTS.md note:** Add the two-customer rule above — it makes the latch-less gate and the agent-written maintenance note structurally forbidden.
+
+---
+
+### Exercise 5 — AI Validation Exercise
+**What you're validating:** The agent recipe and human card from Exercise 3 — specifically whether each serves its customer.
+**Validation type:** Agentic output (a runnable workflow spec plus its human-facing documentation).
+**Risk level:** Medium — a recipe legible to only one customer fails the moment that customer is absent (the JSON nobody could read; the memo nobody could rerun).
+**Setup:** Use your Exercise 3 / Exercise 4 output. To surface a failure, paste this pre-generated gate and grade it: `Decision gate: "Human review required before output moves downstream."` (the chapter's example of a gate with no latch).
+**The Validation Task:**
+Evaluate the AI output using this checklist. For each item record Pass / Fail / Cannot determine and explain.
+```
+Validation Checklist — Two Customers
+□ Correctness: Does the agent recipe specify inputs, steps, output schema, and log fields explicitly enough to run without guessing?
+□ Completeness: Does the human card answer purpose, review action, and "what changes if the world changes"?
+□ Scope: Did the model add anything it was told to leave to you (gate criteria, owner, maintenance note)?
+□ Two-customer balance: Is either customer underserved — agent-legible but human-opaque, or human-readable but not reproducible?
+□ Gate has a latch: Does the decision gate name criteria, a yes/no decision, AND an owner — not just "review required"?
+□ Failure mode check: fluent-but-wrong? (a recipe that reads complete but lets the agent guess silently) — schema-valid-but-wrong? (clean schema, no human can act on it) — approval fatigue? (a latch-less gate)
+```
+**What to do with your findings:** pass → adopt the two-customer workflow as the system's template; one fail → revise the prompt and re-run; multiple → rewrite the underserved layer by hand, since gate criteria and purpose are human-only.
+**AI Use Disclosure prompt:** write two sentences — (1) what AI produced and how you used it; (2) one thing the AI could not determine that required your judgment.
+**Series connection:** The failure mode is a latch-less gate / schema-valid-but-wrong output; validating that both customers are served is the Tier 7 wisdom of designing for the maintainer who is not in the room.
+
+---
+
+**Tags:** two-customers, agent-recipe, human-card, serviceability, decision-gate-latch, recipe-annotation
+
 ## Prompts
 
 ### Figure 4.1 — The two customers of a recipe

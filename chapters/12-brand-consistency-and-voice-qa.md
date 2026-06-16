@@ -131,6 +131,151 @@ Prompt suggestion: *"Here is a QA matrix with ten findings. Help me classify eac
 
 ---
 
+## Chapter 12 Exercises: Brand Consistency and Voice QA
+**Project:** Your Own Brand Intelligence System
+**This chapter adds:** a brand voice and consistency QA check that audits your touchpoints against documented rules, cites the rule behind every finding, distinguishes intentional adaptation from drift, and surfaces the documentation gaps the audit reveals.
+
+---
+
+### Exercise 1 — When to Use AI
+**The judgment:** Three places where AI does the QA heavy lifting well:
+- Comparing many touchpoints against a voice guide at scale — flagging vocabulary outside the register, sentence structures off the established pattern, jargon the guide bans — *Why AI works here:* this is tireless pattern-matching against an explicit rulebook, and the model does not miss the fifteenth instance the way a fatigued human does; each flag is checkable against the guide. (Rule-bound comparison at scale.)
+- Running the objective accessibility checks — contrast ratios against WCAG 4.5:1, missing alt text, reading-level mismatch — *Why AI works here:* these are computable with a documented standard and a numeric answer; the finding writes itself and you can recompute it. (Deterministic checks with verifiable values.)
+- Rewriting opinion-shaped voice comments ("the tone feels off") into rule-cited, falsifiable findings — *Why AI works here:* mapping a vague observation onto a specific rule and quoted line is a structuring task whose output you can test by asking "can someone disagree by pointing to the rule?" (Reformatting under a falsifiability test.)
+
+**The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+
+---
+
+### Exercise 2 — When NOT to Use AI
+**The judgment:** Three places where the model should not be making the call:
+- Deciding whether a difference is intentional adaptation or drift — whether the email's warmth is a documented policy or an accident — *Why AI fails here:* this requires knowing the brand's strategy and whether a rule sanctions the variation; it is a values-and-context judgment, and the model will tend to flatten deliberate adaptation into a "violation" or wave drift through.
+- Setting final severity that gates launch — calling something critical and blocking the ship — *Why AI fails here:* severity is a proportionality judgment about real risk and accountability for the launch decision; an inflated matrix of all-critical findings is itself a failure the model is prone to.
+- Judging whether the accessible version is also the *effective* version — whether the compliant color still works in the design, whether simplified language still carries the voice — *Why AI fails here:* this trades off competing goods (compliance vs. craft vs. brand) and needs a human accountable for the result.
+
+**The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
+**Series connection:** Tier 7 (Values and ethics). The defect-versus-adaptation distinction is a judgment about what the brand *should* sound like and for whom — including the accessibility calls about who can use the work at all — which is value-laden in a way that sits above mere rule-conformance; Tier 7 is where "is this the right adaptation, fairly made?" lives.
+
+---
+
+### Exercise 3 — LLM Exercise
+**What you're building this chapter:** a QA matrix for three touchpoints, with every finding cited to a rule and a gap note for the rules you discover are missing. · **Tool:** Claude (claude.ai chat) — you want to reason interactively over the touchpoints and the voice guide together and see the rule citations as they form.
+
+**The Prompt:**
+```
+You are running a brand-voice and consistency QA audit. The cardinal discipline: every
+finding must cite a specific rule from the voice guide AND quote the exact line of copy
+it concerns. A finding without a rule citation is an opinion, and you must not file
+opinions as findings.
+
+I will give you (a) a voice guide / brand rules document and (b) three touchpoints.
+
+For each touchpoint, produce a QA matrix table with these columns:
+  Touchpoint | Rule reference (section #) | Issue | Evidence (the exact quoted line
+  or element) | Severity (critical / major / minor / note) | Recommendation | Owner
+  ([NAME] — do not invent a person) | Classification
+
+Classification must be one of:
+  - RULE VIOLATION (cite the rule it breaks)
+  - INTENTIONAL ADAPTATION (cite the rule that PERMITS it; if you cannot cite a
+    permitting rule, it is NOT an intentional adaptation — reclassify it)
+  - DOCUMENTATION GAP (the variation looks deliberate but no rule covers it either
+    way — this is the most important kind of finding)
+
+Severity guidance: critical = blocks launch (legal/accessibility/brand-integrity
+risk); major = fix before launch or a named owner documents shipping anyway; minor =
+next revision cycle; note = observation, no action. Do not inflate severity.
+
+If you want to flag something but cannot cite a rule, write it as a RECOMMENDATION
+with a documentation-gap note — never as a violation.
+
+After the three matrices, write a one-paragraph GAP NOTE listing every rule or
+standard your findings revealed to be absent or ambiguous.
+
+THE VOICE GUIDE / BRAND RULES:
+[FILL IN: paste your voice guide, or the relevant sections]
+
+THE THREE TOUCHPOINTS:
+[FILL IN: paste a website section, an email, and an ad or deck section]
+```
+**What this produces:** three rule-cited QA matrices, each finding classified as violation / adaptation / gap, plus a consolidated gap note for the brand documentation. **How to adapt this prompt:** *For your own brand:* the [FILL IN] voice guide is what makes findings defensible — if yours is thin or aspirational ("approachable but authoritative" with no operational detail), expect lots of documentation-gap findings, which is the honest and useful result. *For ChatGPT / Gemini:* keep the strict classification rule that an adaptation must cite a *permitting* rule; both models otherwise tend to label any plausible-sounding variation "intentional" without justification. *For a Claude Project:* load the voice guide, brand rules, and your Chapter 9 claims/proof map as project knowledge so claim-related findings (the homepage superlative) can cite the proof map directly. **Connection to previous chapters:** this closes the loop — claim findings cite the proof map (Ch 9), audience-fit findings draw on the persona evidence (Ch 10), and the touchpoints audited here are the ones the provenance calendar (Ch 11) scheduled. **Preview of next chapter:** the next chapter takes the gap notes this audit generates and turns recurring documentation gaps into updated brand standards.
+
+---
+
+### Exercise 4 — CLI Exercise
+**What you're building this chapter:** an automated QA pass over a folder of touchpoints, producing a rule-cited matrix and a documentation-gap note. **Tool:** Claude Code · **Skill level:** Intermediate
+
+**Setup:**
+- [ ] Claude Code installed and opened in a folder containing your touchpoints as text/markdown (`./touchpoints/`) and a `./voice-guide.md`.
+- [ ] A `./claims-proof-map.md` in the folder if you have one from Chapter 9.
+- [ ] An `./qa/` output folder you are comfortable writing into.
+
+**The Task:**
+```
+Run a brand-voice and consistency QA audit over ./touchpoints/ .
+
+READ: every file in ./touchpoints/ , plus ./voice-guide.md and, if present,
+./claims-proof-map.md .
+DO NOT MODIFY any touchpoint, the voice guide, or the proof map. All inputs are
+read-only.
+WRITE: one new file ./qa/qa-matrix.md and nothing else.
+
+For each touchpoint, build a matrix with: Touchpoint | Rule reference (section #) |
+Issue | Evidence (exact quoted line) | Severity (critical/major/minor/note) |
+Recommendation | Owner | Classification (rule violation / intentional adaptation /
+documentation gap).
+
+Rules:
+- Every finding MUST cite a rule-reference section that actually exists in
+  ./voice-guide.md . If you cannot cite a real section, do not file it as a violation
+  — file it as a recommendation with a documentation-gap note.
+- Classify something INTENTIONAL ADAPTATION only if you can cite a rule that permits
+  it; otherwise it is a documentation gap.
+- For claim-related issues, cross-reference ./claims-proof-map.md and cite it.
+- Leave Owner as "[NAME]". Do not assign a person.
+- Do not inflate severity; reserve "critical" for launch-blocking legal/accessibility/
+  brand-integrity risk.
+
+After the matrices, write a GAP NOTE section listing every rule found to be missing or
+ambiguous.
+
+STOP when ./qa/qa-matrix.md is written. Ask before running anything else (including any
+contrast-check tooling).
+
+VERIFY before finishing: confirm every rule-reference you cited resolves to a real
+section in ./voice-guide.md, and report any finding you could not tie to a rule.
+```
+**Expected output:** one matrix file with rule-cited findings, honest documentation-gap entries where no rule applies, and a consolidated gap note. **What to inspect in the output:** spot-check that each cited section number actually exists in your voice guide — a citation to a section that is not there is the QA equivalent of a fabricated source — and confirm severity is not uniformly "critical." **If it goes wrong:** if findings cite rules that do not exist in your guide, the model is inventing authority; re-run with the "rule-reference MUST exist in voice-guide.md" line emphasized, and treat unverifiable citations as gaps. **CLAUDE.md / AGENTS.md note:** add — "QA findings must cite a real section of voice-guide.md; uncitable observations are documentation-gap notes, never violations. Severity is reserved, not inflated. Owner stays a placeholder for a human." — so the rule-citation discipline persists across audits.
+
+---
+
+### Exercise 5 — AI Validation Exercise
+**What you're validating:** the QA matrix from Exercise 3 or 4. **Validation type:** rule-citation integrity and severity-proportionality check. **Risk level:** Medium-high — a QA pass that flattens intentional adaptation or inflates severity degrades the brand and trains the team to ignore the matrix. **Setup:** put the matrix beside the voice guide and the touchpoints.
+
+**The Validation Task:** "Evaluate the AI output using this checklist. For each item record Pass / Fail / Cannot determine and explain."
+```
+Validation Checklist — Brand Consistency and Voice QA
+□ Correctness: For each finding, does the cited rule section actually exist in the
+  voice guide, and does the quoted evidence actually appear in the touchpoint?
+□ Completeness: Were the accessibility checks (contrast, alt text, reading level)
+  included, and were the obvious deviations across all three touchpoints caught?
+□ Classification: Is every "intentional adaptation" backed by a PERMITTING rule? Any
+  adaptation with no permitting citation is misclassified drift.
+□ Severity proportionality: Is "critical" reserved for launch-blocking risk, or has
+  the model inflated the matrix into noise?
+□ Gap honesty: Are findings with no governing rule filed as documentation gaps /
+  recommendations rather than dressed up as violations?
+□ Failure mode check: fluent-but-wrong (a confident finding citing a rule that does
+  not exist)? intentional adaptation flattened into a violation? severity inflation?
+  missing ground truth (a rule asserted that the guide never states)?
+```
+**What to do with your findings:** any finding citing a nonexistent rule is pulled or re-filed as a gap; any flattened adaptation is restored; inflated severities are re-rated. The gap note feeds your brand-documentation backlog. **AI Use Disclosure prompt:** "AI compared the touchpoints against the voice guide and drafted the rule-cited matrix; a human verified every rule citation, judged each defect-versus-adaptation call, and set final severity. No rule citation in this matrix was accepted without confirming it exists in the guide." **Series connection:** the defining failure mode is the citation to a rule that does not exist — a fluent-but-wrong finding — and the tier is Tier 7 (Values), because deciding what counts as drift versus deliberate, fair adaptation is a judgment about what the brand should be, not just whether it followed a rule.
+
+---
+**Tags:** voice-qa, rule-citation, drift-vs-adaptation, severity-rating, accessibility-check, documentation-gap
+
+---
+
 ## Prompts
 
 ### Figure 12.1 — The QA matrix structure

@@ -177,6 +177,114 @@ Give the LLM two or three key findings from a campaign report. Ask it to generat
 
 ---
 
+## Chapter 14 Exercises: Campaign Performance Report
+**Project:** Your Own Brand Intelligence System
+**This chapter adds:** a three-layer campaign performance report — description, interpretation, recommendation — built against the KPI map so that every metric ties to the next decision it was meant to inform.
+
+---
+
+### Exercise 1 — When to Use AI
+**The judgment:**
+- Extracting and formatting the description layer — pulling metric values from clean export files into a labeled table — *Why AI works here:* this is structured extraction with a checkable answer; the values are true or false against the source files and you can verify each one.
+- Auditing a draft summary for causal language — flagging "drove," "caused," "led to," "delivered" — *Why AI works here:* it is pattern-detection over text against a stated rule, and you retain the final call on whether each flagged verb is warranted.
+- Generating candidate next-test designs from a set of findings using the finding → open question → proposed test structure — *Why AI works here:* it is divergent option generation, fast and useful as input, with the practitioner deciding which test is worth running.
+
+**The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+
+---
+
+### Exercise 2 — When NOT to Use AI
+**The judgment:**
+- Deciding whether a metric movement is signal or noise given the baseline and target — *Why AI fails here:* missing ground truth on what the metric is supposed to measure and what the business decision depends on; the agent surfaces comparisons but cannot supply the contextual judgment that separates a real lift from sampling noise.
+- Asserting that the campaign caused a consideration lift when there was no holdout — *Why AI fails here:* hallucination risk meets source adequacy. The data shows correlation in time; a fluent "the campaign drove the lift" is exactly the over-strong claim the evidence cannot support, and the client is spending money on it.
+- Writing and signing the recommendation that goes to the client — *Why AI fails here:* accountability. The recommendation carries a practitioner's judgment about what to do next under a specific budget, relationship, and timeline; the sign-off field is the boundary between an AI-assisted draft and a professional document.
+
+**The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
+**Series connection:** Tier 6 (Interpretation and Judgment) shading into Tier 7 (Accountability) — the interpretation layer needs human meaning-making the agent cannot supply, and the signed recommendation needs a person who answers for the advice.
+
+---
+
+### Exercise 3 — LLM Exercise
+**What you're building this chapter:** a complete three-layer performance report populated against the KPI map, with caveats adjacent to their conclusions and a next-test recommendation. **Tool:** Claude (claude.ai chat) — a single campaign readout is a bounded, one-pass artifact.
+**The Prompt:**
+```
+You are helping me build a campaign performance report with strict layer discipline. Keep description, interpretation, and recommendation visually and rhetorically separate — never collapse them into one sentence.
+
+Here is the KPI map this campaign committed to (objective, metric, definition, baseline, target, decision use for each row):
+[FILL IN your KPI map rows]
+
+Here are the results from the export, with source file names and dates:
+[FILL IN metric results, each with its source and date]
+
+Here are known limitations of the measurement (sample sizes, confounds, source lags, attribution design, baseline mismatches):
+[FILL IN]
+
+Build the report in three labeled layers for each KPI map row:
+1. DESCRIPTION: the metric value, its source, and its date. State only what the numbers show.
+2. INTERPRETATION: compare to the baseline and target; say whether the movement is above/below/at target and whether it is likely signal or noise. Surface comparisons; flag where you are uncertain.
+3. RECOMMENDATION: the action that follows from the interpretation, tied to the decision use named in the KPI map.
+
+Rules:
+- Use warranted verbs only. Do not write "caused," "drove," "led to," or "delivered" unless I have given you a holdout or controlled design. Default to "is associated with," "coincided with," "occurred during."
+- Place each caveat immediately adjacent to the conclusion it qualifies, not in a footnote.
+- Do not drop any metric the KPI map committed to. If a metric underperformed or was not measured, say so explicitly.
+- End with a next-test recommendation for the strongest open question, using: finding → open question → proposed test.
+- Add a sign-off field with blank reviewer name and date. Do not sign it yourself.
+```
+**What this produces:** a report where each KPI row appears as three clearly labeled claims, caveats sit next to their conclusions, causal language stays warranted, and a next-test design closes the loop — ready for a human reviewer to sign. **How to adapt this prompt:** *For your own brand:* paste your real KPI map and exports; if you have no holdout group, hold the line on warranted verbs even when the lift looks dramatic. *For ChatGPT / Gemini:* same block; both tend to drift toward confident causal phrasing in the interpretation layer — re-paste the warranted-verbs rule if they do. *For a Claude Project:* if you report on a recurring program, store the KPI map and caveat-placement conventions in Project knowledge so every readout inherits the same spine. **Connection to previous chapters:** the report is a populated version of the KPI map from the strategy/measurement chapter, and the warranted-verb discipline is the causal-language rule from the evidence chapter applied where the temptation to overclaim is strongest. **Preview of next chapter:** the report tells you what the paid campaign did; Chapter 15 turns to the signals the campaign generated in the wild — media coverage and social mentions — and how to route them without overreacting.
+
+---
+
+### Exercise 4 — CLI Exercise
+**What you're building this chapter:** a report skeleton auto-populated from export files against your KPI map, with a built-in causal-language and dropped-metric audit. **Tool:** Claude Code · **Skill level:** Intermediate
+**Setup:**
+- [ ] A folder with the campaign's export files (CSV) and a `kpi-map.md` or `.csv` listing objective, metric, definition, baseline, target, and decision use per row.
+- [ ] A notes file listing known limitations (confounds, sample sizes, source lags, attribution design).
+- [ ] Claude Code open in that folder.
+**The Task:**
+```
+Read kpi-map and the export files in this folder. Build a file called performance-report.md.
+
+Scope:
+- READ: the KPI map, the export CSVs, and the limitations notes file.
+- WRITE: only performance-report.md (create it; do not overwrite anything else).
+- LEAVE ALONE: all export and source files — do not edit or move them.
+
+For each row in the KPI map, produce three labeled sections — DESCRIPTION, INTERPRETATION, RECOMMENDATION — pulling the metric value, source filename, and date into DESCRIPTION.
+
+Rules:
+- Pull values only from the export files. If a metric the KPI map commits to has no value in any export, write "NOT FOUND IN EXPORTS — measurement gap" rather than estimating.
+- In INTERPRETATION, compare to the baseline and target from the map. Do not assert causation; the campaign had no holdout. Use warranted verbs only.
+- Place each relevant caveat from the limitations file next to the conclusion it qualifies.
+- End the file with a next-test section and a blank reviewer sign-off line.
+
+Stop conditions: stop after writing the file. Do not fabricate metric values, do not sign off, and do not delete or edit any source.
+
+Verification step: after writing, print (a) any KPI-map metric marked NOT FOUND, (b) any sentence containing a causal verb so I can audit it, and (c) a confirmation that the sign-off line is blank.
+```
+**Expected output:** a `performance-report.md` with three labeled layers per KPI row, adjacent caveats, a next-test section, and a printed audit of measurement gaps and any causal-verb sentences. **What to inspect in the output:** whether every committed metric is present (or honestly flagged as a gap), and whether the printed causal-verb list is empty — if not, each flagged sentence needs a human rewrite. **If it goes wrong:** if the agent invents a metric value, re-run and quote the "pull values only from the export files" rule; if it slips into causal language, the printed audit is your catch — rewrite those sentences before the report moves. **CLAUDE.md / AGENTS.md note:** add: "Performance reports: pull metric values only from named export files; never assert causation without a stated holdout/control; never sign the reviewer field; always print a causal-verb audit and a list of committed-but-missing metrics."
+
+---
+
+### Exercise 5 — AI Validation Exercise
+**What you're validating:** an AI-assembled performance report — whether its claims are inspectable, its caveats placed, and its recommendation traceable to evidence. **Validation type:** verification of an analysis artifact against source data and against the warranted-claim standard. **Risk level:** Medium-High — a fluent over-claim sends the client's next-quarter spend in the wrong direction. **Setup:** open the report from Exercise 3 or 4 next to the KPI map and the raw exports, and walk every claim back to its source.
+**The Validation Task:** "Evaluate the AI output using this checklist. For each item record Pass / Fail / Cannot determine and explain."
+```
+Validation Checklist — Campaign Performance Report
+□ Correctness: Does every value in the DESCRIPTION layer match the export file it cites?
+□ Completeness: Is every metric the KPI map committed to present, or honestly flagged as a measurement gap?
+□ Scope: Are description, interpretation, and recommendation kept distinct, with no sentence doing all three at once?
+□ Warranted causation: Is there any "caused / drove / led to / delivered" claim without a holdout or controlled design behind it?
+□ Caveat placement: Is each caveat adjacent to the conclusion it qualifies rather than buried as a footnote?
+□ Failure mode check: fluent-but-wrong? (a confident causal story the data only supports as correlation?) missing ground truth? (an interpretation of signal-vs-noise the data cannot actually settle?)
+```
+**What to do with your findings:** rewrite every unwarranted causal claim to a warranted verb, restore any dropped metric, and confirm the recommendation actually follows from the interpretation; only then route the report to a named reviewer for sign-off. **AI Use Disclosure prompt:** "The performance report's description layer was extracted from named export files by [tool] and the causal-language audit was AI-assisted; all interpretations, caveat placements, and the recommendation were reviewed and approved by [name], who signed off after verifying values against source data." **Series connection:** the failure mode is fluent-but-wrong causal overclaiming on missing ground truth, sitting at Tier 6 (interpretation) — the validation exists because the agent can format the numbers but cannot judge what they mean or carry the recommendation.
+
+---
+**Tags:** performance-reporting, three-layer-structure, kpi-map-spine, causal-language-audit, warranted-claims, brand-intelligence-system
+
+---
+
 ## Prompts
 
 ### Figure 14.1 — The three layers of a performance report

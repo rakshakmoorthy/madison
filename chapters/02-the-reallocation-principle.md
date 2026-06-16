@@ -199,6 +199,121 @@ Ask the LLM to help you draft a reallocation plan in table form using the five-c
 
 ---
 
+## Chapter 2 Exercises: The Reallocation Principle
+
+**Project:** Your Own Brand Intelligence System
+
+**This chapter adds:** A brand-work effort plan that reallocates time toward judgment — classifying a week of brand work into the five categories and writing a reinvestment hypothesis that names the decision your freed time should improve.
+
+---
+
+### Exercise 1 — When to Use AI
+**The judgment:** In this chapter's work, AI assistance is appropriate for the following tasks:
+- Drafting a first-pass classification of each task into the five categories (execution, evidence, judgment, approval, learning) — *Why AI works here:* this is **clustering** against the chapter's fixed taxonomy; you hold the definitions, so every label is re-gradeable by you in seconds.
+- Drafting the execution artifacts themselves (social variants, brief formatting, research summaries) so you can inspect what decisions they leave out — *Why AI works here:* this is **drafting / reformatting** of known-pattern work, the one category the chapter says AI genuinely disrupts.
+- Generating a candidate reallocation table in the five-column structure — *Why AI works here:* this is **reformatting** your task list into a known grid; the structure is given, so completeness is easy to check.
+**The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+
+---
+
+### Exercise 2 — When NOT to Use AI
+**The judgment:** In this chapter's work, the following tasks require human judgment. Delegating them to AI is not appropriate — not because AI cannot produce output, but because AI output here cannot be trusted without verification that requires the same expertise as doing the task yourself.
+- Writing the reinvestment hypothesis — naming the specific decision that should improve and how you'll check it — *Why AI fails here:* **missing ground truth.** The hypothesis depends on what your team actually does with recovered time and which decision is currently weakest; the model can produce the sentence shape but cannot know the load-bearing decision, and the chapter is explicit that you must write it with no AI assistance.
+- Deciding the final category for genuinely hybrid tasks (where drafting *is* the thinking) — *Why AI fails here:* **values judgment.** Whether automating the drafting short-circuits the judgment is a call about your own cognitive process; the "Still Puzzling" section flags this as unresolved even for the author.
+- Setting and preserving the approval gates — deciding which gates must never disappear — *Why AI fails here:* **accountability.** A gate is a human commitment to own a decision before it ships; an AI-proposed gate carries no accountability and can be silently compressed, which is the exact failure the chapter warns against.
+**The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
+**Series connection:** Tier 5 Causal — the reinvestment hypothesis is a causal claim ("by moving X to AI we free Y, which improves decision W"), and reasoning about cause-and-effect under uncertainty is the judgment AI cannot do for you.
+
+---
+
+### Exercise 3 — LLM Exercise
+**What you're building this chapter:** The brand-work effort plan for your Brand Intelligence System — a classified task table plus a reinvestment hypothesis you author yourself.
+**Tool:** Claude (claude.ai chat) — a chat is right for this one-pass classification; the hypothesis you write by hand afterward.
+**The Prompt:**
+```
+You are helping me classify a week of brand/advertising work using a fixed five-category framework.
+
+The five categories are:
+- Execution: producing artifacts from known inputs by known patterns (drafting, formatting, variant generation).
+- Evidence: making claims inspectable (sourcing, logging, verifying a summary against its source).
+- Judgment: deciding what artifacts are for and whether they are good enough (audience prioritization, brand identity calls, strategy).
+- Approval: the human gate authorizing something to move (legal/brand sign-off).
+- Learning: extracting signal from outcomes (post-campaign pattern analysis).
+
+Here is my week of planned brand work, with time estimates:
+[FILL IN: list each task and how long it takes, e.g. "Draft 6 social variants — 3 hrs"]
+
+Do exactly this:
+1. Output a table: Task | Current Time | Category | AI Assistance (what AI can do) | Human Gate (who must decide).
+2. For any task that is hybrid (execution and judgment entangled), mark it "HYBRID" and explain in one line why it is ambiguous.
+3. Do NOT write a reinvestment hypothesis — I will write that myself.
+
+Do not collapse Approval into Execution. Do not eliminate any human gate.
+```
+**What this produces:** A five-column classified effort plan for your real week, with hybrid tasks flagged and every human gate preserved.
+**How to adapt this prompt:**
+- *For your own brand:* paste your actual week at [FILL IN]; then write the reinvestment hypothesis by hand using the structure "By automating [X] we free [Y hrs] to reinvest in [Z], improving the decision about [W], checkable by [V]."
+- *For ChatGPT / Gemini:* identical wording; if a model merges Approval into Execution, add "Approval is a separate category — never fold it into Execution."
+- *For a Claude Project:* add Table 2.1 and the five-category definitions to project knowledge so future weeks classify consistently.
+**Connection to previous chapters:** The judgment-category tasks here map directly onto the verified, taste-judgment, and approval-needed claims you learned to spot in Chapter 1's audit.
+**Preview of next chapter:** Chapter 3 turns the evidence category into a formal contract — every claim traceable to a source.
+
+---
+
+### Exercise 4 — CLI Exercise
+**What you're building this chapter:** The `effort-plan.md` file in your Brand Intelligence System repo, plus a standing rule protecting approval gates.
+**Tool:** Claude Code
+**Skill level:** Beginner
+**Setup:**
+Before running this exercise, confirm:
+- [ ] You have your classified task table from Exercise 3.
+- [ ] Your `brand-intelligence-system/` repo from Chapter 1 exists and is open in Claude Code.
+- [ ] You will add a standing rule to `CLAUDE.md`: "Never remove or compress an approval gate. If execution speeds up, approval gets more thorough, not eliminated."
+**The Task:**
+```
+Work only inside this project folder. Do not touch files outside it.
+
+1. Create a file named effort-plan.md. I will paste my classified task table; format it as a Markdown table with columns Task | Current Time | Category | AI Assistance | Human Gate.
+
+2. Below the table, add a section "## Reinvestment Hypothesis" containing only the placeholder text "[I WILL WRITE THIS MYSELF — do not draft it]". Do not write a hypothesis.
+
+3. Append to CLAUDE.md the standing rule: "Never remove or compress an approval gate. If execution speeds up, approval gets more thorough, not eliminated."
+
+4. Run a check: count how many rows are categorized "Approval" and report the number, then confirm each has a non-empty Human Gate. Do not change any categorization.
+
+5. Stop and show me effort-plan.md and the CLAUDE.md change. Do not commit or delete anything.
+```
+**Expected output:** `effort-plan.md` with your table preserved, an empty reinvestment-hypothesis placeholder, the CLAUDE.md rule appended, and a printed count of approval rows.
+**What to inspect in the output:** Confirm the hypothesis section is still a placeholder (not auto-written) and that every approval row reports a named human gate.
+**If it goes wrong:** The most likely failure is the agent drafting a reinvestment hypothesis for you. Recovery: delete it, restate that the hypothesis is human-only, re-run.
+**CLAUDE.md / AGENTS.md note:** Add the approval-gate rule above — it encodes the chapter's one hard constraint that no gate disappears.
+
+---
+
+### Exercise 5 — AI Validation Exercise
+**What you're validating:** The classified effort plan from Exercise 3 (and the integrity of its gates).
+**Validation type:** Structured data (a classification table with a hard invariant: no gate removed).
+**Risk level:** High — a misclassification that moves a judgment task into the "AI can do it" column is how a team trades its professional core for throughput.
+**Setup:** Use your Exercise 3 / Exercise 4 table. To surface a failure, paste this pre-generated row and grade it: `Task: Audience prioritization | Category: Execution | AI Assistance: Generate the final audience | Human Gate: (none)`.
+**The Validation Task:**
+Evaluate the AI output using this checklist. For each item record Pass / Fail / Cannot determine and explain.
+```
+Validation Checklist — The Reallocation Principle
+□ Correctness: Is each task in the right one of the five categories per this chapter's definitions?
+□ Completeness: Does every row have both an AI Assistance entry and a Human Gate entry (both columns populated)?
+□ Scope: Did the model stay within classification, or did it write the reinvestment hypothesis it was told to leave to you?
+□ Gate integrity: Was any approval gate dropped, blanked, or folded into execution?
+□ Hybrid honesty: Were entangled execution/judgment tasks flagged rather than forced into one bucket?
+□ Failure mode check: fluent-but-wrong? (a judgment task confidently labeled execution) — approval fatigue? (a gate marked "review required" with no decision, owner, or criteria)
+```
+**What to do with your findings:** pass → adopt the plan and write your hypothesis; one fail → revise the prompt and re-run; multiple → reclassify by hand, since the category boundary is the judgment being taught.
+**AI Use Disclosure prompt:** write two sentences — (1) what AI produced and how you used it; (2) one thing the AI could not determine that required your judgment.
+**Series connection:** The failure mode is approval fatigue / a compressed gate; checking that no gate was silently removed is the Tier 5 causal discipline of protecting the decisions that actually change outcomes.
+
+---
+
+**Tags:** reallocation-principle, work-classification, reinvestment-hypothesis, approval-gates, judgment-vs-execution, effort-plan
+
 ## Prompts
 
 ### Figure 2.1 — The five work types flow

@@ -119,6 +119,111 @@ Prompt suggestion: *"Here is a routing digest with ten entries. Review each clas
 
 ---
 
+## Chapter 15 Exercises: Media Coverage and Issue Routing
+**Project:** Your Own Brand Intelligence System
+**This chapter adds:** a media-coverage tracker plus issue-routing rules that convert noisy incoming signals into classified, severity-rated escalation choices behind a response gate that no public reply crosses without a named human.
+
+---
+
+### Exercise 1 — When to Use AI
+**The judgment:**
+- Building the routing digest from a batch of raw signals — populating source, timestamp, issue class, sentiment, severity, owner, recommended action, and gate — *Why AI works here:* it is structured summarization and classification against a defined taxonomy, a fast organizing task you verify row by row against the sources.
+- Classifying each signal against a pre-defined issue taxonomy — *Why AI works here:* this is rule-application against categories you set in advance, which surfaces a starting point quickly; miscategorization is expected and a human corrects it.
+- Drafting optional holding language ("we're looking into it and will follow up shortly") — *Why AI works here:* it is bounded pattern-writing of a commitment-free acknowledgment, where the agent's speed lets the owner review and approve rather than write under pressure.
+
+**The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+
+---
+
+### Exercise 2 — When NOT to Use AI
+**The judgment:**
+- Treating a sentiment label as a fact rather than a model judgment — *Why AI fails here:* missing ground truth. Sentiment from a language model is a surface-feature probability estimate that is wrong exactly where it matters most — irony, sarcasm, community vocabulary — so it is labeled "(model judgment)" and a human checks the source before acting.
+- Deciding the final severity and escalation path for a candidate crisis signal — *Why AI fails here:* values and contextual judgment the agent does not have; severity is a structured assessment of how much damage could be done and how fast, weighing relationships and trajectory the model cannot see.
+- Authorizing and sending any public response, including the holding language — *Why AI fails here:* accountability. A public statement from the brand can be quoted, screenshotted, and cited; it carries legal and reputational exposure that only a named person with authority to speak for the brand can answer for.
+
+**The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
+**Series connection:** Tier 7 (Accountability) — the chapter's central rule, "no public response ships without human approval," is a pure accountability gate; the agent can detect, classify, summarize, and draft, but speaking for the brand belongs to a person.
+
+---
+
+### Exercise 3 — LLM Exercise
+**What you're building this chapter:** a complete issue-routing digest over five to ten signals, every column populated and every sentiment label marked as model judgment. **Tool:** Claude (claude.ai chat) — a single monitoring batch is a bounded, one-pass artifact.
+**The Prompt:**
+```
+You are helping me build an issue-routing digest from a batch of brand monitoring signals. You classify and characterize; you do NOT decide whether to respond or write final responses.
+
+Issue taxonomy to classify against: product complaint, factual error, reputation risk, crisis signal, competitive mention, neutral coverage, positive coverage.
+
+Severity factors that INCREASE severity: high reach/editorial authority; factually incorrect claim that could spread; accelerating engagement; connection to a sensitive topic (safety, discrimination, regulation); existing brand relationship with the source; already picked up by secondary sources.
+Severity factors that DECREASE severity: limited reach/no amplification history; matter of opinion not fact; low flat engagement; isolated not patterned; no existing relationship to damage; not yet picked up elsewhere.
+
+Here are the signals (source, captured timestamp, and the content of each):
+[FILL IN 5–10 signals]
+
+For each signal, produce a digest row with these columns: Source | Captured | Issue Class | Sentiment | Severity | Owner | Recommended Action | Response Gate | Holding Language.
+
+Rules:
+- Mark every sentiment label as "(model judgment)" — e.g., "Negative (model judgment)." Never present sentiment as a fact.
+- Justify each severity rating by naming the specific increase/decrease factors that applied.
+- In Response Gate, write the SPECIFIC condition that must be met before any public reply — name what the owner must confirm (e.g., "Comms lead verifies amplification source and confirms severity before authorizing holding language or no response"), not just "get approval."
+- Draft Holding Language only where a holding response is plausibly warranted; mark it "(draft)". Do not write substantive responses.
+- After the table, name the one signal that was hardest to classify and explain what made it ambiguous.
+```
+**What this produces:** a fully populated decision-support digest with justified severities, model-judgment sentiment labels, specific response-gate conditions, and at most candidate holding language — plus a note on the hardest classification. **How to adapt this prompt:** *For your own brand:* paste real signals from your monitoring tool and replace the taxonomy/severity factors with your own response policy's definitions. *For ChatGPT / Gemini:* same block; both will sometimes drop the "(model judgment)" qualifier under volume — scan the sentiment column and re-paste the rule if so. *For a Claude Project:* if you monitor continuously, store your response policy (taxonomy, severity criteria, escalation paths, gate conditions) in Project knowledge so each batch is classified against a stable policy rather than an ad-hoc one. **Connection to previous chapters:** the model-judgment labeling is the same evidence-honesty discipline from earlier chapters — naming the confidence level of a claim rather than laundering an estimate into a fact — and the gate echoes the named-approver accountability from the launch chapter. **Preview of next chapter:** Chapter 16 assembles every artifact you have built — including this digest's discipline of detection-then-routing-then-human-decision — into one bounded, gated end-to-end run.
+
+---
+
+### Exercise 4 — CLI Exercise
+**What you're building this chapter:** an automated digest-builder that ingests a signals file and emits a routing digest, enforcing the model-judgment label and the no-auto-response rule. **Tool:** Claude Code · **Skill level:** Intermediate
+**Setup:**
+- [ ] A `signals.csv` or `signals.md` file with one row per signal (source, timestamp, content).
+- [ ] A `response-policy.md` defining the issue taxonomy, severity factors, escalation paths, and gate conditions.
+- [ ] Claude Code open in that folder.
+**The Task:**
+```
+Read response-policy.md and the signals file in this folder. Build a file called routing-digest.md.
+
+Scope:
+- READ: response-policy.md and the signals file.
+- WRITE: only routing-digest.md (create it; do not overwrite anything else).
+- LEAVE ALONE: the signals file and the policy — do not edit them.
+
+For each signal, produce a digest row with columns: Source | Captured | Issue Class | Sentiment | Severity | Owner | Recommended Action | Response Gate | Holding Language.
+
+Rules:
+- Classify Issue Class only against the taxonomy in response-policy.md. If a signal does not fit cleanly, mark it "AMBIGUOUS — needs human classification" rather than forcing a category.
+- Mark every Sentiment value as "(model judgment)".
+- Derive Severity and Owner from the policy's severity factors and escalation paths; name the factors you used.
+- Response Gate must be a specific human-confirmation condition. Never write "auto-respond" or a finished public reply.
+- Holding Language: at most a "(draft)" acknowledgment, only where warranted.
+
+Stop conditions: stop after writing the file. Do not send, post, or simulate sending anything. Do not write substantive responses.
+
+Verification step: after writing, print (a) any row marked AMBIGUOUS, (b) any sentiment value missing the "(model judgment)" tag, and (c) confirmation that no row contains a finished public response.
+```
+**Expected output:** a `routing-digest.md` table plus a printed audit of ambiguous classifications, any unlabeled sentiment, and confirmation that nothing is a finished public reply. **What to inspect in the output:** whether severities trace to named policy factors (not vibes), and whether every response-gate cell names a specific human confirmation rather than a generic "get approval." **If it goes wrong:** if the agent writes a finished public response or marks a gate as auto, re-run and quote the no-auto-response and gate-specificity rules; if it strips the model-judgment tag, the printed audit catches it — restore the labels before using the digest. **CLAUDE.md / AGENTS.md note:** add: "Monitoring digests: classify only against the response policy taxonomy; every sentiment label carries '(model judgment)'; the agent never authorizes, drafts a finished public response, or marks a gate as automatic — every gate names a specific human confirmation."
+
+---
+
+### Exercise 5 — AI Validation Exercise
+**What you're validating:** an AI-built routing digest — whether its classifications, sentiment labels, and gates can be trusted to route real signals to the right people. **Validation type:** verification of a decision-support artifact against the sources and the response policy. **Risk level:** High for crisis-candidate rows — a misclassified or mis-gated signal can become a wrong public statement under time pressure. **Setup:** open the digest from Exercise 3 or 4 next to the original signals and the response policy, and re-check each row.
+**The Validation Task:** "Evaluate the AI output using this checklist. For each item record Pass / Fail / Cannot determine and explain."
+```
+Validation Checklist — Media Coverage and Issue Routing
+□ Correctness: Does each signal's Issue Class match its actual character when you read the source, or did the agent default to a close-but-wrong category?
+□ Completeness: Is every column populated for every signal, with a source and timestamp on each?
+□ Scope: Does every Response Gate name a specific human confirmation, and is no row a finished public response?
+□ Sentiment honesty: Is every sentiment label marked "(model judgment)" — and did you check the source before trusting any of them?
+□ Severity calibration: Does each severity rating trace to named increase/decrease factors from the policy, proportionate to actual risk?
+□ Failure mode check: fluent-but-wrong? (a confident sentiment or class that misreads irony/sarcasm/technical language?) missing ground truth? (a severity or "no relationship" claim the agent had no way to know?)
+```
+**What to do with your findings:** correct every misclassification and re-rate any severity that does not match the actual risk, then route the corrected digest to the named owners; log the two or three signal types most prone to systematic misclassification so a human review step always catches them. **AI Use Disclosure prompt:** "The routing digest was assembled by [tool] from the monitoring signals and classified against our response policy; all sentiment labels are model judgments, and a named human ([name]) reviewed every classification, confirmed severities, and made all escalation and response decisions — the AI authorized nothing." **Series connection:** the failure mode is fluent-but-wrong sentiment/classification on missing ground truth, gated at Tier 7 — validation exists because no public response, not even a holding line, crosses the gate without a person who answers for it.
+
+---
+**Tags:** media-monitoring, issue-routing, sentiment-model-judgment, severity-classification, response-gate, brand-intelligence-system
+
+---
+
 ## Prompts
 
 ### Figure 15.1 — The issue-routing digest structure
