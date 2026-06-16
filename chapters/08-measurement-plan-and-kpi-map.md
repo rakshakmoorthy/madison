@@ -88,8 +88,7 @@ Decision use is a simple concept and a demanding discipline. "This metric will t
 
 *The sign-off field is not decorative. It is the accountability record — the moment when a named practitioner confirmed the metric, definition, and decision use before the campaign ran.*
 
-![An empty seven-column grid schematic of the KPI map — Metric, Definition, Baseline, Target, Cadence, Decision Use, Sign-off — with the Decision Use column emphasized and the Sign-off column accented as the accountability record.](../images/08-measurement-plan-and-kpi-map-fig-03.png)
-*Figure 8.3 — The KPI map, core columns*
+*Table 8.3 — The KPI map, core columns*
 
 The decision use column also forces a useful question: is this metric actually connected to a decision, or is it just being tracked because it is available? Many metrics that appear in brand reports are tracked because the platform provides them, not because anyone is going to change behavior based on what they show. Diagnostic metrics often fall into this category. They belong in the report because they help explain mechanical outcomes. They do not belong in the decision-use column unless there is an actual choice they inform.
 
