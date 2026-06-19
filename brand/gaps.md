@@ -1,10 +1,9 @@
 # gaps.md — Raksha Krishna Moorthy
-# The delta between brand/resume.json (what is proven) and brand/brand.yml (what the aspiration demands).
-# Migration rule: a gap closes ONLY when evidence ships → new resume.json entry → row deleted.
-# Required edits completed:
-#   1. Killed row 3 ("No published writing") — published writing is a voice gap, not a proof gap.
-#      Brand.yml rule: proof before voice. Revisit after portfolio ships Oct 2026.
-#   2. Rewrote Plan column for row 2 (Threadline repo) in own words.
+The delta between brand/resume.json (what is proven) and brand/brand.yml (what the aspiration demands). Migration rule: a gap closes ONLY when evidence ships → new resume.json entry → row deleted.
+Required edits completed:
+1. Killed row 3 ("No published writing") — published writing is a voice gap, not a proof gap.
+ Brand.yml rule: proof before voice. Revisit after portfolio ships Oct 2026.
+2. Rewrote Plan column for row 2 (Threadline repo) in own words.
 
 | Gap | Evidence the target demands it | What I have | Madison build that would close it | Plan |
 |---|---|---|---|---|
