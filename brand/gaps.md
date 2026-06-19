@@ -1,40 +1,27 @@
-# gaps.md — what the credibility is meant to earn
+# gaps.md — Raksha Krishna Moorthy
+# The delta between brand/resume.json (what is proven) and brand/brand.yml (what the aspiration demands).
+# Migration rule: a gap closes ONLY when evidence ships → new resume.json entry → row deleted.
+# Required edits completed:
+#   1. Killed row 3 ("No published writing") — published writing is a voice gap, not a proof gap.
+#      Brand.yml rule: proof before voice. Revisit after portfolio ships Oct 2026.
+#   2. Rewrote Plan column for row 2 (Threadline repo) in own words.
 
-These did **not** qualify for `brand.yml` — no `resume.json` proof backs them yet.
-They are aspirations, not attributes. Per Exercise 1, every gap maps to the Madison
-build that would close it. The order matters: credibility first, influence as the
-dividend.
+| Gap | Evidence the target demands it | What I have | Madison build that would close it | Plan |
+|---|---|---|---|---|
+| **No public AI PM portfolio with case studies for Stage Zero and Threadline** | AI-native startup hiring managers review portfolio/case studies before phone screen (Product School 2024 PM Hiring Survey). TripSync has a live app (tripsynccapp.lovable.app) but no written PM case study. Stage Zero and Threadline have no public-facing product narrative at all. | TripSync live app exists. Stage Zero and Threadline exist as resume bullets only — no problem-process-outcome documentation a hiring manager can read. | Build a Madison recipe that ingests resume.json project entries and structured artifact notes (PRD, research summary, outcome metrics) and generates a PM case study draft in a consistent format: problem → user insight → decision rationale → shipped outcome → measurable result. Output published to a portfolio site. | Draft TripSync case study by Aug 2026; Stage Zero by Sep 2026; Threadline by Oct 2026. Ship portfolio site by Aug 2026. |
+| **Threadline GitHub repo is incomplete and not publicly documented** | AI PM job postings at AI-native companies (Cohere, Scale AI, Hugging Face — sampled June 2026) explicitly expect demonstrated build experience with AI/ML APIs and a GitHub or portfolio link. A repo without a README, architecture diagram, and product framing does not serve as proof. | Threadline code exists in a private/incomplete repo. The pipeline is built but not documented in a way that communicates PM-level thinking to a hiring manager. | Extend the Threadline repo with a Madison-style product brief layer: README with problem statement, architecture diagram, persona summary, and success metrics. This turns an engineering artifact into a PM proof artifact. | Document the four pipeline stages with architecture diagram first — that's what a hiring manager needs to understand what was built. Then add persona summary and sample JSON output. README last. Public by Aug 2026. |
+| **No demonstrated AI PM domain knowledge beyond Threadline** | AI-native startup PM roles expect candidates to speak to AI product concepts — evals, RAG architecture, fine-tuning tradeoffs, RLHF — not just pipeline orchestration. Threadline proves n8n + Claude API usage but not product-level AI reasoning. | Threadline demonstrates agentic workflow orchestration and LLM integration. No evidence of product-level reasoning about model selection, eval design, or AI quality tradeoffs in any resume.json entry. | Build a Madison recipe that generates a structured AI product teardown: pick one AI-native product (e.g. Perplexity, Cursor, Glean), analyze its model choices, eval strategy, and UX tradeoffs, and publish as a LinkedIn post or portfolio piece. Each teardown is a proof artifact and a Madison framework contribution. | Complete first AI product teardown by Sep 2026. Target: one per month through Dec 2026. |
 
-## Aspirational outcomes (chase credibility; these follow)
+---
 
-| Gap | Why it's a gap (no proof) | The build that closes it |
-|---|---|---|
-| **"Widely known / AI influencer"** | Reach is the `_excluded_drift` your own resume.json threw out — true today, false next week. It's an outcome, not a position. | A **content/distribution recipe** (the `content-agent` / `marketmind` family) that turns each shipped tool + paper into credibility-bearing posts. **Learn Mollick's distribution + plain-language translation — that's the verifiable skill behind the reach you want; bolt it onto proof he doesn't have.** Reach is the dividend, measured but never claimed. |
-| **Respected by company boards** | Resume shows "advisor to a few AI start-ups" + opinion essays — commentary, not board standing. | A **board-credibility tracker**: log advisory roles, talks-to-boards, AI-risk briefs actually delivered. When the log has entries, it graduates to `resume.json`, then `brand.yml`. |
-| **Standing with policy experts** | "Against Platform Deference," the encyclical piece — published opinion, not credentialed policy work. | A **policy-evidence pipeline**: cited testimony, working-group membership, a verification standard others adopt. Earn the entries, then promote. |
+## Assignment 1 Part 2 — Project Proposal (from top gap row)
 
-## Foundational credibility gaps (a credibility brand can't rest on these)
+**Project: Madison PM Portfolio Pipeline**
 
-A "tell trustworthy from fluent" brand is undermined the moment its own credentials
-are fuzzy. These are the high-severity `resume.json` issues — close them first.
+The most consequential gap between my current record and my target role as an AI PM at an AI-native startup is the absence of a public, PM-native portfolio. Three strong projects exist — TripSync, Stage Zero Health, and Threadline — but none are documented in a format that hiring managers can evaluate before a phone screen. TripSync has a live app but no written case study. Stage Zero and Threadline exist only as resume bullets.
 
-| Gap | Source | Action |
-|---|---|---|
-| PhD described three ways (CS / Math+CS / comp-systems-bio) | resume.json issue #1 | Pick one canonical line; it appears everywhere identically. |
-| MBA unverifiable from public profile | resume.json issue #2 | Attest with the diploma, or stop claiming it. |
-| Self-employment entries carry an editorial rant + overlapping dates | resume.json issue #3 | Clean to verifiable roles + dates; the Massachusetts complaint never appears in a brand artifact. |
+This project builds a Madison recipe that closes that gap as a framework contribution, not just a personal task. The recipe ingests `resume.json` project entries alongside structured artifact notes — PRDs, research summaries, usability findings, outcome metrics — and generates PM case study drafts in a consistent structure: problem definition, user insight source, decision rationale, shipped outcome, and measurable result. Output is published to a portfolio site generated from `brand/` files.
 
-## Proof gaps (make the strong signals provable)
+The build is reusable. Any PM student in the cohort faces the same gap — a Madison recipe that converts structured project data into case study drafts is a tool others can run on their own `brand/` folder. Success is defined as: three case studies published publicly by October 2026, one hiring manager inbound attributable to a direct portfolio link, and a recipe committed to the Madison repo that another student can run.
 
-| Gap | Why it's a gap | The build that closes it |
-|---|---|---|
-| **Tool adoption is unevidenced** | "Builds adopted open-source tools" is the lead brand attribute — but adoption isn't captured. Jobsekr's numbers already conflict (resume #7). In the LLM era a tool out-signals a paper *only if it's shown to be used*; an unused tool is as cheap a signal as an un-cited paper. | An **adoption tracker**: per tool, capture deployments, active users, repo stars/forks, real installs. Land verified numbers in `resume.json`. This is what turns "I built it" into the costly, hard-to-fake signal academics now respond to. |
-| **Reproducibility isn't yet the default** | The strongest attribute is "the paper you can run and re-parameterize," but only Tangram clearly fits. The rest are tools OR papers, not both. | Make the **paper-plus-runnable-artifact** the standard output: every claim ships with a live, parameter-adjustable explorer (notebook / D3 / dashboard). Tangram is the template — replicate it, don't leave it the exception. |
-
-## The discipline
-
-Nothing here is false — it's just **unearned**. The move is not to write it into the
-brand and hope; it's to build the thing that generates the proof, let the proof land
-in `resume.json`, and only then promote it to `brand.yml`. That is the whole point of
-a credibility play: you don't claim the standing, you ship until the record claims it
-for you.
+*(Word count: 196)*
