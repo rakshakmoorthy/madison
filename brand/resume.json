@@ -113,7 +113,7 @@
       "name": "Threadline — Adaptive Fashion Market Intelligence Pipeline",
       "tools": ["Python", "Claude API", "n8n", "JavaScript", "GitHub Pages", "Figma", "Git"],
       "start": "May 2026",
-      "end": null,
+      "end": "present",
       "status": "ongoing",
       "bullets": [
         "Building an adaptive fashion market intelligence pipeline that analyzes behavioral signals from product reviews, return data, and community forums to identify underserved consumer segments — specifically post-mastectomy survivors and elderly women with limited hand mobility.",
