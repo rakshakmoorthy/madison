@@ -102,9 +102,10 @@ media:
       win_condition: "At least one recruiter inbound per month from target
         AI-native companies (e.g. Cohere, Scale AI, Weights & Biases, Hugging Face);
         500+ relevant connections in AI PM space by Dec 2026."
-      cited_reason: "LinkedIn 2024 Global Talent Trends: 87% of tech recruiters
-        use LinkedIn as primary sourcing channel. AI-native startup job postings
-        consistently list LinkedIn as application and sourcing channel."
+      cited_reason: "LinkedIn is the dominant sourcing channel for tech PM roles —
+        AI-native startup job postings (Cohere, Scale AI, Hugging Face, sampled
+        June 2026) list LinkedIn as the primary application channel and recruiters
+        actively source candidates there."
 
     - medium: "GitHub (github.com/rakshakmoorthy)"
       job: "Proof — AI PM candidates are increasingly expected to show technical
@@ -112,7 +113,7 @@ media:
         hands-on AI build capability beyond what a resume bullet can convey."
       win_condition: "Threadline repo publicly documented with README, architecture
         diagram, and product framing by Aug 2026 — pending; at least 2 repos
-        with clear PM-plus-build narrative visible to a hiring manager."
+        with clear PM-plus-build narrative visible to a hiring manager — pending."
       cited_reason: "AI PM job postings at AI-native companies (Cohere, Scale AI,
         Hugging Face — sampled June 2026) explicitly list 'demonstrated experience
         building with AI/ML APIs' and expect a GitHub or portfolio link."
