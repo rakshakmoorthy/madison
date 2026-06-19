@@ -1,123 +1,231 @@
 {
-  "_artifact": "resume",
-  "_assignment": "INFO 7375 Exercise 1 — brand/ personal layer",
-  "_sources": {
-    "cv": "pasted CV / résumé (Nik Bear Brown)",
-    "li": "pasted LinkedIn profile export"
+  "_meta": {
+    "attested": true,
+    "attested_date": "2026-06-19",
+    "attested_errors_caught": "1. Threadline description was wrong — corrected from 'Clinical AI Persona Pipeline' to accurate adaptive fashion market intelligence pipeline description. 2. Programming languages were miscategorized inside ai_technical — moved to a separate 'languages' skill category. 3. Threadline start date was wrong — corrected to May 2026, project is ongoing.",
+    "source": "Extracted from Main_Resume_fina_copy.pdf and resume_PM_G.pdf"
   },
-  "_label_key": {
-    "[agree]": "same in CV and LinkedIn",
-    "[cv-only]": "single source: CV",
-    "[li-only]": "single source: LinkedIn",
-    "[CONFLICT]": "sources disagree — human must resolve",
-    "[Unverifiable]": "needs a document (diploma, etc.) to attest",
-    "[drift]": "point-in-time metric, excluded from the durable record"
-  },
-  "_human_gate": [
-    "identity.canonical_email",
-    "education[].status_when_CONFLICT_or_Unverifiable",
-    "issues[].resolution"
-  ],
 
-  "identity": {
-    "name": "Nik Bear Brown",
-    "name_variants_seen": ["Nik Bear Brown", "N. B. Brown", "Brown, N. B.", "Brown, N.", "Nik Bear (Nerd, Poet, Lyricist, Doodler, PhD, MBA) Brown"],
-    "pronouns": "They/Them  [li-only]",
-    "headline": "Associate Teaching Professor, AI & Machine Learning — Northeastern University",
-    "location": "Boston, Massachusetts, United States  [agree]",
-    "canonical_email": null,
-    "emails_seen": ["ni.brown@neu.edu  [li-only, featured post]", "bear@bearbrown.co  [session]"],
-    "links": {
-      "linkedin": "linkedin.com/in/nikbearbrown",
-      "github": "github.com/nikbearbrown",
-      "website": "nikbearbrown.com",
-      "substack": "https://www.skepticism.ai/"
-    }
+  "personal": {
+    "name": "Raksha Krishna Moorthy",
+    "location": "Boston, MA, USA",
+    "phone": "+1 (978) 201-7106",
+    "email": "rakshakrishnamoorthy@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/rakshakmoorthy22/",
+    "github": "https://github.com/rakshakmoorthy"
   },
 
   "education": [
-    { "degree": "PhD, Computer Science", "school": "UCLA", "years": "2003–2013",
-      "field_note": "CV: 'Computer Science'. LinkedIn degree label: 'Mathematics and Computer Science'. LinkedIn text: major field 'computational and systems biology', minors AI + statistics.",
-      "status": "[CONFLICT] — pick one canonical description" },
-    { "degree": "MS, Computer Science", "school": "UCLA",
-      "status": "[cv-only] — not in LinkedIn's 3 listed educations" },
-    { "degree": "MS, Information Design and Data Visualization", "school": "Northeastern University", "years": "2019–2021", "gpa": "3.7",
-      "status": "[agree]" },
-    { "degree": "MBA", "school": "Northeastern University, Boston",
-      "status": "[cv-only][Unverifiable] — claimed in CV and in LinkedIn name tag, but not in LinkedIn's education section" },
-    { "degree": "BA, Biochemistry and Molecular Biology", "school": "UC Santa Cruz",
-      "field_note": "CV: 'Biochemistry and Molecular Biology — UC Santa Cruz'. LinkedIn text: 'BA in Molecular Biology and Biochemistry' (no school given).",
-      "status": "[CONFLICT] — school single-sourced (UCSC, CV only); word order differs" }
+    {
+      "id": "edu_neu",
+      "institution": "Northeastern University",
+      "location": "Boston, MA",
+      "degree": "Master of Science in Information Systems",
+      "start": "Sep 2024",
+      "end_expected": "Dec 2026",
+      "coursework": [
+        "Application Engineering Design",
+        "Database Management",
+        "Data Science",
+        "Program Structure and Algorithm",
+        "Organizational Change & IT",
+        "User Experience in the Era of AI",
+        "Branding and AI"
+      ]
+    },
+    {
+      "id": "edu_bms",
+      "institution": "BMS College of Engineering",
+      "location": "Bengaluru, India",
+      "degree": "Bachelor of Engineering in Electronics & Communication",
+      "start": "Aug 2019",
+      "end": "Jul 2023",
+      "coursework": [
+        "Computer Networks",
+        "Operating Systems",
+        "Project Management",
+        "Image Processing",
+        "Machine Learning"
+      ]
+    }
   ],
 
   "experience": [
-    { "title": "Associate Teaching Professor", "org": "Northeastern University, College of Engineering", "start": "2022-05", "end": "present", "status": "[agree]" },
-    { "title": "Affiliated / Affiliate Faculty", "org": "Institute for Experiential AI, Northeastern", "start": "2022-12", "end": "present", "status": "[agree]" },
-    { "title": "Founder & Executive Director", "org": "Humanitarians AI Inc. (501(c)(3))", "start": "2019", "end": "present", "status": "[agree]" },
-    { "title": "Assistant Teaching Professor", "org": "Northeastern University, College of Engineering", "start": "2017", "end": "2022", "status": "[cv-only]" },
-    { "title": "Lecturer", "org": "Northeastern University, College of Computer Science", "start": "2013", "end": "2017", "status": "[agree]" },
-    { "title": "Founding Partner & Faculty Mentor", "org": "Northeastern AI Skunkworks", "start": "2019", "end": "present", "status": "[agree]" },
-    { "title": "various founder/CEO/CTO roles", "org": "Bear Brown and Company; Abecedarian; NikBearBrown.com; Musinique LLC", "start": "2021", "end": "present",
-      "status": "[CONFLICT] — overlapping self-employed timelines + two CV entries contain an editorial complaint about Massachusetts that must NOT enter a brand artifact" }
-  ],
-
-  "selected_publications": [
-    { "cite": "Avasthi, R., Lu, Z., Brown, N. B. 'Deep learning and alignment of spatially resolved single-cell transcriptomes with Tangram.' Nature Methods 18, 1352–1362 (2021).", "status": "[cv-only]" },
-    { "cite": "Gultepe, E., Valluru, R., Brown, N. B., Sridhar, S. 'The Landscape of Nanomedical Clinical Trials.' Nano Today 66, 102898 (Feb 2026).", "status": "[cv-only]" },
-    { "cite": "Issak, A. A., et al. 'Mapping the Typographic Latent Space of Digits.' ICLR 2023.", "status": "[cv-only]" },
-    { "_note": "author name appears as both 'Brown, N. B.' and 'Brown, N.' — normalize before publishing" }
-  ],
-
-  "projects": {
-    "_status": "SAMPLE — 3 of 100s built; full catalog imported later (live demo).",
-    "_why_it_matters": "This is the proof engine for the two PRIMARY brand.yml attributes (builds adopted tools / reproducible interactive research). A tool counts as a COSTLY signal only when adoption + reproducibility are evidenced — so every entry carries those fields, null until captured. Don't paste 100 names; import 100 with their proof.",
-    "_import_template": {
-      "name": "", "what": "", "repo": "", "live_url": "",
-      "adoption": { "users": null, "deployments": null, "stars": null, "status": "[Unverifiable — capture]" },
-      "reproducible": { "runnable_artifact": false, "paper": null },
-      "status": ""
+    {
+      "id": "exp_stagezero",
+      "company": "Stage Zero Health",
+      "company_note": "MIT-affiliated",
+      "location": "Cambridge, MA",
+      "title": "Technical Product Manager Intern",
+      "start": "Sep 2025",
+      "end": "Dec 2025",
+      "bullets": [
+        "Owned 0-to-1 product discovery for a cervical cancer early-detection platform; defined product strategy and end-to-end roadmap, built user personas, synthesized competitive landscape (Function Health, Color Health), and translated clinical requirements into ML model specs for cancer risk stratification.",
+        "Spearheaded growth product management initiatives by establishing SEO infrastructure from zero; configured GA4, GSC, and SEMrush for the first time, implemented on-page optimization and keyword strategy, and executed full website migration from WordPress to Framer via Git/SSH.",
+        "Drove moderated UX research and usability sessions; translated findings into a full rebuild of the company's landing website on Framer, redesigning onboarding flows and reducing friction; managed product backlog and led Agile sprints to deliver milestones on time.",
+        "Developed brand messaging, homepage and employer-facing B2B copy, and content calendar; created and launched company's Instagram and Facebook accounts from scratch to establish digital presence ahead of product launch."
+      ]
     },
-    "items": [
-      { "name": "Tangram", "what": "Open-source single-cell spatial mapping tool — the paper-plus-runnable EXEMPLAR.",
-        "repo": "open-source (squidpy / Tangram)",
-        "adoption": { "users": "widely used in spatial transcriptomics", "stars": null, "status": "[cv-only] — capture real install/citation counts" },
-        "reproducible": { "runnable_artifact": true, "paper": "Nature Methods 18, 1352–1362 (2021)" },
-        "status": "EXEMPLAR — the template every project should aim at: a paper you can run" },
-      { "name": "Madison Framework", "what": "Open-source agent-based marketing intelligence framework; core infra for INFO 7375.",
-        "repo": "github.com/nikbearbrown/INFO-7375-Branding-and-AI",
-        "adoption": { "users": null, "deployments": null, "stars": null, "status": "[Unverifiable — capture]" },
-        "reproducible": { "runnable_artifact": true, "paper": null },
-        "status": "[cv-only]" },
-      { "name": "Jobsekr (jobsekr.app)", "what": "Job aggregation platform for OPT/H-1B students.", "live_url": "jobsekr.app",
-        "adoption": { "listings": "65,000+ [CONFLICT]", "companies": "1,600+ vs '30K+ mapped' [CONFLICT]", "status": "[CONFLICT] — reconcile / label as different measures" },
-        "reproducible": { "runnable_artifact": true, "paper": null },
-        "status": "[CONFLICT]" },
-      { "name": "Course bots (Ada, Newton, Grace…)", "what": "25+ AI course assistants deployed across NEU courses.",
-        "adoption": { "deployments": "25+ [cv-only]", "users": null, "status": "[Unverifiable — capture]" },
-        "reproducible": { "runnable_artifact": true, "paper": null },
-        "status": "[cv-only]" }
-    ]
-  },
-
-  "awards": [
-    { "name": "Dean's Award, College of Engineering, Northeastern", "year": "2024–25", "status": "[cv-only]" },
-    { "name": "RISE Award, Computer and Information Sciences", "year": "2022", "status": "[cv-only]" }
+    {
+      "id": "exp_sc",
+      "company": "Standard Chartered Global Business Services",
+      "location": "Bengaluru, India",
+      "title": "Development Engineer",
+      "start": "Jul 2023",
+      "end": "May 2024",
+      "bullets": [
+        "Reduced UI drop-off rates by 25% and increased session duration by 2+ minutes on the Straight2Bank B2B trade finance platform by analyzing user interaction patterns and applying voice of customer insights to prioritize feature improvements across 3+ global regions with localized compliance requirements.",
+        "Defined user stories, acceptance criteria, and feature specifications for merchant-facing payment workflows; built and maintained SQL dashboards and data pipelines enabling data-driven release planning for payment and cash management features.",
+        "Directed Sprint Planning and Agile ceremonies across cross-functional teams using Jira; increased release velocity by 30% over two quarters."
+      ]
+    },
+    {
+      "id": "exp_neugen",
+      "company": "Neugen Embedded Solutions Pvt Ltd",
+      "location": "Bengaluru, India",
+      "title": "Data Engineer Intern",
+      "start": "Dec 2022",
+      "end": "Jun 2023",
+      "bullets": [
+        "Mapped and documented end-to-end hardware Product Lifecycle Management for a facial recognition integration system deployed across Indian banking infrastructure; tracked iteration cycles, component changes, and integration testing across embedded sensor systems.",
+        "Streamlined product analytics workflows across 3 product iterations; reduced time-to-insight for product leads by consolidating cross-team documentation and change logs.",
+        "Built internal flowcharts and schema documentation for real-time IoT telemetry and data ingestion pipelines supporting edge analytics on embedded sensor hardware."
+      ]
+    }
   ],
 
-  "skills_top": ["Python", "Deep Learning", "Machine Learning", "Data Visualization", "Prompt Engineering"],
+  "projects": [
+    {
+      "id": "proj_tripsync",
+      "name": "TripSync",
+      "tools": ["UX Research", "PRD", "Figma", "Lovable.dev", "Looppanel", "Miro"],
+      "start": "Jan 2026",
+      "end": "Apr 2026",
+      "bullets": [
+        "Conducted 3-phase UX research study with 10 user interviews per phase; built 11-category, 69-code qualitative framework synthesizing 220 user needs into a 327-row prioritized product backlog with user stories and acceptance criteria.",
+        "Designed low-fidelity and high-fidelity Figma prototypes and built working product on Lovable.dev; ran 5 moderated usability sessions achieving 100% task success rate and avg score of 9.62 out of 10 (above 8.5 SUS threshold).",
+        "Identified top friction points including AI itinerary post-generation transition and duplicate activity indicator confusion; translated findings into actionable UX requirements and PRD v1.0 for a collaborative group trip planning app.",
+        "Conducted comparative evaluation of low-fidelity prototype feedback across 10 real user interviews vs AI-generated analysis; found AI identified more feature gaps while real users surfaced interaction complexity; synthesized findings into a change log to inform high-fidelity iteration."
+      ]
+    },
+    {
+      "id": "proj_threadline",
+      "name": "Threadline — Adaptive Fashion Market Intelligence Pipeline",
+      "tools": ["Python", "Claude API", "n8n", "JavaScript", "GitHub Pages", "Figma", "Git"],
+      "start": "May 2026",
+      "end": null,
+      "status": "ongoing",
+      "bullets": [
+        "Building an adaptive fashion market intelligence pipeline that analyzes behavioral signals from product reviews, return data, and community forums to identify underserved consumer segments — specifically post-mastectomy survivors and elderly women with limited hand mobility.",
+        "Surfaces viable product opportunities in the adaptive garment market by clustering real purchase and sentiment data into actionable insights for product teams; implemented via n8n workflow orchestration, Claude API, and state-based routing logic.",
+        "Managing full product lifecycle from requirements definition through GitHub Pages deployment using Python, JavaScript, Figma, and Git."
+      ]
+    },
+    {
+      "id": "proj_quality_first",
+      "name": "Quality First Initiative",
+      "context": "Org Change & IT, Northeastern University",
+      "tools": ["ADKAR", "McKinsey 7S", "Primary Research"],
+      "start": "Jan 2026",
+      "end": "Apr 2026",
+      "bullets": [
+        "Served as Project Lead and Primary Research Analyst; conducted primary interview with VP of Product Delivery to ground a change management plan for a healthcare fintech startup scaling from 20 to 70 employees.",
+        "Applied ADKAR and McKinsey 7S frameworks across 8 stakeholder groups; identified 3 critical process gaps — undefined non-functional testing standards, misaligned sprint requirements, and absent working agreements.",
+        "Delivered 4-part recommendation with requirement templates, QA checklists, formalized working agreements, and a centralized process repository; supported by a 9-KPI success metrics framework tracking rework rate, defect detection timing, and sprint predictability."
+      ]
+    },
+    {
+      "id": "proj_tesla_bot",
+      "name": "TESLA Algorithmic Trading Bot",
+      "tools": ["Python", "XGBoost", "Scikit-learn", "yFinance"],
+      "start": "Jan 2025",
+      "end": "Apr 2025",
+      "bullets": [
+        "Built an ensemble ML trading system (LASSO + XGBoost + HAC-OLS) on 99 engineered features from TESLA OHLCV data, 22 competitor equities, Fama-French 5-factor model, RSI, Bollinger Bands, MACD, and VIX sentiment; achieved 91% prediction accuracy and 0.996 prediction-actual correlation.",
+        "Implemented walk-forward validation (252-day rolling window), RobustScaler preprocessing, and systematic lag transformations to prevent data leakage; reduced 99 features to 28 significant predictors (p≤0.05).",
+        "Outperformed Berkshire Hathaway (BRK-B) by 15% over 1,187 trading days (37.41% vs 22.41% total return); achieved Sharpe ratio of 2.17 vs benchmark 1.52 and 62% drawdown reduction via adaptive position sizing and dynamic stop-loss."
+      ]
+    },
+    {
+      "id": "proj_event_mgmt",
+      "name": "University Event Management System",
+      "tools": ["Agile", "SQL", "Spring Boot"],
+      "start": "Oct 2024",
+      "end": "Dec 2024",
+      "bullets": [
+        "Managed end-to-end development of a university event platform coordinating a 5-member Agile team; delivered a scalable system serving the entire university student body across multiple events per semester, supporting participant tracking, venue booking, ticketing, and sponsorship management.",
+        "Led project planning, timeline definition, and task assignments using Agile practices; ensured on-time delivery of all key modules aligned with stakeholder needs.",
+        "Designed and implemented database schema supporting multi-event tracking, role-based access, and real-time participant updates across concurrent events."
+      ]
+    }
+  ],
 
-  "_excluded_drift": {
-    "note": "Point-in-time vanity metrics — true on the day, false next week. Never in the durable record.",
-    "values": ["16,385 followers", "1,324 profile views (past 90d)", "2,836 post impressions (7d)", "endorsement counts"]
+  "skills": {
+    "product_management": [
+      "Product Discovery", "Product Strategy", "Roadmap Planning", "Feature Specifications",
+      "Backlog Management", "User Stories", "Acceptance Criteria", "Product Lifecycle Management",
+      "Feature Prioritization", "Competitive Analysis", "A/B Testing", "Prototype Testing",
+      "Wireframing", "Market Research", "Go-to-Market", "Voice of Customer",
+      "Cross-functional Leadership"
+    ],
+    "research_analytics": [
+      "User Research", "Usability Testing", "User Acceptance Testing", "Customer Journey Design",
+      "Product Analytics", "Data Analytics", "KPI Tracking", "Data-Driven Decision Making",
+      "GA4", "GSC", "SEMrush", "Tableau", "Power BI"
+    ],
+    "ai_technical": [
+      "LLM Integration (Claude API)", "Agentic Workflows", "API Product Management",
+      "REST APIs", "n8n Workflow Orchestration"
+    ],
+    "languages": [
+      "Python", "SQL", "Java", "C", "C++", "JavaScript", "HTML/CSS"
+    ],
+    "methodologies_tools": [
+      "Agile", "Scrum", "Sprint Planning", "Stakeholder Alignment",
+      "Jira", "Confluence", "Notion", "Figma", "Framer", "WordPress", "Spring Boot"
+    ],
+    "devops": ["Git", "GitHub", "Docker", "CI/CD Pipelines", "SDLC"],
+    "databases": ["MySQL", "PostgreSQL", "SQL Server"]
   },
 
-  "issues": [
-    { "id": 1, "severity": "high", "field": "education[PhD]", "problem": "PhD described 3 ways across sources (CS / Math+CS / computational-systems-biology major).", "resolution": null },
-    { "id": 2, "severity": "high", "field": "education[MBA]", "problem": "MBA in CV + name tag but absent from LinkedIn education; unverifiable from the two sources.", "resolution": null },
-    { "id": 3, "severity": "high", "field": "experience[self-employed]", "problem": "Overlapping company dates AND editorial rant ('The State Of Massachusetts drove this business out of business') embedded in two entries.", "resolution": null },
-    { "id": 4, "severity": "med", "field": "education[BA]", "problem": "BA school (UC Santa Cruz) is single-sourced (CV); field word-order differs between sources.", "resolution": null },
-    { "id": 5, "severity": "med", "field": "identity.canonical_email", "problem": "Two emails in play (ni.brown@neu.edu vs bear@bearbrown.co) — which is the brand contact?", "resolution": null },
-    { "id": 6, "severity": "low", "field": "identity.name", "problem": "5 name variants incl. publication forms; pick one display name + one citation form.", "resolution": null },
-    { "id": 7, "severity": "low", "field": "projects[Jobsekr]", "problem": "Company-count metrics differ between CV and a LinkedIn post.", "resolution": null }
+  "leadership": [
+    {
+      "id": "lead_utsav",
+      "role": "Student Head, UTSAV'23",
+      "org": "BMS College of Engineering",
+      "year": "2023",
+      "note": "Managed 400-member organizing team; coordinated 2,000+ participants and secured $40,000 in sponsorships for the university's largest cultural event."
+    },
+    {
+      "id": "lead_phaseshift",
+      "role": "Senior Coordinator, Phase Shift'22 & Utsav-Envisage'22",
+      "org": "BMS College of Engineering",
+      "year": "2022",
+      "note": "Managed technical and cultural events overseeing logistics and participant engagement across 8,000+ participants."
+    },
+    {
+      "id": "lead_mit_summit",
+      "role": "Volunteer, AI-Powered Women Summit",
+      "org": "MIT",
+      "year": "2025",
+      "note": "Supported speaker coordination and event logistics for 400+ attendee summit focused on women in AI."
+    }
+  ],
+
+  "publications": [
+    {
+      "id": "pub_headgear",
+      "title": "Smart Headgear for Rider Protection from Intoxication and Emergency System",
+      "journal": "IJIRT",
+      "date": "Jun 2023",
+      "url": "https://ijirt.org/article?manuscript=161087"
+    },
+    {
+      "id": "pub_plant",
+      "title": "Plant Disease Detection using Deep Learning Concepts",
+      "journal": "IJERCSE",
+      "volume": "Vol. 10, Issue 11",
+      "url": "https://ijercse.com/viewabstract.php?id=16604&volume=Volume10&issue=Issue11"
+    }
   ]
 }
